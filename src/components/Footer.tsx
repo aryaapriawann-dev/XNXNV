@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Globe, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,13 +9,6 @@ export default function Footer() {
     { name: "Tentang", href: "/about" },
     { name: "Layanan", href: "/services" },
     { name: "Kontak", href: "/contact" },
-  ];
-
-  const socialLinks = [
-    { name: "GitHub", href: "https://github.com", icon: Github },
-    { name: "Twitter", href: "https://twitter.com", icon: Twitter },
-    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-    { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
   ];
 
   return (
@@ -56,10 +49,19 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 uppercase tracking-wider">
               Kontak
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-              <li>info@xvnpnx.id</li>
-              <li>+62 812-3456-7890</li>
-              <li>Jakarta, Indonesia</li>
+            <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4" />
+                <span>info@xvnpnx.id</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4" />
+                <span>+62 812-3456-7890</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Jakarta, Indonesia</span>
+              </li>
             </ul>
           </div>
 
@@ -69,16 +71,13 @@ export default function Footer() {
               Ikuti Kami
             </h3>
             <div className="mt-4 flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors"
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-6 w-6" />
-                </a>
-              ))}
+              <a
+                href="https://github.com/aryaapriawann-dev"
+                className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors"
+                aria-label="GitHub"
+              >
+                <Globe className="h-6 w-6" />
+              </a>
             </div>
           </div>
         </div>
