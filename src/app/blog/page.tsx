@@ -73,9 +73,9 @@ export default function BlogPage() {
       <section className="py-8 border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-3">
-            {["Semua", "Development", "Frontend", "Backend", "DevOps", "AI/ML", "Engineering"].map((cat, idx) => (
+            {["Semua", "Development", "Frontend", "Backend", "DevOps", "AI/ML", "Engineering"].map((cat) => (
               <button
-                key={idx}
+                key={cat}
                 className="px-6 py-2 rounded-lg font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
               >
                 {cat}
@@ -89,9 +89,9 @@ export default function BlogPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, idx) => (
+            {blogPosts.map((post) => (
               <article
-                key={idx}
+                key={post.title}
                 className="group rounded-2xl overflow-hidden bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:shadow-2xl hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-300"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
