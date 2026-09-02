@@ -75,6 +75,8 @@ export default function Footer() {
                 href="https://github.com/aryaapriawann-dev"
                 className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors"
                 aria-label="GitHub"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <Globe className="h-6 w-6" />
               </a>
