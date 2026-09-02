@@ -51,7 +51,7 @@ export default function Hero() {
             { label: "Tahun Pengalaman", value: "5+" },
             { label: "Team Ahli", value: "10+" },
           ].map((stat, idx) => (
-            <div key={idx}>
+            <div key={stat.label}>
               <div className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
                 {stat.value}
               </div>
@@ -66,7 +66,7 @@ export default function Hero() {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {features.map((feature, idx) => (
             <div
-              key={idx}
+              key={feature.title}
               className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow"
             >
               <feature.icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400 mb-4" />
