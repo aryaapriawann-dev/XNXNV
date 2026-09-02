@@ -1,10 +1,10 @@
-import { ArrowRight, Code, Design, Zap } from "lucide-react";
+import { ArrowRight, Code, Layout, Zap } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
   const features = [
     { icon: Code, title: "Developer", desc: "Clean, scalable code" },
-    { icon: Design, title: "Designer", desc: "Modern, intuitive UI" },
+    { icon: Layout, title: "Designer", desc: "Modern, intuitive UI" },
     { icon: Zap, title: "Fast", desc: "Optimized performance" },
   ];
 
