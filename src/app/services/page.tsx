@@ -11,6 +11,13 @@ export default function Services() {
     { icon: Zap, title: "Cloud Solutions", desc: "Infrastructure cloud, DevOps, dan scaling solutions", color: "bg-yellow-500" },
   ];
 
+  const processSteps = [
+    { step: "01", title: "Konsultasi", desc: "Diskusi kebutuhan dan goals bisnis Anda" },
+    { step: "02", title: "Perencanaan", desc: "Buat strategi dan roadmap solusi" },
+    { step: "03", title: "Eksekusi", desc: "Development dan design sesuai spesifikasi" },
+    { step: "04", title: "Deploy", desc: "Lauch dan monitoring hasil akhir" },
+  ];
+
   return (
     <div className="flex flex-col min-h-full">
       {/* Hero */}
@@ -31,9 +38,9 @@ export default function Services() {
       <section className="py-20 bg-zinc-50 dark:bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, idx) => (
+            {services.map((service) => (
               <div
-                key={idx}
+                key={service.title}
                 className="group p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 dark:hover:border-indigo-500 transition-all duration-300 hover:shadow-xl"
               >
                 <div className={`${service.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -72,13 +79,8 @@ export default function Services() {
             {/* Connecting line (desktop) */}
             <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-zinc-200 dark:bg-zinc-800 -z-10" />
             
-            {[
-              { step: "01", title: "Konsultasi", desc: "Diskusi kebutuhan dan goals bisnis Anda" },
-              { step: "02", title: "Perencanaan", desc: "Buat strategi dan roadmap solusi" },
-              { step: "03", title: "Eksekusi", desc: "Development dan design sesuai spesifikasi" },
-              { step: "04", title: "Deploy", desc: "Lauch dan monitoring hasil akhir" },
-            ].map((step, idx) => (
-              <div key={idx} className="relative">
+            {processSteps.map((step) => (
+              <div key={step.step} className="relative">
                 <div className="w-16 h-16 mx-auto rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold mb-4 shadow-lg">
                   {step.step}
                 </div>
