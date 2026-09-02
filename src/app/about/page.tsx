@@ -36,8 +36,8 @@ export default function About() {
       <section className="py-16 bg-white dark:bg-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-center">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
                 <stat.icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400 mx-auto mb-4" />
                 <div className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
                   {stat.value}
@@ -110,9 +110,9 @@ export default function About() {
               { title: "Kualitas", desc: "Kami menjamin kualitas tinggi dalam setiap deliverable" },
               { title: "Inovasi", desc: "Selalu menggunakan teknologi terkini dan pendekatan modern" },
               { title: "Kolaborasi", desc: "Bekerja sama erat dengan klien untuk hasil terbaik" },
-            ].map((val, idx) => (
+            ].map((val) => (
               <div
-                key={idx}
+                key={val.title}
                 className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
               >
                 <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-3">
@@ -137,9 +137,9 @@ export default function About() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {team.map((member, idx) => (
+            {team.map((member) => (
               <div
-                key={idx}
+                key={member.name}
                 className="text-center group cursor-pointer"
               >
                 <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
