@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { X, CheckCircle2, AlertCircle, Info, Toast } from "lucide-react";
+import { X, CheckCircle2, AlertCircle, Info, Bell } from "lucide-react";
 
 type ToastType = "success" | "error" | "info" | "default";
 
@@ -24,7 +24,7 @@ const ToastContainer = ({
       case "success": return <CheckCircle2 className="h-6 w-6 text-green-600 dark:text-green-400" />;
       case "error": return <AlertCircle className="h-6 w-6 text-red-600 dark:text-red-400" />;
       case "info": return <Info className="h-6 w-6 text-blue-600 dark:text-blue-400" />;
-      default: return <Toast className="h-6 w-6 text-zinc-600 dark:text-zinc-400" />;
+      default: return <Bell className="h-6 w-6 text-zinc-600 dark:text-zinc-400" />;
     }
   };
 
