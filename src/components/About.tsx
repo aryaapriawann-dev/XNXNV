@@ -34,8 +34,8 @@ export default function About() {
             </p>
 
             <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="flex items-start gap-3">
+              {stats.map((stat) => (
+                <div key={stat.label} className="flex items-start gap-3">
                   <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                     <stat.icon className="h-5 w-5 text-zinc-900 dark:text-zinc-50" />
                   </div>

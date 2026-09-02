@@ -78,8 +78,8 @@ const Counter = () => {
     <section className="py-16 lg:py-24 bg-zinc-900 dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="text-center group">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center group">
               <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="h-8 w-8 text-white" />
               </div>
