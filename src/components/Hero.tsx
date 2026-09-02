@@ -1,106 +1,81 @@
+import { ArrowRight, Code, Design, Zap } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
 
 export default function Hero() {
+  const features = [
+    { icon: Code, title: "Developer", desc: "Clean, scalable code" },
+    { icon: Design, title: "Designer", desc: "Modern, intuitive UI" },
+    { icon: Zap, title: "Fast", desc: "Optimized performance" },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-white dark:bg-zinc-900 py-20 lg:py-32">
-      {/* Decorative background elements */}
+    <section className="relative overflow-hidden bg-white dark:bg-zinc-900 py-24 sm:py-32">
+      {/* Background Decor */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-zinc-100 dark:bg-zinc-800 blur-3xl opacity-50" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-zinc-50 dark:bg-zinc-950 blur-3xl opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-900 dark:to-zinc-950" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-              <Zap className="h-4 w-4" />
-              <span>Solusi Digital Terpercaya</span>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">
+          Solusi Digital <br className="hidden sm:block" />
+          <span className="text-indigo-600 dark:text-indigo-400">
+            Berkualitas untuk Bisnis Anda
+          </span>
+        </h1>
+        <p className="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-10">
+          Kami membantu bisnis tumbuh dengan website modern, aplikasi digital,
+          dan solusi teknologi yang terintegrasi.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+          >
+            Hubungi Kami
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-50 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+          >
+            Lihat Portfolio
+          </Link>
+        </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Membangun masa depan digital <br />
-              <span className="text-zinc-900 dark:text-zinc-50">
-                yang lebih baik bersama XNXNV
-              </span>
-            </h1>
-
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-xl">
-              Kami menyediakan layanan digital lengkap mulai dari pengembangan web,
-              aplikasi mobile, hingga solusi teknologi yang inovatif untuk bisnis Anda.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-              >
-                Mulai Sekarang
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-950 transition-colors"
-              >
-                Pelajari Lebih Lanjut
-              </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-              <div>
-                <div className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">50+</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">Proyek Selesai</div>
+        {/* Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-zinc-200 dark:border-zinc-800 pt-12">
+          {[
+            { label: "Project Selesai", value: "100+" },
+            { label: "Klien Puas", value: "80+" },
+            { label: "Tahun Pengalaman", value: "5+" },
+            { label: "Team Ahli", value: "10+" },
+          ].map((stat, idx) => (
+            <div key={idx}>
+              <div className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
+                {stat.value}
               </div>
-              <div>
-                <div className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">25+</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">Klien Puas</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">5+</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">Tahun Pengalaman</div>
+              <div className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+                {stat.label}
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Image/Visual */}
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden shadow-2xl">
-              <div className="p-8 space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-zinc-900 dark:bg-zinc-50 flex items-center justify-center">
-                    <CheckCircle2 className="h-6 w-6 text-white dark:text-zinc-900" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="h-3 w-32 bg-zinc-300 dark:bg-zinc-700 rounded" />
-                    <div className="h-2 w-24 bg-zinc-200 dark:bg-zinc-800 rounded" />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="h-3 w-full bg-zinc-300 dark:bg-zinc-700 rounded" />
-                  <div className="h-3 w-5/6 bg-zinc-300 dark:bg-zinc-700 rounded" />
-                  <div className="h-3 w-4/6 bg-zinc-300 dark:bg-zinc-700 rounded" />
-                </div>
-              </div>
+        {/* Feature Cards */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <feature.icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400 mb-4" />
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-400">{feature.desc}</p>
             </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-zinc-800 p-4 rounded-xl shadow-xl border border-zinc-200 dark:border-zinc-700">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-                    Kepuasan 100%
-                  </div>
-                  <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                    Klien puas dengan hasil kerja
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
