@@ -103,9 +103,13 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-        isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-      }`}>
+      <div 
+        role="navigation"
+        aria-label="Mobile navigation menu"
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className="px-4 py-4 space-y-1 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
           {navLinks.map((link) => (
             <a
