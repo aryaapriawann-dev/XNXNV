@@ -161,9 +161,9 @@ export default function PortfolioDetailPage({ params }: { params: { slug: string
               </div>
               
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, i) => (
+                {project.tags.map((tag) => (
                   <span 
-                    key={i} 
+                    key={tag} 
                     className="px-3 py-1 text-xs rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
                   >
                     {tag}
@@ -191,8 +191,8 @@ export default function PortfolioDetailPage({ params }: { params: { slug: string
               Layanan yang Diberikan
             </h3>
             <ul className="space-y-3">
-              {project.services.map((service, i) => (
-                <li key={i} className="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+              {project.services.map((service) => (
+                <li key={service} className="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
                   <div className="mt-1 flex-shrink-0 text-indigo-600 dark:text-indigo-400">
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
