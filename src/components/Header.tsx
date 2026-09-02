@@ -9,22 +9,29 @@ export default function Header() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check system preference on mount
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDark(prefersDark);
+    // Load saved theme preference from localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || (savedTheme === null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
   const toggleTheme = () => {
-    setIsDark((prev) => !prev);
+    setIsDark((prev) => {
+      const newDark = !prev;
+      localStorage.setItem("theme", newDark ? "dark" : "light");
+      if (newDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      return newDark;
+    });
   };
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
 
   const navLinks = [
     { name: "Beranda", href: "/" },
