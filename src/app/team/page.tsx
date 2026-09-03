@@ -97,9 +97,9 @@ export default function TeamPage() {
         <div className="container mx-auto px-4 py-12">
           <Breadcrumbs 
             items={[
-              { label: "Beranda", href: "/", isActive: false },
-              { label: "Tentang Kami", href: "/about", isActive: false },
-              { label: "Tim Kami", href: "/team", isActive: true }
+              { label: "Beranda", href: "/" },
+              { label: "Tentang Kami", href: "/about" },
+              { label: "Tim Kami" }
             ]}
             className="mb-6"
           />

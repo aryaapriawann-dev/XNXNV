@@ -14,7 +14,7 @@ export default function Dropdown({ trigger, children, align = "left" }: Dropdown
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside(dropdownRef, () => setIsOpen(false));
+  useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => setIsOpen(false));
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>

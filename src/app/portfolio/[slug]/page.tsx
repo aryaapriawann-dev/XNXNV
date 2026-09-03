@@ -104,9 +104,9 @@ export default function PortfolioDetailPage({ params }: { params: { slug: string
         <div className="container mx-auto px-4 py-8">
           <Breadcrumbs 
             items={[
-              { label: "Beranda", href: "/", isActive: false },
-              { label: "Portfolio", href: "/portfolio", isActive: false },
-              { label: project.title, href: `/portfolio/${project.slug}`, isActive: true }
+              { label: "Beranda", href: "/" },
+              { label: "Portfolio", href: "/portfolio" },
+              { label: project.title }
             ]}
             className="mb-6"
           />

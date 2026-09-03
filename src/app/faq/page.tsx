@@ -18,38 +18,38 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     id: "1",
-    question: "Apa saja layanan yang ditawarkan oleh XNXNV?",
-    answer: "Kami menawarkan berbagai layanan teknologi informasi termasuk pengembangan web, mobile app development, cloud solutions, dan digital marketing services."
+    title: "Apa saja layanan yang ditawarkan oleh XNXNV?",
+    content: "Kami menawarkan berbagai layanan teknologi informasi termasuk pengembangan web, mobile app development, cloud solutions, dan digital marketing services."
   },
   {
     id: "2",
-    question: "Berapa lama waktu pengerjaan proyek?",
-    answer: "Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Proyek kecil dapat diselesaikan dalam 1-2 minggu, sementara proyek besar mungkin memerlukan 2-3 bulan."
+    title: "Berapa lama waktu pengerjaan proyek?",
+    content: "Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Proyek kecil dapat diselesaikan dalam 1-2 minggu, sementara proyek besar mungkin memerlukan 2-3 bulan."
   },
   {
     id: "3",
-    question: "Bagaimana proses pembayaran?",
-    answer: "Kami menggunakan sistem pembayaran 50% di awal dan 50% setelah proyek selesai. Untuk proyek besar, kami bisa menyepakati milestone payment."
+    title: "Bagaimana proses pembayaran?",
+    content: "Kami menggunakan sistem pembayaran 50% di awal dan 50% setelah proyek selesai. Untuk proyek besar, kami bisa menyepakati milestone payment."
   },
   {
     id: "4",
-    question: "Apakah ada garansi untuk layanan yang diberikan?",
-    answer: "Ya, kami memberikan garansi 3 bulan untuk semua layanan pengembangan. Dalam periode garansi, kami akan memperbaiki bug tanpa biaya tambahan."
+    title: "Apakah ada garansi untuk layanan yang diberikan?",
+    content: "Ya, kami memberikan garansi 3 bulan untuk semua layanan pengembangan. Dalam periode garansi, kami akan memperbaiki bug tanpa biaya tambahan."
   },
   {
     id: "5",
-    question: "Bagaimana jika saya tidak puas dengan hasil akhir?",
-    answer: "Kami menerapkan proses kerja yang transparan dengan review point di setiap tahap. Jika ada ketidakpuasan, kami akan bekerja sama mencari solusi terbaik."
+    title: "Bagaimana jika saya tidak puas dengan hasil akhir?",
+    content: "Kami menerapkan proses kerja yang transparan dengan review point di setiap tahap. Jika ada ketidakpuasan, kami akan bekerja sama mencari solusi terbaik."
   },
   {
     id: "6",
-    question: "Apakah Anda menerima proyek dari luar kota/negara?",
-    answer: "Ya, kami melayani proyek dari seluruh Indonesia bahkan internasional. Komunikasi dilakukan melalui email, call, dan video conference."
+    title: "Apakah Anda menerima proyek dari luar kota/negara?",
+    content: "Ya, kami melayani proyek dari seluruh Indonesia bahkan internasional. Komunikasi dilakukan melalui email, call, dan video conference."
   },
   {
     id: "7",
-    question: "Bagaimana cara menghubungi tim support?",
-    answer: "Anda dapat menghubungi kami melalui email support@xnxnv.com, WhatsApp di 0812-3456-7890, atau melalui form kontak yang tersedia di website."
+    title: "Bagaimana cara menghubungi tim support?",
+    content: "Anda dapat menghubungi kami melalui email support@xnxnv.com, WhatsApp di 0812-3456-7890, atau melalui form kontak yang tersedia di website."
   }
 ];
 
@@ -58,8 +58,8 @@ export default function FAQPage() {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <Breadcrumbs 
         items={[
-          { label: "Beranda", href: "/", isActive: false },
-          { label: "Pertanyaan Umum", href: "/faq", isActive: true }
+          { label: "Beranda", href: "/" },
+          { label: "Pertanyaan Umum" }
         ]}
         className="mb-8"
       />
