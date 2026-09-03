@@ -1,0 +1,23 @@
+"use client";
+
+import { RefObject, useEffect } from "react";
+
+/**
+ * Detect clicks outside a ref element
+ * Useful for dropdowns, modals, etc.
+ */
+export function useClickOutside(
+  ref: RefObject<HTMLElement>,
+  callback: () => void
+) {
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [ref, callback]);
+}
