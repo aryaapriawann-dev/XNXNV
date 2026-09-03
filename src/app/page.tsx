@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Counter from "@/components/Counter";
-import Testimonials from "@/components/Testimonials";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function Home() {
       <About />
       <Services />
       <Counter />
-      <Testimonials />
+      <TestimonialsSection />
       <Contact />
     </div>
   );
