@@ -12,7 +12,7 @@ interface ToastMessage {
   message: string;
 }
 
-const ToastContainer = ({ 
+const ToastDisplay = ({ 
   toasts, 
   removeToast 
 }: { 
@@ -99,13 +99,7 @@ export const useToast = () => {
   return { toasts, addToast, removeToast };
 };
 
-export function ToastProvider({ children }: { children: React.ReactNode }) {
-  const { toasts, addToast, removeToast } = useToast();
-
-  return (
-    <>
-      {children}
-      <ToastContainer toasts={toasts} removeToast={removeToast} />
-    </>
-  );
+export default function ToastContainer() {
+  const { toasts, removeToast } = useToast();
+  return <ToastDisplay toasts={toasts} removeToast={removeToast} />;
 }
