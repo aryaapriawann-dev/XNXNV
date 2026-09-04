@@ -1,6 +1,7 @@
 "use client";
 
-import { Download, FileText, FileCode, FileImage, FileVideo, FileAudio, Folder, Clock, Calendar } from "lucide-react";
+import { useState } from "react";
+import { Download, FileText, FileCode, FileImage, FileVideo, FileAudio, Folder, Clock, Calendar, Search } from "lucide-react";
 import Link from "next/link";
 
 interface Resource {

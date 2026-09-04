@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Shield, Check, Zap, Globe } from "lucide-react";
 import Link from "next/link";
 

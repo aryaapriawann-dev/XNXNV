@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Check, X, Star } from "lucide-react";
 
 type PlanPeriod = "monthly" | "yearly";

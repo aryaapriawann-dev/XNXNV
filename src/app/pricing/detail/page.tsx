@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
 export default function PricingDetailPage() {
-  const [annual, setAnnual] = React.useState(true);
+  const [annual, setAnnual] = useState(true);
 
   const plans = [
     {

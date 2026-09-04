@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Star, Quote, ThumbsUp, Share2, MessageCircle } from "lucide-react";
 import Link from "next/link";
 

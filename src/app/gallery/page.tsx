@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Image as ImageIcon, Download, Share2, MessageCircle, ThumbsUp, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
