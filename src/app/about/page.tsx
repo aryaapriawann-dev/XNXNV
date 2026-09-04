@@ -1,20 +1,45 @@
-import { Award, Users, Target, Heart } from "lucide-react";
+"use client";
+
+import { Award, Users, Target, Heart, Search } from "lucide-react";
 import Image from "next/image";
+import { useState, useMemo } from "react";
+
+const stats = [
+  { icon: Award, label: "Tahun Pengalaman", value: "5+" },
+  { icon: Users, label: "Tim Ahli", value: "10+" },
+  { icon: Target, label: "Project Selesai", value: "100+" },
+  { icon: Heart, label: "Klien Puas", value: "80+" },
+];
+
+const team = [
+  { id: "1", name: "arya apriawann", role: "Founder & Lead Developer", image: "https://ui-avatars.com/api/?name=arya+apriawann&background=6366f1&color=fff" },
+  { id: "2", name: "budi santoso", role: "Senior Designer", image: "https://ui-avatars.com/api/?name=budi+santoso&background=ec4899&color=fff" },
+  { id: "3", name: "citra dewi", role: "Project Manager", image: "https://ui-avatars.com/api/?name=citra+dewi&background=8b5cf6&color=fff" },
+  { id: "4", name: "david kurniawan", role: "QA Engineer", image: "https://ui-avatars.com/api/?name=david+kurniawan&background=10b981&color=fff" },
+  { id: "5", name: "eka putri", role: "Frontend Developer", image: "https://ui-avatars.com/api/?name=eka+putri&background=f59e0b&color=fff" },
+  { id: "6", name: "fajar mustofa", role: "Backend Developer", image: "https://ui-avatars.com/api/?name=fajar+mustofa&background=0ea5e9&color=fff" },
+  { id: "7", name: "gisella.putra", role: "UI/UX Designer", image: "https://ui-avatars.com/api/?name=gisella+putra&background=84cc16&color=fff" },
+];
+
+const roles = ["Semua", "Founder", "Developer", "Designer", "Manager", "Engineer"];
 
 export default function About() {
-  const stats = [
-    { icon: Award, label: "Tahun Pengalaman", value: "5+" },
-    { icon: Users, label: "Tim Ahli", value: "10+" },
-    { icon: Target, label: "Project Selesai", value: "100+" },
-    { icon: Heart, label: "Klien Puas", value: "80+" },
-  ];
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeRole, setActiveRole] = useState("Semua");
 
-  const team = [
-    { name: "arya apriawann", role: "Founder & Lead Developer", image: "https://ui-avatars.com/api/?name=arya+apriawann&background=6366f1&color=fff" },
-    { name: "budi santoso", role: "Senior Designer", image: "https://ui-avatars.com/api/?name=budi+santoso&background=ec4899&color=fff" },
-    { name: "citra dewi", role: "Project Manager", image: "https://ui-avatars.com/api/?name=citra+dewi&background=8b5cf6&color=fff" },
-    { name: "david kurniawan", role: "QA Engineer", image: "https://ui-avatars.com/api/?name=david+kurniawan&background=10b981&color=fff" },
-  ];
+  const filteredTeam = useMemo(() => {
+    return team.filter((member) => {
+      const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           member.role.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesRole = activeRole === "Semua" ||
+                         (activeRole === "Founder" && member.role.includes("Founder")) ||
+                         (activeRole === "Developer" && member.role.toLowerCase().includes("developer")) ||
+                         (activeRole === "Designer" && member.role.toLowerCase().includes("designer")) ||
+                         (activeRole === "Manager" && member.role.toLowerCase().includes("manager")) ||
+                         (activeRole === "Engineer" && member.role.toLowerCase().includes("engineer"));
+      return matchesSearch && matchesRole;
+    });
+  }, [searchTerm, activeRole]);
 
   return (
     <div className="flex flex-col min-h-full">
@@ -26,7 +51,7 @@ export default function About() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">Tentang XNXNV</h1>
           <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-            Kami adalah tim digital creative yang berdedikasi memberikan solusi 
+            Kami adalah tim digital creative yang berdedikasi memberikan solusi
             teknologi terbaik untuk bisnis Anda.
           </p>
         </div>
@@ -60,13 +85,13 @@ export default function About() {
                 Misi Kami: Membantu Bisnis Tumbuh
               </h2>
               <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-                XNXNV didirikan dengan visi memberikan solusi digital berkualitas 
-                tinggi yang dapat diakses oleh semua kalangan bisnis. Kami percaya 
+                XNXNV didirikan dengan visi memberikan solusi digital berkualitas
+                tinggi yang dapat diakses oleh semua kalangan bisnis. Kami percaya
                 bahwa teknologi harus menjadi pendorong pertumbuhan, bukan hambatan.
               </p>
               <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-                Dengan tim yang berpengalaman dan pendekatan yang berorientasi hasil, 
-                kami membantu perusahaan dari startup hingga enterprise mencapai 
+                Dengan tim yang berpengalaman dan pendekatan yang berorientasi hasil,
+                kami membantu perusahaan dari startup hingga enterprise mencapai
                 potensi maksimal mereka di dunia digital.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -125,6 +150,42 @@ export default function About() {
         </div>
       </section>
 
+      {/* Team Search & Filter */}
+      <section className="py-8 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Search */}
+          <div className="max-w-2xl mx-auto mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
+              <input
+                type="text"
+                placeholder="Cari anggota tim..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+              />
+            </div>
+          </div>
+
+          {/* Roles */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {roles.map((role) => (
+              <button
+                key={role}
+                onClick={() => setActiveRole(role)}
+                className={`px-5 py-2 rounded-lg font-medium text-sm transition-all ${
+                  activeRole === role
+                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-md"
+                    : "bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700"
+                }`}
+              >
+                {role}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team */}
       <section className="py-20 bg-zinc-50 dark:bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,30 +197,43 @@ export default function About() {
               Profesional berbakat yang siap membantu bisnis Anda
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="text-center group cursor-pointer"
+
+          {filteredTeam.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-zinc-500 text-lg">Tidak ada anggota tim yang ditemukan.</p>
+              <button
+                onClick={() => { setSearchTerm(""); setActiveRole("Semua"); }}
+                className="mt-4 text-indigo-600 hover:underline"
               >
-                <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                Reset filter
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {filteredTeam.map((member) => (
+                <div
+                  key={member.id}
+                  className="text-center group cursor-pointer"
+                >
+                  <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                  <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    {member.role}
+                  </p>
                 </div>
-                <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {member.role}
-                </p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>
