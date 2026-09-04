@@ -1,7 +1,8 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Globe, Zap, Cpu, TrendingUp, UserCheck, Share2 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 interface TeamMember {
   id: string;
@@ -11,10 +12,9 @@ interface TeamMember {
   bio: string;
   image: string;
   social: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-    instagram?: string;
+    email?: string;
+    website?: string;
+    phone?: string;
   };
 }
 
@@ -26,7 +26,7 @@ const team: TeamMember[] = [
     department: "Leadership",
     bio: "Pendiri dan CEO dengan pengalaman lebih dari 15 tahun di industri teknologi dan startup. Fokus pada strategi pertumbuhan dan inovasi.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", twitter: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "2",
@@ -35,7 +35,7 @@ const team: TeamMember[] = [
     department: "Technology",
     bio: "CTO dengan keahlian mendalam dalam arsitektur sistem, AI, dan cloud computing. Memimpin tim teknis dalam menciptakan solusi inovatif.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", twitter: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ const team: TeamMember[] = [
     department: "Design",
     bio: "Creative Director dengan pengalaman 10 tahun di industri kreatif. Spesialis dalam brand identity dan user experience design.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", instagram: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "4",
@@ -53,7 +53,7 @@ const team: TeamMember[] = [
     department: "Operations",
     bio: "Memimpin tim project management dengan sertifikasi PMP. Fokus pada delivery excellence dan client satisfaction.",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "5",
@@ -62,7 +62,7 @@ const team: TeamMember[] = [
     department: "Technology",
     bio: "Full-stack developer dengan spesialisasi di React, Node.js, dan cloud infrastructure. Lebih dari 8 tahun pengalaman.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-    social: { github: "#", linkedin: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "6",
@@ -71,7 +71,7 @@ const team: TeamMember[] = [
     department: "Design",
     bio: "Desainer dengan pendekatan user-centric. Ahli dalam membuat interface yang intuitif dan estetis.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", behance: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "7",
@@ -80,7 +80,7 @@ const team: TeamMember[] = [
     department: "Marketing",
     bio: "Pakar digital marketing dengan track record meningkatkan ROI kampanye hingga 300% untuk berbagai klien.",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", twitter: "#" },
+    social: { email: "#", website: "#" },
   },
   {
     id: "8",
@@ -89,7 +89,7 @@ const team: TeamMember[] = [
     department: "Marketing",
     bio: "Content creator dan strategist dengan pengalaman membuat konten yang engagement dan converter.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2070&auto=format&fit=crop",
-    social: { linkedin: "#", instagram: "#" },
+    social: { email: "#", website: "#" },
   },
 ];
 
@@ -173,36 +173,31 @@ export default function AboutDetail() {
                       {member.department}
                     </span>
                     <div className="flex gap-2">
-                      {member.social.linkedin && (
+                      {member.social.email && (
                         <a
-                          href={member.social.linkedin}
+                          href={member.social.email}
                           className="text-zinc-400 hover:text-indigo-600 transition-colors"
+                          title="Email"
                         >
-                          <Linkedin className="h-5 w-5" />
+                          <Mail className="h-5 w-5" />
                         </a>
                       )}
-                      {member.social.twitter && (
+                      {member.social.website && (
                         <a
-                          href={member.social.twitter}
+                          href={member.social.website}
                           className="text-zinc-400 hover:text-indigo-600 transition-colors"
+                          title="Website"
                         >
-                          <Twitter className="h-5 w-5" />
+                          <Globe className="h-5 w-5" />
                         </a>
                       )}
-                      {member.social.facebook && (
+                      {member.social.phone && (
                         <a
-                          href={member.social.facebook}
+                          href={member.social.phone}
                           className="text-zinc-400 hover:text-indigo-600 transition-colors"
+                          title="Phone"
                         >
-                          <Facebook className="h-5 w-5" />
-                        </a>
-                      )}
-                      {member.social.instagram && (
-                        <a
-                          href={member.social.instagram}
-                          className="text-zinc-400 hover:text-indigo-600 transition-colors"
-                        >
-                          <Instagram className="h-5 w-5" />
+                          <Phone className="h-5 w-5" />
                         </a>
                       )}
                     </div>
@@ -214,97 +209,19 @@ export default function AboutDetail() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Join Us */}
       <section className="py-24 bg-indigo-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold mb-2">{team.length}</div>
-              <div className="text-indigo-200 font-medium">Anggota Tim</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">15+</div>
-              <div className="text-indigo-200 font-medium">Tahun Pengalaman</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">100+</div>
-              <div className="text-indigo-200 font-medium">Proyek Selesai</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">99%</div>
-              <div className="text-indigo-200 font-medium">Kepuasan Klien</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-24 bg-white dark:bg-zinc-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
-            Tertarik Bergabung dengan Kami?
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-10 text-lg">
-            Kami selalu mencari talenta-talenta baru yang bersemangat untuk berinovasi dan berkembang bersama kami.
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ingin bergabung dengan tim kami?</h2>
+          <p className="text-lg text-indigo-100 mb-8">
+            Kami selalu mencari talenta-talenta hebat untuk membangun masa depan teknologi bersama kami.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="px-8 py-4 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
-            >
-              Kirim Lamaran
-            </a>
-            <a
-              href="mailto:hr@xnxv.id"
-              className="px-8 py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white rounded-lg font-semibold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
-            >
-              Email Karir
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Location */}
-      <section className="py-24 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Kunjungi Kantor Kami</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-indigo-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-white">Alamat</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">
-                      Jl. Teknologi No. 123<br />
-                      Jakarta Selatan, 12345<br />
-                      Indonesia
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-indigo-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-white">Telepon</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">+62 21 1234 5678</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Mail className="h-6 w-6 text-indigo-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-white">Email</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">info@xnxv.id</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-zinc-200 dark:bg-zinc-800 rounded-2xl h-80 flex items-center justify-center overflow-hidden">
-              <div className="text-zinc-500 dark:text-zinc-400 text-center">
-                <MapPin className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                <p>Google Maps Integration<br/>akan ditampilkan di sini</p>
-              </div>
-            </div>
-          </div>
+          <Link
+            href="/careers"
+            className="inline-flex items-center justify-center px-8 py-3 bg-white text-indigo-600 rounded-full font-medium hover:bg-zinc-100 transition-colors"
+          >
+            Lihat Lowongan Kerja
+          </Link>
         </div>
       </section>
     </div>
