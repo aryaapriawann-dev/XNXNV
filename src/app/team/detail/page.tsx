@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Globe, Calendar, UserCheck, Award, Briefcase, ChevronLeft } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Calendar, UserCheck, Award, Briefcase, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 interface TeamMember {
@@ -178,12 +178,7 @@ export default function TeamDetailPage({ params }: { params: { id: string } }) {
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 {member.social.linkedin && (
                   <a href={member.social.linkedin} className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                )}
-                {member.social.twitter && (
-                  <a href={member.social.twitter} className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
-                    <Twitter className="h-5 w-5" />
+                    <Globe className="h-5 w-5" />
                   </a>
                 )}
                 {member.social.website && (
@@ -350,14 +345,8 @@ export default function TeamDetailPage({ params }: { params: { id: string } }) {
                 <div className="space-y-3">
                   {member.social.linkedin && (
                     <a href={member.social.linkedin} className="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-800 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">
-                      <Linkedin className="h-5 w-5 text-blue-600" />
+                      <Globe className="h-5 w-5 text-blue-600" />
                       <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">LinkedIn Profile</span>
-                    </a>
-                  )}
-                  {member.social.twitter && (
-                    <a href={member.social.twitter} className="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-800 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">
-                      <Twitter className="h-5 w-5 text-sky-500" />
-                      <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Twitter Profile</span>
                     </a>
                   )}
                   {member.social.website && (
