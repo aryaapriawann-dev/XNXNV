@@ -1,6 +1,6 @@
 "use client";
 
-import { Service, Shield, Clock, Zap, Globe, Cpu, TrendingUp, UserCheck } from "lucide-react";
+import { Layout, Shield, Clock, Zap, Globe, Cpu, TrendingUp, UserCheck } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -40,7 +40,7 @@ export default function Services() {
       id: "design",
       title: "UI/UX Design",
       description: "Desain antarmuka yang intuitif dan menarik untuk pengalaman pengguna yang luar biasa.",
-      icon: Service,
+      icon: Layout,
       features: ["User Research", "Wireframing", "Prototyping", "Design System"],
       color: "from-pink-500 to-rose-500",
     },
