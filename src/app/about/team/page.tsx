@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
 import Link from "next/link";
 
 interface TeamMember {
@@ -13,7 +13,7 @@ interface TeamMember {
   social: {
     linkedin?: string;
     twitter?: string;
-    facebook?: string;
+    github?: string;
     instagram?: string;
   };
 }
