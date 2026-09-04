@@ -1,132 +1,135 @@
 "use client";
 
 import { useState } from "react";
-import Accordion from "@/components/Accordion";
+import { ChevronDown, ChevronUp, Mail, Phone, MapPin, Clock, Zap, Shield, UserCheck, Globe } from "lucide-react";
 
-interface FAQ {
-  id: string;
-  question: string;
-  answer: string;
-  category: string;
-}
-
-const faqs: FAQ[] = [
+const faqs = [
   {
-    id: "1",
     category: "Umum",
-    question: "Apa itu XNXNV?",
-    answer: "XNXNV adalah perusahaan jasa digital yang menyediakan solusi lengkap untuk transformasi bisnis Anda, mulai dari pengembangan web, mobile application, cloud solutions, hingga digital marketing.",
+    items: [
+      {
+        question: "Apa itu XNXNV?",
+        answer: "XNXNV adalah perusahaan teknologi yang menyediakan solusi digital lengkap mulai dari web development, mobile app, hingga sistem enterprise dengan teknologi terkini.",
+      },
+      {
+        question: "Where are you located?",
+        answer: "Kami berlokasi di Kendari, Sulawesi Tenggara, Indonesia. Kami melayani klien lokal maupun internasional dengan dukungan kerja jarak jauh.",
+      },
+      {
+        question: "Berapa lama pengalaman tim Anda?",
+        answer: "Tim kami memiliki pengalaman lebih dari 5 tahun dalam mengembangkan solusi digital untuk berbagai industri mulai dari UMKM hingga enterprise.",
+      },
+    ],
   },
   {
-    id: "2",
-    category: "Umum",
-    question: "Di mana lokasi kantor XNXNV?",
-    answer: "Kami berlokasi di Jakarta, Indonesia dengan tim yang tersebar di berbagai kota di Indonesia. Kami juga melayani klien secara remote dari seluruh Indonesia dan mancanegara.",
+    category: "Layanan",
+    items: [
+      {
+        question: "Apa saja layanan yang Anda tawarkan?",
+        answer: "Kami menyediakan Web Development, Mobile App Development, UI/UX Design, Sistem Enterprise, Digital Transformation, dan Technical Consulting.",
+      },
+      {
+        question: "Apakah Anda menerima project freelance?",
+        answer: "Ya, kami menerima project freelance untuk berbagai skala mulai dari simple landing page hingga kompleks application development.",
+      },
+      {
+        question: "Apakah Anda menyediakan maintenance setelah project selesai?",
+        answer: "Tentu, kami menyediakan paket maintenance dan support agar aplikasi Anda tetap berjalan optimal dengan update berkala.",
+      },
+    ],
   },
   {
-    id: "3",
-    category: "Umum",
-    question: "Bagaimana cara memesan jasa XNXNV?",
-    answer: "Anda bisa menghubungi kami melalui form kontak, WhatsApp, atau email. Tim kami akan segera menghubungi Anda untuk melakukan konsultasi gratis dan mengidentifikasi kebutuhan Anda.",
+    category: "Teknologi",
+    items: [
+      {
+        question: "Teknologi apa saja yang Anda kuasai?",
+        answer: "Kamiahli dalam Next.js, React, Flutter, Node.js, Python, PostgreSQL, MongoDB, Supabase, dan berbagai teknologi modern lainnya.",
+      },
+      {
+        question: "Apakah Anda bisa integrasi dengan sistem yang sudah ada?",
+        answer: "Ya, kami berpengalaman dalam integrasi sistem legacy dengan teknologi modern serta pembuatan API integration yang robust.",
+      },
+      {
+        question: "Apakah Anda menggunakan AI dalam pengembangan?",
+        answer: "Ya, kami memanfaatkan AI/ML untuk optimasi performa, ancaman keamanan, dan pengalaman pengguna yang lebih personal.",
+      },
+    ],
   },
   {
-    id: "4",
-    category: "Pengembangan",
-    question: "Berapa lama waktu pengerjaan proyek?",
-    answer: "Waktu pengerjaan bervariasi tergantung kompleksitas dan skala proyek. Untuk website statis: 7-14 hari, website dinamis: 2-4 minggu, dan web application custom: 1-3 bulan.",
+    category: "Proses",
+    items: [
+      {
+        question: "Bagaimana proses pengerjaan project?",
+        answer: "Kami mengikuti metodologi agile dengan tahapan Discovery, Design, Development, Testing, Deployment, dan Maintenance.",
+      },
+      {
+        question: "Berapa lama waktu pengerjaan project?",
+        answer: "Waktu pengerjaan bervariasi tergantung kompleksitas. Project kecil 1-2 minggu, project menengah 1-3 bulan, dan project besar 3-6 bulan.",
+      },
+      {
+        question: "Bagaimana komunikasi selama project berjalan?",
+        answer: "Kami memberikan laporan progres mingguan dan menggunakan Slack/WhatsApp untuk komunikasi harian agar Anda selalu update.",
+      },
+    ],
   },
   {
-    id: "5",
-    category: "Pengembangan",
-    question: "Teknologi apa yang digunakan XNXNV?",
-    answer: "Kami menggunakan teknologi terkini seperti Next.js, React, TypeScript, Node.js, PostgreSQL, MongoDB, dan berbagai tools modern lainnya untuk memastikan hasil terbaik.",
-  },
-  {
-    id: "6",
-    category: "Pengembangan",
-    question: "Apakah Anda menyediakan maintenance setelah proyek selesai?",
-    answer: "Ya, kami menyediakan paket maintenance dengan harga terjangkau untuk memastikan sistem Anda selalu up-to-date, aman, dan berjalan dengan optimal.",
-  },
-  {
-    id: "7",
     category: "Harga",
-    question: "Apakah ada biaya tersembunyi?",
-    answer: "Tidak. Kami menerapkan transparansi penuh dalam harga. Harga yang kami sampaikan di awal adalah harga final, termasuk semua fitur yang tercantum dalam paket.",
-  },
-  {
-    id: "8",
-    category: "Harga",
-    question: "Bagaimana sistem pembayaran yang Anda gunakan?",
-    answer: "Kami menggunakan sistem 30% di awal, 60% saat progress 70%, dan 10% setelah proyek selesai dan diserahkan. Untuk proyek kecil, bisa讨论 dengan pembayaran penuh di awal.",
-  },
-  {
-    id: "9",
-    category: "Harga",
-    question: "Apakah harga bisa dinegosiasikan?",
-    answer: "Harga kami sudah disesuaikan dengan kualitas dan value yang diberikan. Namun, untuk proyek skala besar atau kerja sama jangka panjang, kami terbuka untuk diskusi lebih lanjut.",
-  },
-  {
-    id: "10",
-    category: "Dukungan",
-    question: "Berapa lama masa dukungan technical?",
-    answer: "Masa dukungan technical bervariasi tergantung paket yang dipilih: Starter (3 bulan), Professional (1 tahun), dan Enterprise (24/7 dedicated support).",
-  },
-  {
-    id: "11",
-    category: "Dukungan",
-    question: "Bagaimana sistem support yang Anda sediakan?",
-    answer: "Kami menyediakan support melalui email, WhatsApp, dan ticketing system. Untuk paket Enterprise, tersedia dedicated account manager dan responsive time 1 jam.",
-  },
-  {
-    id: "12",
-    category: "Dukungan",
-    question: "Apakah support tersedia hari libur?",
-    answer: "Untuk paket Enterprise, support 24/7 tersedia. Untuk paket lain, support tersedia hari kerja (Senin-Jumat) jam 09:00-18:00 WIB.",
+    items: [
+      {
+        question: "Berapa harga project Anda?",
+        answer: "Harga disesuaikan dengan kompleksitas dan kebutuhan spesifik. Kami menawarkan paket Fixed Price untuk project jelas dan Time & Materials untuk project kompleks.",
+      },
+      {
+        question: "Apa saja metode pembayaran yang Anda terima?",
+        answer: "Kami menerima Transfer Bank, QRIS, dan untuk klien internasional melalui PayPal atau Wire Transfer.",
+      },
+      {
+        question: "Apakah ada garansi untuk hasil kerja?",
+        answer: "Ya, kami memberikan garansi bug fixing selama 30 hari setelah delivery tanpa biaya tambahan.",
+      },
+    ],
   },
 ];
 
-const categories = ["Semua", ...Array.from(new Set(faqs.map((faq) => faq.category)))];
+export default function FAQPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("Umum");
 
-export default function FAQ() {
-  const [selectedCategory, setSelectedCategory] = useState("Semua");
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
-  const filteredFAQs = selectedCategory === "Semua" ? faqs : faqs.filter((faq) => faq.category === selectedCategory);
-
-  const accordionItems = filteredFAQs.map((faq) => ({
-    id: faq.id,
-    title: faq.question,
-    content: <p className="text-zinc-600 dark:text-zinc-300">{faq.answer}</p>,
-  }));
+  const activeFAQs = faqs.find((f) => f.category === activeCategory)?.items || [];
 
   return (
-    <div className="flex flex-col min-h-full">
+    <div className="min-h-screen bg-white dark:bg-zinc-900">
       {/* Hero */}
-      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555421689-492607396535?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Pertanyaan Umum</h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Temukan jawaban untuk pertanyaan yang sering diajukan tentang layanan dan produk kami.
+      <section className="bg-zinc-900 dark:bg-zinc-950 py-24 text-center text-white">
+        <div className="max-w-3xl mx-auto px-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            Pertanyaan yang Sering Diajukan
+          </h1>
+          <p className="text-lg text-zinc-300 mb-8">
+            Temukan jawaban untuk pertanyaan umum tentang layanan dan proses kerja kami.
           </p>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-16 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Category Tabs */}
+      <section className="py-8 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
+            {faqs.map((cat) => (
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                key={cat.category}
+                onClick={() => setActiveCategory(cat.category)}
+                className={`px-6 py-2.5 rounded-lg font-medium transition-all ${
+                  activeCategory === cat.category
+                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-md"
+                    : "bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700"
                 }`}
               >
-                {category}
+                {cat.category}
               </button>
             ))}
           </div>
@@ -134,40 +137,95 @@ export default function FAQ() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-24 bg-zinc-50 dark:bg-zinc-950">
+      <section className="py-20 lg:py-32">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-              Menampilkan {filteredFAQs.length} pertanyaan dari kategori "{selectedCategory}"
-            </p>
+          <div className="space-y-4">
+            {activeFAQs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between group hover:bg-zinc-50 dark:hover:bg-zinc-700/50 transition-colors"
+                  >
+                    <span className="text-lg font-medium text-zinc-900 dark:text-zinc-50">
+                      {faq.question}
+                    </span>
+                    {isOpen ? (
+                      <ChevronUp className="h-5 w-5 text-zinc-500" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-zinc-500" />
+                    )}
+                  </button>
+                  <div
+                    className={`px-6 overflow-hidden transition-all duration-300 ${
+                      isOpen ? "max-h-96 pb-6 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <Accordion items={accordionItems} />
+
+          {activeFAQs.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-zinc-500">Belum ada pertanyaan di kategori ini.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Still Need Help */}
-      <section className="py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
-            Masih Ada Pertanyaan?
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-10 text-lg">
-            Jika jawaban yang Anda cari tidak ada di sini, jangan ragu untuk menghubungi kami. Tim kami siap membantu Anda.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="px-8 py-4 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
-            >
-              Hubungi Kami
-            </a>
-            <a
-              href="mailto:info@xnxv.id"
-              className="px-8 py-4 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white rounded-lg font-semibold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
-            >
-              Kirim Email
-            </a>
+      {/* Contact CTA */}
+      <section className="bg-zinc-900 dark:bg-zinc-950 py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div>
+              <Mail className="h-8 w-8 mx-auto mb-3 text-indigo-400" />
+              <h3 className="font-semibold text-white mb-1">Email</h3>
+              <p className="text-sm text-zinc-400">info@xnxnv.com</p>
+            </div>
+            <div>
+              <Phone className="h-8 w-8 mx-auto mb-3 text-green-400" />
+              <h3 className="font-semibold text-white mb-1">Telepon</h3>
+              <p className="text-sm text-zinc-400">+62 812-3456-7890</p>
+            </div>
+            <div>
+              <MapPin className="h-8 w-8 mx-auto mb-3 text-blue-400" />
+              <h3 className="font-semibold text-white mb-1">Lokasi</h3>
+              <p className="text-sm text-zinc-400">Kendari, Indonesia</p>
+            </div>
+            <div>
+              <Clock className="h-8 w-8 mx-auto mb-3 text-purple-400" />
+              <h3 className="font-semibold text-white mb-1">Jam Kerja</h3>
+              <p className="text-sm text-zinc-400">09:00 - 18:00 WIB</p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-indigo-600 dark:bg-indigo-900 py-20 lg:py-32">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Pertanyaan Lainnya?
+          </h2>
+          <p className="text-lg text-indigo-100 mb-8">
+            Hubungi kami kapan saja. Tim kami siap membantu Anda 24/7.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-white text-indigo-600 font-bold hover:bg-indigo-50 transition-colors"
+          >
+            Hubungi Kami Sekarang
+            <ChevronDown className="h-5 w-5 rotate-90" />
+          </a>
         </div>
       </section>
     </div>
