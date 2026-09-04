@@ -1,118 +1,109 @@
 "use client";
 
-import { Award, Users, Target, Heart, Search } from "lucide-react";
-import Image from "next/image";
-import { useState, useMemo } from "react";
+import Link from "next/link";
+import { TeamSection, ValuesSection, StatsSection } from "@/components/AboutSections";
 
-const stats = [
-  { icon: Award, label: "Tahun Pengalaman", value: "5+" },
-  { icon: Users, label: "Tim Ahli", value: "10+" },
-  { icon: Target, label: "Project Selesai", value: "100+" },
-  { icon: Heart, label: "Klien Puas", value: "80+" },
-];
-
-const team = [
-  { id: "1", name: "arya apriawann", role: "Founder & Lead Developer", image: "https://ui-avatars.com/api/?name=arya+apriawann&background=6366f1&color=fff" },
-  { id: "2", name: "budi santoso", role: "Senior Designer", image: "https://ui-avatars.com/api/?name=budi+santoso&background=ec4899&color=fff" },
-  { id: "3", name: "citra dewi", role: "Project Manager", image: "https://ui-avatars.com/api/?name=citra+dewi&background=8b5cf6&color=fff" },
-  { id: "4", name: "david kurniawan", role: "QA Engineer", image: "https://ui-avatars.com/api/?name=david+kurniawan&background=10b981&color=fff" },
-  { id: "5", name: "eka putri", role: "Frontend Developer", image: "https://ui-avatars.com/api/?name=eka+putri&background=f59e0b&color=fff" },
-  { id: "6", name: "fajar mustofa", role: "Backend Developer", image: "https://ui-avatars.com/api/?name=fajar+mustofa&background=0ea5e9&color=fff" },
-  { id: "7", name: "gisella.putra", role: "UI/UX Designer", image: "https://ui-avatars.com/api/?name=gisella+putra&background=84cc16&color=fff" },
-];
-
-const roles = ["Semua", "Founder", "Developer", "Designer", "Manager", "Engineer"];
-
-export default function About() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeRole, setActiveRole] = useState("Semua");
-
-  const filteredTeam = useMemo(() => {
-    return team.filter((member) => {
-      const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           member.role.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesRole = activeRole === "Semua" ||
-                         (activeRole === "Founder" && member.role.includes("Founder")) ||
-                         (activeRole === "Developer" && member.role.toLowerCase().includes("developer")) ||
-                         (activeRole === "Designer" && member.role.toLowerCase().includes("designer")) ||
-                         (activeRole === "Manager" && member.role.toLowerCase().includes("manager")) ||
-                         (activeRole === "Engineer" && member.role.toLowerCase().includes("engineer"));
-      return matchesSearch && matchesRole;
-    });
-  }, [searchTerm, activeRole]);
-
+export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-full">
+    <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative py-20 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-90" />
-        </div>
+      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">Tentang XNXNV</h1>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-            Kami adalah tim digital creative yang berdedikasi memberikan solusi
-            teknologi terbaik untuk bisnis Anda.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            About XNXNV
+          </h1>
+          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
+            We are a premier company dedicated to delivering excellence in every aspect of our work. Our journey began with a vision and has grown into a trusted name in our industry.
           </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 bg-white dark:bg-zinc-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <stat.icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-zinc-900 rounded-full font-semibold text-lg hover:bg-zinc-100 transition-colors"
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-8 py-4 bg-zinc-800 text-white rounded-full font-semibold text-lg hover:bg-zinc-700 transition-colors"
+            >
+              Our Services
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="py-20 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Mission & Vision */}
+      <section className="py-20 bg-white dark:bg-slate-900">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
-                Misi Kami: Membantu Bisnis Tumbuh
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
+                Our Mission
               </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-                XNXNV didirikan dengan visi memberikan solusi digital berkualitas
-                tinggi yang dapat diakses oleh semua kalangan bisnis. Kami percaya
-                bahwa teknologi harus menjadi pendorong pertumbuhan, bukan hambatan.
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+                To empower businesses through innovative digital solutions that drive growth, efficiency, and long-term success. We believe in the transformative power of technology to level the playing field for businesses of all sizes.
               </p>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-                Dengan tim yang berpengalaman dan pendekatan yang berorientasi hasil,
-                kami membantu perusahaan dari startup hingga enterprise mencapai
-                potensi maksimal mereka di dunia digital.
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Every project we undertake is an opportunity to make a meaningful impact. We approach each challenge with creativity, integrity, and an unwavering commitment to excellence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/services"
-                  className="inline-flex justify-center items-center px-8 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
-                >
-                  Layanan Kami
-                </a>
-                <a
-                  href="/contact"
-                  className="inline-flex justify-center items-center px-8 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-50 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
-                >
-                  Hubungi Kami
-                </a>
-              </div>
             </div>
-            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-600" />
-              <div className="relative inset-0 flex items-center justify-center">
-                <div className="text-white/20 text-6xl font-bold">XNXNV</div>
+            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">What Sets Us Apart</h3>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
+                  <span>Industry-leading expertise</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
+                  <span>Client-first approach</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
+                  <span>Innovation at our core</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
+                  <span>Results-driven mindset</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
+                Our Vision
+              </h2>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+                To be the most trusted partner for digital transformation, helping businesses thrive in an increasingly digital world. We envision a future where technology serves as a catalyst for positive change.
+              </p>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Through continuous innovation, deep industry knowledge, and an obsessive focus on customer success, we aim to set new benchmarks for excellence in everything we do.
+              </p>
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="bg-zinc-100 dark:bg-slate-800 rounded-2xl p-8">
+                <div className="grid grid-cols-2 gap-8">
+                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
+                    <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
+                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Projects Completed</div>
+                  </div>
+                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">98%</div>
+                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Client Satisfaction</div>
+                  </div>
+                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
+                    <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
+                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Team Members</div>
+                  </div>
+                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
+                    <div className="text-4xl font-bold text-orange-600 mb-2">24/7</div>
+                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Support Available</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -120,120 +111,29 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-white dark:bg-zinc-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
-              Nilai-Nilai Kami
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Prinsip-prinsip yang kami pegang teguh dalam setiap proyek
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Kualitas", desc: "Kami menjamin kualitas tinggi dalam setiap deliverable" },
-              { title: "Inovasi", desc: "Selalu menggunakan teknologi terkini dan pendekatan modern" },
-              { title: "Kolaborasi", desc: "Bekerja sama erat dengan klien untuk hasil terbaik" },
-            ].map((val) => (
-              <div
-                key={val.title}
-                className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
-              >
-                <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-3">
-                  {val.title}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400">{val.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Search & Filter */}
-      <section className="py-8 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search */}
-          <div className="max-w-2xl mx-auto mb-6">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-              <input
-                type="text"
-                placeholder="Cari anggota tim..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
-              />
-            </div>
-          </div>
-
-          {/* Roles */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {roles.map((role) => (
-              <button
-                key={role}
-                onClick={() => setActiveRole(role)}
-                className={`px-5 py-2 rounded-lg font-medium text-sm transition-all ${
-                  activeRole === role
-                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-md"
-                    : "bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700"
-                }`}
-              >
-                {role}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ValuesSection />
 
       {/* Team */}
-      <section className="py-20 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
-              Tim Ahli Kami
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Profesional berbakat yang siap membantu bisnis Anda
-            </p>
-          </div>
+      <TeamSection />
 
-          {filteredTeam.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-zinc-500 text-lg">Tidak ada anggota tim yang ditemukan.</p>
-              <button
-                onClick={() => { setSearchTerm(""); setActiveRole("Semua"); }}
-                className="mt-4 text-indigo-600 hover:underline"
-              >
-                Reset filter
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredTeam.map((member) => (
-                <div
-                  key={member.id}
-                  className="text-center group cursor-pointer"
-                >
-                  <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                  </div>
-                  <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    {member.role}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+      {/* Stats */}
+      <StatsSection />
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Start Your Journey?
+          </h2>
+          <p className="text-xl mb-10 max-w-2xl mx-auto text-blue-100">
+            Let's discuss how we can help you achieve your goals. Our team of experts is ready to assist you.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors shadow-xl"
+          >
+            Get In Touch
+          </Link>
         </div>
       </section>
     </div>
