@@ -1,340 +1,306 @@
 "use client";
 
 import { useState } from "react";
-import { Star, Users, TrendingUp, CheckCircle, Filter, ArrowRight } from "lucide-react";
+import { Star, Calendar, User, Image, CheckCircle, AlertCircle, Filter, Search, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: string;
   name: string;
   role: string;
   company: string;
-  category: "Customer" | "Partner" | "Employee";
-  rating: number;
   content: string;
+  rating: number;
+  category: "client" | "employee" | "partner" | "user";
+  image: string;
   date: string;
-  avatar: string;
+  project: string;
 }
 
-const categories = [
-  { id: "all", name: "All Testimonials", icon: Users },
-  { id: "customer", name: "Customer", icon: CheckCircle },
-  { id: "partner", name: "Partner", icon: TrendingUp },
-  { id: "employee", name: "Employee", icon: Star },
-];
+const CATEGORIES = [
+  { id: "all", label: "Semua" },
+  { id: "client", label: "Klien" },
+  { id: "employee", label: "Karyawan" },
+  { id: "partner", label: "Mitras" },
+  { id: "user", label: "Pengguna" },
+] as const;
 
-const testimonials: Testimonial[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
     name: "Budi Santoso",
     role: "CTO",
-    company: "TechCorp Indonesia",
-    category: "Customer",
+    company: "Tech Innovate Indonesia",
+    content: "Kerja sama dengan tim XNXNV sangat profesional. Mereka memahami kebutuhan bisnis kami dengan baik dan menghasilkan solusi yang melebihi ekspektasi.",
     rating: 5,
-    content: "Layanan mereka luar biasa! Platform yang mereka kembangkan meningkatkan efisiensi operasional kami hingga 40%. Tim sangat responsif dan professional.",
+    category: "client",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=BS",
     date: "2026-08-15",
-    avatar: "https://ui-avatars.com/api/?name=Budi+Santoso&background=3b82f6&color=fff"
+    project: "Digital Transformation Platform",
   },
   {
     id: "2",
-    name: "Sarah Wijaya",
-    role: "Product Manager",
-    company: "InnovationLab",
-    category: "Partner",
-    rating: 5,
-    content: "Bekerja sama dengan tim ini sangat menyenangkan. Mereka memahami kebutuhan bisnis kami dengan baik dan delivering yang melebihi ekspektasi.",
-    date: "2026-08-10",
-    avatar: "https://ui-avatars.com/api/?name=Sarah+Wijaya&background=10b981&color=fff"
+    name: "Siti Rahayu",
+    role: "Frontend Developer",
+    company: "XNXNV",
+    content: "Bekerja di XNXNV memberikan banyak kesempatan untuk belajar teknologi terkini. Budaya kerjanya supportive dan kolaboratif.",
+    rating: 4,
+    category: "employee",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=SR",
+    date: "2026-07-20",
+    project: "Internal Tools Development",
   },
   {
     id: "3",
-    name: "Ahmad Fauzi",
-    role: "Senior Developer",
-    company: "Our Company",
-    category: "Employee",
+    name: "Agus Wijaya",
+    role: "Product Manager",
+    company: "FinTech Solution",
+    content: "Kualitas kode dan dokumentasi yang diberikan sangat bagus. Tim XNXNV responsif terhadap feedback dan mampu menyelesaikan project tepat waktu.",
     rating: 5,
-    content: "Culture di perusahaan ini sangat mendukung untuk pertumbuhan profesional. Banyak kesempatan belajar teknologi terkini dan work-life balance yang baik.",
-    date: "2026-08-05",
-    avatar: "https://ui-avatars.com/api/?name=Ahmad+Fauzi&background=8b5cf6&color=fff"
+    category: "partner",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=AW",
+    date: "2026-06-10",
+    project: "Mobile Banking Application",
   },
   {
     id: "4",
     name: "Dewi Lestari",
-    role: "Director",
-    company: "Global Solutions",
-    category: "Customer",
+    role: "Freelance Designer",
+    company: "Personal Project",
+    content: "Platform yang dibuat oleh XNXNV sangat user-friendly. Interface-nya modern dan responsif di semua device.",
     rating: 4,
-    content: "Solusi yang mereka berikan sangat tepat sasaran. ROI yang kita dapatkan dalam 6 bulan pertama sudah melebihi investasi awal.",
-    date: "2026-07-28",
-    avatar: "https://ui-avatars.com/api/?name=Dewi+Lestari&background=f59e0b&color=fff"
+    category: "user",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=DL",
+    date: "2026-05-05",
+    project: "Design System Implementation",
   },
   {
     id: "5",
-    name: "Michael Chen",
-    role: "Co-Founder",
-    company: "StartupX",
-    category: "Partner",
+    name: "Eko Prasetyo",
+    role: "Director",
+    company: "Startup X",
+    content: "XNXNV benar-benar menjadi tech partner yang andal. Mereka tidak hanya mengerjakan task, tapi juga memberikan insight teknis yang bernilai.",
     rating: 5,
-    content: "Teknologi yang mereka gunakan sangat canggih dan scalable. Ini adalah partner terbaik untuk ekspansi teknologi kami ke pasar Asia Tenggara.",
-    date: "2026-07-20",
-    avatar: "https://ui-avatars.com/api/?name=Michael+Chen&background=ef4444&color=fff"
+    category: "client",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=EP",
+    date: "2026-04-12",
+    project: "E-commerce Platform",
   },
   {
     id: "6",
-    name: "Putri Amelia",
-    role: "UX Designer",
-    company: "Our Company",
-    category: "Employee",
+    name: "Fajar Nugroho",
+    role: "Backend Engineer",
+    company: "XNXNV",
+    content: "Environment kerja yang supportive dan tantangan teknis yang menarik membuat saya betah bekerja di XNXNV.",
     rating: 5,
-    content: "Team yang supportive dan collaborative. Di sini saya bisa bereksperimen dengan design system baru dan mendapatkan feedback yang konstruktif.",
-    date: "2026-07-15",
-    avatar: "https://ui-avatars.com/api/?name=Putri+Amelia&background=ec4899&color=fff"
+    category: "employee",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=FN",
+    date: "2026-03-22",
+    project: "Microservices Architecture",
   },
   {
     id: "7",
-    name: "Rizky Pratama",
-    role: "Operations Manager",
-    company: "Logistik Maju",
-    category: "Customer",
-    rating: 5,
-    content: "Implementasi sistem tracking mereka menghemat waktu operasional hingga 15 jam per minggu. Sangat merekomendasikan untuk perusahaan logistik.",
-    date: "2026-07-10",
-    avatar: "https://ui-avatars.com/api/?name=Rizky+Pratama&background=6366f1&color=fff"
-  },
-  {
-    id: "8",
-    name: "Lisa Henderson",
-    role: "VP of Sales",
-    company: "Enterprise Corp",
-    category: "Partner",
+    name: "Hana Putri",
+    role: "UX Researcher",
+    company: "Design Agency",
+    content: "Kolaborasi dengan XNXNV dalam project UX research sangat efektif. Mereka menghargai input dari tim desain dan mengimplementasikannya dengan baik.",
     rating: 4,
-    content: "Kemitraan ini telah membuka peluang baru untuk bisnis kami. Komunikasi yang baik dan transparansi dalam setiap development stage.",
-    date: "2026-06-25",
-    avatar: "https://ui-avatars.com/api/?name=Lisa+Henderson&background=14b8a6&color=fff"
+    category: "partner",
+    image: "https://placehold.co/100x100/1e293b/cbd5e1?text=HP",
+    date: "2026-02-18",
+    project: "Fintech App Redesign",
   },
-  {
-    id: "9",
-    name: "Eko Susanto",
-    role: "DevOps Engineer",
-    company: "Our Company",
-    category: "Employee",
-    rating: 5,
-    content: "Teknologi stack yang modern dan challenge yang menantang. Di sini saya bisa mengasah skill DevOps dan cloud computing secara langsung.",
-    date: "2026-06-20",
-    avatar: "https://ui-avatars.com/api/?name=Eko+Susanto&background=0d9488&color=fff"
-  },
-  {
-    id: "10",
-    name: "Nadine Johnson",
-    role: "Marketing Director",
-    company: "BrandName Inc",
-    category: "Customer",
-    rating: 5,
-    content: "Landing page yang mereka buat meningkatkan conversion rate kami sebesar 25% dalam 3 bulan pertama. Design yang menarik dan SEO-friendly.",
-    date: "2026-06-15",
-    avatar: "https://ui-avatars.com/api/?name=Nadine+Johnson&background=84cc16&color=fff"
-  }
 ];
 
 export default function TestimonialsFilterPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [minRating, setMinRating] = useState<number>(0);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const testimonialsPerPage = 6;
 
-  const filteredTestimonials = testimonials.filter((t) => {
-    const categoryMatch = activeCategory === "all" || t.category.toLowerCase() === activeCategory;
-    const ratingMatch = t.rating >= minRating;
-    return categoryMatch && ratingMatch;
+  const filteredTestimonials = TESTIMONIALS.filter((testimonial) => {
+    const matchesCategory = selectedCategory === "all" || testimonial.category === selectedCategory;
+    const matchesSearch = testimonial.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      testimonial.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      testimonial.content.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
-  const getRatingStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? "fill-amber-400 text-amber-400" : "fill-zinc-200 dark:fill-zinc-700 text-zinc-300 dark:text-zinc-600"}`}
-      />
-    ));
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      customer: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
-      partner: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-      employee: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400",
-    };
-    return colors[category as keyof typeof colors] || "bg-zinc-100 text-zinc-700";
-  };
+  const totalPages = Math.ceil(filteredTestimonials.length / testimonialsPerPage);
+  const currentTestimonials = filteredTestimonials.slice(
+    (currentPage - 1) * testimonialsPerPage,
+    currentPage * testimonialsPerPage
+  );
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero */}
-      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      {/* Hero Section */}
+      <div className="border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
             Testimonials
           </h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Dengarkan apa yang mereka katakan tentang pengalaman bekerja sama dengan kami.
+          <p className="text-center text-lg text-slate-400 max-w-2xl mx-auto">
+            Dengarkan pengalaman dan cerita dari klien, karyawan, dan mitra kami
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Stats */}
-      <section className="py-16 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">4.8/5</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Average Rating</div>
+      <div className="container mx-auto px-4 py-12">
+        {/* Filters Section */}
+        <div className="mb-8 space-y-6">
+          {/* Search */}
+          <div className="relative max-w-2xl mx-auto">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Cari testimonials (e.g. klien, company, content)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            />
+          </div>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap gap-3 justify-center">
+            {CATEGORIES.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-lg transition-all ${
+                  selectedCategory === category.id
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
+                    : "bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                }`}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Stats */}
+          <div className="flex items-center justify-center gap-8 text-sm text-slate-400">
+            <div className="flex items-center gap-2">
+              <Filter className="w-4 h-4" />
+              <span>Kategori: <strong className="text-slate-200">{selectedCategory === "all" ? "Semua" : CATEGORIES.find(c => c.id === selectedCategory)?.label}</strong></span>
             </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">{testimonials.length}</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Total Reviews</div>
-            </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">100%</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Satisfaction Rate</div>
-            </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">98%</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Repeat Clients</div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4" />
+              <span>Results: <strong className="text-slate-200">{filteredTestimonials.length}</strong></span>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Filters */}
-      <section className="py-12 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-3 mb-8">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all ${
-                    activeCategory === category.id
-                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
-                      : "bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {category.name}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Rating Filter */}
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800">
-            <div className="flex items-center gap-4">
-              <Filter className="h-5 w-5 text-zinc-400" />
-              <span className="font-medium text-zinc-900 dark:text-white">Minimum Rating:</span>
-              <div className="flex items-center gap-2">
-                {[0, 3, 4, 5].map((rating) => (
-                  <button
-                    key={rating}
-                    onClick={() => setMinRating(rating)}
-                    className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      minRating === rating
-                        ? "bg-indigo-600 text-white"
-                        : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-                    }`}
-                  >
-                    {rating === 0 ? "All" : `${rating}+`}
-                    {rating > 0 && getRatingStars(rating)}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Grid */}
-      <section className="py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
-              {activeCategory === "all" ? "All Testimonials" : `${categories.find(c => c.id === activeCategory)?.name} Testimonials`}
-              {minRating > 0 && ` (Min ${minRating} stars)`}
-            </h2>
-            <div className="text-zinc-500 dark:text-zinc-400 text-sm">
-              Menampilkan {filteredTestimonials.length} dari {testimonials.length} testimonial
-            </div>
-          </div>
-
-          {filteredTestimonials.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredTestimonials.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 border border-zinc-100 dark:border-zinc-800"
-                >
-                  <div className="flex items-center gap-1 mb-4">
-                    {getRatingStars(testimonial.rating)}
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentTestimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all"
+            >
+              <div className="p-6">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
+                    testimonial.category === "client" ? "bg-purple-500/10 text-purple-400" :
+                    testimonial.category === "employee" ? "bg-blue-500/10 text-blue-400" :
+                    testimonial.category === "partner" ? "bg-green-500/10 text-green-400" :
+                    "bg-yellow-500/10 text-yellow-400"
+                  }`}>
+                    <span className="capitalize">{testimonial.category}</span>
                   </div>
-                  <p className="text-zinc-700 dark:text-zinc-300 mb-6 line-clamp-3">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="h-12 w-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-zinc-900 dark:text-white">{testimonial.name}</h4>
-                      <div className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {testimonial.role} at {testimonial.company}
-                      </div>
-                      <span className={`inline-block mt-1 px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(testimonial.category)}`}>
-                        {testimonial.category}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center">
-                    <span className="text-xs text-zinc-400">
-                      {new Date(testimonial.date).toLocaleDateString("id-ID", { year: "numeric", month: "long", day: "numeric" })}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-zinc-400" />
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < testimonial.rating ? "fill-current" : "text-slate-700"}`}
+                      />
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <div className="bg-zinc-100 dark:bg-zinc-900 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-10 w-10 text-zinc-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">Tidak ada testimonial ditemukan</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                Coba ubah filter kategori atau rating
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-indigo-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Beri Kami Rating & Ulasan</h2>
-          <p className="text-indigo-100 text-xl mb-10">
-            Apakah Anda puas dengan layanan kami? Beri tahu dunia tentang pengalaman Anda.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-zinc-100 transition-colors">
-              Write a Review
-            </button>
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-indigo-700 text-white rounded-lg font-semibold hover:bg-indigo-800 transition-colors">
-              View More Reviews
+                {/* Content */}
+                <div className="mb-4">
+                  <p className="text-slate-300 leading-relaxed italic">
+                    "{testimonial.content}"
+                  </p>
+                </div>
+
+                {/* Author Info */}
+                <div className="flex items-center gap-4 pt-4 border-t border-slate-800">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover border-2 border-slate-700"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-slate-200">{testimonial.name}</h4>
+                    <p className="text-sm text-slate-400">{testimonial.role} @ {testimonial.company}</p>
+                    <div className="flex items-center gap-2 text-xs text-slate-500 mt-1">
+                      <Calendar className="w-3 h-3" />
+                      <span>{new Date(testimonial.date).toLocaleDateString("id-ID", { month: "short", year: "numeric" })}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {currentTestimonials.length === 0 && (
+          <div className="text-center py-20">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-900 rounded-full mb-4">
+              <Search className="w-8 h-8 text-slate-600" />
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Tidak ada testimonials ditemukan</h3>
+            <p className="text-slate-400">Coba ubah filter atau kata kunci pencarian Anda</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("all");
+              }}
+              className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+            >
+              Reset Filter
             </button>
           </div>
-        </div>
-      </section>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12">
+            <button
+              className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-400 disabled:opacity-50"
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors ${
+                  currentPage === page
+                    ? "bg-blue-600 text-white"
+                    : "bg-slate-900 text-slate-400 hover:bg-slate-800"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-400 disabled:opacity-50"
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
