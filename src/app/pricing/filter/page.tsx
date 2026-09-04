@@ -1,459 +1,354 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, X, ChevronRight, Star, Zap, Shield, Clock } from "lucide-react";
+import { Star, Calendar, CheckCircle, AlertCircle, Filter, Search, ChevronLeft, ChevronRight, Zap, Shield, Award, TrendingUp } from "lucide-react";
 
 interface PricingPlan {
   id: string;
   name: string;
-  price: number;
-  period: "month" | "year";
-  features: string[];
   description: string;
-  popular: boolean;
+  price: number;
+  period: "monthly" | "yearly" | "custom";
   rating: number;
-  users: number;
-  color: string;
+  features: string[];
+  category: "starter" | "business" | "enterprise" | "custom";
+  popular?: boolean;
 }
 
-const pricingPlans: PricingPlan[] = [
+const CATEGORIES = [
+  { id: "all", label: "Semua" },
+  { id: "starter", label: "Starter" },
+  { id: "business", label: "Business" },
+  { id: "enterprise", label: "Enterprise" },
+  { id: "custom", label: "Custom" },
+] as const;
+
+const PRICING_PLANS: PricingPlan[] = [
   {
     id: "1",
     name: "Starter",
+    description: "Untuk individu dan startup yang baru mulai",
     price: 299000,
-    period: "month",
-    description: "Perfect for individuals and small projects starting out.",
-    features: ["5 Projects", "10GB Storage", "Basic Analytics", "24/7 Support", "1 Team Member"],
-    popular: false,
+    period: "monthly",
     rating: 4.5,
-    users: 1250,
-    color: "blue"
+    category: "starter",
+    features: ["1 Project", "5GB Storage", "Basic Analytics", "Email Support", "Mobile Responsive"],
   },
   {
     id: "2",
-    name: "Professional",
-    price: 799000,
-    period: "month",
-    description: "For growing teams that need more power and flexibility.",
-    features: ["Unlimited Projects", "50GB Storage", "Advanced Analytics", "Priority Support", "5 Team Members", "Custom Domain", "API Access"],
-    popular: true,
+    name: "Business",
+    description: "Untuk bisnis yang sedang berkembang",
+    price: 999000,
+    period: "monthly",
     rating: 4.8,
-    users: 3200,
-    color: "indigo"
+    category: "business",
+    popular: true,
+    features: ["5 Projects", "20GB Storage", "Advanced Analytics", "Priority Support", "API Access", "Custom Domain"],
   },
   {
     id: "3",
     name: "Enterprise",
-    price: 1999000,
-    period: "month",
-    description: "Maximum power and control for large organizations.",
-    features: ["Unlimited Everything", "1TB Storage", "Real-time Analytics", "Dedicated Support", "Unlimited Team Members", "Custom Integrations", "SSO Authentication", "API Priority Access"],
-    popular: false,
+    description: "Untuk perusahaan besar dengan kebutuhan khusus",
+    price: 2999000,
+    period: "monthly",
     rating: 4.9,
-    users: 480,
-    color: "purple"
+    category: "enterprise",
+    features: ["Unlimited Projects", "100GB Storage", "Real-time Analytics", "24/7 Dedicated Support", "API Access", "Custom Domain", "SSO Integration", "SLA Guarantee"],
   },
   {
     id: "4",
-    name: "Basic",
-    price: 149000,
-    period: "month",
-    description: "Entry-level plan for startups and freelancers.",
-    features: ["3 Projects", "5GB Storage", "Basic Analytics", "Email Support", "1 Team Member"],
-    popular: false,
-    rating: 4.2,
-    users: 890,
-    color: "green"
+    name: "Custom",
+    description: "Solusi tailor-made sesuai kebutuhan Anda",
+    price: 0,
+    period: "custom",
+    rating: 5,
+    category: "custom",
+    features: ["Full Customization", "Unlimited Storage", "Custom Analytics", "Dedicated Account Manager", "API Access", "White-label Solution", "Training & Onboarding"],
   },
   {
     id: "5",
-    name: "Premium",
-    price: 1299000,
-    period: "month",
-    description: "Advanced features for scaling businesses.",
-    features: ["Unlimited Projects", "200GB Storage", "Real-time Analytics", "24/7 Priority Support", "20 Team Members", "Custom Domain", "API Access", "Webhooks"],
-    popular: true,
-    rating: 4.7,
-    users: 1560,
-    color: "orange"
+    name: "Freelancer",
+    description: "Untuk freelancer dan konsultan independen",
+    price: 499000,
+    period: "monthly",
+    rating: 4.3,
+    category: "starter",
+    features: ["3 Projects", "10GB Storage", "Basic Analytics", "Priority Support", "Mobile Responsive", "Team Collaboration"],
   },
   {
     id: "6",
-    name: "Ultimate",
-    price: 4999000,
-    period: "month",
-    description: "Complete solution for enterprise-level needs.",
-    features: ["Unlimited Everything", "5TB Storage", "Predictive Analytics", "Dedicated Account Manager", "Unlimited Team Members", "Custom Development", "On-premise Option", "SLA Guarantee"],
-    popular: false,
-    rating: 5,
-    users: 120,
-    color: "red"
+    name: "Agency",
+    description: "Untuk agency yang melayani banyak klien",
+    price: 1999000,
+    period: "monthly",
+    rating: 4.7,
+    category: "business",
+    features: ["Unlimited Projects", "50GB Storage", "Advanced Analytics", "Priority Support", "Client Portal", "White-label Solution", "Multi-user Access"],
   },
   {
     id: "7",
-    name: "Student",
-    price: 0,
-    period: "month",
-    description: "Free plan for verified students and educators.",
-    features: ["2 Projects", "2GB Storage", "Basic Analytics", "Community Support", "1 Team Member"],
-    popular: true,
-    rating: 4.3,
-    users: 5600,
-    color: "teal"
-  }
+    name: "Non-profit",
+    description: "Diskon khusus untuk organisasi nirlaba",
+    price: 149000,
+    period: "monthly",
+    rating: 4.6,
+    category: "custom",
+    features: ["2 Projects", "10GB Storage", "Basic Analytics", "Email Support", "Mobile Responsive", "Educational Resources"],
+  },
 ];
 
+const formatPrice = (price: number, period: string): string => {
+  if (price === 0) return "Hubungi Kami";
+  if (period === "monthly") return `Rp ${price.toLocaleString("id-ID")}/bulan`;
+  if (period === "yearly") return `Rp ${price.toLocaleString("id-ID")}/tahun`;
+  return "Hubungi Kami";
+};
+
 export default function PricingFilterPage() {
-  const [activePeriod, setActivePeriod] = useState<"month" | "year">("month");
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [minRating, setMinRating] = useState<number>(0);
-  const [onlyPopular, setOnlyPopular] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const [currentPage, setCurrentPage] = useState(1);
+  const plansPerPage = 6;
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0
-    }).format(amount);
-  };
-
-  const filteredPlans = pricingPlans.filter((plan) => {
-    const searchMatch = plan.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        plan.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const ratingMatch = plan.rating >= minRating;
-    const popularMatch = !onlyPopular || plan.popular;
-    return searchMatch && ratingMatch && popularMatch;
+  const filteredPlans = PRICING_PLANS.filter((plan) => {
+    const matchesCategory = selectedCategory === "all" || plan.category === selectedCategory;
+    const matchesSearch = plan.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      plan.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
-  const getStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span
-        key={i}
-        className={`text-sm ${
-          i < Math.round(rating) ? "text-amber-400" : "text-zinc-300 dark:text-zinc-600"
-        }`}
-      >
-        ★
-      </span>
-    ));
-  };
-
-  const getPeriodPrice = (price: number, period: "month" | "year") => {
-    if (period === "year") {
-      return Math.round(price * 12 * 0.8); // 20% discount
-    }
-    return price;
-  };
-
-  const getPeriodLabel = (period: "month" | "year") => {
-    return period === "month" ? "per bulan" : "per tahun";
-  };
+  const totalPages = Math.ceil(filteredPlans.length / plansPerPage);
+  const currentPlans = filteredPlans.slice(
+    (currentPage - 1) * plansPerPage,
+    currentPage * plansPerPage
+  );
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero */}
-      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2114&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            Pilih Paket yang Tepat
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      {/* Hero Section */}
+      <div className="border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+            Pricing Plans
           </h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Transparan, fleksibel, dan cocok untuk semua kebutuhan bisnis Anda.
+          <p className="text-center text-lg text-slate-400 max-w-2xl mx-auto">
+            Pilih paket yang sesuai dengan kebutuhan bisnis atau project Anda
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Stats */}
-      <section className="py-16 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">{pricingPlans.length}</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Paket Tersedia</div>
-            </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">
-                {pricingPlans.reduce((acc, p) => acc + p.users, 0).toLocaleString()}
-              </div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Pengguna Aktif</div>
-            </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">
-                {(pricingPlans.reduce((acc, p) => acc + p.rating, 0) / pricingPlans.length).toFixed(1)}
-              </div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Rata-rata Rating</div>
-            </div>
-            <div className="text-center p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">
-                {pricingPlans.filter(p => p.popular).length}
-              </div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400">Paket Populer</div>
-            </div>
+      <div className="container mx-auto px-4 py-12">
+        {/* Billing Toggle */}
+        <div className="flex items-center justify-center mb-8">
+          <div className="bg-slate-900 p-1 rounded-lg inline-flex">
+            <button
+              onClick={() => setBillingPeriod("monthly")}
+              className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+                billingPeriod === "monthly"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              Bulanan
+            </button>
+            <button
+              onClick={() => setBillingPeriod("yearly")}
+              className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+                billingPeriod === "yearly"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              Tahunan
+              <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Hemat 20%</span>
+            </button>
           </div>
         </div>
-      </section>
 
-      {/* Filters */}
-      <section className="py-12 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Period Toggle */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex bg-white dark:bg-zinc-900 p-1 rounded-xl border border-zinc-200 dark:border-zinc-800">
+        {/* Filters Section */}
+        <div className="mb-8 space-y-6">
+          {/* Search */}
+          <div className="relative max-w-2xl mx-auto">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Cari paket (e.g. business, custom, enterprise)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            />
+          </div>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap gap-3 justify-center">
+            {CATEGORIES.map((category) => (
               <button
-                onClick={() => setActivePeriod("month")}
-                className={`px-8 py-3 rounded-lg text-sm font-medium transition-all ${
-                  activePeriod === "month"
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-lg transition-all ${
+                  selectedCategory === category.id
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
+                    : "bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
                 }`}
               >
-                Bulanan
+                {category.label}
               </button>
-              <button
-                onClick={() => setActivePeriod("year")}
-                className={`px-8 py-3 rounded-lg text-sm font-medium transition-all ${
-                  activePeriod === "year"
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"
-                }`}
-              >
-                Tahunan <span className="ml-2 text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">-20%</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Search & Rating Filter */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800">
-              <div className="flex items-center gap-4">
-                <div className="text-zinc-400">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  placeholder="Cari paket..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1 bg-transparent border-none focus:ring-0 text-zinc-900 dark:text-white placeholder-zinc-400"
-                />
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800">
-              <div className="flex items-center gap-4 flex-wrap">
-                <div className="text-zinc-400">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                  </svg>
-                </div>
-                <span className="font-medium text-zinc-900 dark:text-white">Minimal Rating:</span>
-                <div className="flex items-center gap-2">
-                  {[0, 3, 4, 5].map((rating) => (
-                    <button
-                      key={rating}
-                      onClick={() => setMinRating(rating)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                        minRating === rating
-                          ? "bg-indigo-600 text-white"
-                          : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-                      }`}
-                    >
-                      {rating === 0 ? "Semua" : `${rating}+`}
-                    </button>
-                  ))}
-                </div>
-                <div className="flex items-center gap-2 ml-auto">
-                  <input
-                    type="checkbox"
-                    id="popular"
-                    checked={onlyPopular}
-                    onChange={(e) => setOnlyPopular(e.target.checked)}
-                    className="rounded text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label htmlFor="popular" className="text-sm text-zinc-700 dark:text-zinc-300">
-                    Hanya Populer
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Grid */}
-      <section className="py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
-              {onlyPopular ? "Paket Populer" : "Semua Paket"}
-              {minRating > 0 && ` (Min ${minRating}⭐)`}
-            </h2>
-            <div className="text-zinc-500 dark:text-zinc-400 text-sm">
-              Menampilkan {filteredPlans.length} dari {pricingPlans.length} paket
-            </div>
-          </div>
-
-          {filteredPlans.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPlans.map((plan) => {
-                const currentPrice = getPeriodPrice(plan.price, activePeriod);
-                const discount = activePeriod === "year" ? 20 : 0;
-
-                return (
-                  <div
-                    key={plan.id}
-                    className={`relative bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 border ${
-                      plan.popular
-                        ? "border-indigo-600 shadow-lg shadow-indigo-600/20"
-                        : "border-zinc-100 dark:border-zinc-800"
-                    }`}
-                  >
-                    {plan.popular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full">
-                        POPULER
-                      </div>
-                    )}
-                    <div className="mb-6">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">{plan.name}</h3>
-                        <div className="flex items-center gap-1 text-amber-400">
-                          {getStars(plan.rating)}
-                          <span className="text-sm text-zinc-500 dark:text-zinc-400 ml-1">
-                            {plan.rating}
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">
-                        {plan.description}
-                      </p>
-                    </div>
-
-                    <div className="mb-6">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold text-zinc-900 dark:text-white">
-                          {formatCurrency(currentPrice).replace(/\sIDR$/, "")}
-                        </span>
-                        <span className="text-zinc-500 dark:text-zinc-400">
-                          {getPeriodLabel(activePeriod)}
-                        </span>
-                        {discount > 0 && (
-                          <span className="text-green-600 text-sm font-bold ml-2">
-                            Hemat {discount}%
-                          </span>
-                        )}
-                      </div>
-                      {activePeriod === "month" && plan.price > 0 && (
-                        <div className="text-xs text-zinc-400 mt-1">
-                          {formatCurrency(Math.round(plan.price * 12 * 0.8))} / tahun
-                        </div>
-                      )}
-                    </div>
-
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.slice(0, 6).map((feature, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-zinc-700 dark:text-zinc-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800">
-                      <button className={`w-full py-3 rounded-xl font-semibold transition-colors ${
-                        plan.popular
-                          ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                          : "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200"
-                      }`}>
-                        Pilih Paket
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <div className="bg-zinc-100 dark:bg-zinc-900 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="h-10 w-10 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
-                Tidak ada paket ditemukan
-              </h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                Coba ubah filter rating atau kata kunci pencarian
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-zinc-900 dark:text-white mb-12">
-            Pertanyaan yang Sering Diajukan
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                q: "Apakah bisa mengubah paket kapan saja?",
-                a: "Ya, Anda bisa upgrade atau downgrade paket kapan saja. Perubahan akan berlaku di siklus pembayaran berikutnya."
-              },
-              {
-                q: "Bagaimana dengan garansi uang kembali?",
-                a: "Kami memberikan garansi uang kembali 30 hari untuk semua paket berbayar jika Anda tidak puas."
-              },
-              {
-                q: "Apakah ada biaya tersembunyi?",
-                a: "Tidak, harga yang tercantum sudah termasuk semua fitur. Tidak ada biaya tambahan atau biaya tersembunyi."
-              },
-              {
-                q: "Bisa bayar per tahun dengan diskon?",
-                a: "Ya, bayar per tahun Anda mendapatkan diskon 20% dari harga bulanan."
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800"
-              >
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
-                  {item.q}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400">{item.a}</p>
-              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-indigo-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Siap Memulai Perjalanan Digital Anda?
-          </h2>
-          <p className="text-indigo-100 text-xl mb-10">
-            Bergabunglah dengan ribuan pelanggan yang sudah mempercayai kami untuk
-            mengembangkan bisnis mereka.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-zinc-100 transition-colors">
-              Mulai Sekarang
-            </button>
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-indigo-700 text-white rounded-lg font-semibold hover:bg-indigo-800 transition-colors">
-              Hubungi Tim Penjualan
-            </button>
+          {/* Stats */}
+          <div className="flex items-center justify-center gap-8 text-sm text-slate-400">
+            <div className="flex items-center gap-2">
+              <Filter className="w-4 h-4" />
+              <span>Kategori: <strong className="text-slate-200">{selectedCategory === "all" ? "Semua" : CATEGORIES.find(c => c.id === selectedCategory)?.label}</strong></span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4" />
+              <span>Plans: <strong className="text-slate-200">{filteredPlans.length}</strong></span>
+            </div>
           </div>
         </div>
-      </section>
+
+        {/* Pricing Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentPlans.map((plan) => {
+            const CategoryIcon = 
+              plan.category === "starter" ? Zap :
+              plan.category === "business" ? TrendingUp :
+              plan.category === "enterprise" ? Shield :
+              Award;
+
+            const price = billingPeriod === "yearly" && plan.period !== "custom" 
+              ? Math.round(plan.price * 0.8) 
+              : plan.price;
+
+            return (
+              <div
+                key={plan.id}
+                className={`relative bg-slate-900 rounded-xl border overflow-hidden transition-all ${
+                  plan.popular
+                    ? "border-blue-500 shadow-lg shadow-blue-500/20 scale-105 z-10"
+                    : "border-slate-800 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10"
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
+                    RECOMMENDED
+                  </div>
+                )}
+
+                <div className="p-6">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
+                      plan.category === "starter" ? "bg-purple-500/10 text-purple-400" :
+                      plan.category === "business" ? "bg-blue-500/10 text-blue-400" :
+                      plan.category === "enterprise" ? "bg-green-500/10 text-green-400" :
+                      "bg-yellow-500/10 text-yellow-400"
+                    }`}>
+                      <CategoryIcon className="w-3 h-3" />
+                      <span className="capitalize">{plan.category}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-yellow-500">
+                      <Star className="w-4 h-4 fill-current" />
+                      <span className="font-medium">{plan.rating}</span>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
+                  <p className="text-slate-400 text-sm mb-4">{plan.description}</p>
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="text-3xl font-bold text-white">{formatPrice(price, plan.period)}</div>
+                    {plan.period !== "custom" && (
+                      <div className="text-slate-500 text-sm">
+                        {billingPeriod === "monthly" ? "Dibayar bulanan" : "Dibayar tahunan (diskon 20%)"}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.slice(0, 5).map((feature, index) => (
+                      <li key={index} className="flex items-start gap-3 text-sm">
+                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Action */}
+                  <button className={`w-full py-3 rounded-lg font-medium transition-all ${
+                    plan.popular
+                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20"
+                      : "bg-slate-800 hover:bg-slate-700 text-slate-200"
+                  }`}>
+                    {plan.price === 0 ? "Hubungi Kami" : "Pilih Paket"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Empty State */}
+        {currentPlans.length === 0 && (
+          <div className="text-center py-20">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-900 rounded-full mb-4">
+              <Search className="w-8 h-8 text-slate-600" />
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Tidak ada paket ditemukan</h3>
+            <p className="text-slate-400">Coba ubah filter atau kata kunci pencarian Anda</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("all");
+              }}
+              className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+            >
+              Reset Filter
+            </button>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12">
+            <button
+              className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-400 disabled:opacity-50"
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors ${
+                  currentPage === page
+                    ? "bg-blue-600 text-white"
+                    : "bg-slate-900 text-slate-400 hover:bg-slate-800"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-400 disabled:opacity-50"
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
