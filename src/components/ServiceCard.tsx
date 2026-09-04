@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Zap, Shield, TrendingUp, Users, Mail, Phone, Clock, Globe, Cpu, Layout, Service } from "lucide-react";
+import { ChevronRight, Zap, Shield, TrendingUp, Users, Mail, Phone, Clock, Globe, Cpu, Layout } from "lucide-react";
 import Link from "next/link";
 
 export default function ServiceCard({ 
