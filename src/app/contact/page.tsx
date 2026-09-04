@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2, Globe, Clock } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -60,6 +60,37 @@ export default function Contact() {
     }, 5000);
   };
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      details: ["info@xvnpnx.id", "support@xvnpnx.id"],
+      color: "bg-indigo-100 dark:bg-indigo-900/30",
+      iconColor: "text-indigo-600 dark:text-indigo-400",
+    },
+    {
+      icon: Phone,
+      title: "Telepon / WhatsApp",
+      details: ["+62 812-3456-7890"],
+      color: "bg-green-100 dark:bg-green-900/30",
+      iconColor: "text-green-600 dark:text-green-400",
+    },
+    {
+      icon: MapPin,
+      title: "Alamat Kantor",
+      details: ["Jl. Tech Park No. 123", "Jakarta Selatan", "Jakarta 12345"],
+      color: "bg-orange-100 dark:bg-orange-900/30",
+      iconColor: "text-orange-600 dark:text-orange-400",
+    },
+    {
+      icon: Globe,
+      title: "Media Sosial",
+      details: ["Instagram: @xvnpnx", "LinkedIn: /company/xvnpnx", "Twitter: @xvnpnx"],
+      color: "bg-pink-100 dark:bg-pink-900/30",
+      iconColor: "text-pink-600 dark:text-pink-400",
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-full">
       {/* Hero */}
@@ -87,79 +118,67 @@ export default function Contact() {
               Kami siap membantu bisnis Anda tumbuh!
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                  <Mail className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+            <div className="space-y-6">
+              {contactInfo.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-4 p-4 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
+                  <div className={`p-3 ${item.color} rounded-lg`}>
+                    <item.icon className={`h-6 w-6 ${item.iconColor}`} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                      {item.title}
+                    </h3>
+                    {item.details.map((detail, dIdx) => (
+                      <p key={dIdx} className="text-zinc-600 dark:text-zinc-400 text-sm">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">
-                    Email
-                  </h3>
-                  <a
-                    href="mailto:info@xvnpnx.id"
-                    className="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400"
-                  >
-                    info@xvnpnx.id
-                  </a>
-                  <p className="text-sm text-zinc-500 mt-1">support@xvnpnx.id</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                  <Phone className="h-6 w-6 text-green-600 dark:text-green-400" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">
-                    Telepon
-                  </h3>
-                  <a
-                    href="tel:+6281234567890"
-                    className="text-zinc-600 dark:text-zinc-400 hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    +62 812-3456-7890
-                  </a>
-                  <p className="text-sm text-zinc-500 mt-1">WhatsApp tersedia</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
-                  <MapPin className="h-6 w-6 text-orange-600 dark:text-orange-400" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">
-                    Alamat
-                  </h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    Jl. Tech Park No. 123<br />
-                    Jakarta Selatan<br />
-                    Jakarta 12345
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Office Hours */}
             <div className="mt-12 p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
-                Jam Operasional
-              </h3>
-              <div className="space-y-2 text-zinc-600 dark:text-zinc-400">
-                <div className="flex justify-between">
+              <div className="flex items-center gap-3 mb-6">
+                <Clock className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                  Jam Operasional
+                </h3>
+              </div>
+              <div className="space-y-3 text-zinc-600 dark:text-zinc-400">
+                <div className="flex justify-between items-center p-3 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 rounded-lg transition-colors">
                   <span>Senin - Jumat</span>
                   <span className="font-medium">09:00 - 18:00 WIB</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center p-3 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 rounded-lg transition-colors">
                   <span>Sabtu</span>
                   <span className="font-medium">10:00 - 16:00 WIB</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center p-3 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 rounded-lg transition-colors">
                   <span>Minggu & Hari Libur</span>
                   <span className="font-medium">Tutup</span>
                 </div>
               </div>
+            </div>
+
+            {/* Map Placeholder */}
+            <div className="mt-12 relative h-64 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <MapPin className="h-16 w-16 text-zinc-400 mx-auto mb-4 opacity-50" />
+                  <p className="text-zinc-500">Lokasi Peta Interaktif</p>
+                  <p className="text-sm text-zinc-400 mt-2">Jl. Tech Park No. 123, Jakarta</p>
+                </div>
+              </div>
+              <a
+                href="https://maps.google.com/?q=Jl.+Tech+Park+No.+123,+Jakarta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-white dark:bg-zinc-700 px-4 py-2 rounded-lg text-sm font-medium shadow-lg hover:bg-zinc-50 dark:hover:bg-zinc-600 transition-colors"
+              >
+                Buka di Google Maps
+              </a>
             </div>
           </div>
 
