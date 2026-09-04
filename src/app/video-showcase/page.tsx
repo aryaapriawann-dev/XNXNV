@@ -1,162 +1,268 @@
 "use client";
 
 import { useState } from "react";
-import { Play, Pause, Maximize2, Volume2, Share2, ThumbsUp, MessageCircle } from "lucide-react";
+import { Play, Pause, Maximize2, Volume2, Share2, ThumbsUp, MessageCircle, Download, Calendar, User, Clock, Filter, Search, ChevronLeft, ChevronRight, ArrowRight, Heart, Zap } from "lucide-react";
 
 interface Video {
   id: string;
   title: string;
-  description: string;
   thumbnail: string;
   duration: string;
-  views: string;
-  category: "Showcase" | "Tutorial" | "Testimonial" | "Event";
-  youtubeId: string;
-  tags: string[];
+  views: number;
+  likes: number;
+  comments: number;
+  category: string;
+  date: string;
+  author: string;
+  description: string;
 }
-
-const categories = ["Semua", "Showcase", "Tutorial", "Testimonial", "Event"];
 
 const videos: Video[] = [
   {
     id: "1",
-    title: "Company Overview 2024",
-    description: "Pengenalan perusahaan, visi misi, dan pencapaian tahun 2024.",
-    thumbnail: "https://images.unsplash.com/photo-1536244071176-366085397887?q=80&w=2070&auto=format&fit=crop",
-    duration: "3:45",
-    views: "1.2K",
-    category: "Showcase",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["Company", "Overview", "2024"],
+    title: "Strategi Digital Transformation untuk UMKM",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+    duration: "12:34",
+    views: 15420,
+    likes: 892,
+    comments: 124,
+    category: "Digital Strategy",
+    date: "4 September 2026",
+    author: "Budi Santoso",
+    description: "Panduan lengkap mengadopsi teknologi digital untuk pertumbuhan bisnis yang berkelanjutan."
   },
   {
     id: "2",
-    title: "Web Development Tutorial",
-    description: "Belajar dasar-dasar pengembangan web dengan Next.js dan React.",
-    thumbnail: "https://images.unsplash.com/photo-1579313401485-712215955e0f?q=80&w=2070&auto=format&fit=crop",
-    duration: "15:30",
-    views: "856",
-    category: "Tutorial",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["Next.js", "React", "Tutorial"],
+    title: "10 Tools Gratis untuk Manajemen Project",
+    thumbnail: "https://images.unsplash.com/photo-1552664730-d38731ea4242?w=800&h=450&fit=crop",
+    duration: "08:15",
+    views: 12340,
+    likes: 678,
+    comments: 89,
+    category: "Productivity",
+    date: "2 September 2026",
+    author: "Siti Aminah",
+    description: "Rekomendasi tools manajemen project yang bisa digunakan tanpa biaya."
   },
   {
     id: "3",
-    title: "Client Testimonial",
-    description: "Ulasan dari klien kami tentang kerjasama proyek yang berhasil.",
-    thumbnail: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop",
-    duration: "2:15",
-    views: "2.4K",
-    category: "Testimonial",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["Client", "Testimonial", "Success"],
+    title: "Teknik Copywriting yang Membujuk",
+    thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=450&fit=crop",
+    duration: "10:22",
+    views: 18760,
+    likes: 1245,
+    comments: 156,
+    category: "Content Marketing",
+    date: "30 Agustus 2026",
+    author: "Andi Wijaya",
+    description: "Teknik copywriting untuk konten digital yang efektif dan menghasilkan konversi."
   },
   {
     id: "4",
-    title: "Project Launch Event",
-    description: "Rekaman acara peluncuran proyek besar tahun ini.",
-    thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2070&auto=format&fit=crop",
-    duration: "8:20",
-    views: "1.8K",
-    category: "Event",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["Event", "Launch", "Conference"],
+    title: "Social Media Strategy untuk Bisnis",
+    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop",
+    duration: "15:48",
+    views: 22100,
+    likes: 1567,
+    comments: 234,
+    category: "Social Media",
+    date: "25 Agustus 2026",
+    author: "Rina Wulandari",
+    description: "Panduan menyusun strategi social media yang efektif untuk bisnis lokal."
   },
   {
     id: "5",
-    title: "Mobile App Demo",
-    description: "Demonstrasi fitur-fitur utama aplikasi mobile kami.",
-    thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
-    duration: "4:50",
-    views: "950",
-    category: "Showcase",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["Mobile", "App", "Demo"],
+    title: "Digital Marketing Funnel Explained",
+    thumbnail: "https://images.unsplash.com/photo-1553487159-063f1e61ca27?w=800&h=450&fit=crop",
+    duration: "18:30",
+    views: 19800,
+    likes: 1345,
+    comments: 189,
+    category: "Digital Marketing",
+    date: "20 Agustus 2026",
+    author: "Budi Santoso",
+    description: "Membangun funnel pemasaran digital dari awareness hingga conversion."
   },
   {
     id: "6",
-    title: "UI/UX Design Process",
-    description: "Proses desain dari konsep hingga final product.",
-    thumbnail: "https://images.unsplash.com/photo-1555421689-49084642ca33?q=80&w=2070&auto=format&fit=crop",
-    duration: "12:00",
-    views: "1.1K",
-    category: "Tutorial",
-    youtubeId: "dQw4w9WgXcQ",
-    tags: ["UI/UX", "Design", "Process"],
+    title: "Podcast Digital untuk Branding",
+    thumbnail: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800&h=450&fit=crop",
+    duration: "06:45",
+    views: 8900,
+    likes: 567,
+    comments: 78,
+    category: "Media Strategy",
+    date: "15 Agustus 2026",
+    author: "Dewi Lestari",
+    description: "Mengapa podcast menjadi media yang efektif untuk branding bisnis."
   },
+  {
+    id: "7",
+    title: "Website Marketing Landing Page",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+    duration: "09:12",
+    views: 14200,
+    likes: 923,
+    comments: 112,
+    category: "Web Design",
+    date: "10 Agustus 2026",
+    author: "Eko Pratama",
+    description: "Template landing page yang terbukti meningkatkan konversi untuk UMKM."
+  }
 ];
 
-export default function VideoShowcasePage() {
-  const [selectedCategory, setSelectedCategory] = useState("Semua");
-  const [activeVideo, setActiveVideo] = useState<Video | null>(null);
+const VideoShowcase = () => {
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(videos[0]);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(80);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
-  const filteredVideos = selectedCategory === "Semua"
-    ? videos
-    : videos.filter(v => v.category === selectedCategory);
+  const categories = ["All", "Digital Strategy", "Productivity", "Content Marketing", "Social Media", "Digital Marketing", "Media Strategy", "Web Design"];
 
-  const handlePlay = (video: Video) => {
-    setActiveVideo(video);
-    setIsPlaying(true);
+  const filteredVideos = videos.filter((video) => {
+    const matchesCategory = activeCategory === "All" || video.category === activeCategory;
+    const matchesSearch = video.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const handlePlayPause = () => setIsPlaying(!isPlaying);
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => setVolume(Number(e.target.value));
+  const handleTimeUpdate = (e: React.ChangeEvent<HTMLInputElement>) => setCurrentTime(Number(e.target.value));
+  const handleDurationChange = (e: React.ChangeEvent<HTMLInputElement>) => setDuration(Number(e.target.value));
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
-  const handleClose = () => {
-    setIsPlaying(false);
-    setTimeout(() => setActiveVideo(null), 300);
+  const formatViews = (views: number) => {
+    if (views >= 1000000) return `${(views / 1000000).toFixed(1)}jt`;
+    if (views >= 1000) return `${(views / 1000).toFixed(1)}rb}`;
+    return views.toString();
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero */}
-      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1536244071176-366085397887?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            Video Showcase
-          </h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Tonton proyek, tutorial, dan cerita di balik layar pekerjaan kami.
-          </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 bg-white dark:bg-zinc-950">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      {/* Navbar */}
+      <nav className="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold text-indigo-600 mb-2">{videos.length}</div>
-              <div className="text-zinc-600 dark:text-zinc-400 font-medium">Video</div>
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2 text-zinc-900 dark:text-white">
+              <Zap className="h-6 w-6 text-amber-500" />
+              <span className="font-bold text-xl">Video Showcase</span>
             </div>
-            <div>
-              <div className="text-5xl font-bold text-indigo-600 mb-2">15K+</div>
-              <div className="text-zinc-600 dark:text-zinc-400 font-medium">Total Views</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-indigo-600 mb-2">5+</div>
-              <div className="text-zinc-600 dark:text-zinc-400 font-medium">Kategori</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-indigo-600 mb-2">4.9</div>
-              <div className="text-zinc-600 dark:text-zinc-400 font-medium">Avg Rating</div>
+            <div className="flex items-center gap-4">
+              <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                <Share2 className="h-4 w-4" />
+                <span>Bagikan</span>
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </nav>
 
-      {/* Filter */}
-      <section className="py-16 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
+        {selectedVideo && (
+          <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 mb-8">
+            <div className="relative aspect-video">
+              <img
+                src={selectedVideo.thumbnail}
+                alt={selectedVideo.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button
+                  onClick={handlePlayPause}
+                  className="w-20 h-20 bg-indigo-600/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition-all transform hover:scale-110"
+                >
+                  {isPlaying ? (
+                    <Pause className="h-8 w-8 ml-1" />
+                  ) : (
+                    <Play className="h-8 w-8 ml-1" />
+                  )}
+                </button>
+              </div>
+              <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded text-sm">
+                {selectedVideo.duration}
+              </div>
+              <div className="absolute top-4 left-4">
+                <button className="px-4 py-2 bg-black/50 text-white rounded-lg hover:bg-black/70 transition-colors">
+                  {selectedVideo.category}
+                </button>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <h1 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
+                {selectedVideo.title}
+              </h1>
+              <div className="flex flex-wrap items-center justify-between mb-6">
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+                    <User className="h-4 w-4" />
+                    <span>{selectedVideo.author}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+                    <Calendar className="h-4 w-4" />
+                    <span>{selectedVideo.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+                    <Play className="h-4 w-4" />
+                    <span>{formatViews(selectedVideo.views)} views</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
+                    <ThumbsUp className="h-4 w-4" />
+                    <span>{selectedVideo.likes}</span>
+                  </button>
+                  <button className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
+                    <MessageCircle className="h-4 w-4" />
+                    <span>{selectedVideo.comments}</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
+                  <Zap className="h-6 w-6 text-indigo-600" />
+                </div>
+                <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  {selectedVideo.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Controls */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
+              <input
+                type="text"
+                placeholder="Cari video..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-indigo-600 outline-none transition-all w-64"
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  activeCategory === category
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700"
                 }`}
               >
                 {category}
@@ -164,108 +270,81 @@ export default function VideoShowcasePage() {
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Videos Grid */}
-      <section className="py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-              Menampilkan {filteredVideos.length} video dari kategori "{selectedCategory}"
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredVideos.map((video) => (
-              <div
-                key={video.id}
-                className="group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                onClick={() => handlePlay(video)}
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-black/80 text-zinc-900 dark:text-white backdrop-blur-sm">
-                      {video.category}
-                    </span>
+        {/* Video Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredVideos.map((video) => (
+            <div
+              key={video.id}
+              className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:shadow-lg transition-shadow group"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                  {video.duration}
+                </div>
+                <button
+                  onClick={() => setSelectedVideo(video)}
+                  className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-indigo-600">
+                    <Play className="h-6 w-6 ml-1" />
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-16 w-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-8 w-8 text-white ml-1" />
+                </button>
+              </div>
+              <div className="p-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded">
+                        {video.category}
+                      </span>
+                      <span className="text-xs text-zinc-500 dark:text-zinc-400">{video.date}</span>
                     </div>
-                  </div>
-                  <div className="absolute bottom-4 right-4">
-                    <span className="px-2 py-1 rounded bg-black/70 text-white text-xs font-medium">
-                      {video.duration}
-                    </span>
+                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-white line-clamp-2 mb-2 hover:text-indigo-600 cursor-pointer">
+                      {video.title}
+                    </h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">{video.author}</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {video.title}
-                  </h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 line-clamp-2">
-                    {video.description}
-                  </p>
-                  <div className="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
-                    <span>{video.views} views</span>
-                    <div className="flex gap-2">
-                      <ThumbsUp className="h-4 w-4" />
-                      <Share2 className="h-4 w-4" />
-                    </div>
+                <div className="flex items-center gap-4 mt-3 text-xs text-zinc-500 dark:text-zinc-400">
+                  <div className="flex items-center gap-1">
+                    <Play className="h-3 w-3" />
+                    <span>{formatViews(video.views)}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <ThumbsUp className="h-3 w-3" />
+                    <span>{video.likes}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <MessageCircle className="h-3 w-3" />
+                    <span>{video.comments}</span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Video Modal */}
-      {activeVideo && isPlaying && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4">
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
-          >
-            <div className="relative h-6 w-6">
-              <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white transform -rotate-45" />
-              <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white transform rotate-45" />
             </div>
-          </button>
-          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
-            <iframe
-              src={`https://www.youtube.com/embed/${activeVideo.youtubeId}?autoplay=1`}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          ))}
         </div>
-      )}
 
-      {/* CTA */}
-      <section className="py-24 bg-indigo-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ingin Melihat Lebih Banyak?</h2>
-          <p className="text-indigo-100 text-xl mb-10">
-            Kunjungi channel YouTube kami untuk tutorial, tips, dan updates terbaru.
-          </p>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-zinc-100 transition-colors"
-          >
-            Subscribe Channel Kami
-          </a>
+        {/* Pagination */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          <button className="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50">
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg">1</button>
+          <button className="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">2</button>
+          <button className="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">3</button>
+          <button className="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
-      </section>
+      </div>
     </div>
   );
-}
+};
+
+export default VideoShowcase;
