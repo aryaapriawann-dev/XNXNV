@@ -2,44 +2,55 @@
 
 import { ReactNode, useState } from "react";
 
-interface Tab {
+interface TabItem {
   id: string;
   label: string;
-  content: ReactNode;
+  icon?: React.ElementType;
 }
 
 interface TabsProps {
-  tabs: Tab[];
-  defaultTab?: string;
+  items: TabItem[];
+  defaultActiveId?: string;
   className?: string;
+  contentRenderer: (activeId: string) => ReactNode;
 }
 
-export default function Tabs({ tabs, defaultTab, className = "" }: TabsProps) {
-  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
-
-  const activeContent = tabs.find((tab) => tab.id === activeTab)?.content;
+export default function Tabs({
+  items,
+  defaultActiveId,
+  className = "",
+  contentRenderer,
+}: TabsProps) {
+  const [activeId, setActiveId] = useState<string>(
+    defaultActiveId || items[0]?.id || ""
+  );
 
   return (
-    <div className={className}>
-      <div className="border-b border-zinc-200 dark:border-zinc-800">
-        <nav className="flex gap-4" aria-label="Tabs">
-          {tabs.map((tab) => (
+    <div className={`flex flex-col ${className}`}>
+      <div className="flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1 overflow-x-auto">
+        {items.map((item) => {
+          const isActive = activeId === item.id;
+          const Icon = item.icon;
+
+          return (
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 font-medium border-b-2 transition-colors ${
-                activeTab === tab.id
-                  ? "border-indigo-600 text-indigo-600 dark:text-indigo-400"
-                  : "border-transparent text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50"
+              key={item.id}
+              onClick={() => setActiveId(item.id)}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                isActive
+                  ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                  : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-50 dark:hover:bg-zinc-800"
               }`}
-              aria-current={activeTab === tab.id ? "page" : undefined}
             >
-              {tab.label}
+              {Icon && <Icon className="h-4 w-4" />}
+              {item.label}
             </button>
-          ))}
-        </nav>
+          );
+        })}
       </div>
-      <div className="mt-6">{activeContent}</div>
+      <div className="mt-4 min-h-[200px]">
+        {contentRenderer(activeId)}
+      </div>
     </div>
   );
 }
