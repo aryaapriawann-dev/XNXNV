@@ -3,32 +3,37 @@
 import { ChevronRight, Zap, Shield, TrendingUp, Users, Mail, Phone, Clock, Globe, Cpu, Layout } from "lucide-react";
 import Link from "next/link";
 
-export default function ServiceCard({ 
-  icon, 
-  title, 
-  description, 
-  href 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  description: string; 
-  href: string; 
-}) {
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  href: string;
+}
+
+export function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
   return (
-    <Link href={href} className="group block">
-      <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 dark:border-slate-700 h-full">
-        <div className="mb-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+    <Link
+      href={href}
+      className="group relative p-8 bg-white dark:bg-slate-800 rounded-2xl border border-zinc-100 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+      
+      <div className="relative z-10">
+        <div className="w-16 h-16 mb-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
-        <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+        
+        <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+        
+        <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
           {description}
         </p>
-        <div className="flex items-center text-blue-600 font-medium group-hover:gap-2 transition-all">
-          Learn More
-          <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+        
+        <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium">
+          <span>Learn more</span>
+          <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
         </div>
       </div>
     </Link>
@@ -103,14 +108,14 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900">
+    <section id="services" className="py-20 bg-zinc-50 dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
             Our Services
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Comprehensive digital solutions designed to help your business thrive in the modern world
+          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+            We offer a comprehensive range of digital services to help your business grow and succeed in the modern world.
           </p>
         </div>
 
@@ -125,20 +130,9 @@ export function ServicesSection() {
             />
           ))}
         </div>
-
-        <div className="mt-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">Need a Custom Solution?</h2>
-          <p className="text-xl mb-12 max-w-2xl mx-auto">
-            We offer tailored solutions to meet your specific business needs. Let's discuss your project today.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors shadow-lg"
-          >
-            Get a Free Consultation
-          </Link>
-        </div>
       </div>
     </section>
   );
 }
+
+export default ServiceCard;
