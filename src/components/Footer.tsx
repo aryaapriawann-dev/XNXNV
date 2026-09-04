@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, Phone, MapPin, Clock, Menu, X, Share2 } from "lucide-react";
 import { useState } from "react";
