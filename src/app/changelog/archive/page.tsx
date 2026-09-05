@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, Tag, CheckCircle, Zap, Shield, Search, Filter, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Clock, Zap, Search, Sparkles } from "lucide-react";
 
 interface ReleaseItem {
   id: string;
