@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import CookieConsent from "@/components/CookieConsent";
 import ToastContainer from "@/components/Toast";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -56,6 +57,7 @@ export default function RootLayout({
         <PageTransition />
         <CookieConsent />
         <ToastContainer />
+        <BackToTop />
       </body>
     </html>
   );
