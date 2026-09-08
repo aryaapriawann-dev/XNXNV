@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, Building2, ChevronRight, Check, Users, Award } from "lucide-react";
+import { Search, ChevronRight, Check, Star, Zap, Users, Award } from "lucide-react";
 
 const PAKET = [
   { id: "1", nama: "Enterprise Starter", harga: "Rp15jt/thn", pengguna: "s/d 50 pengguna", fitur: ["Semua fitur Professional", "SSO & audit log", "SLA 99,9%"], icon: Users },

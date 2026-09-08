@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Clock, ChevronRight, Download, BookOpen, Code, Server } from "lucide-react";
+import { Clock, ChevronRight, Download, BookOpen, Server } from "lucide-react";
 
 const DATA = [
   { id: "1", nama: "Split Tunneling v2", desc: "Atur aplikasi per-jaringan secara selektif.", kategori: "Q1", meta: "Beta Jan" },

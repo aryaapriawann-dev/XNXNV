@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, GraduationCap, ChevronRight, Check, Star, Zap } from "lucide-react";
+import { Search, ChevronRight, Check, Star, Zap, GraduationCap } from "lucide-react";
 
 const DATA = [
   { id: "1", nama: "Pelajar 1 Bulan", desc: "Rp15rb — verifikasi NISN.", kategori: "bulanan", meta: "-50%", populer: false },
