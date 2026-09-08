@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Counter from "@/components/Counter";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
@@ -32,6 +33,15 @@ export default function Home() {
       <Services />
       <Counter />
       <TestimonialsSection />
+      <section className="py-20 bg-zinc-50 dark:bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">Pertanyaan Umum</h2>
+            <p className="mt-3 text-zinc-600 dark:text-zinc-400">Jawaban cepat sebelum hubungi kami.</p>
+          </div>
+          <FAQSection />
+        </div>
+      </section>
       <Contact />
     </div>
   );
