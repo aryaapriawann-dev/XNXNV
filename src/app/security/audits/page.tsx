@@ -8,7 +8,7 @@ const DATA = [
   { id: "2", nama: "Pemeriksaan Kebijakan No-Logs", desc: "Audit forensik menyeluruh oleh PwC terhadap server memory-only.", kategori: "no-logs", meta: "Verified" },
   { id: "3", nama: "Penetration Testing Client App", desc: "Pengujian kerentanan berkala pada aplikasi Windows, macOS, iOS, Android.", kategori: "pentest", meta: "Zero Critical" },
   { id: "4", nama: "Sertifikasi Kriptografi AES-256", desc: "Validasi implementasi enkripsi standar militer dan ChaCha20-Poly1305.", kategori: "crypto", meta: "Certified" },
-  { id: "5", nama: "SOC 2 Type II Compliance Audit", desc: "Kepatuhan tata kelola keamanan data privasi standar internasional.", kategori: "compliance", meta: "SOC 2 Type II" }
+  { id: "5", nama: "SOC 2 Type II Compliance Audit", desc: "Kepatuhan tata kelola keamanan data privasi standar internasional.", kategori: "compliance", meta: "SOC 2 Type II" },
 ];
 
 export default function Page() {
