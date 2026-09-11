@@ -1,41 +1,116 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, MailOpen, ChevronRight } from "lucide-react";
-const ARSIP = [
-  { id: "1", edisi: "Edisi #48 — AI untuk UMKM", tanggal: "4 Okt 2026", topik: "ai", ringkasan: "5 cara praktis memakai AI tanpa tim teknis." },
-  { id: "2", edisi: "Edisi #47 — Checklist SEO", tanggal: "27 Sep 2026", topik: "seo", ringkasan: "27 poin audit SEO yang bisa dikerjakan sendiri." },
-  { id: "3", edisi: "Edisi #46 — Pricing SaaS", tanggal: "20 Sep 2026", topik: "bisnis", ringkasan: "Menemukan harga yang pelanggan mau bayar." },
-  { id: "4", edisi: "Edisi #45 — Design System", tanggal: "13 Sep 2026", topik: "desain", ringkasan: "Mulai kecil, konsisten, lalu skala." },
-  { id: "5", edisi: "Edisi #44 — Keamanan Web", tanggal: "6 Sep 2026", topik: "teknis", ringkasan: "7 serangan umum dan cara menutupnya." },
-  { id: "6", edisi: "Edisi #43 — Remote Work", tanggal: "30 Agu 2026", topik: "bisnis", ringkasan: "Ritual tim terdistribusi yang benar-benar jalan." },
+import { Search, Mail, ChevronRight, Clock } from "lucide-react";
+
+const ISSUES = [
+  { id: "1", subject: "Panduan Keamanan Siber untuk UMKM", excerpt: "Tips praktis melindungi bisnis Anda dari ancaman siber yang umum di tahun 2025.", tag: "edisi khusus", reads: 1420, date: "Oktober 2025", rating: 4.7 },
+  { id: "2", subject: "Pembaruan Penelusuran Cepat", excerpt: "Cara baru mempercepat proses penelitian pasar dengan alat otomatis yang kami kembangkan.", tag: "update produk", reads: 980, date: "September 2025", rating: 4.5 },
+  { id: "3", subject: "Analisis Tren Digital Asia Tenggara", excerpt: "Apa yang terjadi di ruang digital regional dan implikasinya bagi strategi bisnis Anda.", tag: "laporan", reads: 2100, date: "Agustus 2025", rating: 4.9 },
+  { id: "4", subject: "Tips Membangun Tim Remote Efektif", excerpt: "Strategi nyata yang kami terapkan dalam mengelola tim lintas wilayah tanpa mengurangi kualitas.", tag: "karyawan", reads: 730, date: "Juli 2025", rating: 4.3 },
+  { id: "5", subject: "Ringkasan Konferensi Keamanan siber Nasional", excerpt: "Temuan utama dan wawasan dari para pembicara di acara keamanan siber tingkat nasional kemarin.", tag: "peristiwa", reads: 1150, date: "Juni 2025", rating: 4.6 },
 ];
-const CATS = [{ id: "all", label: "Semua" }, { id: "ai", label: "AI" }, { id: "seo", label: "SEO" }, { id: "bisnis", label: "Bisnis" }, { id: "desain", label: "Desain" }, { id: "teknis", label: "Teknis" }] as const;
+
 export default function ArchivePage() {
-  const [q, setQ] = useState(""); const [cat, setCat] = useState<string>("all");
-  const f = useMemo(() => ARSIP.filter((a) => (cat === "all" || a.topik === cat) && (a.edisi + a.ringkasan).toLowerCase().includes(q.toLowerCase())), [q, cat]);
+  const [q, setQ] = useState("");
+  const [tagFilter, setTagFilter] = useState("semua");
+
+  const filtered = useMemo(() => {
+    const query = q.toLowerCase();
+    return ISSUES.filter((issue) => {
+      const matchTag = tagFilter === "semua" || issue.tag === tagFilter;
+      const matchSearch = issue.subject.toLowerCase().includes(query) || issue.excerpt.toLowerCase().includes(query);
+      return matchTag && matchSearch;
+    });
+  }, [q, tagFilter]);
+
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="py-20 bg-zinc-900 text-white text-center"><div className="max-w-4xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Newsletter</p>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Arsip Newsletter</h1>
-        <p className="text-lg text-zinc-300">Baca ulang semua edisi yang pernah terbit.</p></div></section>
-      <section className="py-12 bg-white dark:bg-slate-950"><div className="max-w-4xl mx-auto px-4">
-        <div className="relative mb-6"><Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari edisi..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-zinc-900 dark:text-white" /></div>
-        <div className="flex flex-wrap gap-2 mb-8">{CATS.map((c) => (
-          <button key={c.id} onClick={() => setCat(c.id)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${cat === c.id ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900" : "bg-zinc-100 text-zinc-700 dark:bg-slate-800 dark:text-zinc-300"}`}>{c.label}</button>))}</div>
-        <ul className="space-y-4">{f.map((a) => (
-          <li key={a.id} className="flex items-start gap-4 p-5 rounded-2xl border border-zinc-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <MailOpen className="h-6 w-6 text-zinc-900 dark:text-white shrink-0 mt-1" />
-            <div><h2 className="text-lg font-bold text-zinc-900 dark:text-white">{a.edisi}</h2>
-              <p className="text-sm text-zinc-500 mb-1">{a.tanggal}</p>
-              <p className="text-zinc-600 dark:text-zinc-400">{a.ringkasan}</p></div>
-          </li>))}</ul>
-        {f.length === 0 && <p className="text-center text-zinc-500 py-12">Tidak ada edisi yang cocok.</p>}
-        <div className="flex justify-center mt-12"><Link href="/newsletter/signup" className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-700 transition-colors">Berlangganan <ChevronRight className="h-5 w-5" /></Link></div>
-      </div></section>
+      <section className="py-20 bg-zinc-900 text-white text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Newsletter</p>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Arsip Newsletter</h1>
+          <p className="text-lg text-zinc-300">Kumpulan newsletter yang pernah kami kirimkan.</p>
+        </div>
+      </section>
+
+      <section className="py-12 bg-white dark:bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="relative mb-6">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Cari newsletter..."
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-zinc-900 dark:text-white"
+            />
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            <button
+              onClick={() => setTagFilter("semua")}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                tagFilter === "semua"
+                  ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+                  : "bg-zinc-100 text-zinc-700 dark:bg-slate-800 dark:text-zinc-300"
+              }`}
+            >
+              Semua
+            </button>
+            {["edisi khusus", "update produk", "laporan", "karyawan", "peristiwa"].map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setTagFilter(tag)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  tagFilter === tag
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+                    : "bg-zinc-100 text-zinc-700 dark:bg-slate-800 dark:text-zinc-300"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            {filtered.map((issue) => (
+              <article
+                key={issue.id}
+                className="flex gap-4 p-5 rounded-2xl border border-zinc-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+              >
+                <Mail className="w-5 h-5 text-zinc-500 shrink-0 mt-1" />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <h3 className="font-semibold text-zinc-900 dark:text-white">{issue.subject}</h3>
+                    <span className="text-xs px-2 py-1 rounded-full bg-zinc-100 dark:bg-slate-800 text-zinc-600 dark:text-zinc-300">
+                      {issue.tag}
+                    </span>
+                  </div>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">{issue.excerpt}</p>
+                  <div className="flex items-center gap-3 mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+                    <span>{issue.date}</span>
+                    <span>{issue.reads.toLocaleString("id-ID")} baca</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-zinc-400 shrink-0 mt-2" />
+              </article>
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <p className="text-center text-zinc-500 py-12">Tidak ada newsletter yang ditemukan.</p>
+          )}
+
+          <div className="flex justify-center mt-12">
+            <Link
+              href="/newsletter/digest"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-700 transition-colors"
+            >
+              Lihat Digest <ChevronRight className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
