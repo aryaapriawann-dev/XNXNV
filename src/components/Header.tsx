@@ -51,8 +51,8 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-      scrolled 
-        ? "border-b border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm backdrop-blur" 
+      scrolled
+        ? "border-b border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm backdrop-blur"
         : "bg-transparent"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +103,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div 
+      <div
         role="navigation"
         aria-label="Mobile navigation menu"
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
