@@ -1,90 +1,414 @@
-import { API_BASE_URL, TIMEOUT_MS } from "./constants";
+/**
+ * Data fetching and API client utilities for XNXNV project.
+ * Provides typed hooks and functions for common data operations.
+ */
 
-const API_BASE_URL_VAL = process.env.NEXT_PUBLIC_API_URL || "https://api.xvnpnx.com";
-const TIMEOUT_MS_VAL = parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || "10000", 10);
+import { useState, useEffect, useCallback, useRef } from 'react';
+import type { ApiResponse, PaginatedResponse } from '@/types';
 
-export async function fetchApi<T>(
-  endpoint: string,
-  options: RequestInit = {}
-): Promise<T> {
+/**
+ * Fetch with abort controller and timeout.
+ */
+async function fetchWithTimeout(
+  url: string,
+  options: RequestInit = {},
+  timeout = 15000
+): Promise<Response> {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS_VAL);
+  const id = setTimeout(() => controller.abort(), timeout);
 
   try {
-    const response = await fetch(`${API_BASE_URL_VAL}${endpoint}`, {
+    const response = await fetch(url, {
       ...options,
       signal: controller.signal,
-      headers: {
-        "Content-Type": "application/json",
-        ...options.headers,
-      },
     });
-
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new ApiError(response.status, error.message || "Request failed", response.statusText);
-    }
-
-    const data = await response.json();
-    return data as T;
+    return response;
   } finally {
-    clearTimeout(timeout);
+    clearTimeout(id);
   }
 }
 
-export async function postApi<T>(
-  endpoint: string,
-  body: unknown,
-  options: RequestInit = {}
-): Promise<T> {
-  return fetchApi<T>(endpoint, {
-    ...options,
-    method: "POST",
-    body: JSON.stringify(body),
-  });
+/**
+ * Parse JSON response with error handling.
+ */
+async function parseResponse<T>(response: Response): Promise<ApiResponse<T>> {
+  if (!response.ok) {
+    let errorMessage = `Request failed with status ${response.status}`;
+    try {
+      const errorBody = await response.json();
+      errorMessage = errorBody.message || errorMessage;
+    } catch {
+      // If response is not JSON, use status text
+    }
+    throw new ApiError(response.status, errorMessage);
+  }
+
+  const data = await response.json();
+  return data as ApiResponse<T>;
 }
 
-export async function putApi<T>(
-  endpoint: string,
-  body: unknown,
-  options: RequestInit = {}
+/**
+ * GET request.
+ */
+export async function get<T>(
+  url: string,
+  options?: RequestInit,
+  timeout?: number
 ): Promise<T> {
-  return fetchApi<T>(endpoint, {
+  const response = await fetchWithTimeout(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
     ...options,
-    method: "PUT",
-    body: JSON.stringify(body),
-  });
+  }, timeout);
+
+  const apiResponse = await parseResponse<T>(response);
+  return apiResponse.data;
 }
 
-export async function patchApi<T>(
-  endpoint: string,
-  body: unknown,
-  options: RequestInit = {}
+/**
+ * POST request.
+ */
+export async function post<T>(
+  url: string,
+  data?: unknown,
+  options?: RequestInit,
+  timeout?: number
 ): Promise<T> {
-  return fetchApi<T>(endpoint, {
+  const response = await fetchWithTimeout(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+    body: data ? JSON.stringify(data) : undefined,
     ...options,
-    method: "PATCH",
-    body: JSON.stringify(body),
-  });
+  }, timeout);
+
+  const apiResponse = await parseResponse<T>(response);
+  return apiResponse.data;
 }
 
-export async function deleteApi<T>(
-  endpoint: string,
-  options: RequestInit = {}
+/**
+ * PUT request.
+ */
+export async function put<T>(
+  url: string,
+  data?: unknown,
+  options?: RequestInit,
+  timeout?: number
 ): Promise<T> {
-  return fetchApi<T>(endpoint, {
+  const response = await fetchWithTimeout(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+    body: data ? JSON.stringify(data) : undefined,
     ...options,
-    method: "DELETE",
-  });
+  }, timeout);
+
+  const apiResponse = await parseResponse<T>(response);
+  return apiResponse.data;
 }
 
+/**
+ * PATCH request.
+ */
+export async function patch<T>(
+  url: string,
+  data?: unknown,
+  options?: RequestInit,
+  timeout?: number
+): Promise<T> {
+  const response = await fetchWithTimeout(url, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+    body: data ? JSON.stringify(data) : undefined,
+    ...options,
+  }, timeout);
+
+  const apiResponse = await parseResponse<T>(response);
+  return apiResponse.data;
+}
+
+/**
+ * DELETE request.
+ */
+export async function del<T>(
+  url: string,
+  options?: RequestInit,
+  timeout?: number
+): Promise<T> {
+  const response = await fetchWithTimeout(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+    ...options,
+  }, timeout);
+
+  const apiResponse = await parseResponse<T>(response);
+  return apiResponse.data;
+}
+
+/**
+ * Paginated GET request.
+ */
+export async function getPaginated<T>(
+  url: string,
+  params?: { page?: number; pageSize?: number },
+  options?: RequestInit,
+  timeout?: number
+): Promise<PaginatedResponse<T>> {
+  const urlWithParams = new URL(url, window.location.origin);
+  if (params?.page) urlWithParams.searchParams.set('page', params.page.toString());
+  if (params?.pageSize) urlWithParams.searchParams.set('pageSize', params.pageSize.toString());
+
+  const response = await fetchWithTimeout(urlWithParams.toString(), {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+    ...options,
+  }, timeout);
+
+  const apiResponse = await parseResponse<PaginatedResponse<T>>(response);
+  return apiResponse;
+}
+
+/**
+ * Error class for API errors.
+ */
 export class ApiError extends Error {
   constructor(
     public statusCode: number,
     message: string,
-    public statusText: string
+    public errorCode?: string
   ) {
     super(message);
-    this.name = "ApiError";
+    this.name = 'ApiError';
   }
+}
+
+/**
+ * Data fetching hook with loading, error, and caching states.
+ */
+export function useFetch<T>(
+  url: string,
+  options?: {
+    enabled?: boolean;
+    timeout?: number;
+    onSuccess?: (data: T) => void;
+    onError?: (error: ApiError) => void;
+    refetchInterval?: number;
+  }
+) {
+  const {
+    enabled = true,
+    timeout = 15000,
+    onSuccess,
+    onError,
+    refetchInterval,
+  } = options || {};
+
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<ApiError | null>(null);
+  const [refetchCount, setRefetchCount] = useState(0);
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const lastUrlRef = useRef(url);
+
+  const fetchData = useCallback(async (fetchUrl: string = url) => {
+    if (!enabled) return;
+
+    // Cancel previous request if URL changed
+    if (fetchUrl !== lastUrlRef.current && abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    lastUrlRef.current = fetchUrl;
+    setLoading(true);
+    setError(null);
+
+    abortControllerRef.current = new AbortController();
+
+    try {
+      const result = await fetchWithTimeout(fetchUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        signal: abortControllerRef.current.signal,
+      }, timeout);
+
+      const apiResponse = await parseResponse<T>(result);
+      setData(apiResponse.data);
+      onSuccess?.(apiResponse.data);
+      setRefetchCount(prev => prev + 1);
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err);
+        onError?.(err);
+      } else {
+        setError(new ApiError(500, 'Unknown error occurred'));
+        onError?.(new ApiError(500, 'Unknown error occurred'));
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [enabled, url, timeout, onSuccess, onError]);
+
+  // Initial fetch
+  useEffect(() => {
+    if (enabled && url) {
+      fetchData();
+    }
+  }, [enabled, url, fetchData]);
+
+  // Refetch on interval
+  useEffect(() => {
+    if (refetchInterval && enabled && url) {
+      const interval = setInterval(() => {
+        fetchData();
+      }, refetchInterval);
+      return () => clearInterval(interval);
+    }
+  }, [refetchInterval, enabled, url, fetchData]);
+
+  const refetch = useCallback(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const cancel = useCallback(() => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    setLoading(false);
+    setError(new ApiError(499, 'Request cancelled by user'));
+  }, []);
+
+  return {
+    data,
+    loading,
+    error,
+    refetch,
+    cancel,
+    refetchCount,
+  };
+}
+
+/**
+ * Mutation hook for POST/PUT/PATCH/DELETE operations.
+ */
+export function useMutate<TData = unknown, TVariables = unknown>(
+  mutationFn: (variables: TVariables) => Promise<TData>,
+  options?: {
+    onSuccess?: (data: TData, variables: TVariables) => void;
+    onError?: (error: ApiError, variables: TVariables) => void;
+    retry?: number;
+    retryDelay?: number;
+  }
+) {
+  const { onSuccess, onError, retry = 0, retryDelay = 1000 } = options || {};
+
+  const [isMutating, setIsMutating] = useState(false);
+  const [error, setError] = useState<ApiError | null>(null);
+  const [data, setData] = useState<TData | null>(null);
+
+  const mutate = useCallback(async (variables: TVariables) => {
+    setIsMutating(true);
+    setError(null);
+
+    let attempts = 0;
+    let lastError: ApiError | null = null;
+
+    while (attempts <= retry) {
+      try {
+        const result = await mutationFn(variables);
+        setData(result);
+        onSuccess?.(result, variables);
+        setIsMutating(false);
+        return result;
+      } catch (err) {
+        lastError = err instanceof ApiError ? err : new ApiError(500, 'Mutation failed');
+        setError(lastError);
+        onError?.(lastError, variables);
+
+        if (attempts < retry) {
+          await new Promise(resolve => setTimeout(resolve, retryDelay * (attempts + 1)));
+          attempts++;
+        } else {
+          setIsMutating(false);
+          return Promise.reject(lastError);
+        }
+      }
+    }
+
+    setIsMutating(false);
+    return Promise.reject(lastError);
+  }, [mutationFn, onSuccess, onError, retry, retryDelay]);
+
+  const execute = useCallback(async (variables: TVariables) => {
+    return mutate(variables);
+  }, [mutate]);
+
+  return {
+    mutate: execute,
+    isMutating,
+    error,
+    data,
+  };
+}
+
+/**
+ * Optimistic update hook for mutations with rollback support.
+ */
+export function useOptimisticUpdate<TData, TVariables>(
+  getData: () => TData,
+  updateFn: (data: TData, variables: TVariables) => TData,
+  mutationFn: (variables: TVariables) => Promise<TData>,
+  options?: {
+    onSuccess?: (data: TData, variables: TVariables) => void;
+    onError?: (error: ApiError, variables: TVariables, rolledBackData: TData) => void;
+  }
+) {
+  const { onSuccess, onError } = options || {};
+
+  const [optimisticData, setOptimisticData] = useState<TData>(getData());
+  const [error, setError] = useState<ApiError | null>(null);
+
+  const update = useCallback(async (variables: TVariables) => {
+    const previousData = optimisticData;
+    const optimisticUpdate = updateFn(optimisticData, variables);
+
+    setOptimisticData(optimisticUpdate);
+
+    try {
+      const result = await mutationFn(variables);
+      setOptimisticData(result);
+      onSuccess?.(result, variables);
+      return result;
+    } catch (err) {
+      setOptimisticData(previousData);
+      const errorObj = err instanceof ApiError ? err : new ApiError(500, 'Update failed');
+      setError(errorObj);
+      onError?.(errorObj, variables, previousData);
+      return Promise.reject(errorObj);
+    }
+  }, [optimisticData, getData, updateFn, mutationFn, onSuccess, onError]);
+
+  return {
+    data: optimisticData,
+    update,
+    error,
+    reset: () => setOptimisticData(getData()),
+  };
 }
