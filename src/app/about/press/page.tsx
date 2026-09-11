@@ -1,40 +1,88 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, Newspaper, ChevronRight } from "lucide-react";
+import { Newspaper, ChevronRight, Search } from "lucide-react";
+
 const PRESS = [
-  { id: "1", judul: "XNXNV Bantu 5.000 UMKM Go-Digital", media: "TechDaily.id", tanggal: "28 Sep 2026", kategori: "teknologi" },
-  { id: "2", judul: "Startup Lokal Raih Pendanaan Seri A", media: "BisnisKita", tanggal: "15 Sep 2026", kategori: "bisnis" },
-  { id: "3", judul: "AI Berbahasa Indonesia Meluncur", media: "StartupNews", tanggal: "2 Sep 2026", kategori: "teknologi" },
-  { id: "4", judul: "Wawancara: Membangun Tim Remote 100 Orang", media: "KerjaFleksibel", tanggal: "20 Agu 2026", kategori: "budaya" },
-  { id: "5", judul: "Dashboard Analitik Lokal Saingi Global", media: "DataInsight", tanggal: "8 Agu 2026", kategori: "teknologi" },
-  { id: "6", judul: "Program Magang Cetak 500 Lulusan", media: "EdukasiPlus", tanggal: "25 Jul 2026", kategori: "budaya" },
+  { id: "1", title: "Terbaru: Dukungan Sertifikasi Bisnis Digital", source: "Media Indonesia", date: "Mei 2026", summary: "XNXNV menjadi salah satu vendor terpercaya dalam mendukung program sertifikasi digital nasional." },
+  { id: "2", title: "Kolaborasi Strategis dengan Universitas Negeri", source: "Kompas Teknologi", date: "April 2026", summary: "Kerja sama pendidikan untuk pelatihan cybersecurity dan kriptografi bagi mahasiswa teknik." },
+  { id: "3", title: "Peluncuran Platform Audit Online", source: "TechInAsia Indonesia", date: "Maret 2026", summary: "Platform baru memungkinkan audit keamanan jarak jauh dengan laporan real-time dan dashboard analitik." },
+  { id: "4", title: "Perluas Jaringan Partner di 5 Kota", source: "Bisnis & Karir", date: "Februari 2026", summary: "Ruang kerja baru dibuka di Yogyakarta, Surabaya, Bandung, Medan, dan Makassar." },
+  { id: "5", title: "Inisiatif Open Source untuk Keamanan Siber", source: "Open Source News", date: "Januari 2026", summary: "XNXNV merilis library kecil untuk implementasi enkripsi yang bisa digunakan siapa saja di GitHub." },
 ];
-const CATS = [{ id: "all", label: "Semua" }, { id: "teknologi", label: "Teknologi" }, { id: "bisnis", label: "Bisnis" }, { id: "budaya", label: "Budaya" }] as const;
+
+const CATEGORIES = [{ id: "all", label: "Semua" }, { id: "news", label: "Berita" }, { id: "press", label: "Kontak" }, { id: "events", label: "Acara" }];
+
 export default function PressPage() {
-  const [q, setQ] = useState(""); const [cat, setCat] = useState<string>("all");
-  const f = useMemo(() => PRESS.filter((p) => (cat === "all" || p.kategori === cat) && (p.judul + p.media).toLowerCase().includes(q.toLowerCase())), [q, cat]);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+
+  const filtered = useMemo(() => {
+    return PRESS.filter((item) => {
+      const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase()) || item.source.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = category === "all" || item.source.includes(category);
+      return matchesSearch && matchesCategory;
+    });
+  }, [search, category]);
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <section className="py-20 bg-zinc-900 text-white text-center"><div className="max-w-4xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Tentang Kami</p>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Liputan Media</h1>
-        <p className="text-lg text-zinc-300">Apa kata media tentang kami.</p></div></section>
-      <section className="py-12 bg-white dark:bg-slate-950"><div className="max-w-4xl mx-auto px-4">
-        <div className="relative mb-6"><Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari liputan..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-zinc-900 dark:text-white" /></div>
-        <div className="flex flex-wrap gap-2 mb-8">{CATS.map((c) => (
-          <button key={c.id} onClick={() => setCat(c.id)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${cat === c.id ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900" : "bg-zinc-100 text-zinc-700 dark:bg-slate-800 dark:text-zinc-300"}`}>{c.label}</button>))}</div>
-        <ul className="space-y-4">{f.map((p) => (
-          <li key={p.id} className="flex items-start gap-4 p-5 rounded-2xl border border-zinc-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <Newspaper className="h-6 w-6 text-zinc-900 dark:text-white shrink-0 mt-1" />
-            <div><h2 className="text-lg font-bold text-zinc-900 dark:text-white">{p.judul}</h2>
-              <p className="text-sm text-zinc-500">{p.media} • {p.tanggal}</p></div>
-          </li>))}</ul>
-        {f.length === 0 && <p className="text-center text-zinc-500 py-12">Tidak ada liputan yang cocok.</p>}
-        <div className="flex justify-center mt-12"><Link href="/about/awards" className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-700 transition-colors">Penghargaan <ChevronRight className="h-5 w-5" /></Link></div>
-      </div></section>
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <header className="py-12 bg-zinc-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-2">Liputan Media</h1>
+          <p className="text-zinc-300">Pemberitaan dan pengakuan dari media nasional dan internasional.</p>
+        </div>
+      </header>
+
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <input
+            type="text"
+            placeholder="Cari berita atau sumber..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="flex-1 px-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="px-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white"
+          >
+            {CATEGORIES.map((cat) => (
+              <option key={cat.id} value={cat.id}>{cat.label}</option>
+            ))}
+          </select>
+        </div>
+
+        {filtered.length === 0 ? (
+          <div className="text-center py-12 bg-white dark:bg-zinc-900 rounded-xl">
+            <Newspaper className="w-12 h-12 text-zinc-300 mx-auto mb-4" />
+            <p className="text-zinc-500">Tidak ada berita yang cocok.</p>
+          </div>
+        ) : (
+          <div className="grid gap-6">
+            {filtered.map((item) => (
+              <article key={item.id} className="flex gap-4 p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-700">
+                <Newspaper className="w-8 h-8 text-indigo-600 shrink-0 mt-1" />
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <h2 className="text-lg font-bold text-zinc-900 dark:text-white">{item.title}</h2>
+                    <span className="text-xs text-zinc-400 shrink-0">{item.date}</span>
+                  </div>
+                  <p className="text-sm text-indigo-600 font-medium mb-2">{item.source}</p>
+                  <p className="text-zinc-600 dark:text-zinc-400">{item.summary}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <footer className="py-8 bg-zinc-100 dark:bg-zinc-900">
+        <div className="max-w-4xl mx-auto px-4 text-center text-zinc-500 text-sm">
+          Ingin meminta wawancara atau informasi pers? Hubungi kami di <Link href="/contact" className="text-indigo-600 hover:text-indigo-700 underline">contact</Link>.
+        </div>
+      </footer>
     </div>
   );
 }
