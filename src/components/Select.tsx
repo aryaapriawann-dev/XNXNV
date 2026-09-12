@@ -1,5 +1,8 @@
 import { SelectHTMLAttributes, forwardRef } from "react";
 
+/**
+ * Select component with label, error, helper text, and placeholder support
+ */
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
@@ -10,21 +13,26 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ label, error, helperText, options, placeholder, fullWidth = false, className = "", ...props }, ref) => {
+  ({
+    label,
+    error,
+    helperText,
+    options,
+    placeholder,
+    fullWidth = false,
+    className = "",
+    ...props
+  }, ref) => {
     return (
-      <div className={`${fullWidth ? "w-full" : ""}`}>
+      <div className={`${fullWidth ? "w-full" : ""} ${className}`}>
         {label && (
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
+          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
             {label}
           </label>
         )}
         <select
           ref={ref}
-          className={`block px-3 py-2 bg-white dark:bg-zinc-900 border rounded-lg text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-            error
-              ? "border-red-300 dark:border-red-700 focus:border-red-500 focus:ring-red-500/20"
-              : "border-zinc-300 dark:border-zinc-700 focus:border-indigo-500 focus:ring-indigo-500/20"
-          } ${fullWidth ? "w-full" : ""} ${className}`}
+          className="w-full px-3 py-2 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
           {...props}
         >
           {placeholder && (
@@ -38,12 +46,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </option>
           ))}
         </select>
-        {error && (
-          <p className="mt-1.5 text-sm text-red-600 dark:text-red-400">{error}</p>
-        )}
-        {helperText && !error && (
-          <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">{helperText}</p>
-        )}
+        {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
+        {helperText && !error && <p className="text-xs text-zinc-500 mt-1">{helperText}</p>}
       </div>
     );
   }
