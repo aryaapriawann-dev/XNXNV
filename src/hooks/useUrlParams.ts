@@ -41,6 +41,8 @@ export function useHasUrlParam(name: string): boolean {
 
 /**
  * Hook for updating URL parameters and optionally navigating.
+ *
+ * @returns object with updateParam, removeParam, clearParams, and replaceHistory functions
  */
 export function useUpdateUrlParams(): {
   updateParam: (name: string, value: string | null) => void;
