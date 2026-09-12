@@ -1,5 +1,9 @@
 /**
- * Format number with thousand separators
+ * Format number with thousand separators (e.g., 1000 → "1.000")
+ *
+ * @param num - number to format
+ * @param locale - locale code (default: "id-ID")
+ * @returns formatted number string
  */
 export function formatNumber(num: number, locale = "id-ID"): string {
   return num.toLocaleString(locale);
@@ -7,6 +11,11 @@ export function formatNumber(num: number, locale = "id-ID"): string {
 
 /**
  * Format currency (Rupiah by default)
+ *
+ * @param amount - amount to format
+ * @param currency - currency code (default: "IDR")
+ * @param locale - locale code (default: "id-ID")
+ * @returns formatted currency string (e.g., "Rp1.000")
  */
 export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID"): string {
   return new Intl.NumberFormat(locale, {
@@ -18,39 +27,35 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
 }
 
 /**
- * Format file size (bytes to human-readable)
- */
-export function formatFileSize(bytes: number): string {
-  if (bytes === 0) return "0 Bytes";
-
-  const k = 1024;
-  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
-}
-
-/**
  * Format percentage
+ *
+ * @param value - value between 0 and 1
+ * @param decimals - number of decimal places (default: 1)
+ * @returns formatted percentage string (e.g., "75.5%")
  */
-export function formatPercentage(value: number, decimals = 1): string {
+export function formatPercent(value: number, decimals = 1): string {
   return `${(value * 100).toFixed(decimals)}%`;
 }
 
 /**
- * Compact number format (1000 -> 1K, 1000000 -> 1M)
+ * Clamp number between min and max
+ *
+ * @param num - number to clamp
+ * @param min - minimum value
+ * @param max - maximum value
+ * @returns clamped number
  */
-export function formatCompactNumber(num: number): string {
-  const formatter = new Intl.NumberFormat("id-ID", {
-    notation: "compact",
-    compactDisplay: "short",
-  });
-  return formatter.format(num);
+export function clamp(num: number, min: number, max: number): number {
+  return Math.min(Math.max(num, min), max);
 }
 
 /**
- * Clamp number between min and max
+ * Generate random integer between min and max (inclusive)
+ *
+ * @param min - minimum value
+ * @param max - maximum value
+ * @returns random integer
  */
-export function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
+export function randomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
