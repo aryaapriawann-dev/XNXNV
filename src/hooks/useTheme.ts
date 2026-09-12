@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Theme, getThemeFromStorage, setThemeToStorage, isDarkTheme } from './theme';
 
+/**
+ * Use theme hook for managing theme state
+ * Returns current theme, resolved theme (light/dark), setTheme, and toggleTheme
+ */
 interface UseThemeResult {
   theme: Theme;
   resolvedTheme: 'light' | 'dark';
