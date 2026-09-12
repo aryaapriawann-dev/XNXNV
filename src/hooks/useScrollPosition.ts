@@ -10,6 +10,8 @@ interface ScrollPosition {
 /**
  * Track window scroll position
  * Returns current X and Y scroll offset
+ *
+ * @returns object with x and y scroll coordinates
  */
 export function useScrollPosition(): ScrollPosition {
   const [scrollPosition, setScrollPosition] = useState<ScrollPosition>({
