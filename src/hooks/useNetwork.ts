@@ -7,6 +7,12 @@ interface UseNetworkReturn {
   status: NetworkStatus;
 }
 
+/**
+ * Track network connectivity status
+ * Uses navigator.onLine and online/offline events
+ *
+ * @returns object with isOnline boolean and status string
+ */
 export function useNetwork(): UseNetworkReturn {
   const [isOnline, setIsOnline] = useState<boolean>(
     typeof navigator !== 'undefined' ? navigator.onLine : true
@@ -16,8 +22,6 @@ export function useNetwork(): UseNetworkReturn {
   );
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const handleOnline = () => {
       setIsOnline(true);
       setStatus('online');
