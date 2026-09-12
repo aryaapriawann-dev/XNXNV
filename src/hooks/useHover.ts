@@ -5,6 +5,9 @@ import { RefObject, useEffect, useState } from "react";
 /**
  * Track hover state on an element
  * Returns true when mouse is over the element
+ *
+ * @param ref - element ref to track hover on
+ * @returns true when element is being hovered
  */
 export function useHover(ref: RefObject<HTMLElement>): boolean {
   const [isHovered, setIsHovered] = useState(false);
