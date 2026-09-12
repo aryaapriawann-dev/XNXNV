@@ -3,6 +3,10 @@
 import { ReactNode, useEffect } from "react";
 import { X } from "lucide-react";
 
+/**
+ * Dialog component with configurable size and optional close button
+ * Supports escape key to close
+ */
 interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
@@ -20,66 +24,53 @@ export default function Dialog({
   size = "md",
   showCloseButton = true,
 }: DialogProps) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
+  const sizeClasses = {
+    sm: "max-w-sm",
+    md: "max-w-md",
+    lg: "max-w-lg",
+    xl: "max-w-xl",
+  };
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const sizeClasses = {
-    sm: "max-w-md",
-    md: "max-w-lg",
-    lg: "max-w-2xl",
-    xl: "max-w-4xl",
-  };
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className={`relative bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl w-full ${sizeClasses[size]} max-h-[90vh] overflow-hidden`}
-        onClick={(e) => e.stopPropagation()}
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      />
+      <div
+        className={`relative bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl ${sizeClasses[size]} w-full max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200`}
       >
-        {(title || showCloseButton) && (
-          <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-800">
-            {title && (
-              <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-                {title}
-              </h2>
-            )}
+        {title && (
+          <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+              {title}
+            </h3>
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
-                aria-label="Close"
+                className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
+                aria-label="Close dialog"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               </button>
             )}
           </div>
         )}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-5rem)]">
-          {children}
-        </div>
+        <div className="p-6">{children}</div>
       </div>
     </div>
   );

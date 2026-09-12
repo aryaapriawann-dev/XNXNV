@@ -3,6 +3,10 @@
 import { ReactNode, useEffect } from "react";
 import { X } from "lucide-react";
 
+/**
+ * Drawer component that slides in from left or right
+ * Supports escape key to close
+ */
 interface DrawerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -19,64 +23,57 @@ export default function Drawer({
   title,
 }: DrawerProps) {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "";
+    };
   }, [isOpen, onClose]);
 
+  if (!isOpen) return null;
+
+  const positionClasses = {
+    left: "inset-y-0 left-0 pl-0 translate-x-0",
+    right: "inset-y-0 right-0 pr-0 translate-x-0",
+  };
+
+  const overlayPosition = position === "left" ? "right-0" : "left-0";
+
   return (
-    <>
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-50">
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
-
-      {/* Drawer */}
       <div
-        className={`fixed top-0 ${
-          position === "left" ? "left-0" : "right-0"
-        } h-full w-full max-w-md bg-white dark:bg-zinc-900 shadow-2xl z-50 transform transition-transform ${
-          isOpen
-            ? "translate-x-0"
-            : position === "left"
-            ? "-translate-x-full"
-            : "translate-x-full"
+        className={`absolute top-0 h-full w-80 bg-white dark:bg-zinc-900 shadow-2xl transition-transform duration-300 ${positionClasses[position]} ${
+          isOpen ? "translate-x-0" : position === "left" ? "-translate-x-full" : "translate-x-full"
         }`}
       >
         {title && (
-          <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-800">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800">
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
               {title}
-            </h2>
+            </h3>
             <button
               onClick={onClose}
-              className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
-              aria-label="Close"
+              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
+              aria-label="Close drawer"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             </button>
           </div>
         )}
-        <div className="p-6 h-full overflow-y-auto">{children}</div>
+        <div className="p-6">{children}</div>
       </div>
-    </>
+    </div>
   );
 }
