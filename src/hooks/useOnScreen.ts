@@ -5,6 +5,10 @@ import { RefObject, useEffect, useState } from "react";
 /**
  * Detect when element enters viewport
  * Uses Intersection Observer API
+ *
+ * @param ref - element ref to observe
+ * @param options - IntersectionObserver options (optional)
+ * @returns true when element is visible in viewport
  */
 export function useOnScreen(
   ref: RefObject<HTMLElement>,
