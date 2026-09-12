@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 /**
  * Debounce a value
  * Useful for search inputs, form validation, etc.
+ *
+ * @param value - value to debounce
+ * @param delay - debounce delay in milliseconds (default: 500)
+ * @returns debounced value that updates after delay
  */
 export function useDebounce<T>(value: T, delay: number = 500): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
