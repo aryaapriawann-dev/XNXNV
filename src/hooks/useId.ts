@@ -1,5 +1,8 @@
 /**
  * Hook for generating unique IDs.
+ *
+ * @param prefix - ID prefix (default: 'id')
+ * @returns unique ID string in format `${prefix}-{timestamp}-{random}`
  */
 export function useId(prefix: string = 'id'): string {
   const [id] = useState(() => {
@@ -13,6 +16,8 @@ export function useId(prefix: string = 'id'): string {
 
 /**
  * Hook for generating a unique ID without prefix.
+ *
+ * @returns UUID v4 formatted string
  */
 export function useUUID(): string {
   const [uuid] = useState(() => {
@@ -31,6 +36,9 @@ export function useUUID(): string {
 
 /**
  * Hook for generating a short unique ID.
+ *
+ * @param length - length of the ID (default: 8)
+ * @returns random alphanumeric string of specified length
  */
 export function useShortId(length: number = 8): string {
   const [shortId] = useState(() => {
