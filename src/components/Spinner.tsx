@@ -3,6 +3,10 @@ interface SpinnerProps {
   className?: string;
 }
 
+/**
+ * Spinner component with configurable size
+ * Shows a circular loading indicator
+ */
 export default function Spinner({ size = "md", className = "" }: SpinnerProps) {
   const sizeClasses = {
     sm: "h-4 w-4 border-2",
@@ -13,8 +17,6 @@ export default function Spinner({ size = "md", className = "" }: SpinnerProps) {
   return (
     <div
       className={`${sizeClasses[size]} border-indigo-200 border-t-indigo-600 rounded-full animate-spin ${className}`}
-      role="status"
-      aria-label="Loading"
     />
   );
 }
