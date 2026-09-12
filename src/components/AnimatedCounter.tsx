@@ -1,32 +1,58 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
+/**
+ * Animated counter that animates from 0 to target value on scroll into view
+ */
+export default function AnimatedCounter({
+  target = 0,
+  duration = 2000,
+  className = "",
+}: {
+  target?: number;
+  duration?: number;
+  className?: string;
+}) {
   const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    let start = 0;
-    const end = value;
-    const startTime = performance.now();
+    if (hasAnimated) return;
 
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function (easeOutQuad)
-      const eased = 1 - (1 - progress) * (1 - progress);
-      
-      const current = Math.floor(start + (end - start) * eased);
-      setCount(current);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          const startTime = Date.now();
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * target));
 
-    requestAnimationFrame(animate);
-  }, [value, duration]);
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
 
-  return <span>{count.toLocaleString()}</span>;
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(document.getElementById("counter") || document.body);
+    return () => observer.disconnect();
+  }, [target, duration, hasAnimated]);
+
+  return (
+    <span
+      id="counter"
+      className={`text-3xl font-bold text-indigo-600 dark:text-indigo-400 ${className}`}
+    >
+      {count.toLocaleString()}
+    </span>
+  );
 }
