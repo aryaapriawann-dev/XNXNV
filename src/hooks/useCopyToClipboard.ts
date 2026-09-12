@@ -9,6 +9,11 @@ import { useState } from "react";
 export function useCopyToClipboard() {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
+  /**
+   * Copy text to clipboard
+   * @param text - text to copy
+   * @returns true if successful, false otherwise
+   */
   const copy = async (text: string) => {
     if (!navigator?.clipboard) {
       console.warn("Clipboard not supported");
