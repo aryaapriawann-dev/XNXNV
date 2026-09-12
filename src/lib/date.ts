@@ -1,5 +1,9 @@
 /**
- * Format date to locale string
+ * Format date to locale string (e.g., "12 September 2026")
+ *
+ * @param date - Date object or ISO date string
+ * @param locale - Locale code (default: "id-ID")
+ * @returns formatted date string
  */
 export function formatDate(date: Date | string, locale = "id-ID"): string {
   const d = typeof date === "string" ? new Date(date) : date;
@@ -11,7 +15,11 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {
 }
 
 /**
- * Format date with time
+ * Format date with time (e.g., "12 September 2026, 14:30")
+ *
+ * @param date - Date object or ISO date string
+ * @param locale - Locale code (default: "id-ID")
+ * @returns formatted date and time string
  */
 export function formatDateTime(date: Date | string, locale = "id-ID"): string {
   const d = typeof date === "string" ? new Date(date) : date;
@@ -25,7 +33,10 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string {
 }
 
 /**
- * Get relative time string (e.g., "2 hours ago")
+ * Get relative time string (e.g., "2 jam yang lalu", "baru saja")
+ *
+ * @param date - Date object or ISO date string to compare against now
+ * @returns human-readable relative time string in Indonesian
  */
 export function timeAgo(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
@@ -52,7 +63,10 @@ export function timeAgo(date: Date | string): string {
 }
 
 /**
- * Check if date is today
+ * Check if a date is today
+ *
+ * @param date - Date object or ISO date string to check
+ * @returns true if the date is today, false otherwise
  */
 export function isToday(date: Date | string): boolean {
   const d = typeof date === "string" ? new Date(date) : date;
