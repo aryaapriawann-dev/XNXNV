@@ -4,6 +4,9 @@ import { useState, useCallback } from "react";
 
 /**
  * Boolean toggle hook with helpful setters
+ *
+ * @param initialValue - starting value (default: false)
+ * @returns tuple with current value and control object (toggle, setTrue, setFalse, setValue)
  */
 export function useToggle(initialValue: boolean = false) {
   const [value, setValue] = useState(initialValue);
