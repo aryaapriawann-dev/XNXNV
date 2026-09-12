@@ -1,183 +1,77 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
-import {
-  Search,
-  Target,
-  ChevronRight,
-} from "lucide-react";
 
-interface Misi {
-  id: string;
-  title: string;
-  deskripsi: string;
-  kategori: string;
-  target: string;
-}
-
-const CATEGORIES = [
-  { id: "all", label: "Semua" },
-  { id: "teknologi", label: "Teknologi" },
-  { id: "pertumbuhan", label: "Pertumbuhan" },
-  { id: "sosial", label: "Sosial" },
-  { id: "lingkungan", label: "Lingkungan" },
-] as const;
-
-const MISI: Misi[] = [
-  {
-    id: "1",
-    title: "Digitalisasi 10.000 UMKM",
-    deskripsi:
-      "Membantu sepuluh ribu UMKM go-digital lewat website, katalog online, dan pembayaran digital hingga 2027.",
-    kategori: "pertumbuhan",
-    target: "10.000 UMKM",
-  },
-  {
-    id: "2",
-    title: "Teknologi Lokal Kelas Dunia",
-    deskripsi:
-      "Membangun produk perangkat lunak karya anak bangsa yang mampu bersaing di pasar global.",
-    kategori: "teknologi",
-    target: "5 produk global",
-  },
-  {
-    id: "3",
-    title: "Literasi Digital Gratis",
-    deskripsi:
-      "Program pelatihan digital gratis bagi pelajar dan komunitas di 20 kota Indonesia.",
-    kategori: "sosial",
-    target: "20 kota",
-  },
-  {
-    id: "4",
-    title: "Operasional Ramah Lingkungan",
-    deskripsi:
-      "Menekan jejak karbon operasional dengan pola kerja remote-first dan infrastruktur cloud yang efisien.",
-    kategori: "lingkungan",
-    target: "-40% emisi",
-  },
-  {
-    id: "5",
-    title: "Akses Teknologi Terjangkau",
-    deskripsi:
-      "Paket layanan dengan harga bersahabat agar bisnis kecil bisa memakai teknologi terbaik.",
-    kategori: "teknologi",
-    target: "Mulai Rp99rb/bln",
-  },
-  {
-    id: "6",
-    title: "Seribu Lapangan Kerja Digital",
-    deskripsi:
-      "Menciptakan seribu lapangan kerja digital lewat program magang dan kemitraan talenta.",
-    kategori: "sosial",
-    target: "1.000 talenta",
-  },
-];
-
+/**
+ * Mission sub-page under about
+ * Displays company mission and vision
+ */
 export default function MissionPage() {
-  const [query, setQuery] = useState("");
-  const [cat, setCat] = useState<string>("all");
-
-  const filtered = useMemo(
-    () =>
-      MISI.filter(
-        (m) =>
-          (cat === "all" || m.kategori === cat) &&
-          (m.title.toLowerCase().includes(query.toLowerCase()) ||
-            m.deskripsi.toLowerCase().includes(query.toLowerCase()))
-      ),
-    [query, cat]
-  );
-
   return (
-    <div className="flex flex-col min-h-screen">
-      <section className="py-20 bg-zinc-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">
-            Tentang Kami
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Misi XNXNV</h1>
-          <p className="text-lg text-zinc-300">
-            Enam misi yang memandu setiap keputusan dan produk kami.
+    <div className="min-h-screen bg-white dark:bg-zinc-900">
+      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold text-white mb-4">Misi & Visi</h1>
+          <p className="text-lg text-indigo-100">
+            Arah yang kami tuju dan alasan kami ada
           </p>
         </div>
-      </section>
+      </div>
 
-      <section className="py-12 bg-white dark:bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="relative mb-6">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Cari misi..."
-              className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-zinc-900 dark:text-white"
-            />
-          </div>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c.id}
-                onClick={() => setCat(c.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  cat === c.id
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-                    : "bg-zinc-100 text-zinc-700 dark:bg-slate-800 dark:text-zinc-300"
-                }`}
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
-
-          {filtered.length === 0 ? (
-            <p className="text-center text-zinc-500 py-12">
-              Tidak ada misi yang cocok dengan pencarian.
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Mission */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
+            Misi Kami
+          </h2>
+          <div className="bg-zinc-50 dark:bg-zinc-950 rounded-xl p-8 border border-zinc-200 dark:border-zinc-800">
+            <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed;text-center">
+              Memberikan solusi digital terbaik yang membantu bisnis kami
+              untuk tumbuh, berinovasi, dan bersaing di era digital yang cepat berkembang.
             </p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((m) => (
-                <div
-                  key={m.id}
-                  className="p-6 rounded-2xl border border-zinc-200 dark:border-slate-800 bg-white dark:bg-slate-900"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <Target className="h-5 w-5 text-zinc-900 dark:text-white" />
-                    <span className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
-                      {m.kategori}
-                    </span>
-                  </div>
-                  <h2 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-                    {m.title}
-                  </h2>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                    {m.deskripsi}
-                  </p>
-                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                    Target: {m.target}
-                  </p>
+            <div className="mt-6 grid md:grid-cols-2 gap-4">
+              {[
+                "Menyediakan layanan digital yang berkualitas tinggi dan berstandar internasional",
+                "Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan dan hasil yang terukur",
+                "Memberikan pengalaman pengguna yang luar biasa melalui desain dan teknologi yang inovatif",
+                "Mendukung pertumbuhan ekonomi digital Indonesia dengan tenaga kerja lokal yang berkualitas",
+              ].map((misi, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-zinc-700 dark:text-zinc-300">{misi}</span>
                 </div>
               ))}
             </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <Link
-              href="/about/vision"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-700 transition-colors"
-            >
-              Lihat Visi Kami <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-zinc-300 dark:border-slate-700 rounded-full font-semibold text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-slate-800 transition-colors"
-            >
-              Hubungi Kami
-            </Link>
           </div>
         </div>
-      </section>
+
+        {/* Vision */}
+        <div>
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
+            Visi Kami
+          </h2>
+          <div className="bg-indigo-600 rounded-xl p-8 text-center">
+            <p className="text-xl text-white leading-relaxed">
+              Menjadi agency digital terdepan di Indonesia yang dipercaya oleh bisnis
+              untuk mewujudkan transformasi digital mereka.
+            </p>
+            <div className="mt-4 flex justify-center">
+              <div className="flex items-center gap-2 text-indigo-200">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.555-9.555a1 1 0 00-1-1h-1a1 1 0 00-1-1v-1a1 1 0 00-1-1h-1a1 1 0 00-1-1v2a1 1 0 001 1h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v-1a1 1 0 00-1-1h-1v-2z" clipRule="evenodd" />
+                </svg>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.555-9.555a1 1 0 00-1-1h-1a1 1 0 00-1-1v-1a1 1 0 00-1-1h-1a1 1 0 00-1-1v2a1 1 0 001 1h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v-1a1 1 0 00-1-1h-1v-2z" clipRule="evenodd" />
+                </svg>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.555-9.555a1 1 0 00-1-1h-1a1 1 0 00-1-1v-1a1 1 0 00-1-1h-1a1 1 0 00-1-1v2a1 1 0 001 1h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v2a1 1 0 001 1h1a1 1 0 001-1v-2h1v-1a1 1 0 00-1-1h-1v-2z" clipRule="evenodd" />
+                </svg>
+                <span className="ml-2 text-sm">Kualitas • Integritas • Inovasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

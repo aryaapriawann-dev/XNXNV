@@ -1,138 +1,119 @@
-"use client";
-
 import Link from "next/link";
-import { TeamSection, ValuesSection, StatsSection } from "@/components/AboutSections";
 
+/**
+ * About page - Informasi perusahaan dan tim
+ */
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-zinc-900">
       {/* Hero */}
-      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-900" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            About XNXNV
-          </h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            We are a premier company dedicated to delivering excellence in every aspect of our work. Our journey began with a vision and has grown into a trusted name in our industry.
+      <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold text-white mb-4">Tentang Kami</h1>
+          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
+            Tim yang berdedikasi tinggi dalam membantu bisnis Anda berkembang di era digital
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-zinc-900 rounded-full font-semibold text-lg hover:bg-zinc-100 transition-colors"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-zinc-800 text-white rounded-full font-semibold text-lg hover:bg-zinc-700 transition-colors"
-            >
-              Our Services
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
+      {/* Company Info */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
-                Our Mission
+              <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+                Siapa Kami
               </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                To empower businesses through innovative digital solutions that drive growth, efficiency, and long-term success. We believe in the transformative power of technology to level the playing field for businesses of all sizes.
+              <p className="text-zinc-600 dark:text-zinc-300 mb-6">
+                XNXNV adalah tim developer dan desainer yang berdedikasi untuk membantu bisnis
+                Anda berkembang di era digital. Kami menyediakan solusi website, mobile app,
+                desain UI/UX, dan strategi digital marketing.
               </p>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Every project we undertake is an opportunity to make a meaningful impact. We approach each challenge with creativity, integrity, and an unwavering commitment to excellence.
+              <p className="text-zinc-600 dark:text-zinc-300 mb-6">
+                Dengan pengalaman lebih dari 5 tahun di industri teknologi, kami telah membantu
+                ratusan bisnis dari berbagai ukuran untuk mewujudkan visi digital mereka.
               </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                Hubungi Kami
+              </Link>
             </div>
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">What Sets Us Apart</h3>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                  <span>Industry-leading expertise</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                  <span>Client-first approach</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                  <span>Innovation at our core</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                  <span>Results-driven mindset</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="order-2 md:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
-                Our Vision
-              </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                To be the most trusted partner for digital transformation, helping businesses thrive in an increasingly digital world. We envision a future where technology serves as a catalyst for positive change.
-              </p>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Through continuous innovation, deep industry knowledge, and an obsessive focus on customer success, we aim to set new benchmarks for excellence in everything we do.
-              </p>
-            </div>
-            <div className="order-1 md:order-2">
-              <div className="bg-zinc-100 dark:bg-slate-800 rounded-2xl p-8">
-                <div className="grid grid-cols-2 gap-8">
-                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
-                    <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
-                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Projects Completed</div>
-                  </div>
-                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
-                    <div className="text-4xl font-bold text-purple-600 mb-2">98%</div>
-                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Client Satisfaction</div>
-                  </div>
-                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
-                    <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
-                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Team Members</div>
-                  </div>
-                  <div className="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-sm">
-                    <div className="text-4xl font-bold text-orange-600 mb-2">24/7</div>
-                    <div className="text-zinc-600 dark:text-zinc-400 text-sm">Support Available</div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative">
+              <div className="aspect-square w-full max-w-lg mx-auto bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-2xl" />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-indigo-600 rounded-full opacity-20 blur-3xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <ValuesSection />
-
-      {/* Team */}
-      <TeamSection />
-
-      {/* Stats */}
-      <StatsSection />
+      <section className="py-16 bg-zinc-50 dark:bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 text-center mb-12">
+            Nilai Kami
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🎯",
+                title: "Kualitas",
+                description: "Kami tidak kompromi dengan kualitas kerja. Setiap proyek kami kerjakan dengan standar tertinggi.",
+              },
+              {
+                icon: "🤝",
+                title: "Integritas",
+                description: "Kita melakukan apa yang kita janjikan. Transparansi dan kejujuran adalah inti dari semua hubungan kerja kita.",
+              },
+              {
+                icon: "💡",
+                title: "Inovasi",
+                description: "Kami selalu mengikuti perkembangan teknologi terbaru untuk memberikan solusi terbaik bagi klien kami.",
+              },
+              {
+                icon: "🚀",
+                title: "Pertumbuhan",
+                description: "Kami tidak hanya membantu bisnis Anda tumbuh, tapi juga membantu tim Anda berkembang.",
+              },
+              {
+                icon: "⭐",
+                title: "Pengalaman",
+                description: "Dengan pengalaman lebih dari 5 tahun, kami telah membantu ratusan bisnis mencapai tujuan digital mereka.",
+              },
+              {
+                icon: "💙",
+                title: "Kepuasan",
+                description: "Kepuasan klien adalah prioritas utama kami. Kami akan selalu meluangkan waktu untuk mendengarkan kebutuhan Anda.",
+              },
+            ].map((value, index) => (
+              <div
+                key={index}
+                className="p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:shadow-md transition-shadow"
+              >
+                <div className="text-4xl mb-4">{value.icon}</div>
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto text-blue-100">
-            Let's discuss how we can help you achieve your goals. Our team of experts is ready to assist you.
+      <section className="py-16 bg-indigo-600">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Siap Bekerja Sama?</h2>
+          <p className="text-indigo-100 mb-8">
+            Hubungi kami untuk konsultasi gratis dan dapatkan penawaran terbaik untuk proyek Anda.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition-colors"
           >
-            Get In Touch
+            Mulai Sekarang
           </Link>
         </div>
       </section>
