@@ -1,53 +1,30 @@
 "use client";
 
+/**
+ * Page transition wrapper component.
+ * Adds fade-in animation on page load.
+ */
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
-const TRANSITION_DURATION = 300;
+interface PageTransitionProps {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}
 
-export default function PageTransition() {
-  const pathname = usePathname();
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+export default function PageTransition({ children, className = "", delay = 100 }: PageTransitionProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleStart = () => {
-      setIsLoading(true);
-      setIsTransitioning(true);
-    };
-
-    const handleComplete = () => {
-      setIsLoading(false);
-      setTimeout(() => setIsTransitioning(false), TRANSITION_DURATION);
-    };
-
-    // Listen to navigation events
-    const root = document.documentElement;
-    root.addEventListener("navigationstart", handleStart);
-    root.addEventListener("navigationend", handleComplete);
-
-    return () => {
-      root.removeEventListener("navigationstart", handleStart);
-      root.removeEventListener("navigationend", handleComplete);
-    };
-  }, [pathname]);
-
-  // Initial load
-  useEffect(() => {
-    setIsLoading(false);
-    setIsTransitioning(false);
-  }, []);
-
-  if (!isTransitioning) return null;
+    const timer = setTimeout(() => setIsVisible(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
 
   return (
-    <div className="fixed inset-0 z-[100] bg-white dark:bg-zinc-900 transition-colors duration-300">
-      <div className="flex items-center justify-center h-full">
-        <div className="relative">
-          <div className="w-16 h-16 border-4 border-indigo-200 dark:border-indigo-900 rounded-full" />
-          <div className="absolute top-0 left-0 w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-        </div>
-      </div>
+    <div
+      className={`transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0"} ${className}`}
+    >
+      {children}
     </div>
   );
 }

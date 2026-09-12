@@ -1,1 +1,220 @@
-/**\n * Shared TypeScript utilities for XNXNV project.\n * Includes formatting, validation, and helper functions.\n */\n\n/**\n * Format a date to Indonesian locale string.\n */\nexport function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {\n  const d = typeof date === 'string' ? new Date(date) : date;\n  return d.toLocaleDateString('id-ID', {\n    day: 'numeric',\n    month: 'long',\n    year: 'numeric',\n    ...options,\n  });\n}\n\n/**\n * Format a date with time to Indonesian locale string.\n */\nexport function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {\n  const d = typeof date === 'string' ? new Date(date) : date;\n  return d.toLocaleString('id-ID', {\n    day: 'numeric',\n    month: 'short',\n    year: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    ...options,\n  });\n}\n\n/**\n * Format a relative time string.\n */\nexport function formatRelativeTime(date: Date | string): string {\n  const d = typeof date === 'string' ? new Date(date) : date;\n  const now = new Date();\n  const diffMs = now.getTime() - d.getTime();\n  const diffSec = Math.floor(diffMs / 1000);\n  const diffMin = Math.floor(diffSec / 60);\n  const diffHour = Math.floor(diffMin / 60);\n  const diffDay = Math.floor(diffHour / 24);\n  const diffWeek = Math.floor(diffDay / 7);\n  const diffMonth = Math.floor(diffDay / 30);\n\n  if (diffSec < 60) return 'baru saja';\n  if (diffMin < 60) return `${diffMin} menit yang lalu`;\n  if (diffHour < 24) return `${diffHour} jam yang lalu`;\n  if (diffDay < 7) return `${diffDay} hari yang lalu`;\n  if (diffWeek < 4) return `${diffWeek} minggu yang lalu`;\n  if (diffMonth < 12) return `${diffMonth} bulan yang lalu`;\n  return formatDate(d);\n}\n\n/**\n * Format currency to Indonesian Rupiah.\n */\nexport function formatCurrency(amount: number, showSymbol = true): string {\n  const formatter = new Intl.NumberFormat('id-ID', {\n    style: 'currency',\n    currency: 'IDR',\n    minimumFractionDigits: 0,\n    maximumFractionDigits: 0,\n  });\n  return formatter.format(amount);\n}\n\n/**\n * Format number with thousand separator.\n */\nexport function formatNumber(num: number): string {\n  return new Intl.NumberFormat('id-ID').format(num);\n}\n\n/**\n * Truncate string with ellipsis.\n */\nexport function truncate(str: string, maxLength: number): string {\n  if (str.length <= maxLength) return str;\n  return str.slice(0, maxLength - 3) + '...';\n}\n\n/**\n * Capitalize first letter of each word.\n */\nexport function capitalize(str: string): string {\n  return str.replace(/\\b\\w/g, (c) => c.toUpperCase());\n}\n\n/**\n * Slugify string for URL.\n */\nexport function slugify(str: string): string {\n  return str\n    .toLowerCase()\n    .trim()\n    .replace(/[^\\w\\s-]/g, '')\n    .replace(/[\\s_-]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n}\n\n/**\n * Generate unique ID.\n */\nexport function generateId(): string {\n  return Date.now().toString(36) + Math.random().toString(36).substring(2);\n}\n\n/**\n * Debounce function execution.\n */\nexport function debounce<T extends (...args: unknown[]) => unknown>(\n  fn: T,\n  delay: number\n): (...args: Parameters<T>) => void {\n  let timeoutId: ReturnType<typeof setTimeout>;\n  return (...args: Parameters<T>) => {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  };\n}\n\n/**\n * Throttle function execution.\n */\nexport function throttle<T extends (...args: unknown[]) => unknown>(\n  fn: T,\n  limit: number\n): (...args: Parameters<T>) => void {\n  let inThrottle = false;\n  return (...args: Parameters<T>) => {\n    if (!inThrottle) {\n      fn(...args);\n      inThrottle = true;\n      setTimeout(() => (inThrottle = false), limit);\n    }\n  };\n}\n\n/**\n * Check if value is empty.\n */\nexport function isEmpty(value: unknown): boolean {\n  if (value === null || value === undefined) return true;\n  if (typeof value === 'string') return value.trim().length === 0;\n  if (Array.isArray(value)) return value.length === 0;\n  if (typeof value === 'object') return Object.keys(value).length === 0;\n  return false;\n}\n\n/**\n * Group array items by key.\n */\nexport function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {\n  return items.reduce((acc, item) => {\n    const key = keyFn(item);\n    if (!acc[key]) acc[key] = [];\n    acc[key]!.push(item);\n    return acc;\n  }, {} as Record<string, T[]>);\n}\n\n/**\n * Sort array items.\n */\nexport function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: 'asc' | 'desc' = 'asc'): T[] {\n  return [...items].sort((a, b) => {\n    const aVal = keyFn(a);\n    const bVal = keyFn(b);\n    const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;\n    return direction === 'asc' ? comparison : -comparison;\n  });\n}\n\n/**\n * Paginate array.\n */\nexport function paginate<T>(items: T[], page: number, pageSize: number): { items: T[]; total: number; page: number; totalPages: number } {\n  const total = items.length;\n  const totalPages = Math.ceil(total / pageSize);\n  const safePage = Math.max(1, Math.min(page, totalPages));\n  const start = (safePage - 1) * pageSize;\n  const end = start + pageSize;\n  return {\n    items: items.slice(start, end),\n    total,\n    page: safePage,\n    totalPages,\n  };\n}\n\n/**\n * Class name utility.\n */\nexport function cn(...classes: (string | boolean | undefined | null)[]): string {\n  return classes.filter(Boolean).join(' ');\n}\n\n/**\n * Local storage helper.\n */\nconst storageAvailable = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';\n\nimport { useState, useEffect } from 'react';\n\nexport function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T | ((prev: T) => T)) => void] {\n  if (!storageAvailable) {\n    return [initialValue, () => {}];\n  }\n\n  const [storedValue, setStoredValue] = useState<T>(() => {\n    try {\n      const item = window.localStorage.getItem(key);\n      return item ? JSON.parse(item) : initialValue;\n    } catch {\n      return initialValue;\n    }\n  });\n\n  const setValue = (value: T | ((prev: T) => T)) => {\n    try {\n      const valueToStore = value instanceof Function ? value(storedValue) : value;\n      setStoredValue(valueToStore);\n      window.localStorage.setItem(key, JSON.stringify(valueToStore));\n    } catch (error) {\n      console.error('Error saving to local storage:', error);\n    }\n  };\n\n  return [storedValue, setValue];\n}\n\n/**\n * Theme utilities.\n */\nexport type Theme = 'light' | 'dark' | 'system';\n\nexport function getPreferredTheme(): 'light' | 'dark' {\n  if (typeof window === 'undefined') return 'light';\n  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';\n}\n\nexport function resolveTheme(theme: Theme): 'light' | 'dark' {\n  if (theme === 'system') {\n    return getPreferredTheme();\n  }\n  return theme;\n}\n\n/**\n * Media query hook helper.\n */\nexport function useMediaQuery(query: string): boolean {\n  if (typeof window === 'undefined') return false;\n\n  const getMatch = () => window.matchMedia(query).matches;\n  const [match, setMatch] = useState(getMatch);\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => {\n    setMounted(true);\n    const mediaQueryList = window.matchMedia(query);\n    const handler = (event: MediaQueryListEvent) => setMatch(event.matches);\n    mediaQueryList.addEventListener('change', handler);\n    return () => mediaQueryList.removeEventListener('change', handler);\n  }, [query]);\n\n  return mounted ? match : false;\n}\n\n/**\n * Generate random string of specified length.\n */\nexport function randomString(length: number): string {\n  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n  let result = '';\n  for (let i = 0; i < length; i++) {\n    result += chars.charAt(Math.floor(Math.random() * chars.length));\n  }\n  return result;\n}\n\n/**\n * Format file size in human readable format.\n */\nexport function formatFileSize(bytes: number): string {\n  if (bytes === 0) return '0 Bytes';\n  const k = 1024;\n  const sizes = ['Bytes', 'KB', 'MB', 'GB'];\n  const i = Math.floor(Math.log(bytes) / Math.log(k));\n  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];\n}\n\n/**\n * Check if element is in viewport.\n */\nexport function isInViewport(element: HTMLElement, offset = 0): boolean {\n  if (typeof window === 'undefined') return false;\n  const rect = element.getBoundingClientRect();\n  return (\n    rect.top >= 0 &&\n    rect.left >= 0 &&\n    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&\n    rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset\n  );\n}\n
+/**
+ * Shared TypeScript utilities for XNXNV project.
+ * Includes formatting, validation, and helper functions.
+ */
+
+/**
+ * Format a date to Indonesian locale string.
+ */
+export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
+  const d = typeof date === "string" ? new Date(date) : date;
+  return d.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    ...options,
+  });
+}
+
+/**
+ * Format a date with time to Indonesian locale string.
+ */
+export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
+  const d = typeof date === "string" ? new Date(date) : date;
+  return d.toLocaleString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    ...options,
+  });
+}
+
+/**
+ * Format a relative time string.
+ */
+export function formatRelativeTime(date: Date | string): string {
+  const d = typeof date === "string" ? new Date(date) : date;
+  const now = new Date();
+  const diffMs = now.getTime() - d.getTime();
+  const diffSec = Math.floor(diffMs / 1000);
+  const diffMin = Math.floor(diffSec / 60);
+  const diffHour = Math.floor(diffMin / 60);
+  const diffDay = Math.floor(diffHour / 24);
+  const diffWeek = Math.floor(diffDay / 7);
+  const diffMonth = Math.floor(diffDay / 30);
+
+  if (diffSec < 60) return "baru saja";
+  if (diffMin < 60) return `${diffMin} menit yang lalu`;
+  if (diffHour < 24) return `${diffHour} jam yang lalu`;
+  if (diffDay < 7) return `${diffDay} hari yang lalu`;
+  if (diffWeek < 4) return `${diffWeek} minggu yang lalu`;
+  if (diffMonth < 12) return `${diffMonth} bulan yang lalu`;
+  return formatDate(d);
+}
+
+/**
+ * Format currency to Indonesian Rupiah.
+ */
+export function formatCurrency(amount: number, showSymbol = true): string {
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+  return formatter.format(amount);
+}
+
+/**
+ * Format number with thousand separator.
+ */
+export function formatNumber(num: number): string {
+  return new Intl.NumberFormat("id-ID").format(num);
+}
+
+/**
+ * Truncate string with ellipsis.
+ */
+export function truncate(str: string, maxLength: number): string {
+  if (str.length <= maxLength) return str;
+  return str.slice(0, maxLength - 3) + "...";
+}
+
+/**
+ * Capitalize first letter of each word.
+ */
+export function capitalize(str: string): string {
+  return str.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Slugify string for URL.
+ */
+export function slugify(str: string): string {
+  return str.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Generate unique ID.
+ */
+export function generateId(): string {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+}
+
+/**
+ * Debounce function execution.
+ */
+export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay: number): (...args: Parameters<T>) => void {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return (...args: Parameters<T>) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  };
+}
+
+/**
+ * Throttle function execution.
+ */
+export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit: number): (...args: Parameters<T>) => void {
+  let inThrottle = false;
+  return (...args: Parameters<T>) => {
+    if (!inThrottle) {
+      fn(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+/**
+ * Check if value is empty.
+ */
+export function isEmpty(value: unknown): boolean {
+  if (value === null || value === undefined) return true;
+  if (typeof value === "string") return value.trim().length === 0;
+  if (Array.isArray(value)) return value.length === 0;
+  if (typeof value === "object") return Object.keys(value).length === 0;
+  return false;
+}
+
+/**
+ * Group array items by key.
+ */
+export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {
+  return items.reduce((acc, item) => {
+    const key = keyFn(item);
+    if (!acc[key]) acc[key] = [];
+    acc[key]!.push(item);
+    return acc;
+  }, {} as Record<string, T[]>);
+}
+
+/**
+ * Sort array items.
+ */
+export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {
+  return [...items].sort((a, b) => {
+    const aVal = keyFn(a);
+    const bVal = keyFn(b);
+    const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+    return direction === "asc" ? comparison : -comparison;
+  });
+}
+
+/**
+ * Paginate array.
+ */
+export function paginate<T>(items: T[], page: number, pageSize: number): { items: T[]; total: number; page: number; totalPages: number } {
+  const total = items.length;
+  const totalPages = Math.ceil(total / pageSize);
+  const safePage = Math.max(1, Math.min(page, totalPages));
+  const start = (safePage - 1) * pageSize;
+  const end = start + pageSize;
+  return { items: items.slice(start, end), total, page: safePage, totalPages };
+}
+
+/**
+ * Class name utility.
+ */
+export function cn(...classes: (string | boolean | undefined | null)[]): string {
+  return classes.filter(Boolean).join(" ");
+}
+
+/**
+ * Generate random string of specified length.
+ */
+export function randomString(length: number): string {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+/**
+ * Format file size in human readable format.
+ */
+export function formatFileSize(bytes: number): string {
+  if (bytes === 0) return "0 Bytes";
+  const k = 1024;
+  const sizes = ["Bytes", "KB", "MB", "GB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+}
+
+/**
+ * Check if element is in viewport.
+ */
+export function isInViewport(element: HTMLElement, offset = 0): boolean {
+  if (typeof window === "undefined") return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset
+  );
+}

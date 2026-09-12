@@ -27,34 +27,26 @@ export function isValidUrl(url: string): boolean {
 }
 
 /**
- * Check if string is empty or whitespace
+ * Validate NPWP (Indonesian tax ID, 15 digits)
  */
-export function isEmpty(str: string): boolean {
-  return !str || str.trim().length === 0;
+export function isValidNPWP(npwp: string): boolean {
+  const cleaned = npwp.replace(/[\s-]/g, "");
+  return /^[0-9]{15}$/.test(cleaned);
 }
 
 /**
- * Validate password strength
- * Returns: { valid: boolean, errors: string[] }
+ * Validate NIK (Indonesian citizen ID, 16 digits)
  */
-export function validatePassword(password: string): { valid: boolean; errors: string[] } {
-  const errors: string[] = [];
+export function isValidNIK(nik: string): boolean {
+  const cleaned = nik.replace(/[\s-]/g, "");
+  return /^[0-9]{16}$/.test(cleaned);
+}
 
-  if (password.length < 8) {
-    errors.push("Password minimal 8 karakter");
-  }
-  if (!/[A-Z]/.test(password)) {
-    errors.push("Password harus mengandung huruf besar");
-  }
-  if (!/[a-z]/.test(password)) {
-    errors.push("Password harus mengandung huruf kecil");
-  }
-  if (!/[0-9]/.test(password)) {
-    errors.push("Password harus mengandung angka");
-  }
-
-  return {
-    valid: errors.length === 0,
-    errors,
-  };
+/**
+ * Validate Indonesian license plate (Plat Nomor)
+ * Format: 1-2 letters + 1-4 digits + 1 letter (e.g. B 1234 A, D 123 B)
+ */
+export function isValidPlate(plate: string): boolean {
+  const cleaned = plate.replace(/[\s-]/g, "").toUpperCase();
+  return /^[A-Z]{1,2}[0-9]{1,4}[A-Z]{1}$/.test(cleaned);
 }

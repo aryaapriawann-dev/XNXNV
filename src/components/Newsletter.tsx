@@ -1,105 +1,81 @@
 "use client";
 
+/**
+ * Newsletter subscription component.
+ * Allows users to subscribe to a newsletter with email input.
+ */
 import { useState } from "react";
-import { Mail, CheckCircle2, X } from "lucide-react";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  const validateEmail = (email: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateEmail(email)) {
+    if (!email.trim()) {
       setStatus("error");
-      setMessage("Format email tidak valid. Contoh: nama@example.com");
+      setMessage("Email wajib diisi");
       return;
     }
-
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      setMessage("Format email tidak valid");
+      return;
+    }
     setStatus("loading");
-
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus("success");
-      setMessage("Berhasil berlangganan! Subscribe kita sudah diaktifkan.");
+      setMessage("Terima kasih telah berlangganan!");
       setEmail("");
-      
-      setTimeout(() => {
-        setStatus("idle");
-        setMessage("");
-      }, 5000);
-    }, 1500);
+    } catch {
+      setStatus("error");
+      setMessage("Terjadi kesalahan. Silakan coba lagi.");
+    }
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-zinc-900 dark:bg-zinc-950">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-8 lg:p-12 text-center text-white shadow-2xl relative overflow-hidden">
-          {/* Decorative circles */}
-          <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -translate-x-10 -translate-y-10 blur-2xl" />
-          <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/10 rounded-full translate-x-12 translate-y-12 blur-2xl" />
-          
-          <div className="relative z-10">
-            <div className="w-16 h-16 mx-auto bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
-              <Mail className="h-8 w-8 text-white" />
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Subscribe ke Newsletter Kami
-            </h2>
-            <p className="text-indigo-100 text-lg mb-8 max-w-2xl mx-auto">
-              Dapatkan update terbaru tentang teknologi, development, dan tren terkini langsung di inbox Anda. Gratis tanpa spam!
-            </p>
-            
-            <form onSubmit={handleSubmit} className="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
-              <div className="flex-1 relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (status === "error") setStatus("idle");
-                  }}
-                  placeholder="Email Anda"
-                  className="w-full pl-10 pr-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-indigo-200 focus:outline-none focus:bg-white/20 focus:border-white transition-colors"
-                  disabled={status === "loading" || status === "success"}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={status === "loading" || status === "success"}
-                className="px-8 py-3 rounded-lg bg-white text-zinc-900 font-bold hover:bg-zinc-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {status === "loading" ? (
-                  <div className="w-5 h-5 border-2 border-zinc-900 border-t-transparent rounded-full animate-spin" />
-                ) : status === "success" ? (
-                  <CheckCircle2 className="h-5 w-5" />
-                ) : (
-                  "Subscribe"
-                )}
-              </button>
-            </form>
-            
-            {message && (
-              <div className={`mt-4 flex items-center justify-center gap-2 ${status === "error" ? "text-red-200" : "text-green-200"}`}>
-                {status === "error" ? <X className="h-5 w-5" /> : <CheckCircle2 className="h-5 w-5" />}
-                {message}
-              </div>
-            )}
-            
-            <p className="mt-6 text-sm text-indigo-200">
-              Kami hargai privasi Anda. Bisa unsubsub anytime.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-6 border border-indigo-100 dark:border-indigo-800/50">
+      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
+        Berlangganan Newsletter
+      </h3>
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
+        Dapatkan update terbaru langsung di inbox Anda.
+      </p>
+      <form onSubmit={handleSubmit} className="flex gap-3">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="email@contoh.com"
+          className="flex-1 px-4 py-2 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-indigo-600 text-sm"
+          disabled={status === "loading"}
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium disabled:opacity-50"
+          disabled={status === "loading"}
+        >
+          {status === "loading" ? "..." : "Subscribe"}
+        </button>
+      </form>
+      {status === "success" && (
+        <p className="mt-3 text-sm text-green-600 flex items-center gap-2">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          {message}
+        </p>
+      )}
+      {status === "error" && (
+        <p className="mt-3 text-sm text-red-600 flex items-center gap-2">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+          </svg>
+          {message}
+        </p>
+      )}
+    </div>
   );
 }

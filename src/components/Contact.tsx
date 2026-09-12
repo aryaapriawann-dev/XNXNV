@@ -1,5 +1,9 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 
+/**
+ * Contact section component
+ * Displays contact information with icons
+ */
 export default function Contact() {
   return (
     <section className="py-24 bg-zinc-50 dark:bg-zinc-900">
@@ -18,15 +22,15 @@ export default function Contact() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-4">
               <Mail className="h-6 w-6" />
             </div>
-            <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Email</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">contact@xnxnv.com</p>
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Email</h3>
+            <p className="text-zinc-600 dark:text-zinc-400">hello@xvnpnx.id</p>
           </div>
 
           <div className="text-center p-6">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-4">
               <Phone className="h-6 w-6" />
             </div>
-            <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Telepon</h3>
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Telepon</h3>
             <p className="text-zinc-600 dark:text-zinc-400">+62 812 3456 7890</p>
           </div>
 
@@ -34,8 +38,8 @@ export default function Contact() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-4">
               <MapPin className="h-6 w-6" />
             </div>
-            <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Lokasi</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">Jakarta, Indonesia</p>
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Lokasi</h3>
+            <p className="text-zinc-600 dark:text-zinc-400">Kendari, Sulawesi Tenggara</p>
           </div>
         </div>
       </div>
