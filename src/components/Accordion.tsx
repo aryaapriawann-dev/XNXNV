@@ -3,6 +3,10 @@
 import { ReactNode, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+/**
+ * Accordion component for collapsible content sections
+ * Supports single or multiple open items
+ */
 interface AccordionItem {
   id: string;
   title: string;
