@@ -2,6 +2,10 @@
 
 import { ReactNode, useState } from "react";
 
+/**
+ * Tabs component with configurable tabs and content renderer
+ * Supports icon in tab labels
+ */
 interface TabItem {
   id: string;
   label: string;
@@ -13,6 +17,7 @@ interface TabsProps {
   defaultActiveId?: string;
   className?: string;
   contentRenderer: (activeId: string) => ReactNode;
+  onTabChange?: (activeId: string) => void;
 }
 
 export default function Tabs({
@@ -20,35 +25,34 @@ export default function Tabs({
   defaultActiveId,
   className = "",
   contentRenderer,
+  onTabChange,
 }: TabsProps) {
-  const [activeId, setActiveId] = useState<string>(
-    defaultActiveId || items[0]?.id || ""
-  );
+  const [activeId, setActiveId] = useState(defaultActiveId || items[0]?.id);
+
+  const handleTabClick = (id: string) => {
+    setActiveId(id);
+    onTabChange?.(id);
+  };
 
   return (
-    <div className={`flex flex-col ${className}`}>
-      <div className="flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1 overflow-x-auto">
-        {items.map((item) => {
-          const isActive = activeId === item.id;
-          const Icon = item.icon;
-
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActiveId(item.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-                isActive
-                  ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
-                  : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-50 dark:hover:bg-zinc-800"
-              }`}
-            >
-              {Icon && <Icon className="h-4 w-4" />}
-              {item.label}
-            </button>
-          );
-        })}
+    <div className={className}>
+      <div className="flex border-b border-zinc-200 dark:border-zinc-800">
+        {items.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => handleTabClick(item.id)}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+              activeId === item.id
+                ? "border-indigo-600 text-indigo-600 dark:text-indigo-400"
+                : "border-transparent text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+            }`}
+          >
+            {item.icon && <span className="mr-2"><item.icon className="w-4 h-4" /></span>}
+            {item.label}
+          </button>
+        ))}
       </div>
-      <div className="mt-4 min-h-[200px]">
+      <div className="py-4">
         {contentRenderer(activeId)}
       </div>
     </div>
