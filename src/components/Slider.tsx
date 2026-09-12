@@ -2,6 +2,10 @@
 
 import { InputHTMLAttributes, forwardRef, useState } from "react";
 
+/**
+ * Slider component with optional label and value display
+ * Supports custom value formatting
+ */
 interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
   label?: string;
   showValue?: boolean;
