@@ -2,6 +2,10 @@
 
 import { InputHTMLAttributes, forwardRef } from "react";
 
+/**
+ * Switch component (toggle) with configurable size
+ * Renders as a checkbox input with toggle styling
+ */
 interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
   label?: string;
   size?: "sm" | "md" | "lg";
@@ -17,27 +21,36 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       },
       md: {
         container: "w-11 h-6",
-        circle: "h-5 w-5",
+        circle: "h-4 w-4",
         translate: "translate-x-5",
       },
       lg: {
-        container: "w-14 h-7",
-        circle: "h-6 w-6",
+        container: "w-14 h-8",
+        circle: "h-5 w-5",
         translate: "translate-x-7",
       },
     };
 
-    const sizes = sizeClasses[size];
+    const sz = sizeClasses[size];
 
     return (
-      <label className="inline-flex items-center gap-3 cursor-pointer">
-        <input ref={ref} type="checkbox" className="sr-only peer" {...props} />
-        <div
-          className={`${sizes.container} bg-zinc-300 dark:bg-zinc-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-500/20 rounded-full peer peer-checked:after:${sizes.translate} peer-checked:bg-indigo-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:${sizes.circle} after:transition-all relative ${className}`}
-        />
-        {label && (
-          <span className="text-sm text-zinc-700 dark:text-zinc-300">{label}</span>
-        )}
+      <label className={`inline-flex items-center gap-2 ${className}`}>
+        <div className="relative">
+          <input
+            type="checkbox"
+            ref={ref}
+            className="sr-only"
+            {...props}
+          />
+          <div
+            className={`inline-block bg-zinc-300 dark:bg-zinc-600 rounded-full transition-colors ${sz.container}`}
+          >
+            <div
+              className={`absolute top-0.5 left-0.5 bg-white dark:bg-zinc-900 rounded-full shadow transition-transform ${sz.circle} ${props.checked ? sz.translate : "translate-x-0"}`}
+            />
+          </div>
+        </div>
+        {label && <span className="text-sm text-zinc-700 dark:text-zinc-300">{label}</span>}
       </label>
     );
   }
