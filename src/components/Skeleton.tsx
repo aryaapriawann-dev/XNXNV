@@ -1,3 +1,8 @@
+"use client";
+/**
+ * Skeleton component for loading placeholders.
+ * Renders an animated placeholder with customizable size and shape.
+ */
 export default function Skeleton({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
