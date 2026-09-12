@@ -1,8 +1,12 @@
 "use client";
 
+/**
+ * Testimonial component displaying customer testimonials with rating and author info.
+ * Renders a grid of testimonial cards from static data.
+ */
 import { Star, Quote } from "lucide-react";
 
-interface Testimonial {
+interface TestimonialData {
   id: string;
   name: string;
   role: string;
@@ -12,13 +16,13 @@ interface Testimonial {
   avatar?: string;
 }
 
-const testimonials: Testimonial[] = [
+const testimonials: TestimonialData[] = [
   {
     id: "1",
     name: "Budi Santoso",
     role: "CEO & Founder",
     company: "TechStart Indonesia",
-    content: "Pelayanan yang luar biasa! Tim XNXNV sangat profesional dan hasil kerjanya melebihi ekspektasi. Website yang dibuat sangat responsif dan user-friendly.",
+    content: "Pelayanan yang luar biasa! Tim XNXNV sangat profesional dan hasil kerjanya melebihi ekspektasi.",
     rating: 5,
   },
   {
@@ -26,7 +30,7 @@ const testimonials: Testimonial[] = [
     name: "Siti Rahayu",
     role: "CTO",
     company: "E-Commerce Pro",
-    content: "Kerja sama yang baik dan komunikasi yang terbuka. Proyek selesai tepat waktu dan sesuai spesifikasi. Sangat direkomendasikan!",
+    content: "Kerja sama yang baik dan komunikasi yang terbuka. Proyek selesai tepat waktu dan sesuai spesifikasi.",
     rating: 5,
   },
   {
@@ -34,31 +38,7 @@ const testimonials: Testimonial[] = [
     name: "Andi Wijaya",
     role: "Director of Operations",
     company: "Digital Media Group",
-    content: "Layanan yang sangat memuaskan. Tim XNXNV memahami kebutuhan bisnis kami dengan sangat baik dan memberikan solusi yang inovatif.",
-    rating: 5,
-  },
-  {
-    id: "4",
-    name: "Dewi Lestari",
-    role: "Product Manager",
-    company: "FinTech Solutions",
-    content: "Profesionalisme dan teknis yang baik dari tim XNXNV. Proyek mobile app selesai sesuai deadline dan performanya sangat stabil.",
-    rating: 4,
-  },
-  {
-    id: "5",
-    name: "Eko Prasetyo",
-    role: "CTO",
-    company: "HealthCare Plus",
-    content: "Kolaborasi yang sangat baik. Tim XNXNV tidak hanya mengembangkan produk, tetapi juga memberikan masukan strategis untuk pengembangan bisnis.",
-    rating: 5,
-  },
-  {
-    id: "6",
-    name: "Fajar Nugroho",
-    role: "Founder",
-    company: "EduTech Horizon",
-    content: "Transformasi digital kami berjalan lancar berkat support dari XNXNV. Platform e-learning kami sekarang jauh lebih baik dan scalable.",
+    content: "Layanan yang sangat memuaskan. Tim XNXNV memahami kebutuhan bisnis kami dengan sangat baik.",
     rating: 5,
   },
 ];
@@ -80,7 +60,7 @@ export default function Testimonial() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-200 dark:border-zinc-800 hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-200 dark:border-zinc-800 hover:shadow-xl transition-all"
             >
               <div className="flex items-start justify-between mb-6">
                 <Quote className="h-8 w-8 text-zinc-200 dark:text-zinc-800" />
@@ -119,44 +99,6 @@ export default function Testimonial() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Summary Stats */}
-        <div className="mt-16 pt-12 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-2">
-                5.0
-              </div>
-              <div className="text-zinc-600 dark:text-zinc-400">
-                Rata-rata Rating
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-2">
-                100%
-              </div>
-              <div className="text-zinc-600 dark:text-zinc-400">
-                Kepuasan Klien
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-2">
-                500+
-              </div>
-              <div className="text-zinc-600 dark:text-zinc-400">
-                Proyek Selesai
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-2">
-                10+
-              </div>
-              <div className="text-zinc-600 dark:text-zinc-400">
-                Tahun Pengalaman
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

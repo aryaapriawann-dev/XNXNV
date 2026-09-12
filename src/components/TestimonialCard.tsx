@@ -1,4 +1,19 @@
-export default function TestimonialCard({ name, role, company, content, rating = 5 }: { name: string; role: string; company: string; content: string; rating?: number }) {
+/**
+ * TestimonialCard component for rendering individual testimonial with avatar, rating, and author info.
+ */
+export default function TestimonialCard({
+  name,
+  role,
+  company,
+  content,
+  rating = 5,
+}: {
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  rating?: number;
+}) {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
       <div className="flex gap-1 mb-6">

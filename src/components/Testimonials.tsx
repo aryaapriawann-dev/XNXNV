@@ -1,67 +1,41 @@
-"use client";
+/**
+ * Testimonials component displaying customer testimonials in a responsive grid.
+ * Includes rating stars, avatar initials, and company info.
+ */
+import TestimonialCard from "@/components/TestimonialCard";
 
-import { Star } from "lucide-react";
+const testimonials = [
+  {
+    id: "1",
+    name: "Budi Santoso",
+    role: "CEO",
+    company: "TechStart Indonesia",
+    content: "Testimoni 1",
+    rating: 5,
+  },
+  {
+    id: "2",
+    name: "Siti Rahayu",
+    role: "CTO",
+    company: "E-Commerce Pro",
+    content: "Testimoni 2",
+    rating: 5,
+  },
+];
 
-interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  avatar: string;
-  rating: number;
-}
-
-interface TestimonialsProps {
-  testimonials: Testimonial[];
-  className?: string;
-}
-
-export default function Testimonials({ 
-  testimonials, 
-  className = "" 
-}: TestimonialsProps) {
+export default function Testimonials() {
   return (
-    <div className={`space-y-8 ${className}`}>
-      {testimonials.map((testimonial) => (
-        <div
-          key={testimonial.id}
-          className="bg-white dark:bg-zinc-800 p-6 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-700"
-        >
-          <div className="flex items-start gap-4">
-            <img
-              src={testimonial.avatar}
-              alt={testimonial.name}
-              className="w-12 h-12 rounded-full object-cover"
-            />
-            <div className="flex-1">
-              <div className="flex items-center gap-1 mb-2">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-4 w-4 ${
-                      i < testimonial.rating
-                        ? "fill-amber-400 text-amber-400"
-                        : "fill-zinc-200 dark:fill-zinc-700 text-zinc-200 dark:text-zinc-700"
-                    }`}
-                  />
-                ))}
-              </div>
-              <p className="text-zinc-600 dark:text-zinc-300 mb-4 italic">
-                "{testimonial.content}"
-              </p>
-              <div>
-                <p className="font-semibold text-zinc-900 dark:text-zinc-50">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  {testimonial.role} at {testimonial.company}
-                </p>
-              </div>
-            </div>
-          </div>
+    <div className="py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-8 text-center">
+          Testimoni Klien
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t) => (
+            <TestimonialCard key={t.id} {...t} />
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

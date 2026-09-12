@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 interface UseTimerOptions {
   initialSeconds?: number;
@@ -19,6 +19,14 @@ interface UseTimerReturn {
   toggle: () => void;
 }
 
+/**
+ * Hook for countdown timer with start, pause, resume, reset, and toggle controls.
+ * Auto-cleans up interval on unmount and supports completion callback.
+ *
+ * @param seconds - initial countdown seconds
+ * @param options - { initialSeconds, autoStart, onComplete, onTick }
+ * @returns object with timer state and controls
+ */
 export function useTimer(
   seconds: number = 0,
   options: UseTimerOptions = {}
@@ -72,13 +80,16 @@ export function useTimer(
     setIsRunning(true);
   }, []);
 
-  const reset = useCallback((newSeconds?: number) => {
-    const secondsToReset = newSeconds !== undefined ? newSeconds : initialSeconds;
-    setTimeLeft(secondsToReset);
-    setIsRunning(false);
-    setIsPaused(false);
-    setIsComplete(false);
-  }, [initialSeconds]);
+  const reset = useCallback(
+    (newSeconds?: number) => {
+      const secondsToReset = newSeconds !== undefined ? newSeconds : initialSeconds;
+      setTimeLeft(secondsToReset);
+      setIsRunning(false);
+      setIsPaused(false);
+      setIsComplete(false);
+    },
+    [initialSeconds]
+  );
 
   const toggle = useCallback(() => {
     if (isComplete) {
