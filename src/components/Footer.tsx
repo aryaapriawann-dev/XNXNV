@@ -1,83 +1,59 @@
-"use client";
-
 import Link from "next/link";
-import { Mail, Phone, MapPin, Clock, Menu, X } from "lucide-react";
-import { useState } from "react";
 
 /**
  * Footer component
- * Displays navigation links, contact info, social links, and copyright
+ * Displays brand info, navigation links, contact info, and copyright
  */
 export default function Footer() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  const services = [
-    { name: "Web Development", href: "/services#web" },
-    { name: "Mobile App", href: "/services#mobile" },
-    { name: "SEO Optimization", href: "/services#seo" },
-    { name: "Cloud Solutions", href: "/services#cloud" },
-  ];
-
-  const company = [
-    { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const legal = [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
-  ];
-
   return (
-    <footer className="bg-zinc-900 text-zinc-300">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+    <footer className="bg-zinc-900 text-zinc-300 mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-1">
             <Link href="/" className="text-xl font-bold text-white">
-              XVPXN
+              XNXNV
             </Link>
-            <p className="mt-3 text-sm text-zinc-400 max-w-sm">
-              A modern Next.js starter built for production.
-              Clean code, dark mode support, and optimized for performance.
+            <p className="mt-2 text-sm text-zinc-400 max-w-xs">
+              Solusi digital untuk bisnis Anda. Kami membantu mewujudkan visi digital Anda.
             </p>
-            <div className="mt-4 flex gap-4">
-              <a href="#" className="text-zinc-400 hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </a>
-            </div>
           </div>
 
-          {/* Services */}
+          {/* Navigation */}
           <div>
-            <h3 className="font-medium text-white mb-4">Services</h3>
-            <ul className="space-y-2">
-              {services.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-zinc-400 hover:text-white transition-colors">
-                    {link.name}
+            <h4 className="text-white font-semibold mb-4">Navigasi</h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                { href: "/about", label: "Tentang" },
+                { href: "/services", label: "Layanan" },
+                { href: "/pricing", label: "Harga" },
+                { href: "/blog", label: "Blog" },
+                { href: "/contact", label: "Kontak" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors">
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Services */}
           <div>
-            <h3 className="font-medium text-white mb-4">Company</h3>
-            <ul className="space-y-2">
-              {company.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-zinc-400 hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
+            <h4 className="text-white font-semibold mb-4">Layanan</h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                "Web Development",
+                "Mobile App",
+                "UI/UX Design",
+                "Digital Marketing",
+                "Cloud Solutions",
+              ].map((service) => (
+                <li key={service} className="text-zinc-400 hover:text-white transition-colors cursor-pointer">
+                  {service}
                 </li>
               ))}
             </ul>
@@ -85,40 +61,42 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-medium text-white mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-zinc-400">
-                <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@example.com" className="hover:text-white transition-colors">
-                  hello@example.com
-                </a>
+            <h4 className="text-white font-semibold mb-4">Kontak</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start gap-2">
+                <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>hello@xvnpnx.id</span>
               </li>
-              <li className="flex items-start gap-2 text-sm text-zinc-400">
-                <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+              <li className="flex items-start gap-2">
+                <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>+62 812-3456-7890</span>
               </li>
-              <li className="flex items-start gap-2 text-sm text-zinc-400">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>123 Main St, New York, NY 10001</span>
+              <li className="flex items-start gap-2">
+                <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>Kendari, Sulut</span>
               </li>
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Bottom */}
+        <div className="mt-8 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-zinc-500">
-            {currentYear} XVPXN. All rights reserved.
+            &copy; {currentYear} XNXNV. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <Link href="/privacy" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
-              Privacy
+          <div className="flex gap-6 text-sm">
+            <Link href="/privacy" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+              Kebijakan Privasi
             </Link>
-            <span className="text-zinc-700">|</span>
-            <Link href="/terms" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
-              Terms
+            <Link href="/terms" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+              Ketentuan Layanan
             </Link>
           </div>
         </div>
