@@ -1,7 +1,6 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+/**
+ * Modal component with backdrop, close button, and escape key support
+ */
 
 interface ModalProps {
   isOpen: boolean;
