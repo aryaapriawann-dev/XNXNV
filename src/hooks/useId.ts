@@ -55,6 +55,10 @@ export function useShortId(length: number = 8): string {
 
 /**
  * Hook for generating a hash ID from a string.
+ *
+ * @param input - string to hash
+ * @param length - max length of hash (default: 8)
+ * @returns hashed string of specified length
  */
 export function useHashId(input: string, length: number = 8): string {
   const [hashId] = useState(() => {
