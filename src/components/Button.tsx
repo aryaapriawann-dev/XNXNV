@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+/**
+ * Button component with multiple variants and sizes
+ */
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
