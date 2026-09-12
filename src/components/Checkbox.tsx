@@ -1,5 +1,8 @@
 import { InputHTMLAttributes, forwardRef, useEffect, useRef } from "react";
 
+/**
+ * Checkbox component with optional label, indeterminate state, and error message
+ */
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
   label?: string;
   indeterminate?: boolean;
@@ -15,24 +18,18 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       if (checkboxRef.current) {
         checkboxRef.current.indeterminate = indeterminate;
       }
-    }, [indeterminate, checkboxRef]);
+    }, [indeterminate]);
 
     return (
-      <div>
-        <label className="inline-flex items-center gap-2 cursor-pointer">
-          <input
-            ref={checkboxRef}
-            type="checkbox"
-            className={`h-4 w-4 rounded border-zinc-300 dark:border-zinc-600 text-indigo-600 focus:ring-2 focus:ring-indigo-500/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
-            {...props}
-          />
-          {label && (
-            <span className="text-sm text-zinc-700 dark:text-zinc-300">{label}</span>
-          )}
-        </label>
-        {error && (
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400">{error}</p>
-        )}
+      <div className={`inline-flex items-center gap-2 ${className}`}>
+        <input
+          type="checkbox"
+          ref={checkboxRef}
+          className="w-4 h-4 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+          {...props}
+        />
+        {label && <label className="text-sm text-zinc-700 dark:text-zinc-300 cursor-pointer">{label}</label>}
+        {error && <p className="text-xs text-red-600">{error}</p>}
       </div>
     );
   }
