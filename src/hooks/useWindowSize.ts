@@ -47,7 +47,8 @@ export function useWindowSize(): UseWindowSizeReturn {
 }
 
 /**
- * Hook for getting window scroll position.
+ * Hook for tracking window dimensions
+ * Returns width, height, device type, and orientation
  */
 export function useWindowScroll(): { scrollX: number; scrollY: number; scrollPercentage: number } {
   const [scroll, setScroll] = useState({ scrollX: 0, scrollY: 0, scrollPercentage: 0 });
