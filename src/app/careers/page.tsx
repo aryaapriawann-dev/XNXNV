@@ -160,11 +160,10 @@ const jobs: Job[] = [
       "Team outings",
       "Professional training",
       "Career growth",
-      ],
-      },
+    ],
+  },
   {
     id: "7",
-    title: "Data Analyst",
     department: "Operations",
     location: "Jakarta",
     type: "Full-time",
