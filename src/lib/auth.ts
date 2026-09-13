@@ -1,8 +1,17 @@
 import { Cookies } from "next/headers";
 import { THEME_KEY } from "./constants";
 
+/**
+ * Theme type for light, dark, or system preference.
+ */
 export type Theme = "light" | "dark" | "system";
 
+/**
+ * Get current theme from cookie.
+ * Returns "system" if no theme cookie set or value is invalid.
+ *
+ * @returns current theme value
+ */
 export function getTheme(): Theme {
   const cookieStore = Cookies();
   const value = cookieStore.get(THEME_KEY);
@@ -13,6 +22,12 @@ export function getTheme(): Theme {
   return "system";
 }
 
+/**
+ * Set theme preference in cookie.
+ * Cookie expires after 1 year (365 days).
+ *
+ * @param theme - theme to set ("light", "dark", or "system")
+ */
 export function setTheme(theme: Theme): void {
   const cookieStore = Cookies();
   cookieStore.set(THEME_KEY, theme, {
@@ -24,6 +39,13 @@ export function setTheme(theme: Theme): void {
   });
 }
 
+/**
+ * Get user's system preference for color scheme.
+ * Returns "dark" if system prefers dark mode, "light" otherwise.
+ * Returns "light" on server-side (no window access).
+ *
+ * @returns "light" or "dark" based on system preference
+ */
 export function getPreferredTheme(): "light" | "dark" {
   if (typeof window === "undefined") {
     return "light";
@@ -33,6 +55,14 @@ export function getPreferredTheme(): "light" | "dark" {
     : "light";
 }
 
+/**
+ * Resolve final theme value from theme preference.
+ * If theme is "system", resolves to system preference.
+ * Otherwise returns the specified theme value.
+ *
+ * @param theme - theme preference ("light", "dark", or "system")
+ * @returns resolved theme value ("light" or "dark")
+ */
 export function resolveTheme(theme: Theme): "light" | "dark" {
   if (theme === "system") {
     return getPreferredTheme();
