@@ -63,12 +63,16 @@ const RELEASES: Release[] = [
     highlights: ["Komentar langsung pada dokumen", "Peran & hak akses granular", "Log aktivitas tim"],
   },
   {
-    id: "7",
-    version: "v2.8.1",
-    title: "Optimasi Mobile",
-    date: "2026-05-18",
-    type: "patch",
-    highlights: ["Navigasi bawah adaptif", "Gambar responsif otomatis", "Penghematan kuota data 30%"],
+    id: "8",
+    version: "v3.2.1",
+    title: "Dashboard Analitik Crew & Improve Mobile Filter UX",
+    date: "2026-09-13",
+    type: "minor",
+    highlights: [
+      "Dashboard analitik berbasis peran untuk tim",
+      "Filter mobile lebih responsif dengan gesture swipe",
+      "Export laporan ke CSV otomatis per minggu",
+    ],
   },
 ];
 

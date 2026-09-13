@@ -88,22 +88,34 @@ const RELEASES: ReleaseItem[] = [
       "Konsolidasi struktur folder Next.js monolith",
       "Standarisasi palet warna slate-950/slate-900"
     ],
+  {
+    id: "4",
+    version: "v2.4.5",
+    title: "Dashboard Analitik Peran & Export CSV Mingguan",
+    date: "13 September 2026",
+    type: "minor",
+    highlights: [
+      "Dashboard analitik berbasis peran untuk tim",
+      "Export laporan ke CSV otomatis per minggu",
+      "Filter mobile lebih responsif dengan gesture swipe",
+    ],
     changes: [
       {
         category: "Features",
         items: [
-          "Halaman Events Calendar dengan deteksi status upcoming otomatis",
-          "Halaman Studi Kasus & Portofolio terintegrasi"
-        ]
+          "Dashboard analitik real-time dengan filter peran",
+          "Export laporan mingguan otomatis ke CSV",
+        ],
       },
       {
         category: "Improvements",
         items: [
-          "Peningkatan skor aksesibilitas (a11y) ke level 98+"
-        ]
-      }
-    ]
-  }
+          "UX filter mobile dengan gesture swipe",
+          "Optimasi latency dashboard hingga 30%",
+        ],
+      },
+    ],
+  },
 ];
 
 export default function ChangelogArchivePage() {
