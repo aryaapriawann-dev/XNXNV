@@ -1,6 +1,8 @@
 /**
  * Modal component with backdrop, close button, and escape key support
  */
+import { useRef, useEffect } from "react";
+import { X } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,12 +12,12 @@ interface ModalProps {
   className?: string;
 }
 
-export default function Modal({ 
-  isOpen, 
-  onClose, 
+export default function Modal({
+  isOpen,
+  onClose,
   title,
   children,
-  className = "" 
+  className = "",
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -23,12 +25,12 @@ export default function Modal({
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-    
+
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
     }
-    
+
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
@@ -39,11 +41,11 @@ export default function Modal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div 
+      <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
-      <div 
+      <div
         ref={modalRef}
         className="relative bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200"
       >
@@ -61,9 +63,7 @@ export default function Modal({
             </button>
           </div>
         )}
-        <div className={`p-6 ${!title ? "" : ""}`}>
-          {children}
-        </div>
+        <div className="p-6">{children}</div>
       </div>
     </div>
   );

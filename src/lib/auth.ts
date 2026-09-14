@@ -1,4 +1,4 @@
-import { Cookies } from "next/headers";
+import { cookies } from "next/headers";
 import { THEME_KEY } from "./constants";
 
 /**
@@ -13,11 +13,12 @@ export type Theme = "light" | "dark" | "system";
  * @returns current theme value
  */
 export function getTheme(): Theme {
-  const cookieStore = Cookies();
-  const value = cookieStore.get(THEME_KEY);
-  if (!value || !value.value) return "system";
-  if (["light", "dark", "system"].includes(value.value)) {
-    return value.value as Theme;
+  const cookieStore = cookies();
+  const cookie = cookieStore.get(THEME_KEY);
+  const value = cookie?.value;
+  if (!value || !value) return "system";
+  if (["light", "dark", "system"].includes(value)) {
+    return value as Theme;
   }
   return "system";
 }
@@ -29,8 +30,7 @@ export function getTheme(): Theme {
  * @param theme - theme to set ("light", "dark", or "system")
  */
 export function setTheme(theme: Theme): void {
-  const cookieStore = Cookies();
-  cookieStore.set(THEME_KEY, theme, {
+  cookies().set(THEME_KEY, theme, {
     maxAge: 60 * 60 * 24 * 365,
     path: "/",
     httpOnly: false,

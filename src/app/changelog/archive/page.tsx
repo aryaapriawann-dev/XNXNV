@@ -87,7 +87,8 @@ const RELEASES: ReleaseItem[] = [
     highlights: [
       "Konsolidasi struktur folder Next.js monolith",
       "Standarisasi palet warna slate-950/slate-900"
-    ],
+    ]
+  },
   {
     id: "4",
     version: "v2.4.5",

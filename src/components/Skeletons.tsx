@@ -1,8 +1,11 @@
 "use client";
+
 /**
  * Skeletons component for loading states.
  * Renders multiple skeleton placeholders for list/content loading.
  */
+import Skeleton from "./Skeleton";
+
 export default function Skeletons({ count = 3, className = "" }: { count?: number; className?: string }) {
   return (
     <div className={`space-y-4 ${className}`}>

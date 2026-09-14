@@ -1,21 +1,25 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+
 /**
  * Hook for parsing URL parameters.
  */
 export function useUrlParams(): URLSearchParams {
   const [params, setParams] = useState<URLSearchParams>(() => {
-    if (typeof window === 'undefined') return new URLSearchParams();
+    if (typeof window === "undefined") return new URLSearchParams();
     return new URLSearchParams(window.location.search);
   });
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     const handlePopState = () => {
       setParams(new URLSearchParams(window.location.search));
     };
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   return params;
@@ -59,9 +63,9 @@ export function useUpdateUrlParams(): {
         params.set(name, value);
       }
       const newQuery = params.toString();
-      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ''}`;
-      window.history.pushState({ path: newUrl }, '', newUrl);
-      window.dispatchEvent(new PopStateEvent('popstate'));
+      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ""}`;
+      window.history.pushState({ path: newUrl }, "", newUrl);
+      window.dispatchEvent(new PopStateEvent("popstate"));
     },
     []
   );
@@ -71,16 +75,16 @@ export function useUpdateUrlParams(): {
       const params = new URLSearchParams(window.location.search);
       params.delete(name);
       const newQuery = params.toString();
-      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ''}`;
-      window.history.pushState({ path: newUrl }, '', newUrl);
-      window.dispatchEvent(new PopStateEvent('popstate'));
+      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ""}`;
+      window.history.pushState({ path: newUrl }, "", newUrl);
+      window.dispatchEvent(new PopStateEvent("popstate"));
     },
     []
   );
 
   const clearParams = useCallback(() => {
-    window.history.pushState({ path: window.location.pathname }, '', window.location.pathname);
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.history.pushState({ path: window.location.pathname }, "", window.location.pathname);
+    window.dispatchEvent(new PopStateEvent("popstate"));
   }, []);
 
   const replaceHistory = useCallback(
@@ -88,9 +92,9 @@ export function useUpdateUrlParams(): {
       const currentParams = new URLSearchParams(window.location.search);
       Object.entries(params).forEach(([key, value]) => currentParams.set(key, value));
       const newQuery = currentParams.toString();
-      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ''}`;
-      window.history.replaceState({ path: newUrl }, '', newUrl);
-      window.dispatchEvent(new PopStateEvent('popstate'));
+      const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ""}`;
+      window.history.replaceState({ path: newUrl }, "", newUrl);
+      window.dispatchEvent(new PopStateEvent("popstate"));
     },
     []
   );

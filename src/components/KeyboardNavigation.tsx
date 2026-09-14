@@ -4,7 +4,7 @@
  * Keyboard navigation component for menu items.
  * Adds keyboard support for menu navigation.
  */
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface KeyboardNavigationProps {
   children: React.ReactNode;

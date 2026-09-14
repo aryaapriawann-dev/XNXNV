@@ -1,6 +1,7 @@
 /**
  * Card component with variant, padding, and hover options
  */
+import type { ReactNode } from "react";
 
 interface CardProps {
   children: ReactNode;

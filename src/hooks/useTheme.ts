@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Theme, getThemeFromStorage, setThemeToStorage, isDarkTheme } from './theme';
+import { useState, useEffect } from 'react';
+import Theme, { getThemeFromStorage, setThemeToStorage, isDarkTheme } from './theme';
 
 /**
  * Use theme hook for managing theme state
@@ -31,7 +31,7 @@ export function useTheme(): UseThemeResult {
   };
 
   const toggleTheme = () => {
-    setThemeState((prev) => {
+    setThemeState((prev: Theme) => {
       if (prev === 'light') return 'dark';
       if (prev === 'dark') return 'system';
       return 'light';

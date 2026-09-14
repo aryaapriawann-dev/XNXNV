@@ -1,6 +1,7 @@
 /**
  * Button component with multiple variants and sizes
  */
+import { type ButtonHTMLAttributes, type ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -20,7 +21,8 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseClasses =
+    "inline-flex items-center justify-center font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantClasses = {
     primary: "bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800",

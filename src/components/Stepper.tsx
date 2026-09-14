@@ -1,6 +1,4 @@
-"use client";
-
-import { forwardRef, useState, useCallback } from "react";
+import React, { forwardRef, useState, useCallback, useEffect } from "react";
 
 /**
  * Stepper component for multi-step workflows
