@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, Star, ChevronRight, Award, Users, Heart, Eye, Zap } from "lucide-react";
+import { Search, Star, ChevronRight, Award, Users, Heart, Eye, Zap, Building2, Clock } from "lucide-react";
 
 const SPOTLIGHT = [
   { id: "1", title: "Mitra Terbaik 2026 — TechVision", deskripsi: "TechVision Indonesia menjadi mitra terbaik 2026 untuk kontribusi luar biasa dalam pengembangan infrastruktur cloud.", views: 3200, rating: 5, category: "teknologi", location: "Jakarta", joined: "2020" },

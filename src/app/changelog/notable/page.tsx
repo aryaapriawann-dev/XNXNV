@@ -22,7 +22,7 @@ export default function Page() {
   const [cat, setCat] = useState("all");
   const f = useMemo(() =>
     ITEMS.filter((i) =>
-      (cat === "all" || i.kategori === cat) &&
+      (cat === "all" || i.id === cat) &&
       (i.title + i.desc).toLowerCase().includes(q.toLowerCase())
     ), [q, cat]);
 

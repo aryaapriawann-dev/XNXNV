@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, Handshake, ChevronRight, Building2, Users, Award, Zap } from "lucide-react";
+import { Search, Handshake, ChevronRight, Building2, Users, Award, Zap, Star, Eye } from "lucide-react";
 
 const BENEFITS = [
   { id: "1", title: "Eksklusif Akses Premium", deskripsi: "Mitra mendapatkan akses premium ke semua fitur dan tools khusus mitra.", icon: Award, views: 2100, order: 1 },

@@ -127,7 +127,7 @@ export default function NewsletterPage() {
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">Avg Open Rate</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-zinc-900 dark:text-white">{FEATURED_SECTIONS[selectedFeature].stats.bounceRate}</p>
+                <p className="text-3xl font-bold text-zinc-900 dark:text-white">{FEATURED_SECTIONS[selectedFeature].stats.bouncedRate}</p>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">Bounced Rate</p>
               </div>
               <div>
