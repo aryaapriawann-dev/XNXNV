@@ -6,7 +6,7 @@
  */
 import { useEffect, useState } from "react";
 
-export default function Counter({ target = 0, duration = 2000 }: { target?: number; duration?: number }) {
+export default function Counter({ target = 0, duration = 2000, prefix = '' }: { target?: number; duration?: number; prefix?: string }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
