@@ -9,6 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   isLoading?: boolean;
+  loadingText?: string;
 }
 
 export default function Button({
@@ -47,7 +48,7 @@ export default function Button({
       {isLoading ? (
         <>
           <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-          <span>Loading...</span>
+          <span>{loadingText || "Loading..."}</span>
         </>
       ) : (
         children
