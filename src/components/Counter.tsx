@@ -21,5 +21,5 @@ export default function Counter({ target = 0, duration = 2000, prefix = '' }: { 
     requestAnimationFrame(animate);
   }, [target, duration]);
 
-  return <span>{count.toLocaleString()}</span>;
+  return <span>{prefix}{count.toLocaleString()}</span>;
 }
