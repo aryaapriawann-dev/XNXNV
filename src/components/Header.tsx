@@ -13,6 +13,7 @@ export default function Header() {
     { href: "/pricing", label: "Harga" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Kontak" },
+    { href: "/faq", label: "FAQ", new: true },
   ];
 
   return (
