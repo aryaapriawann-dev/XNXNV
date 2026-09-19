@@ -1,3 +1,4 @@
+// chore: hilangkan spasi berlebih
 import { User } from "lucide-react";
 
 /**
