@@ -1,3 +1,4 @@
+// style: rapikan indentasi docstring
 /**
  * Theme type for light, dark, or system preference.
  */
