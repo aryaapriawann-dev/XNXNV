@@ -9,10 +9,12 @@ export default function AnimatedCounter({
   target = 0,
   duration = 2000,
   className = "",
+  suffix = "",
 }: {
   target?: number;
   duration?: number;
   className?: string;
+  suffix?: string;
 }) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -52,7 +54,7 @@ export default function AnimatedCounter({
       id="counter"
       className={`text-3xl font-bold text-indigo-600 dark:text-indigo-400 ${className}`}
     >
-      {count.toLocaleString()}
+      {count.toLocaleString()}{suffix}
     </span>
   );
 }
