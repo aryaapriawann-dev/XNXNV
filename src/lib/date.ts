@@ -1,3 +1,4 @@
+// docs: tambah komentar tipe pada fungsi
 /**
  * Format date to locale string (e.g., "12 September 2026")
  *
