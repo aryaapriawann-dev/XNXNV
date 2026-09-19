@@ -1,3 +1,4 @@
+// chore: tambah separator komentar bagian
 import Image from "next/image";
 import { Award, Users, TrendingUp, Target } from "lucide-react";
 
