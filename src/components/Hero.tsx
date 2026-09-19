@@ -1,3 +1,4 @@
+// style: konsisten penggunaan quote
 import { ArrowRight, Code, Layout, Zap } from "lucide-react";
 import Link from "next/link";
 
