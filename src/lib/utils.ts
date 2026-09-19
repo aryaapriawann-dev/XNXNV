@@ -1,3 +1,4 @@
+// chore: tambah baris dokumentasi
 /**
  * Shared TypeScript utilities for XNXNV project.
  * Includes formatting, validation, and helper functions.
