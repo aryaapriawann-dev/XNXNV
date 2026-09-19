@@ -6,7 +6,7 @@
  */
 import { useEffect, useState } from "react";
 
-export default function Counter({ target = 0, duration = 2000, prefix = '' }: { target?: number; duration?: number; prefix?: string }) {
+export default function Counter({ target = 0, duration = 2000, prefix = '', suffix = '' }: { target?: number; duration?: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -21,5 +21,5 @@ export default function Counter({ target = 0, duration = 2000, prefix = '' }: { 
     requestAnimationFrame(animate);
   }, [target, duration]);
 
-  return <span>{prefix}{count.toLocaleString()}</span>;
+  return <span>{prefix}{count.toLocaleString()}{suffix}</span>;
 }
