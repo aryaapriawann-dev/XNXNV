@@ -1,3 +1,4 @@
+// docs: jelaskan tujuan helper
 /**
  * Safely get item from localStorage with fallback
  */
