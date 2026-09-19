@@ -1,3 +1,4 @@
+// docs: tambah komentar tipe pada fungsi
 "use client";
 
 import Link from "next/link";
