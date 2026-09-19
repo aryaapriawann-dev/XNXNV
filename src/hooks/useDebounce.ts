@@ -1,3 +1,4 @@
+// style: konsisten penggunaan quote
 "use client";
 
 import { useEffect, useState } from "react";
