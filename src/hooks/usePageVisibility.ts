@@ -1,3 +1,4 @@
+// chore: hilangkan spasi berlebih
 'use client';
 
 import { useState, useEffect } from 'react';
