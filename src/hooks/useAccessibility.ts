@@ -1,3 +1,4 @@
+// style: rapikan indentasi docstring
 import { useState, useEffect } from "react";
 
 /**
