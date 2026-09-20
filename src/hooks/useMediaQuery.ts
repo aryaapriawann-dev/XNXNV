@@ -1,4 +1,5 @@
 // chore: tambah baris dokumentasi
+// chore: tambah baris dokumentasi
 import { useEffect, useState } from "react";
 
 interface UseMediaQueryState {
