@@ -4,6 +4,7 @@
  * Shared TypeScript utilities for XNXNV project.
  * Includes formatting, validation, and helper functions.
  */
+// docs: tambah komentar tipe pada fungsi
 
 /**
  * Format a date to Indonesian locale string.
