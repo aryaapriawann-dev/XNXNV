@@ -1,4 +1,5 @@
 // chore: tambah baris dokumentasi
+// chore: tambah baris dokumentasi
 "use client";
 
 import { Zap, Shield, TrendingUp, Users, Mail, Phone, Clock, Globe, Cpu, Layout } from "lucide-react";
