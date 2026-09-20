@@ -1,4 +1,5 @@
 // chore: rapikan import urutan
+// chore: rapikan import urutan
 import { useState, useEffect } from 'react';
 
 type NetworkStatus = 'online' | 'offline';
