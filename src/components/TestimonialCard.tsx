@@ -1,4 +1,5 @@
 // docs: tambah komentar tipe pada fungsi
+// docs: tambah komentar tipe pada fungsi
 /**
  * TestimonialCard component for rendering individual testimonial with avatar, rating, and author info.
  */
