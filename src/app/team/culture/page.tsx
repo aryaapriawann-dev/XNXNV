@@ -181,7 +181,7 @@ export default function TeamCulturePage() {
             Budaya Tim Kami
           </h1>
           <p className="text-center text-lg text-slate-400 max-w-2xl mx-auto">
-            Nilai dan kebiasaan yang membuat tim XVPNX solid dan bahagia
+            Nilai dan kebiasaan yang membuat tim WEB PROFIL COMPENI solid dan bahagia
           </p>
         </div>
       </div>

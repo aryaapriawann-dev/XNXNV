@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Search, Megaphone, ChevronRight } from "lucide-react";
 const SIARAN = [
-  { id: "1", judul: "XNXNV Luncurkan Dashboard v2", tanggal: "28 Sep 2026", kategori: "produk", isi: "Fitur drag-and-drop dan ekspor terjadwal resmi tersedia." },
+  { id: "1", judul: "WEB PROFIL COMPENI Luncurkan Dashboard v2", tanggal: "28 Sep 2026", kategori: "produk", isi: "Fitur drag-and-drop dan ekspor terjadwal resmi tersedia." },
   { id: "2", judul: "Kemitraan 5 Kampus Baru", tanggal: "15 Sep 2026", kategori: "kemitraan", isi: "Program magang diperluas ke 5 kampus di Jawa dan Sumatra." },
   { id: "3", judul: "Raih 10.000 Pelanggan", tanggal: "1 Sep 2026", kategori: "pencapaian", isi: "Tonggak pelanggan ke-10 ribu dirayakan bersama tim." },
   { id: "4", judul: "Buka Kantor Makassar", tanggal: "18 Agu 2026", kategori: "ekspansi", isi: "Kantor keenam melayani Indonesia Timur." },
@@ -19,7 +19,7 @@ export default function PressReleasePage() {
       <section className="py-20 bg-zinc-900 text-white text-center"><div className="max-w-4xl mx-auto px-4">
         <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Berita</p>
         <h1 className="text-4xl sm:text-5xl font-bold mb-4">Siaran Pers</h1>
-        <p className="text-lg text-zinc-300">Pengumuman resmi dari XNXNV.</p></div></section>
+        <p className="text-lg text-zinc-300">Pengumuman resmi dari WEB PROFIL COMPENI.</p></div></section>
       <section className="py-12 bg-white dark:bg-slate-950"><div className="max-w-4xl mx-auto px-4">
         <div className="relative mb-6"><Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari siaran pers..."

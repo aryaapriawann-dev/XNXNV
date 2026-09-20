@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return {};
 
   return {
-    title: `${post.title} - Blog | XNXNV`,
+    title: `${post.title} - Blog | WEB PROFIL COMPENI`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

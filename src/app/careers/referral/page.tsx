@@ -10,7 +10,7 @@ const TIERS = [
   { id: "5", nama: "Berlian", referral: "21+ teman", hadiah: "Gratis 1 tahun layanan", deskripsi: "Status mitra VIP dengan manajer khusus." },
 ];
 export default function ReferralPage() {
-  const kode = "XNXNV-ARYA-2026";
+  const kode = "WEB PROFIL COMPENI-ARYA-2026";
   const [q, setQ] = useState("");
   const [disalin, setDisalin] = useState(false);
   const f = useMemo(() => TIERS.filter((t) => (t.nama + t.hadiah).toLowerCase().includes(q.toLowerCase())), [q]);

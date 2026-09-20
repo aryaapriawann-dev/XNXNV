@@ -25,7 +25,7 @@ export default function AboutPage() {
                 Siapa Kami
               </h2>
               <p className="text-zinc-600 dark:text-zinc-300 mb-6">
-                XNXNV adalah tim developer dan desainer yang berdedikasi untuk membantu bisnis
+                WEB PROFIL COMPENI adalah tim developer dan desainer yang berdedikasi untuk membantu bisnis
                 Anda berkembang di era digital. Kami menyediakan solusi website, mobile app,
                 desain UI/UX, dan strategi digital marketing.
               </p>

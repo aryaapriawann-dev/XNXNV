@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "XNXNV - Solusi Digital Berkualitas untuk Bisnis Anda",
-    template: "%s | XNXNV",
+    default: "WEB PROFIL COMPENI - Solusi Digital Berkualitas untuk Bisnis Anda",
+    template: "%s | WEB PROFIL COMPENI",
   },
   description: "Kami membantu bisnis tumbuh dengan website modern, aplikasi digital, dan solusi teknologi yang terintegrasi.",
   keywords: [
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
     "next.js",
     "react",
   ],
-  authors: [{ name: "XNXNV Team" }],
+  authors: [{ name: "WEB PROFIL COMPENI Team" }],
   openGraph: {
     type: "website",
     locale: "id_ID",
-    siteName: "XNXNV",
+    siteName: "WEB PROFIL COMPENI",
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@xvnpnx",
+    creator: "@webprofilcompeni",
   },
   robots: {
     index: true,

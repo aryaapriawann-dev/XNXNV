@@ -43,9 +43,9 @@ const LEVELS = [
 const GUIDES: Guide[] = [
   {
     id: "1",
-    title: "Panduan Instalasi XVPNX di Windows, Mac, dan Linux",
+    title: "Panduan Instalasi WEB PROFIL COMPENI di Windows, Mac, dan Linux",
     excerpt:
-      "Langkah demi langkah menginstal dan mengonfigurasi XVPNX pertama kali di semua sistem operasi desktop.",
+      "Langkah demi langkah menginstal dan mengonfigurasi WEB PROFIL COMPENI pertama kali di semua sistem operasi desktop.",
     category: "setup",
     level: "pemula",
     date: "2026-08-15",
@@ -55,7 +55,7 @@ const GUIDES: Guide[] = [
     id: "2",
     title: "Mengaktifkan Kill Switch untuk Perlindungan Maksimal",
     excerpt:
-      "Cegah kebocoran data saat koneksi VPN terputus dengan fitur kill switch yang tersedia di XVPNX.",
+      "Cegah kebocoran data saat koneksi VPN terputus dengan fitur kill switch yang tersedia di WEB PROFIL COMPENI.",
     category: "keamanan",
     level: "menengah",
     date: "2026-07-22",
@@ -95,7 +95,7 @@ const GUIDES: Guide[] = [
     id: "6",
     title: "Setup VPN di Router Rumah: Lindungi Semua Perangkat",
     excerpt:
-      "Panduan lengkap menginstal XVPNX langsung di router agar seluruh perangkat di jaringan rumah terlindungi.",
+      "Panduan lengkap menginstal WEB PROFIL COMPENI langsung di router agar seluruh perangkat di jaringan rumah terlindungi.",
     category: "setup",
     level: "lanjutan",
     date: "2026-04-25",
@@ -115,7 +115,7 @@ const GUIDES: Guide[] = [
     id: "8",
     title: "Mengatasi Error Autentikasi dan Gagal Login",
     excerpt:
-      "Solusi cepat untuk masalah login paling umum di aplikasi XVPNX, dari reset kredensial hingga cache.",
+      "Solusi cepat untuk masalah login paling umum di aplikasi WEB PROFIL COMPENI, dari reset kredensial hingga cache.",
     category: "troubleshoot",
     level: "pemula",
     date: "2026-02-20",
@@ -201,7 +201,7 @@ export default function GuidesPage() {
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Temukan {GUIDES.length} panduan lengkap — dari instalasi dasar hingga
-            konfigurasi lanjutan XVPNX.
+            konfigurasi lanjutan WEB PROFIL COMPENI.
           </p>
         </div>
       </div>

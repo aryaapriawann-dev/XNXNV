@@ -128,7 +128,7 @@ export default function CareersApplyPage() {
             Lamar Bergabung Bersama Kami
           </h1>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Jadilah bagian dari tim XVPNX yang membangun masa depan privasi
+            Jadilah bagian dari tim WEB PROFIL COMPENI yang membangun masa depan privasi
             digital. Isi formulir di bawah dan tim HR kami akan menghubungi Anda
             dalam 3 hari kerja.
           </p>
@@ -167,7 +167,7 @@ export default function CareersApplyPage() {
                   Lamaran Terkirim!
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Terima kasih telah melamar di XVPNX. Tim HR kami akan meninjau
+                  Terima kasih telah melamar di WEB PROFIL COMPENI. Tim HR kami akan meninjau
                   lamaran Anda dan menghubungi melalui email dalam 3 hari kerja.
                 </p>
                 <button
@@ -321,7 +321,7 @@ export default function CareersApplyPage() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Ceritakan motivasi Anda bergabung di XVPNX dan keahlian relevan yang Anda miliki..."
+                      placeholder="Ceritakan motivasi Anda bergabung di WEB PROFIL COMPENI dan keahlian relevan yang Anda miliki..."
                       rows={5}
                       className={`w-full pl-10 pr-4 py-3 bg-white dark:bg-zinc-800 border ${errorClass("message")} rounded-lg focus:ring-2 focus:border-transparent transition-colors text-zinc-900 dark:text-white placeholder-zinc-400 resize-none`}
                     />

@@ -8,8 +8,8 @@ const faqs = [
     category: "Umum",
     items: [
       {
-        question: "Apa itu XNXNV?",
-        answer: "XNXNV adalah perusahaan teknologi yang menyediakan solusi digital lengkap mulai dari web development, mobile app, hingga sistem enterprise dengan teknologi terkini.",
+        question: "Apa itu WEB PROFIL COMPENI?",
+        answer: "WEB PROFIL COMPENI adalah perusahaan teknologi yang menyediakan solusi digital lengkap mulai dari web development, mobile app, hingga sistem enterprise dengan teknologi terkini.",
       },
       {
         question: "Where are you located?",

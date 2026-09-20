@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="text-xl font-bold text-white">
-              XNXNV
+              WEB PROFIL COMPENI
             </Link>
             <p className="mt-2 text-sm text-zinc-400 max-w-xs">
               Solusi digital untuk bisnis Anda. Kami membantu mewujudkan visi digital Anda.
@@ -70,7 +70,7 @@ export default function Footer() {
                 <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>hello@xvnpnx.id</span>
+                <span>hello@webprofilcompeni.id</span>
               </li>
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-8 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-zinc-500">
-            &copy; {currentYear} XNXNV. All rights reserved.
+            &copy; {currentYear} WEB PROFIL COMPENI. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-zinc-500 hover:text-zinc-300 transition-colors">

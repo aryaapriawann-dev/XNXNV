@@ -106,7 +106,7 @@ const MITRAS: Mitra[] = [
 
 const FAQS: Faq[] = [
   {
-    q: "Bagaimana cara menjadi mitra XVPNX?",
+    q: "Bagaimana cara menjadi mitra WEB PROFIL COMPENI?",
     a: "Isi formulir di halaman Gabung Mitra, tim kami akan menghubungi Anda dalam 3 hari kerja untuk proses verifikasi dan penandatanganan kerja sama.",
   },
   {
@@ -153,7 +153,7 @@ export default function PartnerDetailPage() {
             <span>Detail Mitra</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            Mitra Terpercaya XVPNX
+            Mitra Terpercaya WEB PROFIL COMPENI
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl">
             Kenali lebih dekat para mitra strategis kami: profil lengkap, level kemitraan, lokasi, dan benefit kolaborasi.

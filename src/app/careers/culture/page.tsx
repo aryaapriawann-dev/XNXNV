@@ -46,7 +46,7 @@ export default function CulturePage() {
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Karier</p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Budaya Kerja</h1>
-          <p className="text-lg text-zinc-300">Nilai dan keseharian tim XVPNX.</p>
+          <p className="text-lg text-zinc-300">Nilai dan keseharian tim WEB PROFIL COMPENI.</p>
         </div>
       </section>
 

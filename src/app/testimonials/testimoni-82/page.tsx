@@ -11,7 +11,7 @@ export default function Page82() {
           <div className="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold">P82</div>
           <div>
             <p className="font-semibold text-zinc-800 dark:text-white">Pengguna 82</p>
-            <p className="text-sm text-zinc-500">Pengguna Setia XNXNV</p>
+            <p className="text-sm text-zinc-500">Pengguna Setia WEB PROFIL COMPENI</p>
           </div>
         </div>
       </div>

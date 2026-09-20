@@ -152,7 +152,7 @@ export default function EventsRegisterPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-indigo-950" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            Daftar Acara XVPNX
+            Daftar Acara WEB PROFIL COMPENI
           </h1>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
             Amankan kursi Anda di summit, workshop, dan webinar kami. Isi
@@ -266,7 +266,7 @@ export default function EventsRegisterPage() {
                   Pendaftaran Berhasil!
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Terima kasih telah mendaftar acara XVPNX. Tiket elektronik
+                  Terima kasih telah mendaftar acara WEB PROFIL COMPENI. Tiket elektronik
                   dan detail acara akan dikirim ke email Anda.
                 </p>
                 <button

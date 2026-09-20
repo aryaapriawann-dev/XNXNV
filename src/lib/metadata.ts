@@ -3,18 +3,18 @@
 import { Metadata } from "next";
 
 /**
- * Site metadata configuration for the XNXNV website.
+ * Site metadata configuration for the WEB PROFIL COMPENI website.
  * Contains title, description, keywords, and social media image.
  */
 export const siteMetadata = {
-  title: "XNXNV - Agency Digital Marketing & Web Development",
+  title: "WEB PROFIL COMPENI - Agency Digital Marketing & Web Development",
   description:
     "Kami adalah agency digital marketing dan web development yang membantu bisnis Anda tumbuh dengan solusi teknologi terbaik.",
   keywords:
     "digital agency, web development, mobile app, ui/ux design, digital marketing, nextjs, react",
-  author: "XNXNV Team",
-  url: "https://xvnpnx.id",
-  image: "https://xvnpnx.id/og-image.jpg",
+  author: "WEB PROFIL COMPENI Team",
+  url: "https://webprofilcompeni.id",
+  image: "https://webprofilcompeni.id/og-image.jpg",
 };
 
 /**

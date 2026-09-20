@@ -3,7 +3,7 @@
 /**
  * Application name constant.
  */
-export const APP_NAME = "XNXNV";
+export const APP_NAME = "WEB PROFIL COMPENI";
 
 /**
  * Application version constant.
@@ -18,7 +18,7 @@ export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";
 /**
  * Support email address.
  */
-export const SUPPORT_EMAIL = "support@xvnpnx.com";
+export const SUPPORT_EMAIL = "support@webprofilcompeni.com";
 
 /**
  * Contact phone number.

@@ -95,7 +95,7 @@ export default function VisionPage() {
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Visi 2030</h1>
           <p className="text-lg text-zinc-300">
-            Ke mana XNXNV melangkah dalam lima tahun ke depan.
+            Ke mana WEB PROFIL COMPENI melangkah dalam lima tahun ke depan.
           </p>
         </div>
       </section>

@@ -1,7 +1,7 @@
 // chore: tambah baris dokumentasi
 // chore: tambah baris dokumentasi
 /**
- * Shared TypeScript utilities for XNXNV project.
+ * Shared TypeScript utilities for WEB PROFIL COMPENI project.
  * Includes formatting, validation, and helper functions.
  */
 // docs: tambah komentar tipe pada fungsi

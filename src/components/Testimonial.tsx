@@ -24,7 +24,7 @@ const testimonials: TestimonialData[] = [
     name: "Budi Santoso",
     role: "CEO & Founder",
     company: "TechStart Indonesia",
-    content: "Pelayanan yang luar biasa! Tim XNXNV sangat profesional dan hasil kerjanya melebihi ekspektasi.",
+    content: "Pelayanan yang luar biasa! Tim WEB PROFIL COMPENI sangat profesional dan hasil kerjanya melebihi ekspektasi.",
     rating: 5,
   },
   {
@@ -40,7 +40,7 @@ const testimonials: TestimonialData[] = [
     name: "Andi Wijaya",
     role: "Director of Operations",
     company: "Digital Media Group",
-    content: "Layanan yang sangat memuaskan. Tim XNXNV memahami kebutuhan bisnis kami dengan sangat baik.",
+    content: "Layanan yang sangat memuaskan. Tim WEB PROFIL COMPENI memahami kebutuhan bisnis kami dengan sangat baik.",
     rating: 5,
   },
 ];

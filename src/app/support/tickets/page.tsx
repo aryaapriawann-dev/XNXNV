@@ -21,7 +21,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Support Center</p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Sistem Tiket & Bantuan</h1>
-          <p className="text-lg text-zinc-300">Layanan tiket bantuan teknis 24/7 untuk seluruh pengguna XVPNX.</p>
+          <p className="text-lg text-zinc-300">Layanan tiket bantuan teknis 24/7 untuk seluruh pengguna WEB PROFIL COMPENI.</p>
         </div>
       </section>
 

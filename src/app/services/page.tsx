@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ServicesSection from "@/components/ServicesSection";
 
 export const metadata: Metadata = {
-  title: "Layanan - XNXNV",
+  title: "Layanan - WEB PROFIL COMPENI",
   description: "Kami menyediakan berbagai layanan digital untuk membantu bisnis Anda tumbuh.",
 };
 

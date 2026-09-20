@@ -7,7 +7,7 @@ const DATA = [
   { id: "1", title: "Rapat Koordinasi Projekt X",
     date: "15 Maret 2025",
     desc: "Meeting rutin bulanan antar stakeholder untuk menyelesaikan kendala teknis dan menyelaraskan timeline.",
-    category: "kalender", location: "Ruang Rapat A, Gedung XVPNX", attendees: 8 },
+    category: "kalender", location: "Ruang Rapat A, Gedung WEB PROFIL COMPENI", attendees: 8 },
   { id: "2", title: "Penyerahan Dokumentasi Batch 7",
     date: "8 Maret 2025",
     desc: "Tim pengembangan menyerahkan dokumentasi lengkap modul keamanan dan arsitektur sistem ke bagian QA.",
@@ -19,7 +19,7 @@ const DATA = [
   { id: "4", title: "Pelatihan Keamanan Siber Dasar",
     date: "19 Februari 2025",
     desc: "Workshop singkat untuk seluruh staf tentang praktik keamanan dasar seperti manajemen kata sandi dan phishing awareness.",
-    category: "pelatihan", location: "Gedung XVPNX", attendees: 24 },
+    category: "pelatihan", location: "Gedung WEB PROFIL COMPENI", attendees: 24 },
   { id: "5", title: "Riset Pasar untuk Fitur Baru",
     date: "10 Februari 2025",
     desc: "Diskusi awal terkait survei kebutuhan pengguna untuk menentukan fitur prioritas rilis berikutnya.",
@@ -27,7 +27,7 @@ const DATA = [
   { id: "6", title: "Penandatanganan MoU dengan Partner",
     date: "3 Februari 2025",
     desc: "Memperkuat hubungan strategis dengan partner industri melalui kesepakatan resmi yang ditandatangani.",
-    category: "mitra", location: "Gedung XVPNX", attendees: 10 }
+    category: "mitra", location: "Gedung WEB PROFIL COMPENI", attendees: 10 }
 ];
 
 export default function Page() {

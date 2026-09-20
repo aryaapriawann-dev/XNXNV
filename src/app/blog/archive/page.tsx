@@ -53,7 +53,7 @@ const POSTS: BlogPost[] = [
   },
   {
     id: "3",
-    title: "XVPNX Rilis Server Baru di 3 Kota Indonesia",
+    title: "WEB PROFIL COMPENI Rilis Server Baru di 3 Kota Indonesia",
     excerpt: "Ekspansi infrastruktur untuk latensi lebih rendah: Jakarta, Surabaya, dan Medan kini online dengan kapasitas ganda.",
     category: "berita",
     year: 2026,
@@ -171,7 +171,7 @@ export default function BlogArchivePage() {
             Arsip Blog
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Jelajahi {POSTS.length} artikel tutorial, keamanan, dan berita dari tim XVPNX.
+            Jelajahi {POSTS.length} artikel tutorial, keamanan, dan berita dari tim WEB PROFIL COMPENI.
           </p>
         </div>
       </div>

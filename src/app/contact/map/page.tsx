@@ -113,7 +113,7 @@ export default function ContactMapPage() {
               Lokasi Kami
             </h1>
             <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-              Temukan kantor dan cabang XVPNX terdekat di kota Anda. Kami hadir
+              Temukan kantor dan cabang WEB PROFIL COMPENI terdekat di kota Anda. Kami hadir
               di berbagai kota besar Indonesia untuk melayani kebutuhan Anda.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function ContactMapPage() {
           {/* Embed OpenStreetMap (tanpa API key) */}
           <div className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl">
             <iframe
-              title="Lokasi Kantor Pusat XVPNX"
+              title="Lokasi Kantor Pusat WEB PROFIL COMPENI"
               src="https://www.openstreetmap.org/export/embed.html?bbox=106.7894%2C-6.2541%2C106.8094%2C-6.2341&layer=mapnik&marker=-6.2441%2C106.7994"
               width="100%"
               height="450"
@@ -263,7 +263,7 @@ export default function ContactMapPage() {
               Jaringan Cabang
             </h2>
             <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-              XVPNX hadir di {cabangList.length} kota besar di Indonesia untuk
+              WEB PROFIL COMPENI hadir di {cabangList.length} kota besar di Indonesia untuk
               memastikan dukungan terbaik bagi setiap klien kami.
             </p>
           </div>

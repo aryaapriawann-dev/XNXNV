@@ -8,7 +8,7 @@ export default function HistoryPage() {
   const milestones = [
     {
       year: "2020",
-      title: "Pendirian XNXNV",
+      title: "Pendirian WEB PROFIL COMPENI",
       description: "XNPXN resmi didirikan di Kendari, Sulawesi Tenggara dengan tim 3 founders.",
       icon: "🚀",
     },
@@ -44,7 +44,7 @@ export default function HistoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Sejarah Kami</h1>
           <p className="text-lg text-indigo-100">
-            Perjalanan XNXNV dari awal sampai sekarang
+            Perjalanan WEB PROFIL COMPENI dari awal sampai sekarang
           </p>
         </div>
       </div>

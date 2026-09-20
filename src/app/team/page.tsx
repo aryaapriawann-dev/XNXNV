@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
     role: "Chief Executive Officer",
     department: "Executive",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=687&auto=format&fit=crop",
-    bio: "Visionary leader with over 20 years of experience in technology and business strategy. John founded XNXNV with a mission to transform how businesses leverage digital technology.",
+    bio: "Visionary leader with over 20 years of experience in technology and business strategy. John founded WEB PROFIL COMPENI with a mission to transform how businesses leverage digital technology.",
     email: "john.smith@xnxnv.com",
     phone: "+1 (555) 123-4567",
     location: "New York, USA",

@@ -33,7 +33,7 @@ interface Saluran {
 const saluranList: Saluran[] = [
   {
     nama: "Live Chat Aplikasi",
-    deskripsi: "Chat langsung dengan tim support dari aplikasi XVPNX.",
+    deskripsi: "Chat langsung dengan tim support dari aplikasi WEB PROFIL COMPENI.",
     kategori: "Chat",
     kontak: "Buka aplikasi > Bantuan > Live Chat",
     link: "/contact",
@@ -87,7 +87,7 @@ const saluranList: Saluran[] = [
   },
   {
     nama: "Komunitas Pengguna",
-    deskripsi: "Diskusi, tips, dan solusi dari sesama pengguna XVPNX.",
+    deskripsi: "Diskusi, tips, dan solusi dari sesama pengguna WEB PROFIL COMPENI.",
     kategori: "Komunitas",
     kontak: "komunitas.xvpnx.com",
     link: "/contact",
@@ -230,7 +230,7 @@ export default function ContactSupportPage() {
               Hubungi Dukungan
             </h1>
             <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-              Tim support XVPNX siap membantu 24/7. Pilih saluran bantuan yang
+              Tim support WEB PROFIL COMPENI siap membantu 24/7. Pilih saluran bantuan yang
               paling nyaman atau kirim formulir di bawah — kami balas secepatnya.
             </p>
           </div>
@@ -384,7 +384,7 @@ export default function ContactSupportPage() {
                   Permintaan Terkirim!
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Terima kasih telah menghubungi dukungan XVPNX. Nomor tiket
+                  Terima kasih telah menghubungi dukungan WEB PROFIL COMPENI. Nomor tiket
                   dikirim ke email Anda dan tim kami akan merespons sesuai
                   prioritas.
                 </p>

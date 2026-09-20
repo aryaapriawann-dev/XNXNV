@@ -6,7 +6,7 @@ export default function TeamMember9Page() {
         <div className="h-16 w-16 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-xl">M9</div>
         <div>
           <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">Member #9</h1>
-          <p className="mt-2 text-zinc-500 dark:text-zinc-400">Tim XNXNV — Kontributor Profesional</p>
+          <p className="mt-2 text-zinc-500 dark:text-zinc-400">Tim WEB PROFIL COMPENI — Kontributor Profesional</p>
         </div>
       </div>
       <div className="mt-8 border-t border-zinc-200 dark:border-zinc-800 pt-6 text-zinc-600 dark:text-zinc-400">

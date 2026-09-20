@@ -43,9 +43,9 @@ const LEVELS = [
 const TUTORIALS: Tutorial[] = [
   {
     id: "1",
-    title: "Tutorial Instalasi XVPNX di Android dan iOS",
+    title: "Tutorial Instalasi WEB PROFIL COMPENI di Android dan iOS",
     excerpt:
-      "Langkah demi langkah menginstal aplikasi XVPNX di HP, login pertama kali, dan konek ke server tercepat.",
+      "Langkah demi langkah menginstal aplikasi WEB PROFIL COMPENI di HP, login pertama kali, dan konek ke server tercepat.",
     category: "setup",
     level: "pemula",
     date: "2026-08-20",
@@ -53,9 +53,9 @@ const TUTORIALS: Tutorial[] = [
   },
   {
     id: "2",
-    title: "Tutorial Setup XVPNX di Smart TV untuk Streaming",
+    title: "Tutorial Setup WEB PROFIL COMPENI di Smart TV untuk Streaming",
     excerpt:
-      "Pasang XVPNX di Android TV / Fire Stick agar Netflix, Disney+, dan YouTube terbuka tanpa buffering.",
+      "Pasang WEB PROFIL COMPENI di Android TV / Fire Stick agar Netflix, Disney+, dan YouTube terbuka tanpa buffering.",
     category: "streaming",
     level: "pemula",
     date: "2026-07-28",
@@ -177,7 +177,7 @@ export default function TutorialsPage() {
       <div className="border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950">
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            Tutorial XVPNX
+            Tutorial WEB PROFIL COMPENI
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Ikuti {TUTORIALS.length} tutorial praktis — dari instalasi dasar

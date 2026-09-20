@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { PageTransition } from "@/components/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Pricing - XNXNV",
-  description: "Lihat harga dan paket layanan XNXNV untuk bisnis Anda.",
+  title: "Pricing - WEB PROFIL COMPENI",
+  description: "Lihat harga dan paket layanan WEB PROFIL COMPENI untuk bisnis Anda.",
 };
 
 export default function PricingPage() {

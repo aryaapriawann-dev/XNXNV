@@ -8,19 +8,19 @@ import FAQSection from "@/components/FAQSection";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "XNXNV - Solusi Digital Berkualitas untuk Bisnis Anda",
+  title: "WEB PROFIL COMPENI - Solusi Digital Berkualitas untuk Bisnis Anda",
   description: "Kami membantu bisnis tumbuh dengan website modern, aplikasi digital, dan solusi teknologi yang terintegrasi. Layanan profesional untuk pertumbuhan digital Anda.",
   keywords: "digital solution, web development, mobile app, UI/UX design, digital marketing, cybersecurity, cloud solutions",
-  authors: [{ name: "XNXNV Team" }],
+  authors: [{ name: "WEB PROFIL COMPENI Team" }],
   openGraph: {
-    title: "XNXNV - Solusi Digital Berkualitas",
+    title: "WEB PROFIL COMPENI - Solusi Digital Berkualitas",
     description: "Kami membantu bisnis tumbuh dengan solusi teknologi terbaik",
     type: "website",
     locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
-    title: "XNXNV - Solusi Digital Berkualitas",
+    title: "WEB PROFIL COMPENI - Solusi Digital Berkualitas",
     description: "Kami membantu bisnis tumbuh dengan solusi teknologi terbaik",
   },
 };

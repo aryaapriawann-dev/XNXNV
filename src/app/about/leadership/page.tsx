@@ -9,13 +9,13 @@ export default function LeadershipPage() {
     {
       name: "Budi Santoso",
       role: "CEO & Founder",
-      bio: "Budi adalah pendiri XNXNV dengan pengalaman 10+ tahun di industri teknologi. Sebelum XNXNV, ia bekerja sebagai senior developer di perusahaan-perusahaan ternama.",
+      bio: "Budi adalah pendiri WEB PROFIL COMPENI dengan pengalaman 10+ tahun di industri teknologi. Sebelum WEB PROFIL COMPENI, ia bekerja sebagai senior developer di perusahaan-perusahaan ternama.",
       avatar: "BS",
     },
     {
       name: "Siti Nurhaliza",
       role: "CTO",
-      bio: "Siti memimpin tim teknologi XNXNV dengan fokus pada inovasi dan excellence in engineering. Ia memiliki pengalaman luas di cloud architecture dan cybersecurity.",
+      bio: "Siti memimpin tim teknologi WEB PROFIL COMPENI dengan fokus pada inovasi dan excellence in engineering. Ia memiliki pengalaman luas di cloud architecture dan cybersecurity.",
       avatar: "SN",
     },
     {
@@ -27,7 +27,7 @@ export default function LeadershipPage() {
     {
       name: "Dewi Lestari",
       role: "Lead Designer",
-      bio: "Dewi memimpin tim desain XNXNV dengan gaya modern dan user-centered. Ia memiliki portfolio yang mengesankan dalam desain UI/UX untuk berbagai industri.",
+      bio: "Dewi memimpin tim desain WEB PROFIL COMPENI dengan gaya modern dan user-centered. Ia memiliki portfolio yang mengesankan dalam desain UI/UX untuk berbagai industri.",
       avatar: "DL",
     },
   ];
@@ -38,7 +38,7 @@ export default function LeadershipPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Tim Pimpinan</h1>
           <p className="text-lg text-indigo-100">
-            Para pemimpin yang mendorong XNXNV maju terus
+            Para pemimpin yang mendorong WEB PROFIL COMPENI maju terus
           </p>
         </div>
       </div>

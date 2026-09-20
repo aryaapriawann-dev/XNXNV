@@ -45,7 +45,7 @@ const BENEFITS = [
   {
     icon: <Rocket className="h-6 w-6" />,
     title: "Akses Produk Prioritas",
-    desc: "Dapatkan akses awal ke fitur dan produk terbaru XVPNX sebelum dirilis publik.",
+    desc: "Dapatkan akses awal ke fitur dan produk terbaru WEB PROFIL COMPENI sebelum dirilis publik.",
   },
   {
     icon: <Users className="h-6 w-6" />,
@@ -119,7 +119,7 @@ export default function PartnersJoinPage() {
             Gabung Jadi Partner
           </h1>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Mari bertumbuh bersama XVPNX. Isi formulir kemitraan dan tim kami akan
+            Mari bertumbuh bersama WEB PROFIL COMPENI. Isi formulir kemitraan dan tim kami akan
             menghubungi Anda dalam 2 hari kerja.
           </p>
         </div>

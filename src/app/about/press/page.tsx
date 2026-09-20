@@ -8,18 +8,18 @@ export default function PressPage() {
   const pressItems = [
     {
       date: "15 Okt 2024",
-      title: "XNXNV Raih Penghargaan Best Digital Agency 2024",
-      summary: "XNXNV berhasil meraih penghargaan Best Digital Agency dari Tim Award Indonesia untuk kontribusi signifikan dalam melihat bisnis digital di Sulawesi Tenggara.",
+      title: "WEB PROFIL COMPENI Raih Penghargaan Best Digital Agency 2024",
+      summary: "WEB PROFIL COMPENI berhasil meraih penghargaan Best Digital Agency dari Tim Award Indonesia untuk kontribusi signifikan dalam melihat bisnis digital di Sulawesi Tenggara.",
     },
     {
       date: "10 Agu 2024",
-      title: "XNXNV Ekspansi ke Jakarta",
-      summary: "XNXNV resmi membuka kantor kedua di Jakarta, memperluas jangkauan layanan ke seluruh Indonesia.",
+      title: "WEB PROFIL COMPENI Ekspansi ke Jakarta",
+      summary: "WEB PROFIL COMPENI resmi membuka kantor kedua di Jakarta, memperluas jangkauan layanan ke seluruh Indonesia.",
     },
     {
       date: "5 Jul 2024",
       title: "Kolaborasi dengan Universitas Terbuka",
-      summary: "XNXNV bermitra dengan Universitas Terbuka untuk program magang dan pelatihan digital marketing.",
+      summary: "WEB PROFIL COMPENI bermitra dengan Universitas Terbuka untuk program magang dan pelatihan digital marketing.",
     },
   ];
 
@@ -29,7 +29,7 @@ export default function PressPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Berita & Media</h1>
           <p className="text-lg text-indigo-100">
-            Liputan media dan pengumuman terbaru dari XNXNV
+            Liputan media dan pengumuman terbaru dari WEB PROFIL COMPENI
           </p>
         </div>
       </div>
@@ -72,8 +72,8 @@ export default function PressPage() {
             Untuk permintaan wawancara, foto, atau informasi lebih lanjut, hubungi kami.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:press@xvnpnx.id" className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-              press@xvnpnx.id
+            <a href="mailto:press@webprofilcompeni.id" className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+              press@webprofilcompeni.id
             </a>
             <a href="tel:+6281234567890" className="px-6 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
               +62 812-3456-7890

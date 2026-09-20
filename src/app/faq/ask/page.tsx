@@ -43,12 +43,12 @@ const FAQ_LIST = [
   {
     question: "Berapa banyak perangkat yang bisa terhubung sekaligus?",
     answer:
-      "Paket standar XVPNX mendukung hingga 5 perangkat bersamaan. Paket Pro mendukung hingga 10 perangkat tanpa batas.",
+      "Paket standar WEB PROFIL COMPENI mendukung hingga 5 perangkat bersamaan. Paket Pro mendukung hingga 10 perangkat tanpa batas.",
   },
   {
-    question: "Apakah XVPNX menyimpan log aktivitas saya?",
+    question: "Apakah WEB PROFIL COMPENI menyimpan log aktivitas saya?",
     answer:
-      "Tidak. XVPNX menerapkan kebijakan no-log ketat — kami tidak mencatat, menyimpan, atau membagikan aktivitas internet Anda kepada siapa pun.",
+      "Tidak. WEB PROFIL COMPENI menerapkan kebijakan no-log ketat — kami tidak mencatat, menyimpan, atau membagikan aktivitas internet Anda kepada siapa pun.",
   },
   {
     question: "Bagaimana cara membatalkan langganan?",
@@ -56,9 +56,9 @@ const FAQ_LIST = [
       "Masuk ke dasbor akun Anda, buka menu Langganan, lalu klik Batalkan Langganan. Akses tetap aktif hingga akhir periode tagihan berjalan.",
   },
   {
-    question: "VPN XVPNX mendukung protokol apa saja?",
+    question: "VPN WEB PROFIL COMPENI mendukung protokol apa saja?",
     answer:
-      "XVPNX mendukung WireGuard, OpenVPN, dan IKEv2/IPSec. WireGuard direkomendasikan untuk kecepatan dan keamanan terbaik.",
+      "WEB PROFIL COMPENI mendukung WireGuard, OpenVPN, dan IKEv2/IPSec. WireGuard direkomendasikan untuk kecepatan dan keamanan terbaik.",
   },
   {
     question: "Apakah ada uji coba gratis?",
@@ -130,7 +130,7 @@ export default function FaqAskPage() {
             Ada Pertanyaan?
           </h1>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Tanyakan langsung kepada tim dukungan XVPNX. Kami akan menjawab
+            Tanyakan langsung kepada tim dukungan WEB PROFIL COMPENI. Kami akan menjawab
             pertanyaan Anda dalam 1 hari kerja.
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function FaqAskPage() {
                   Pertanyaan Terkirim!
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Terima kasih telah menghubungi kami. Tim dukungan XVPNX akan
+                  Terima kasih telah menghubungi kami. Tim dukungan WEB PROFIL COMPENI akan
                   menjawab pertanyaan Anda melalui email dalam 1 hari kerja.
                 </p>
                 <button

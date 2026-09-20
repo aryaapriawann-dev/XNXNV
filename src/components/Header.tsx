@@ -25,7 +25,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
-            XNXNV
+            WEB PROFIL COMPENI
           </Link>
 
           {/* Navigation */}

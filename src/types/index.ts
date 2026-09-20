@@ -1,5 +1,5 @@
 /**
- * Shared TypeScript types for XNXNV project.
+ * Shared TypeScript types for WEB PROFIL COMPENI project.
  * Includes common interfaces for API responses and data models.
  */
 

@@ -23,7 +23,7 @@ export default function Contact() {
               <Mail className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Email</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">hello@xvnpnx.id</p>
+            <p className="text-zinc-600 dark:text-zinc-400">hello@webprofilcompeni.id</p>
           </div>
 
           <div className="text-center p-6">

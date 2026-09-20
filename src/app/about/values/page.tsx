@@ -118,7 +118,7 @@ export default function AboutValuesPage() {
             Nilai-Nilai Perusahaan
           </h1>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Prinsip yang memandu setiap keputusan kami dan membentuk budaya kerja XNXNV.
+            Prinsip yang memandu setiap keputusan kami dan membentuk budaya kerja WEB PROFIL COMPENI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link

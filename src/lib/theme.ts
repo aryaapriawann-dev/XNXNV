@@ -9,17 +9,17 @@ export type Theme = "light" | "dark" | "system";
 /**
  * Storage key for theme preference in localStorage.
  */
-export const THEME_STORAGE_KEY = "xvnpnx-theme";
+export const THEME_STORAGE_KEY = "webprofilcompeni-theme";
 
 /**
  * Storage key for language preference in localStorage.
  */
-export const LANGUAGE_STORAGE_KEY = "xvnpnx-language";
+export const LANGUAGE_STORAGE_KEY = "webprofilcompeni-language";
 
 /**
  * Storage key for user consent in localStorage.
  */
-export const CONSENT_STORAGE_KEY = "xvnpnx-consent";
+export const CONSENT_STORAGE_KEY = "webprofilcompeni-consent";
 
 /**
  * Default theme value when no preference is stored.
