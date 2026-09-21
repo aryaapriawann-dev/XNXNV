@@ -1,5 +1,6 @@
 // chore: tambah baris dokumentasi
 // chore: tambah baris dokumentasi
+// chore: tambah baris dokumentasi
 import { useCallback } from "react";
 
 const isStorageAvailable = typeof window !== "undefined" && typeof window.localStorage !== "undefined";
