@@ -1,5 +1,6 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
+// chore: hilangkan spasi berlebih
 /**
  * Hook for managing disclosure (open/close) state.
  * Useful for modals, dropdowns, accordions, and drawers.
