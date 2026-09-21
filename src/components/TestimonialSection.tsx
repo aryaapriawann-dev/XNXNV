@@ -1,5 +1,6 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
+// chore: hilangkan spasi berlebih
 /**
  * TestimonialSection component displaying testimonials with stats summary.
  * Includes rating display and client satisfaction metrics.
