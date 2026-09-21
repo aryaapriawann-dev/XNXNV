@@ -1,5 +1,6 @@
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
+// style: konsisten penggunaan quote
 /**
  * Testimonials component displaying customer testimonials in a responsive grid.
  * Includes rating stars, avatar initials, and company info.
