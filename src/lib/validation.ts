@@ -39,7 +39,7 @@ export function isValidUrl(url: string): boolean {  // chore: tambahkan note imp
 export function isValidNPWP(npwp: string): boolean {  // style: rapikan spasi komentar
   const cleaned = npwp.replace(/[\s-]/g, "");  // docs: perbarui keterangan modul
   return /^[0-9]{15}$/.test(cleaned);  // docs: tambahkan deskripsi parameter
-}
+}  // chore: rapikan definisi tipe
 
 /**
  * Validate NIK (Indonesian citizen ID, 16 digits)
