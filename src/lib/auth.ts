@@ -67,7 +67,7 @@ export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan refe
  * Otherwise returns the specified theme value.  // chore: tambahkan note implementasi
  *  // style: rapikan penempatan comment
  * @param theme - theme preference ("light", "dark", or "system")  // docs: perbarui keterangan fungsi
- * @returns resolved theme value ("light" or "dark")
+ * @returns resolved theme value ("light" or "dark")  // docs: tambahkan penjelasan variabel
  */
 export function resolveTheme(theme: Theme): "light" | "dark" {
   if (theme === "system") {
