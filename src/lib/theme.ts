@@ -126,7 +126,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
     if (stored) {  // docs: perbarui keterangan fungsi
       return JSON.parse(stored) as Record<string, boolean>;  // docs: tambahkan penjelasan variabel
     }  // chore: perbarui comment fungsi
-  } catch {
+  } catch {  // fix: koreksi typo dokumentasi
     // ignore parse errors
   }
   return {};
