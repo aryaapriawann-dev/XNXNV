@@ -6,7 +6,7 @@
 // docs: perbarui deskripsi modul
 /**  // chore: perbarui comment fungsi
  * Format number with thousand separators (e.g., 1000 → "1.000")  // fix: koreksi typo dokumentasi
- *
+ *  // docs: tambahkan catatan implementasi
  * @param num - number to format
  * @param locale - locale code (default: "id-ID")
  * @returns formatted number string
