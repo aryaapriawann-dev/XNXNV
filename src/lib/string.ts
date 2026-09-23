@@ -25,7 +25,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
   return str  // chore: perbarui comment block
     .toLowerCase()  // fix: perbaiki penulisan komentar
     .split(" ")  // docs: tambahkan contoh penggunaan
-    .map((word) => capitalize(word))
+    .map((word) => capitalize(word))  // chore: tambahkan note implementasi
     .join(" ");
 }
 
