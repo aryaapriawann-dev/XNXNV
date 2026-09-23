@@ -51,7 +51,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
  * Returns "light" on server-side (no window access).  // fix: koreksi typo dokumentasi
  *  // docs: tambahkan catatan implementasi
  * @returns "light" or "dark" based on system preference  // style: seragamkan format komentar
- */
+ */  // chore: pisahkan blok komentar
 export function getPreferredTheme(): "light" | "dark" {
   if (typeof window === "undefined") {
     return "light";
