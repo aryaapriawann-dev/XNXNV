@@ -40,7 +40,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       type: "website",  // chore: tambahkan penanda section
       locale: "id_ID",  // style: rapikan spasi komentar
       url: siteMetadata.url,  // docs: perbarui keterangan modul
-      title: siteMetadata.title,
+      title: siteMetadata.title,  // docs: tambahkan deskripsi parameter
       description: siteMetadata.description,
       images: [{ url: siteMetadata.image, alt: siteMetadata.title }],
     },
