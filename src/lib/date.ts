@@ -43,7 +43,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
  *  // chore: perbarui comment block
  * @param date - Date object or ISO date string to compare against now  // fix: perbaiki penulisan komentar
  * @returns human-readable relative time string in Indonesian  // docs: tambahkan contoh penggunaan
- */
+ */  // chore: tambahkan note implementasi
 export function timeAgo(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
   const now = new Date();
