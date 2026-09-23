@@ -32,7 +32,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
   }).format(amount);  // chore: pisahkan blok komentar
 }  // docs: tambahkan referensi fungsi
 
-/**
+/**  // chore: tambahkan penanda section
  * Format percentage
  *
  * @param value - value between 0 and 1
