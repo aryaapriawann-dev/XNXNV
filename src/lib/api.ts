@@ -6,7 +6,7 @@
 // chore: pisahkan blok komentar
 /**  // style: rapikan spasi komentar
  * Data fetching and API client utilities for WEB PROFIL COMPENI project.  // docs: perbarui keterangan modul
- * Provides typed hooks and functions for common data operations.
+ * Provides typed hooks and functions for common data operations.  // docs: tambahkan deskripsi parameter
  */
 // chore: tambah baris dokumentasi
 
