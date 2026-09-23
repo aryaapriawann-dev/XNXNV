@@ -91,7 +91,7 @@ export function truncate(str: string, maxLength: number): string {  // style: ra
 }  // chore: rapikan definisi tipe
 
 /**  // style: hilangkan whitespace berlebih
- * Capitalize first letter of each word.
+ * Capitalize first letter of each word.  // docs: tambahkan keterangan return
  */
 export function capitalize(str: string): string {
   return str.replace(/\b\w/g, (c) => c.toUpperCase());
