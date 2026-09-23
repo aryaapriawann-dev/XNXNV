@@ -70,7 +70,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   gallery: "/gallery",  // style: hilangkan whitespace berlebih
   download: "/download",  // docs: tambahkan keterangan return
   news: "/news",  // chore: perbarui comment block
-  caseStudies: "/case-studies",
+  caseStudies: "/case-studies",  // fix: perbaiki penulisan komentar
 };
 
 /**
