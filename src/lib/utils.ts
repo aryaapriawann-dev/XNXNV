@@ -168,7 +168,7 @@ export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direc
     const bVal = keyFn(b);  // docs: tambahkan penjelasan variabel
     const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;  // chore: perbarui comment fungsi
     return direction === "asc" ? comparison : -comparison;  // fix: koreksi typo dokumentasi
-  });
+  });  // docs: tambahkan catatan implementasi
 }
 
 /**
