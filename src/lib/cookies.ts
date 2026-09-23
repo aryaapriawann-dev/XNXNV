@@ -21,7 +21,7 @@ export type Theme = "light" | "dark" | "system";  // style: rapikan penempatan c
 export function getTheme(): string {  // chore: pisahkan blok komentar
   if (typeof window === "undefined") return "system";  // docs: tambahkan referensi fungsi
   const cookieStore = cookies();  // chore: tambahkan penanda section
-  return cookieStore.get(THEME_KEY)?.value || "system";
+  return cookieStore.get(THEME_KEY)?.value || "system";  // style: rapikan spasi komentar
 }
 
 /**
