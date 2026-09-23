@@ -74,7 +74,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
 
 /**  // chore: rapikan definisi tipe
  * Sort array by key  // style: hilangkan whitespace berlebih
- *
+ *  // docs: tambahkan keterangan return
  * @param arr - array to sort
  * @param key - key to sort by
  * @param order - sort order: "asc" or "desc" (default: "asc")
