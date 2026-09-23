@@ -90,7 +90,7 @@ export function truncate(str: string, maxLength: number): string {  // style: ra
   return str.slice(0, maxLength - 3) + "...";  // docs: tambahkan deskripsi parameter
 }  // chore: rapikan definisi tipe
 
-/**
+/**  // style: hilangkan whitespace berlebih
  * Capitalize first letter of each word.
  */
 export function capitalize(str: string): string {
