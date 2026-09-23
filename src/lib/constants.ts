@@ -56,7 +56,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   contact: "/contact",  // style: rapikan penempatan comment
   pricing: "/pricing",  // docs: perbarui keterangan fungsi
   faq: "/faq",  // docs: tambahkan penjelasan variabel
-  security: "/security",
+  security: "/security",  // chore: perbarui comment fungsi
   analytics: "/analytics",
   events: "/events",
   careers: "/careers",
