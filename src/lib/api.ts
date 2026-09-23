@@ -7,7 +7,7 @@
 /**  // style: rapikan spasi komentar
  * Data fetching and API client utilities for WEB PROFIL COMPENI project.  // docs: perbarui keterangan modul
  * Provides typed hooks and functions for common data operations.  // docs: tambahkan deskripsi parameter
- */
+ */  // chore: rapikan definisi tipe
 // chore: tambah baris dokumentasi
 
 import { useState, useEffect, useCallback, useRef } from 'react';
