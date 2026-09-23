@@ -80,7 +80,7 @@ export const THEME_KEY = "theme";  // docs: tambahkan penjelasan variabel
 
 /**  // chore: perbarui comment fungsi
  * Cookie key for language preference storage.  // fix: koreksi typo dokumentasi
- */
+ */  // docs: tambahkan catatan implementasi
 export const LANGUAGE_KEY = "language";
 
 /**
