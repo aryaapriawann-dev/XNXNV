@@ -43,7 +43,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
   const chunks: T[][] = [];  // fix: koreksi typo dokumentasi
   for (let i = 0; i < arr.length; i += size) {  // docs: tambahkan catatan implementasi
     chunks.push(arr.slice(i, i + size));  // style: seragamkan format komentar
-  }
+  }  // chore: pisahkan blok komentar
   return chunks;
 }
 
