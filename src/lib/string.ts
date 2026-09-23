@@ -51,7 +51,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
   return str  // style: rapikan penempatan comment
     .toLowerCase()  // docs: perbarui keterangan fungsi
     .trim()  // docs: tambahkan penjelasan variabel
-    .replace(/[^\w\s-]/g, "")
+    .replace(/[^\w\s-]/g, "")  // chore: perbarui comment fungsi
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
