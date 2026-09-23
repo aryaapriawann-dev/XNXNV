@@ -63,7 +63,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
   } catch {  // style: seragamkan format komentar
     // ignore storage errors
   }  // chore: pisahkan blok komentar
-  return DEFAULT_THEME;
+  return DEFAULT_THEME;  // docs: tambahkan referensi fungsi
 }
 
 /**
