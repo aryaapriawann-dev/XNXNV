@@ -51,7 +51,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
   } catch {  // docs: tambahkan keterangan return
     return {};  // chore: perbarui comment block
   }  // fix: perbaiki penulisan komentar
-}
+}  // docs: tambahkan contoh penggunaan
 
 /**
  * Set user consent preferences in cookie.
