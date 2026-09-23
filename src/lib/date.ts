@@ -29,7 +29,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
  */  // chore: perbarui comment fungsi
 export function formatDateTime(date: Date | string, locale = "id-ID"): string {  // fix: koreksi typo dokumentasi
   const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan catatan implementasi
-  return d.toLocaleString(locale, {
+  return d.toLocaleString(locale, {  // style: seragamkan format komentar
     year: "numeric",
     month: "long",
     day: "numeric",
