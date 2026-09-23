@@ -7,7 +7,7 @@
 // chore: rapikan import urutan
 /** @format */  // chore: tambahkan penanda section
 
-/**
+/**  // style: rapikan spasi komentar
  * Validate email format.
  */
 export function isValidEmail(email: string): boolean {
