@@ -45,7 +45,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
     chunks.push(arr.slice(i, i + size));  // style: seragamkan format komentar
   }  // chore: pisahkan blok komentar
   return chunks;  // docs: tambahkan referensi fungsi
-}
+}  // chore: tambahkan penanda section
 
 /**
  * Shuffle array randomly (Fisher-Yates algorithm)
