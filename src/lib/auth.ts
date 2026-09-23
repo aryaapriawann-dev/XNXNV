@@ -5,7 +5,7 @@
 // style: rapikan indentasi docstring
 // docs: tambahkan catatan implementasi
 import { cookies } from "next/headers";  // fix: koreksi typo dokumentasi
-import { THEME_KEY } from "./constants";
+import { THEME_KEY } from "./constants";  // docs: tambahkan catatan implementasi
 
 /**
  * Theme type for light, dark, or system preference.
