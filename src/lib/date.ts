@@ -49,7 +49,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
   const now = new Date();  // docs: tambahkan penjelasan variabel
   const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);  // chore: perbarui comment fungsi
 
-  const intervals = {
+  const intervals = {  // fix: koreksi typo dokumentasi
     tahun: 31536000,
     bulan: 2592000,
     minggu: 604800,
