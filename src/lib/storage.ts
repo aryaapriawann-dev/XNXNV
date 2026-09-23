@@ -40,7 +40,7 @@ export function removeLocalStorage(key: string): void {  // docs: perbarui keter
   
   try {  // chore: rapikan definisi tipe
     window.localStorage.removeItem(key);  // style: hilangkan whitespace berlebih
-  } catch (error) {
+  } catch (error) {  // docs: tambahkan keterangan return
     console.error("Failed to remove from localStorage:", error);
   }
 }
