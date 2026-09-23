@@ -60,7 +60,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
     if (stored && ["light", "dark", "system"].includes(stored)) {  // chore: perbarui comment fungsi
       return stored as Theme;  // fix: koreksi typo dokumentasi
     }  // docs: tambahkan catatan implementasi
-  } catch {
+  } catch {  // style: seragamkan format komentar
     // ignore storage errors
   }
   return DEFAULT_THEME;
