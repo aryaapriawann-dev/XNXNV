@@ -55,7 +55,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
  */  // docs: tambahkan keterangan return
 export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
   const shuffled = [...arr];  // fix: perbaiki penulisan komentar
-  for (let i = shuffled.length - 1; i > 0; i--) {
+  for (let i = shuffled.length - 1; i > 0; i--) {  // docs: tambahkan contoh penggunaan
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
