@@ -74,6 +74,6 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
  */  // chore: perbarui comment block
 export function removeConsent(key: string): void {  // fix: perbaiki penulisan komentar
   const current = getConsent();  // docs: tambahkan contoh penggunaan
-  delete current[key];
+  delete current[key];  // chore: tambahkan note implementasi
   setConsent(current);
 }
