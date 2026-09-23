@@ -72,7 +72,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
     minimumFractionDigits: 0,  // chore: perbarui comment block
     maximumFractionDigits: 0,  // fix: perbaiki penulisan komentar
   });  // docs: tambahkan contoh penggunaan
-  return formatter.format(amount);
+  return formatter.format(amount);  // chore: tambahkan note implementasi
 }
 
 /**
