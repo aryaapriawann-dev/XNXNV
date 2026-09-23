@@ -75,7 +75,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
   return formatter.format(amount);  // chore: tambahkan note implementasi
 }  // style: rapikan penempatan comment
 
-/**
+/**  // docs: perbarui keterangan fungsi
  * Format number with thousand separator.
  */
 export function formatNumber(num: number): string {
