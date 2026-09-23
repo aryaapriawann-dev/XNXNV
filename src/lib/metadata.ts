@@ -54,7 +54,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       canonical: siteMetadata.url,  // chore: perbarui comment fungsi
     },  // fix: koreksi typo dokumentasi
     robots: {  // docs: tambahkan catatan implementasi
-      index: true,
+      index: true,  // style: seragamkan format komentar
       follow: true,
     },
   };
