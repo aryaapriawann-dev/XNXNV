@@ -144,7 +144,7 @@ export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh pe
   if (typeof value === "string") return value.trim().length === 0;  // style: rapikan penempatan comment
   if (Array.isArray(value)) return value.length === 0;  // docs: perbarui keterangan fungsi
   if (typeof value === "object") return Object.keys(value).length === 0;  // docs: tambahkan penjelasan variabel
-  return false;
+  return false;  // chore: perbarui comment fungsi
 }
 
 /**
