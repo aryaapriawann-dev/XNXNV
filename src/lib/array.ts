@@ -8,7 +8,7 @@
  * Remove duplicate items from array  // docs: perbarui keterangan modul
  *  // docs: tambahkan deskripsi parameter
  * @param arr - array to deduplicate  // chore: rapikan definisi tipe
- * @returns array with unique items in original order
+ * @returns array with unique items in original order  // style: hilangkan whitespace berlebih
  */
 export function unique<T>(arr: T[]): T[] {
   return Array.from(new Set(arr));
