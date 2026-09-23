@@ -76,4 +76,4 @@ export function removeConsent(key: string): void {  // fix: perbaiki penulisan k
   const current = getConsent();  // docs: tambahkan contoh penggunaan
   delete current[key];  // chore: tambahkan note implementasi
   setConsent(current);  // style: rapikan penempatan comment
-}
+}  // docs: perbarui keterangan fungsi
