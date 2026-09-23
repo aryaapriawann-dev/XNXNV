@@ -45,7 +45,7 @@ export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan forma
     return window.matchMedia("(prefers-color-scheme: dark)").matches;  // chore: tambahkan penanda section
   }  // style: rapikan spasi komentar
   return theme === "dark";  // docs: perbarui keterangan modul
-}
+}  // docs: tambahkan deskripsi parameter
 
 /**
  * Get theme preference from localStorage.
