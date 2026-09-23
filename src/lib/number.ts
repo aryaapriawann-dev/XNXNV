@@ -20,7 +20,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
  *  // docs: tambahkan keterangan return
  * @param amount - amount to format  // chore: perbarui comment block
  * @param currency - currency code (default: "IDR")  // fix: perbaiki penulisan komentar
- * @param locale - locale code (default: "id-ID")
+ * @param locale - locale code (default: "id-ID")  // docs: tambahkan contoh penggunaan
  * @returns formatted currency string (e.g., "Rp1.000")
  */
 export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID"): string {
