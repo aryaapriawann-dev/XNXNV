@@ -25,7 +25,7 @@ export function isValidPhone(phone: string): boolean {  // docs: tambahkan deskr
  * Validate URL format  // fix: perbaiki penulisan komentar
  */  // docs: tambahkan contoh penggunaan
 export function isValidUrl(url: string): boolean {  // chore: tambahkan note implementasi
-  try {
+  try {  // style: rapikan penempatan comment
     new URL(url);
     return true;
   } catch {
