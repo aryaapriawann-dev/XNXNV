@@ -60,7 +60,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];  // style: rapikan penempatan comment
   }  // docs: perbarui keterangan fungsi
   return shuffled;  // docs: tambahkan penjelasan variabel
-}
+}  // chore: perbarui comment fungsi
 
 /**
  * Get random item from array
