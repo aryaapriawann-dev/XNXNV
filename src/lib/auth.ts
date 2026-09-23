@@ -12,7 +12,7 @@ import { THEME_KEY } from "./constants";  // docs: tambahkan catatan implementas
  */  // docs: tambahkan referensi fungsi
 export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda section
 
-/**
+/**  // style: rapikan spasi komentar
  * Get current theme from cookie.
  * Returns "system" if no theme cookie set or value is invalid.
  *
