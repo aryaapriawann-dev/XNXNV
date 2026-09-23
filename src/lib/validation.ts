@@ -41,7 +41,7 @@ export function isValidNPWP(npwp: string): boolean {  // style: rapikan spasi ko
   return /^[0-9]{15}$/.test(cleaned);  // docs: tambahkan deskripsi parameter
 }  // chore: rapikan definisi tipe
 
-/**
+/**  // style: hilangkan whitespace berlebih
  * Validate NIK (Indonesian citizen ID, 16 digits)
  */
 export function isValidNIK(nik: string): boolean {
