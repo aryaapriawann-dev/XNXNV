@@ -13,7 +13,7 @@ export function randomString(length: number): string {  // style: hilangkan whit
   const chars =  // docs: tambahkan keterangan return
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  // chore: perbarui comment block
   let result = ''  // fix: perbaiki penulisan komentar
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i++) {  // docs: tambahkan contoh penggunaan
     result += chars.charAt(Math.floor(Math.random() * chars.length))
   }
   return result
