@@ -15,7 +15,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
     const item = window.localStorage.getItem(key);  // docs: perbarui keterangan modul
     return item ? JSON.parse(item) : fallback;  // docs: tambahkan deskripsi parameter
   } catch {  // chore: rapikan definisi tipe
-    return fallback;
+    return fallback;  // style: hilangkan whitespace berlebih
   }
 }
 
