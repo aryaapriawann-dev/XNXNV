@@ -50,7 +50,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
  * Returns "dark" if system prefers dark mode, "light" otherwise.  // chore: perbarui comment fungsi
  * Returns "light" on server-side (no window access).  // fix: koreksi typo dokumentasi
  *  // docs: tambahkan catatan implementasi
- * @returns "light" or "dark" based on system preference
+ * @returns "light" or "dark" based on system preference  // style: seragamkan format komentar
  */
 export function getPreferredTheme(): "light" | "dark" {
   if (typeof window === "undefined") {
