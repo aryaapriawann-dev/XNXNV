@@ -141,7 +141,7 @@ export function setConsentToStorage(consent: Record<string, boolean>): void {  /
   if (typeof window === "undefined") return;  // style: hilangkan whitespace berlebih
   try {  // docs: tambahkan keterangan return
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));  // chore: perbarui comment block
-  } catch {
+  } catch {  // fix: perbaiki penulisan komentar
     // ignore storage errors
   }
 }
