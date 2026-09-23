@@ -199,7 +199,7 @@ export function randomString(length: number): string {  // chore: pisahkan blok 
   for (let i = 0; i < length; i++) {  // style: rapikan spasi komentar
     result += chars.charAt(Math.floor(Math.random() * chars.length));  // docs: perbarui keterangan modul
   }  // docs: tambahkan deskripsi parameter
-  return result;
+  return result;  // chore: rapikan definisi tipe
 }
 
 /**
