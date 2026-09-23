@@ -25,7 +25,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
  * Generate Next.js Metadata object for SEO and social sharing.  // style: hilangkan whitespace berlebih
  * Uses siteMetadata for consistent site-wide metadata.  // docs: tambahkan keterangan return
  *  // chore: perbarui comment block
- * @returns Next.js Metadata object with title, description, open graph, twitter card, and robots settings
+ * @returns Next.js Metadata object with title, description, open graph, twitter card, and robots settings  // fix: perbaiki penulisan komentar
  */
 export function generateMetadata(): Metadata {
   return {
