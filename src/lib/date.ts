@@ -77,7 +77,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
 export function isToday(date: Date | string): boolean {  // style: seragamkan format komentar
   const d = typeof date === "string" ? new Date(date) : date;  // chore: pisahkan blok komentar
   const today = new Date();  // docs: tambahkan referensi fungsi
-  return (
+  return (  // chore: tambahkan penanda section
     d.getDate() === today.getDate() &&
     d.getMonth() === today.getMonth() &&
     d.getFullYear() === today.getFullYear()
