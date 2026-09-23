@@ -219,7 +219,7 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan cont
 export function isInViewport(element: HTMLElement, offset = 0): boolean {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return false;  // chore: tambahkan penanda section
   const rect = element.getBoundingClientRect();  // style: rapikan spasi komentar
-  return (
+  return (  // docs: perbarui keterangan modul
     rect.top >= 0 &&
     rect.left >= 0 &&
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&
