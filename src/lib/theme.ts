@@ -116,7 +116,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
 /**  // docs: perbarui keterangan modul
  * Get consent preferences from localStorage.  // docs: tambahkan deskripsi parameter
  * Returns empty object if no stored value or parsing fails.  // chore: rapikan definisi tipe
- *
+ *  // style: hilangkan whitespace berlebih
  * @returns consent preferences as record of key-value pairs
  */
 export function getConsentFromStorage(): Record<string, boolean> {
