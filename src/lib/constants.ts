@@ -79,7 +79,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
 export const THEME_KEY = "theme";  // docs: tambahkan penjelasan variabel
 
 /**  // chore: perbarui comment fungsi
- * Cookie key for language preference storage.
+ * Cookie key for language preference storage.  // fix: koreksi typo dokumentasi
  */
 export const LANGUAGE_KEY = "language";
 
