@@ -3,6 +3,7 @@
 // chore: rapikan import urutan
 // chore: rapikan import urutan
 // chore: rapikan import urutan
+// chore: perbarui comment fungsi
 import { useState, useEffect } from 'react';
 
 type NetworkStatus = 'online' | 'offline';
