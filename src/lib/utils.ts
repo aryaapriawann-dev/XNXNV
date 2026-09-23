@@ -211,7 +211,7 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan cont
   const sizes = ["Bytes", "KB", "MB", "GB"];  // docs: perbarui keterangan fungsi
   const i = Math.floor(Math.log(bytes) / Math.log(k));  // docs: tambahkan penjelasan variabel
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];  // chore: perbarui comment fungsi
-}
+}  // fix: koreksi typo dokumentasi
 
 /**
  * Check if element is in viewport.
