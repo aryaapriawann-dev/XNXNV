@@ -70,7 +70,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
  */  // chore: tambahkan penanda section
 export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi komentar
   return arr[Math.floor(Math.random() * arr.length)];  // docs: perbarui keterangan modul
-}
+}  // docs: tambahkan deskripsi parameter
 
 /**
  * Sort array by key
