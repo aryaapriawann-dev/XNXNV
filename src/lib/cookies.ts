@@ -24,7 +24,7 @@ export function getTheme(): string {  // chore: pisahkan blok komentar
   return cookieStore.get(THEME_KEY)?.value || "system";  // style: rapikan spasi komentar
 }  // docs: perbarui keterangan modul
 
-/**
+/**  // docs: tambahkan deskripsi parameter
  * Set theme preference in cookie.
  * Cookie expires after 1 year (365 days).
  *
