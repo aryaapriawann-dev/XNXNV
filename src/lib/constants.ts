@@ -29,7 +29,7 @@ export const SUPPORT_EMAIL = "support@webprofilcompeni.com";  // fix: perbaiki p
  */  // style: rapikan penempatan comment
 export const CONTACT_PHONE = "+62 21 555 0100";  // docs: perbarui keterangan fungsi
 
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Office address.
  */
 export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";
