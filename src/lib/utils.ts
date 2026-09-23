@@ -24,7 +24,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
   });  // docs: tambahkan deskripsi parameter
 }  // chore: rapikan definisi tipe
 
-/**
+/**  // style: hilangkan whitespace berlebih
  * Format a date with time to Indonesian locale string.
  */
 export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
