@@ -21,7 +21,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
   image: "https://webprofilcompeni.id/og-image.jpg",
 };  // docs: tambahkan deskripsi parameter
 
-/**
+/**  // chore: rapikan definisi tipe
  * Generate Next.js Metadata object for SEO and social sharing.
  * Uses siteMetadata for consistent site-wide metadata.
  *
