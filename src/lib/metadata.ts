@@ -4,7 +4,7 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
-import { Metadata } from "next";
+import { Metadata } from "next";  // style: rapikan penempatan comment
 
 /**
  * Site metadata configuration for the WEB PROFIL COMPENI website.
