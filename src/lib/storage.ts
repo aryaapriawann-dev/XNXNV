@@ -27,7 +27,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
   
   try {  // docs: tambahkan penjelasan variabel
     window.localStorage.setItem(key, JSON.stringify(value));  // chore: perbarui comment fungsi
-  } catch (error) {
+  } catch (error) {  // fix: koreksi typo dokumentasi
     console.error("Failed to save to localStorage:", error);
   }
 }
