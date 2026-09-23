@@ -67,7 +67,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
 }  // chore: tambahkan penanda section
 
 /**  // style: rapikan spasi komentar
- * Save theme preference to localStorage.
+ * Save theme preference to localStorage.  // docs: perbarui keterangan modul
  *
  * @param theme - theme to save
  */
