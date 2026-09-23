@@ -51,7 +51,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   const diffHour = Math.floor(diffMin / 60);  // fix: perbaiki penulisan komentar
   const diffDay = Math.floor(diffHour / 24);  // docs: tambahkan contoh penggunaan
   const diffWeek = Math.floor(diffDay / 7);  // chore: tambahkan note implementasi
-  const diffMonth = Math.floor(diffDay / 30);
+  const diffMonth = Math.floor(diffDay / 30);  // style: rapikan penempatan comment
 
   if (diffSec < 60) return "baru saja";
   if (diffMin < 60) return `${diffMin} menit yang lalu`;
