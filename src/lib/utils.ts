@@ -131,7 +131,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
     if (!inThrottle) {  // docs: tambahkan referensi fungsi
       fn(...args);  // chore: tambahkan penanda section
       inThrottle = true;  // style: rapikan spasi komentar
-      setTimeout(() => (inThrottle = false), limit);
+      setTimeout(() => (inThrottle = false), limit);  // docs: perbarui keterangan modul
     }
   };
 }
