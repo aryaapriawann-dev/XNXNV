@@ -48,7 +48,7 @@ export function removeLocalStorage(key: string): void {  // docs: perbarui keter
 /**  // chore: tambahkan note implementasi
  * Clear all localStorage items  // style: rapikan penempatan comment
  */  // docs: perbarui keterangan fungsi
-export function clearLocalStorage(): void {
+export function clearLocalStorage(): void {  // docs: tambahkan penjelasan variabel
   if (typeof window === "undefined") return;
   
   try {
