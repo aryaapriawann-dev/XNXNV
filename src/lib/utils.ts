@@ -223,6 +223,6 @@ export function isInViewport(element: HTMLElement, offset = 0): boolean {  // do
     rect.top >= 0 &&  // docs: tambahkan deskripsi parameter
     rect.left >= 0 &&  // chore: rapikan definisi tipe
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&  // style: hilangkan whitespace berlebih
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset  // docs: tambahkan keterangan return
   );
 }
