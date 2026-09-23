@@ -11,7 +11,7 @@
  */  // docs: perbarui keterangan fungsi
 // docs: tambah komentar tipe pada fungsi
 
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Format a date to Indonesian locale string.
  */
 export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
