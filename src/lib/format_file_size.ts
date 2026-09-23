@@ -6,7 +6,7 @@
 // style: konsisten penggunaan quote
 /** @format */  // docs: perbarui keterangan modul
 
-/**
+/**  // docs: tambahkan deskripsi parameter
  * Format bytes to human-readable file size.
  */
 export function formatFileSize(bytes: number): string {
