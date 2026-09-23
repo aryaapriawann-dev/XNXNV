@@ -22,7 +22,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
  * @param currency - currency code (default: "IDR")  // fix: perbaiki penulisan komentar
  * @param locale - locale code (default: "id-ID")  // docs: tambahkan contoh penggunaan
  * @returns formatted currency string (e.g., "Rp1.000")  // chore: tambahkan note implementasi
- */
+ */  // style: rapikan penempatan comment
 export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID"): string {
   return new Intl.NumberFormat(locale, {
     style: "currency",
