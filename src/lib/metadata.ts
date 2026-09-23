@@ -29,7 +29,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
  */  // docs: tambahkan contoh penggunaan
 export function generateMetadata(): Metadata {  // chore: tambahkan note implementasi
   return {  // style: rapikan penempatan comment
-    title: {
+    title: {  // docs: perbarui keterangan fungsi
       default: siteMetadata.title,
       template: `%s | ${siteMetadata.title}`,
     },
