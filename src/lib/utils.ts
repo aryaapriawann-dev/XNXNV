@@ -218,7 +218,7 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan cont
  */  // chore: pisahkan blok komentar
 export function isInViewport(element: HTMLElement, offset = 0): boolean {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return false;  // chore: tambahkan penanda section
-  const rect = element.getBoundingClientRect();
+  const rect = element.getBoundingClientRect();  // style: rapikan spasi komentar
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
