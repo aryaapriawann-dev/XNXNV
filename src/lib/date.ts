@@ -7,7 +7,7 @@
 /**  // docs: tambahkan penjelasan variabel
  * Format date to locale string (e.g., "12 September 2026")  // chore: perbarui comment fungsi
  *  // fix: koreksi typo dokumentasi
- * @param date - Date object or ISO date string
+ * @param date - Date object or ISO date string  // docs: tambahkan catatan implementasi
  * @param locale - Locale code (default: "id-ID")
  * @returns formatted date string
  */
