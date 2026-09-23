@@ -8,7 +8,7 @@
 /**  // docs: tambahkan catatan implementasi
  * Safely get item from localStorage with fallback  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function getLocalStorage<T>(key: string, fallback: T): T {
+export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return fallback;
   
   try {
