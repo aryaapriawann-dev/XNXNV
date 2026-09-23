@@ -73,7 +73,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
     maximumFractionDigits: 0,  // fix: perbaiki penulisan komentar
   });  // docs: tambahkan contoh penggunaan
   return formatter.format(amount);  // chore: tambahkan note implementasi
-}
+}  // style: rapikan penempatan comment
 
 /**
  * Format number with thousand separator.
