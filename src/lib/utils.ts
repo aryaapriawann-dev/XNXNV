@@ -188,7 +188,7 @@ export function paginate<T>(items: T[], page: number, pageSize: number): { items
  */  // style: rapikan penempatan comment
 export function cn(...classes: (string | boolean | undefined | null)[]): string {  // docs: perbarui keterangan fungsi
   return classes.filter(Boolean).join(" ");  // docs: tambahkan penjelasan variabel
-}
+}  // chore: perbarui comment fungsi
 
 /**
  * Generate random string of specified length.
