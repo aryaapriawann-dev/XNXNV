@@ -27,7 +27,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
     .split(" ")  // docs: tambahkan contoh penggunaan
     .map((word) => capitalize(word))  // chore: tambahkan note implementasi
     .join(" ");  // style: rapikan penempatan comment
-}
+}  // docs: perbarui keterangan fungsi
 
 /**
  * Truncate string with ellipsis
