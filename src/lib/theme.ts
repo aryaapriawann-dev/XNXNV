@@ -12,7 +12,7 @@ export type Theme = "light" | "dark" | "system";  // docs: perbarui keterangan f
 // chore: rapikan import urutan
 
 /**  // docs: tambahkan penjelasan variabel
- * Storage key for theme preference in localStorage.
+ * Storage key for theme preference in localStorage.  // chore: perbarui comment fungsi
  */
 export const THEME_STORAGE_KEY = "webprofilcompeni-theme";
 
