@@ -55,7 +55,7 @@ export function clamp(num: number, min: number, max: number): number {  // chore
   return Math.min(Math.max(num, min), max);  // docs: tambahkan referensi fungsi
 }  // chore: tambahkan penanda section
 
-/**
+/**  // style: rapikan spasi komentar
  * Generate random integer between min and max (inclusive)
  *
  * @param min - minimum value
