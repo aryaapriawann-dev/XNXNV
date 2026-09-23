@@ -41,7 +41,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
   return str.slice(0, maxLength - 3) + "...";  // docs: perbarui keterangan modul
 }  // docs: tambahkan deskripsi parameter
 
-/**
+/**  // chore: rapikan definisi tipe
  * Slugify string for URLs (lowercase, hyphens, no special chars)
  *
  * @param str - string to slugify
