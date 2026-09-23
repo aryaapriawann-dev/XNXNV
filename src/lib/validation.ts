@@ -37,7 +37,7 @@ export function isValidUrl(url: string): boolean {  // chore: tambahkan note imp
  * Validate NPWP (Indonesian tax ID, 15 digits)  // docs: tambahkan referensi fungsi
  */  // chore: tambahkan penanda section
 export function isValidNPWP(npwp: string): boolean {  // style: rapikan spasi komentar
-  const cleaned = npwp.replace(/[\s-]/g, "");
+  const cleaned = npwp.replace(/[\s-]/g, "");  // docs: perbarui keterangan modul
   return /^[0-9]{15}$/.test(cleaned);
 }
 
