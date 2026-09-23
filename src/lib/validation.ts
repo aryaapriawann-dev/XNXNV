@@ -14,7 +14,7 @@ export function isValidEmail(email: string): boolean {  // docs: tambahkan catat
 }  // docs: tambahkan referensi fungsi
 
 /**  // chore: tambahkan penanda section
- * Validate phone number (Indonesian format)
+ * Validate phone number (Indonesian format)  // style: rapikan spasi komentar
  */
 export function isValidPhone(phone: string): boolean {
   const regex = /^(\+62|62|0)[0-9]{9,12}$/;
