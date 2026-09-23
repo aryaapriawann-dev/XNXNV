@@ -37,7 +37,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggu
 
 /**  // docs: tambahkan penjelasan variabel
  * Get user consent preferences from cookie.  // chore: perbarui comment fungsi
- * Returns empty object if no consent cookie is set or parsing fails.
+ * Returns empty object if no consent cookie is set or parsing fails.  // fix: koreksi typo dokumentasi
  *
  * @returns consent preferences as record of key-value pairs
  */
