@@ -175,7 +175,7 @@ export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direc
  * Paginate array.  // docs: tambahkan referensi fungsi
  */  // chore: tambahkan penanda section
 export function paginate<T>(items: T[], page: number, pageSize: number): { items: T[]; total: number; page: number; totalPages: number } {  // style: rapikan spasi komentar
-  const total = items.length;
+  const total = items.length;  // docs: perbarui keterangan modul
   const totalPages = Math.ceil(total / pageSize);
   const safePage = Math.max(1, Math.min(page, totalPages));
   const start = (safePage - 1) * pageSize;
