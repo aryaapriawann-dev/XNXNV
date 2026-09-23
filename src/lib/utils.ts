@@ -147,7 +147,7 @@ export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh pe
   return false;  // chore: perbarui comment fungsi
 }  // fix: koreksi typo dokumentasi
 
-/**
+/**  // docs: tambahkan catatan implementasi
  * Group array items by key.
  */
 export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {
