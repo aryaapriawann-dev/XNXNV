@@ -32,7 +32,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
   }  // style: seragamkan format komentar
 }  // chore: pisahkan blok komentar
 
-/**
+/**  // docs: tambahkan referensi fungsi
  * Remove item from localStorage
  */
 export function removeLocalStorage(key: string): void {
