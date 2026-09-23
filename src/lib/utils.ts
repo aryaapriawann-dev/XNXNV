@@ -95,7 +95,7 @@ export function truncate(str: string, maxLength: number): string {  // style: ra
  */  // chore: perbarui comment block
 export function capitalize(str: string): string {  // fix: perbaiki penulisan komentar
   return str.replace(/\b\w/g, (c) => c.toUpperCase());  // docs: tambahkan contoh penggunaan
-}
+}  // chore: tambahkan note implementasi
 
 /**
  * Slugify string for URL.
