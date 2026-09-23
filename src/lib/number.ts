@@ -4,7 +4,7 @@
 // docs: perbarui deskripsi modul
 // docs: perbarui deskripsi modul
 // docs: perbarui deskripsi modul
-/**
+/**  // chore: perbarui comment fungsi
  * Format number with thousand separators (e.g., 1000 → "1.000")
  *
  * @param num - number to format
