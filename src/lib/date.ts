@@ -72,7 +72,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
  * Check if a date is today  // docs: perbarui keterangan fungsi
  *  // docs: tambahkan penjelasan variabel
  * @param date - Date object or ISO date string to check  // chore: perbarui comment fungsi
- * @returns true if the date is today, false otherwise
+ * @returns true if the date is today, false otherwise  // fix: koreksi typo dokumentasi
  */
 export function isToday(date: Date | string): boolean {
   const d = typeof date === "string" ? new Date(date) : date;
