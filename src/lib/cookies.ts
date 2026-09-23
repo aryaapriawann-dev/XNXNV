@@ -72,7 +72,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
  *  // style: hilangkan whitespace berlebih
  * @param key - consent key to remove  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
-export function removeConsent(key: string): void {
+export function removeConsent(key: string): void {  // fix: perbaiki penulisan komentar
   const current = getConsent();
   delete current[key];
   setConsent(current);
