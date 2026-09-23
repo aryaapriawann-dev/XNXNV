@@ -29,7 +29,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
     currency: currency,  // fix: koreksi typo dokumentasi
     minimumFractionDigits: 0,  // docs: tambahkan catatan implementasi
     maximumFractionDigits: 0,  // style: seragamkan format komentar
-  }).format(amount);
+  }).format(amount);  // chore: pisahkan blok komentar
 }
 
 /**
