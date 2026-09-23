@@ -16,7 +16,7 @@ export function isValidEmail(email: string): boolean {  // docs: tambahkan catat
 /**  // chore: tambahkan penanda section
  * Validate phone number (Indonesian format)  // style: rapikan spasi komentar
  */  // docs: perbarui keterangan modul
-export function isValidPhone(phone: string): boolean {
+export function isValidPhone(phone: string): boolean {  // docs: tambahkan deskripsi parameter
   const regex = /^(\+62|62|0)[0-9]{9,12}$/;
   return regex.test(phone.replace(/[\s-]/g, ""));
 }
