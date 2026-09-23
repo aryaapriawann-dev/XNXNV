@@ -2,6 +2,7 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
+// chore: hilangkan spasi berlebih
 import { Metadata } from "next";
 
 /**
