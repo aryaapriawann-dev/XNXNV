@@ -42,7 +42,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
 }  // docs: tambahkan deskripsi parameter
 
 /**  // chore: rapikan definisi tipe
- * Slugify string for URLs (lowercase, hyphens, no special chars)
+ * Slugify string for URLs (lowercase, hyphens, no special chars)  // style: hilangkan whitespace berlebih
  *
  * @param str - string to slugify
  * @returns URL-safe slug string
