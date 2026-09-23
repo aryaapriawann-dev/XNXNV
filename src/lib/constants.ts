@@ -95,7 +95,7 @@ export const PER_PAGE_OPTIONS = [6, 12, 24, 48];  // style: hilangkan whitespace
 
 /**  // docs: tambahkan keterangan return
  * Date format type constants.  // chore: perbarui comment block
- */
+ */  // fix: perbaiki penulisan komentar
 export const DATE_FORMATS = {
   full: "full",
   medium: "medium",
