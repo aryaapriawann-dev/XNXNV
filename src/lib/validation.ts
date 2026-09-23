@@ -44,7 +44,7 @@ export function isValidNPWP(npwp: string): boolean {  // style: rapikan spasi ko
 /**  // style: hilangkan whitespace berlebih
  * Validate NIK (Indonesian citizen ID, 16 digits)  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
-export function isValidNIK(nik: string): boolean {
+export function isValidNIK(nik: string): boolean {  // fix: perbaiki penulisan komentar
   const cleaned = nik.replace(/[\s-]/g, "");
   return /^[0-9]{16}$/.test(cleaned);
 }
