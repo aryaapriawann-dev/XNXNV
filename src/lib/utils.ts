@@ -216,7 +216,7 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan cont
 /**  // docs: tambahkan catatan implementasi
  * Check if element is in viewport.  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function isInViewport(element: HTMLElement, offset = 0): boolean {
+export function isInViewport(element: HTMLElement, offset = 0): boolean {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return false;
   const rect = element.getBoundingClientRect();
   return (
