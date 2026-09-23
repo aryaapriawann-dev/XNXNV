@@ -76,7 +76,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
 }  // style: rapikan penempatan comment
 
 /**  // docs: perbarui keterangan fungsi
- * Format number with thousand separator.
+ * Format number with thousand separator.  // docs: tambahkan penjelasan variabel
  */
 export function formatNumber(num: number): string {
   return new Intl.NumberFormat("id-ID").format(num);
