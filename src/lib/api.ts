@@ -13,7 +13,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';  // style: hilangkan whitespace berlebih
 import type { ApiResponse, PaginatedResponse } from '@/types';  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Fetch with abort controller and timeout.
  */
 async function fetchWithTimeout(
