@@ -24,7 +24,7 @@ export function capitalize(str: string): string {  // style: seragamkan format k
 export function titleCase(str: string): string {  // docs: tambahkan keterangan return
   return str  // chore: perbarui comment block
     .toLowerCase()  // fix: perbaiki penulisan komentar
-    .split(" ")
+    .split(" ")  // docs: tambahkan contoh penggunaan
     .map((word) => capitalize(word))
     .join(" ");
 }
