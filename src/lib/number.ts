@@ -15,7 +15,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
   return num.toLocaleString(locale);  // docs: perbarui keterangan modul
 }  // docs: tambahkan deskripsi parameter
 
-/**
+/**  // chore: rapikan definisi tipe
  * Format currency (Rupiah by default)
  *
  * @param amount - amount to format
