@@ -130,7 +130,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
     // ignore parse errors
   }  // docs: tambahkan catatan implementasi
   return {};  // style: seragamkan format komentar
-}
+}  // chore: pisahkan blok komentar
 
 /**
  * Save consent preferences to localStorage.
