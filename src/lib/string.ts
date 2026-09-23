@@ -30,7 +30,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
 }  // docs: perbarui keterangan fungsi
 
 /**  // docs: tambahkan penjelasan variabel
- * Truncate string with ellipsis
+ * Truncate string with ellipsis  // chore: perbarui comment fungsi
  *
  * @param str - string to truncate
  * @param maxLength - maximum length before truncation
