@@ -4,7 +4,7 @@
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
-/** @format */
+/** @format */  // style: rapikan spasi komentar
 
 /**
  * Random string generator.
