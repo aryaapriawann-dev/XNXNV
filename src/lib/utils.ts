@@ -28,7 +28,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
  * Format a date with time to Indonesian locale string.  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
 export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {  // fix: perbaiki penulisan komentar
-  const d = typeof date === "string" ? new Date(date) : date;
+  const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan contoh penggunaan
   return d.toLocaleString("id-ID", {
     day: "numeric",
     month: "short",
