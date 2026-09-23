@@ -102,7 +102,7 @@ export function capitalize(str: string): string {  // fix: perbaiki penulisan ko
  */  // docs: tambahkan penjelasan variabel
 export function slugify(str: string): string {  // chore: perbarui comment fungsi
   return str.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");  // fix: koreksi typo dokumentasi
-}
+}  // docs: tambahkan catatan implementasi
 
 /**
  * Generate unique ID.
