@@ -107,7 +107,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
 export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo dokumentasi
   if (typeof window === "undefined") return;  // docs: tambahkan catatan implementasi
   try {  // style: seragamkan format komentar
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);  // chore: pisahkan blok komentar
   } catch {
     // ignore storage errors
   }
