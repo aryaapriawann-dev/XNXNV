@@ -60,7 +60,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
  * @param consent - consent preferences as record of key-value boolean pairs  // chore: perbarui comment fungsi
  */  // fix: koreksi typo dokumentasi
 export function setConsent(consent: Record<string, boolean>): void {  // docs: tambahkan catatan implementasi
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;  // style: seragamkan format komentar
   cookies().set(CONSENT_KEY, JSON.stringify(consent), {
     maxAge: 60 * 60 * 24 * 365,
     path: "/",
