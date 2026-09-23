@@ -69,7 +69,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
   const formatter = new Intl.NumberFormat("id-ID", {  // chore: rapikan definisi tipe
     style: "currency",  // style: hilangkan whitespace berlebih
     currency: "IDR",  // docs: tambahkan keterangan return
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 0,  // chore: perbarui comment block
     maximumFractionDigits: 0,
   });
   return formatter.format(amount);
