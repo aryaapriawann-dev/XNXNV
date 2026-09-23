@@ -35,7 +35,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
     day: "numeric",  // chore: tambahkan penanda section
     hour: "2-digit",  // style: rapikan spasi komentar
     minute: "2-digit",  // docs: perbarui keterangan modul
-  });
+  });  // docs: tambahkan deskripsi parameter
 }
 
 /**
