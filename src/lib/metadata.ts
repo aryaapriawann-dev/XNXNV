@@ -27,7 +27,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
  *  // chore: perbarui comment block
  * @returns Next.js Metadata object with title, description, open graph, twitter card, and robots settings  // fix: perbaiki penulisan komentar
  */  // docs: tambahkan contoh penggunaan
-export function generateMetadata(): Metadata {
+export function generateMetadata(): Metadata {  // chore: tambahkan note implementasi
   return {
     title: {
       default: siteMetadata.title,
