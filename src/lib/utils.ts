@@ -70,7 +70,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
     style: "currency",  // style: hilangkan whitespace berlebih
     currency: "IDR",  // docs: tambahkan keterangan return
     minimumFractionDigits: 0,  // chore: perbarui comment block
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 0,  // fix: perbaiki penulisan komentar
   });
   return formatter.format(amount);
 }
