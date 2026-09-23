@@ -51,7 +51,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
  * Shuffle array randomly (Fisher-Yates algorithm)  // docs: perbarui keterangan modul
  *  // docs: tambahkan deskripsi parameter
  * @param arr - array to shuffle  // chore: rapikan definisi tipe
- * @returns new shuffled array
+ * @returns new shuffled array  // style: hilangkan whitespace berlebih
  */
 export function shuffle<T>(arr: T[]): T[] {
   const shuffled = [...arr];
