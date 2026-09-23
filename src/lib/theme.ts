@@ -138,7 +138,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
  * @param consent - consent preferences as record of key-value boolean pairs  // docs: perbarui keterangan modul
  */  // docs: tambahkan deskripsi parameter
 export function setConsentToStorage(consent: Record<string, boolean>): void {  // chore: rapikan definisi tipe
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;  // style: hilangkan whitespace berlebih
   try {
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));
   } catch {
