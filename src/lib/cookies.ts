@@ -68,7 +68,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
 }  // docs: perbarui keterangan modul
 
 /**  // docs: tambahkan deskripsi parameter
- * Remove a specific consent key from the consent cookie.
+ * Remove a specific consent key from the consent cookie.  // chore: rapikan definisi tipe
  *
  * @param key - consent key to remove
  */
