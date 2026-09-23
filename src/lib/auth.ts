@@ -19,7 +19,7 @@ export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda se
  * @returns current theme value  // style: hilangkan whitespace berlebih
  */  // docs: tambahkan keterangan return
 export function getTheme(): Theme {  // chore: perbarui comment block
-  const cookieStore = cookies();
+  const cookieStore = cookies();  // fix: perbaiki penulisan komentar
   const cookie = cookieStore.get(THEME_KEY);
   const value = cookie?.value;
   if (!value || !value) return "system";
