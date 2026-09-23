@@ -53,7 +53,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
     .trim()  // docs: tambahkan penjelasan variabel
     .replace(/[^\w\s-]/g, "")  // chore: perbarui comment fungsi
     .replace(/[\s_-]+/g, "-")  // fix: koreksi typo dokumentasi
-    .replace(/^-+|-+$/g, "");
+    .replace(/^-+|-+$/g, "");  // docs: tambahkan catatan implementasi
 }
 
 /**
