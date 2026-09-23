@@ -30,7 +30,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
   } catch (error) {  // fix: koreksi typo dokumentasi
     console.error("Failed to save to localStorage:", error);  // docs: tambahkan catatan implementasi
   }  // style: seragamkan format komentar
-}
+}  // chore: pisahkan blok komentar
 
 /**
  * Remove item from localStorage
