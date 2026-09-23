@@ -33,7 +33,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
     day: "numeric",  // style: rapikan penempatan comment
     month: "short",  // docs: perbarui keterangan fungsi
     year: "numeric",  // docs: tambahkan penjelasan variabel
-    hour: "2-digit",
+    hour: "2-digit",  // chore: perbarui comment fungsi
     minute: "2-digit",
     ...options,
   });
