@@ -196,7 +196,7 @@ export function cn(...classes: (string | boolean | undefined | null)[]): string 
 export function randomString(length: number): string {  // chore: pisahkan blok komentar
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";  // docs: tambahkan referensi fungsi
   let result = "";  // chore: tambahkan penanda section
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i++) {  // style: rapikan spasi komentar
     result += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return result;
