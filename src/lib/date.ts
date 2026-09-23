@@ -55,7 +55,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
     minggu: 604800,  // chore: pisahkan blok komentar
     hari: 86400,  // docs: tambahkan referensi fungsi
     jam: 3600,  // chore: tambahkan penanda section
-    menit: 60,
+    menit: 60,  // style: rapikan spasi komentar
   };
 
   for (const [unit, secondsInUnit] of Object.entries(intervals)) {
