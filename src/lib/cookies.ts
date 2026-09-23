@@ -35,7 +35,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggu
   cookies().set(THEME_KEY, theme, { maxAge: 60 * 60 * 24 * 365, path: "/" });  // style: rapikan penempatan comment
 }  // docs: perbarui keterangan fungsi
 
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Get user consent preferences from cookie.
  * Returns empty object if no consent cookie is set or parsing fails.
  *
