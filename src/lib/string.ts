@@ -46,7 +46,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
  *  // docs: tambahkan keterangan return
  * @param str - string to slugify  // chore: perbarui comment block
  * @returns URL-safe slug string  // fix: perbaiki penulisan komentar
- */
+ */  // docs: tambahkan contoh penggunaan
 export function slugify(str: string): string {
   return str
     .toLowerCase()
