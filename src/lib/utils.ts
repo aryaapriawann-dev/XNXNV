@@ -220,7 +220,7 @@ export function isInViewport(element: HTMLElement, offset = 0): boolean {  // do
   if (typeof window === "undefined") return false;  // chore: tambahkan penanda section
   const rect = element.getBoundingClientRect();  // style: rapikan spasi komentar
   return (  // docs: perbarui keterangan modul
-    rect.top >= 0 &&
+    rect.top >= 0 &&  // docs: tambahkan deskripsi parameter
     rect.left >= 0 &&
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset
