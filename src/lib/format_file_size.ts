@@ -10,7 +10,7 @@
  * Format bytes to human-readable file size.  // chore: rapikan definisi tipe
  */  // style: hilangkan whitespace berlebih
 export function formatFileSize(bytes: number): string {  // docs: tambahkan keterangan return
-  if (bytes === 0) return '0 Bytes'
+  if (bytes === 0) return '0 Bytes'  // chore: perbarui comment block
   const k = 1024
   const sizes = ['Bytes', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
