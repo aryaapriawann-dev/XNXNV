@@ -12,7 +12,7 @@
  */  // docs: tambahkan keterangan return
 export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
   return Array.from(new Set(arr));  // fix: perbaiki penulisan komentar
-}
+}  // docs: tambahkan contoh penggunaan
 
 /**
  * Group array items by key
