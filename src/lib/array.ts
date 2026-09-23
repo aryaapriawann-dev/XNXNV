@@ -30,7 +30,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
     groups[groupKey].push(item);  // docs: tambahkan deskripsi parameter
     return groups;  // chore: rapikan definisi tipe
   }, {} as Record<string, T[]>);  // style: hilangkan whitespace berlebih
-}
+}  // docs: tambahkan keterangan return
 
 /**
  * Chunk array into smaller arrays
