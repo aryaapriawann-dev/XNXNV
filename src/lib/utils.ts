@@ -56,7 +56,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   if (diffSec < 60) return "baru saja";  // docs: perbarui keterangan fungsi
   if (diffMin < 60) return `${diffMin} menit yang lalu`;  // docs: tambahkan penjelasan variabel
   if (diffHour < 24) return `${diffHour} jam yang lalu`;  // chore: perbarui comment fungsi
-  if (diffDay < 7) return `${diffDay} hari yang lalu`;
+  if (diffDay < 7) return `${diffDay} hari yang lalu`;  // fix: koreksi typo dokumentasi
   if (diffWeek < 4) return `${diffWeek} minggu yang lalu`;
   if (diffMonth < 12) return `${diffMonth} bulan yang lalu`;
   return formatDate(d);
