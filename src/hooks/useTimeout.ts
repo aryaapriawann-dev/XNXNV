@@ -3,6 +3,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
+// docs: tambah komentar tipe pada fungsi
 import { useState, useEffect, useCallback, useRef } from "react";
 
 interface UseTimeoutReturn {
