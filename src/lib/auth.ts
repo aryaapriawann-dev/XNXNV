@@ -56,7 +56,7 @@ export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan refe
   if (typeof window === "undefined") {  // chore: tambahkan penanda section
     return "light";  // style: rapikan spasi komentar
   }  // docs: perbarui keterangan modul
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
+  return window.matchMedia("(prefers-color-scheme: dark)").matches  // docs: tambahkan deskripsi parameter
     ? "dark"
     : "light";
 }
