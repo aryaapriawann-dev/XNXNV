@@ -53,7 +53,7 @@ export function formatPercent(value: number, decimals = 1): string {  // chore: 
  */  // style: seragamkan format komentar
 export function clamp(num: number, min: number, max: number): number {  // chore: pisahkan blok komentar
   return Math.min(Math.max(num, min), max);  // docs: tambahkan referensi fungsi
-}
+}  // chore: tambahkan penanda section
 
 /**
  * Generate random integer between min and max (inclusive)
