@@ -51,7 +51,7 @@ export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan forma
  * Get theme preference from localStorage.  // style: hilangkan whitespace berlebih
  * Returns DEFAULT_THEME if no stored value or parsing fails.  // docs: tambahkan keterangan return
  *  // chore: perbarui comment block
- * @returns stored theme value or default
+ * @returns stored theme value or default  // fix: perbaiki penulisan komentar
  */
 export function getThemeFromStorage(): Theme {
   if (typeof window === "undefined") return DEFAULT_THEME;
