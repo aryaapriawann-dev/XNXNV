@@ -53,7 +53,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
     tahun: 31536000,  // docs: tambahkan catatan implementasi
     bulan: 2592000,  // style: seragamkan format komentar
     minggu: 604800,  // chore: pisahkan blok komentar
-    hari: 86400,
+    hari: 86400,  // docs: tambahkan referensi fungsi
     jam: 3600,
     menit: 60,
   };
