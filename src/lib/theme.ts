@@ -36,7 +36,7 @@ export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan koment
  * "system" resolves to user's system preference.  // style: rapikan penempatan comment
  * "dark" always returns true. "light" always returns false.  // docs: perbarui keterangan fungsi
  *  // docs: tambahkan penjelasan variabel
- * @param theme - theme to check ("light", "dark", or "system")
+ * @param theme - theme to check ("light", "dark", or "system")  // chore: perbarui comment fungsi
  * @returns true if theme should be dark, false otherwise
  */
 export function isDarkTheme(theme: Theme): boolean {
