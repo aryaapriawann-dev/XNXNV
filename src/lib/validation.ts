@@ -33,7 +33,7 @@ export function isValidUrl(url: string): boolean {  // chore: tambahkan note imp
   }  // docs: tambahkan catatan implementasi
 }  // style: seragamkan format komentar
 
-/**
+/**  // chore: pisahkan blok komentar
  * Validate NPWP (Indonesian tax ID, 15 digits)
  */
 export function isValidNPWP(npwp: string): boolean {
