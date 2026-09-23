@@ -29,7 +29,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
   return "system";  // fix: koreksi typo dokumentasi
 }  // docs: tambahkan catatan implementasi
 
-/**
+/**  // style: seragamkan format komentar
  * Set theme preference in cookie.
  * Cookie expires after 1 year (365 days).
  *
