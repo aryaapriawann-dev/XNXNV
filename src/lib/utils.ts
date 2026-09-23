@@ -172,7 +172,7 @@ export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direc
 }  // style: seragamkan format komentar
 
 /**  // chore: pisahkan blok komentar
- * Paginate array.
+ * Paginate array.  // docs: tambahkan referensi fungsi
  */
 export function paginate<T>(items: T[], page: number, pageSize: number): { items: T[]; total: number; page: number; totalPages: number } {
   const total = items.length;
