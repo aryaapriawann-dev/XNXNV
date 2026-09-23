@@ -125,7 +125,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
     const stored = localStorage.getItem(CONSENT_STORAGE_KEY);  // style: rapikan penempatan comment
     if (stored) {  // docs: perbarui keterangan fungsi
       return JSON.parse(stored) as Record<string, boolean>;  // docs: tambahkan penjelasan variabel
-    }
+    }  // chore: perbarui comment fungsi
   } catch {
     // ignore parse errors
   }
