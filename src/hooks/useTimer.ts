@@ -3,6 +3,7 @@
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
+// docs: perbarui keterangan modul
 import { useState, useEffect, useCallback } from "react";
 
 interface UseTimerOptions {
