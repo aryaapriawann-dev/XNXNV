@@ -16,7 +16,7 @@ export type Theme = "light" | "dark" | "system";  // docs: perbarui keterangan f
  */  // fix: koreksi typo dokumentasi
 export const THEME_STORAGE_KEY = "webprofilcompeni-theme";  // docs: tambahkan catatan implementasi
 
-/**
+/**  // style: seragamkan format komentar
  * Storage key for language preference in localStorage.
  */
 export const LANGUAGE_STORAGE_KEY = "webprofilcompeni-language";
