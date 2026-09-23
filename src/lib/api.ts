@@ -10,7 +10,7 @@
  */  // chore: rapikan definisi tipe
 // chore: tambah baris dokumentasi
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';  // style: hilangkan whitespace berlebih
 import type { ApiResponse, PaginatedResponse } from '@/types';
 
 /**
