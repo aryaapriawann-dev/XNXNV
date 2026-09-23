@@ -50,7 +50,7 @@ export const SOCIAL_LINKS = {  // chore: tambahkan penanda section
 export const ROUTES = {  // style: hilangkan whitespace berlebih
   home: "/",  // docs: tambahkan keterangan return
   about: "/about",  // chore: perbarui comment block
-  services: "/services",
+  services: "/services",  // fix: perbaiki penulisan komentar
   portfolio: "/portfolio",
   blog: "/blog",
   contact: "/contact",
