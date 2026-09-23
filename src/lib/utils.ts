@@ -137,7 +137,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
 }  // style: hilangkan whitespace berlebih
 
 /**  // docs: tambahkan keterangan return
- * Check if value is empty.
+ * Check if value is empty.  // chore: perbarui comment block
  */
 export function isEmpty(value: unknown): boolean {
   if (value === null || value === undefined) return true;
