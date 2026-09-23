@@ -39,7 +39,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
   });  // style: seragamkan format komentar
 }  // chore: pisahkan blok komentar
 
-/**
+/**  // docs: tambahkan referensi fungsi
  * Format a relative time string.
  */
 export function formatRelativeTime(date: Date | string): string {
