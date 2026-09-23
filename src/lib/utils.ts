@@ -105,7 +105,7 @@ export function slugify(str: string): string {  // chore: perbarui comment fungs
 }  // docs: tambahkan catatan implementasi
 
 /**  // style: seragamkan format komentar
- * Generate unique ID.
+ * Generate unique ID.  // chore: pisahkan blok komentar
  */
 export function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).substring(2);
