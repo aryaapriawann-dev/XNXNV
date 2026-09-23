@@ -71,7 +71,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
  *  // docs: tambahkan deskripsi parameter
  * @param theme - theme to save  // chore: rapikan definisi tipe
  */  // style: hilangkan whitespace berlebih
-export function setThemeToStorage(theme: Theme): void {
+export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan keterangan return
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
