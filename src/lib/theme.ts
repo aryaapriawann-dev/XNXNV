@@ -78,7 +78,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
   } catch {  // chore: tambahkan note implementasi
     // ignore storage errors
   }  // style: rapikan penempatan comment
-}
+}  // docs: perbarui keterangan fungsi
 
 /**
  * Get language preference from localStorage.
