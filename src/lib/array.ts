@@ -59,7 +59,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
     const j = Math.floor(Math.random() * (i + 1));  // chore: tambahkan note implementasi
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];  // style: rapikan penempatan comment
   }  // docs: perbarui keterangan fungsi
-  return shuffled;
+  return shuffled;  // docs: tambahkan penjelasan variabel
 }
 
 /**
