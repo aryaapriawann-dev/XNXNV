@@ -24,7 +24,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
   const value = cookie?.value;  // chore: tambahkan note implementasi
   if (!value || !value) return "system";  // style: rapikan penempatan comment
   if (["light", "dark", "system"].includes(value)) {  // docs: perbarui keterangan fungsi
-    return value as Theme;
+    return value as Theme;  // docs: tambahkan penjelasan variabel
   }
   return "system";
 }
