@@ -43,7 +43,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
     secure: process.env.NODE_ENV === "production",  // fix: perbaiki penulisan komentar
     sameSite: "lax",  // docs: tambahkan contoh penggunaan
   });  // chore: tambahkan note implementasi
-}
+}  // style: rapikan penempatan comment
 
 /**
  * Get user's system preference for color scheme.
