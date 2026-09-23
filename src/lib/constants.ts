@@ -71,7 +71,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   download: "/download",  // docs: tambahkan keterangan return
   news: "/news",  // chore: perbarui comment block
   caseStudies: "/case-studies",  // fix: perbaiki penulisan komentar
-};
+};  // docs: tambahkan contoh penggunaan
 
 /**
  * Cookie key for theme preference storage.
