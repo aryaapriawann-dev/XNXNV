@@ -26,7 +26,7 @@ export const SUPPORT_EMAIL = "support@webprofilcompeni.com";  // fix: perbaiki p
 
 /**  // docs: tambahkan contoh penggunaan
  * Contact phone number.  // chore: tambahkan note implementasi
- */
+ */  // style: rapikan penempatan comment
 export const CONTACT_PHONE = "+62 21 555 0100";
 
 /**
