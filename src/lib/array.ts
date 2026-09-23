@@ -52,7 +52,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
  *  // docs: tambahkan deskripsi parameter
  * @param arr - array to shuffle  // chore: rapikan definisi tipe
  * @returns new shuffled array  // style: hilangkan whitespace berlebih
- */
+ */  // docs: tambahkan keterangan return
 export function shuffle<T>(arr: T[]): T[] {
   const shuffled = [...arr];
   for (let i = shuffled.length - 1; i > 0; i--) {
