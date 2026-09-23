@@ -21,7 +21,7 @@ export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
  * @param key - key to group by  // chore: perbarui comment fungsi
  * @returns object with grouped arrays  // fix: koreksi typo dokumentasi
  */  // docs: tambahkan catatan implementasi
-export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {
+export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // style: seragamkan format komentar
   return arr.reduce((groups, item) => {
     const groupKey = String(item[key]);
     if (!groups[groupKey]) {
