@@ -73,7 +73,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
  */  // style: hilangkan whitespace berlebih
 export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan keterangan return
   if (typeof window === "undefined") return;  // chore: perbarui comment block
-  try {
+  try {  // fix: perbaiki penulisan komentar
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch {
     // ignore storage errors
