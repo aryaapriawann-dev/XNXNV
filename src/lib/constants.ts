@@ -73,7 +73,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   caseStudies: "/case-studies",  // fix: perbaiki penulisan komentar
 };  // docs: tambahkan contoh penggunaan
 
-/**
+/**  // chore: tambahkan note implementasi
  * Cookie key for theme preference storage.
  */
 export const THEME_KEY = "theme";
