@@ -18,7 +18,7 @@ export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda se
  *  // chore: rapikan definisi tipe
  * @returns current theme value  // style: hilangkan whitespace berlebih
  */  // docs: tambahkan keterangan return
-export function getTheme(): Theme {
+export function getTheme(): Theme {  // chore: perbarui comment block
   const cookieStore = cookies();
   const cookie = cookieStore.get(THEME_KEY);
   const value = cookie?.value;
