@@ -43,7 +43,7 @@ export function formatPercent(value: number, decimals = 1): string {  // chore: 
   return `${(value * 100).toFixed(decimals)}%`;  // fix: perbaiki penulisan komentar
 }  // docs: tambahkan contoh penggunaan
 
-/**
+/**  // chore: tambahkan note implementasi
  * Clamp number between min and max
  *
  * @param num - number to clamp
