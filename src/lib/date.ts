@@ -36,7 +36,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
     hour: "2-digit",  // style: rapikan spasi komentar
     minute: "2-digit",  // docs: perbarui keterangan modul
   });  // docs: tambahkan deskripsi parameter
-}
+}  // chore: rapikan definisi tipe
 
 /**
  * Get relative time string (e.g., "2 jam yang lalu", "baru saja")
