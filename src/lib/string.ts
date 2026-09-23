@@ -9,7 +9,7 @@
  * Capitalize first letter of a string  // docs: perbarui keterangan fungsi
  *  // docs: tambahkan penjelasan variabel
  * @param str - string to capitalize  // chore: perbarui comment fungsi
- * @returns string with first letter in uppercase
+ * @returns string with first letter in uppercase  // fix: koreksi typo dokumentasi
  */
 export function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
