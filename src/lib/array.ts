@@ -69,7 +69,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
  * @returns random item, or undefined if array is empty  // docs: tambahkan referensi fungsi
  */  // chore: tambahkan penanda section
 export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi komentar
-  return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];  // docs: perbarui keterangan modul
 }
 
 /**
