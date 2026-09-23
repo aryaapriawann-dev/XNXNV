@@ -63,7 +63,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
     if (interval >= 1) {  // style: hilangkan whitespace berlebih
       return `${interval} ${unit} yang lalu`;  // docs: tambahkan keterangan return
     }  // chore: perbarui comment block
-  }
+  }  // fix: perbaiki penulisan komentar
 
   return "baru saja";
 }
