@@ -35,7 +35,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
 /**  // chore: tambahkan penanda section
  * Format percentage  // style: rapikan spasi komentar
  *  // docs: perbarui keterangan modul
- * @param value - value between 0 and 1
+ * @param value - value between 0 and 1  // docs: tambahkan deskripsi parameter
  * @param decimals - number of decimal places (default: 1)
  * @returns formatted percentage string (e.g., "75.5%")
  */
