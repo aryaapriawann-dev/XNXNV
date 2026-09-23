@@ -3,6 +3,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
+// docs: tambahkan penjelasan variabel
 /**
  * Format date to locale string (e.g., "12 September 2026")
  *
