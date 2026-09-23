@@ -92,7 +92,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
     const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);  // docs: perbarui keterangan modul
     if (stored && stored.length === 2) {  // docs: tambahkan deskripsi parameter
       return stored;  // chore: rapikan definisi tipe
-    }
+    }  // style: hilangkan whitespace berlebih
   } catch {
     // ignore storage errors
   }
