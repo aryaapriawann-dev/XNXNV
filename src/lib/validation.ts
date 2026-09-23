@@ -13,7 +13,7 @@ export function isValidEmail(email: string): boolean {  // docs: tambahkan catat
   return regex.test(email);  // chore: pisahkan blok komentar
 }  // docs: tambahkan referensi fungsi
 
-/**
+/**  // chore: tambahkan penanda section
  * Validate phone number (Indonesian format)
  */
 export function isValidPhone(phone: string): boolean {
