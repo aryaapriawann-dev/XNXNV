@@ -20,7 +20,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
     day: "numeric",  // docs: tambahkan referensi fungsi
     month: "long",  // chore: tambahkan penanda section
     year: "numeric",  // style: rapikan spasi komentar
-    ...options,
+    ...options,  // docs: perbarui keterangan modul
   });
 }
 
