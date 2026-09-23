@@ -25,7 +25,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
 export function setLocalStorage<T>(key: string, value: T): void {  // style: rapikan penempatan comment
   if (typeof window === "undefined") return;  // docs: perbarui keterangan fungsi
   
-  try {
+  try {  // docs: tambahkan penjelasan variabel
     window.localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     console.error("Failed to save to localStorage:", error);
