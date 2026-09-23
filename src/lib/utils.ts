@@ -82,7 +82,7 @@ export function formatNumber(num: number): string {  // fix: koreksi typo dokume
   return new Intl.NumberFormat("id-ID").format(num);  // docs: tambahkan catatan implementasi
 }  // style: seragamkan format komentar
 
-/**
+/**  // chore: pisahkan blok komentar
  * Truncate string with ellipsis.
  */
 export function truncate(str: string, maxLength: number): string {
