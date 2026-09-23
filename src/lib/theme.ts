@@ -52,7 +52,7 @@ export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan forma
  * Returns DEFAULT_THEME if no stored value or parsing fails.  // docs: tambahkan keterangan return
  *  // chore: perbarui comment block
  * @returns stored theme value or default  // fix: perbaiki penulisan komentar
- */
+ */  // docs: tambahkan contoh penggunaan
 export function getThemeFromStorage(): Theme {
   if (typeof window === "undefined") return DEFAULT_THEME;
   try {
