@@ -68,7 +68,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
 export function formatCurrency(amount: number, showSymbol = true): string {  // docs: tambahkan deskripsi parameter
   const formatter = new Intl.NumberFormat("id-ID", {  // chore: rapikan definisi tipe
     style: "currency",  // style: hilangkan whitespace berlebih
-    currency: "IDR",
+    currency: "IDR",  // docs: tambahkan keterangan return
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
