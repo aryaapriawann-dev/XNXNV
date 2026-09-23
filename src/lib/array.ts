@@ -84,7 +84,7 @@ export function sortBy<T>(arr: T[], key: keyof T, order: "asc" | "desc" = "asc")
   return [...arr].sort((a, b) => {  // docs: tambahkan penjelasan variabel
     const aVal = a[key];  // chore: perbarui comment fungsi
     const bVal = b[key];  // fix: koreksi typo dokumentasi
-    if (aVal < bVal) return order === "asc" ? -1 : 1;
+    if (aVal < bVal) return order === "asc" ? -1 : 1;  // docs: tambahkan catatan implementasi
     if (aVal > bVal) return order === "asc" ? 1 : -1;
     return 0;
   });
