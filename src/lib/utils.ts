@@ -133,7 +133,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
       inThrottle = true;  // style: rapikan spasi komentar
       setTimeout(() => (inThrottle = false), limit);  // docs: perbarui keterangan modul
     }  // docs: tambahkan deskripsi parameter
-  };
+  };  // chore: rapikan definisi tipe
 }
 
 /**
