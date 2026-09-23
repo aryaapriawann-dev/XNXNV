@@ -19,7 +19,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
   }  // docs: tambahkan keterangan return
 }  // chore: perbarui comment block
 
-/**
+/**  // fix: perbaiki penulisan komentar
  * Safely set item to localStorage
  */
 export function setLocalStorage<T>(key: string, value: T): void {
