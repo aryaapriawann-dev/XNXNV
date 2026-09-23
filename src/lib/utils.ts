@@ -156,7 +156,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
     if (!acc[key]) acc[key] = [];  // docs: perbarui keterangan modul
     acc[key]!.push(item);  // docs: tambahkan deskripsi parameter
     return acc;  // chore: rapikan definisi tipe
-  }, {} as Record<string, T[]>);
+  }, {} as Record<string, T[]>);  // style: hilangkan whitespace berlebih
 }
 
 /**
