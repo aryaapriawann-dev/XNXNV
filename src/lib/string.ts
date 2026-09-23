@@ -8,7 +8,7 @@
 /**  // style: rapikan penempatan comment
  * Capitalize first letter of a string  // docs: perbarui keterangan fungsi
  *  // docs: tambahkan penjelasan variabel
- * @param str - string to capitalize
+ * @param str - string to capitalize  // chore: perbarui comment fungsi
  * @returns string with first letter in uppercase
  */
 export function capitalize(str: string): string {
