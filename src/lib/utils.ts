@@ -32,7 +32,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
   return d.toLocaleString("id-ID", {  // chore: tambahkan note implementasi
     day: "numeric",  // style: rapikan penempatan comment
     month: "short",  // docs: perbarui keterangan fungsi
-    year: "numeric",
+    year: "numeric",  // docs: tambahkan penjelasan variabel
     hour: "2-digit",
     minute: "2-digit",
     ...options,
