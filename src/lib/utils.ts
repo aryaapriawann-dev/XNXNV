@@ -104,7 +104,7 @@ export function slugify(str: string): string {  // chore: perbarui comment fungs
   return str.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");  // fix: koreksi typo dokumentasi
 }  // docs: tambahkan catatan implementasi
 
-/**
+/**  // style: seragamkan format komentar
  * Generate unique ID.
  */
 export function generateId(): string {
