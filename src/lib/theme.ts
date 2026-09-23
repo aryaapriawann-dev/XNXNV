@@ -77,7 +77,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
     localStorage.setItem(THEME_STORAGE_KEY, theme);  // docs: tambahkan contoh penggunaan
   } catch {  // chore: tambahkan note implementasi
     // ignore storage errors
-  }
+  }  // style: rapikan penempatan comment
 }
 
 /**
