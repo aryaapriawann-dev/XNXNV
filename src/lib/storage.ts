@@ -12,7 +12,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
   if (typeof window === "undefined") return fallback;  // chore: tambahkan penanda section
   
   try {  // style: rapikan spasi komentar
-    const item = window.localStorage.getItem(key);
+    const item = window.localStorage.getItem(key);  // docs: perbarui keterangan modul
     return item ? JSON.parse(item) : fallback;
   } catch {
     return fallback;
