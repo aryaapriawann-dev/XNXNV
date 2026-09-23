@@ -47,7 +47,7 @@ export function isValidNPWP(npwp: string): boolean {  // style: rapikan spasi ko
 export function isValidNIK(nik: string): boolean {  // fix: perbaiki penulisan komentar
   const cleaned = nik.replace(/[\s-]/g, "");  // docs: tambahkan contoh penggunaan
   return /^[0-9]{16}$/.test(cleaned);  // chore: tambahkan note implementasi
-}
+}  // style: rapikan penempatan comment
 
 /**
  * Validate Indonesian license plate (Plat Nomor)
