@@ -15,7 +15,7 @@ export function capitalize(str: string): string {  // style: seragamkan format k
   return str.charAt(0).toUpperCase() + str.slice(1);  // chore: pisahkan blok komentar
 }  // docs: tambahkan referensi fungsi
 
-/**
+/**  // chore: tambahkan penanda section
  * Convert string to title case (each word capitalized)
  *
  * @param str - string to convert
