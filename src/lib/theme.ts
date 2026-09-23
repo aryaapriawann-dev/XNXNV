@@ -75,7 +75,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
   if (typeof window === "undefined") return;  // chore: perbarui comment block
   try {  // fix: perbaiki penulisan komentar
     localStorage.setItem(THEME_STORAGE_KEY, theme);  // docs: tambahkan contoh penggunaan
-  } catch {
+  } catch {  // chore: tambahkan note implementasi
     // ignore storage errors
   }
 }
