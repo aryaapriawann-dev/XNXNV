@@ -40,7 +40,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
 
 /**  // style: hilangkan whitespace berlebih
  * Get relative time string (e.g., "2 jam yang lalu", "baru saja")  // docs: tambahkan keterangan return
- *
+ *  // chore: perbarui comment block
  * @param date - Date object or ISO date string to compare against now
  * @returns human-readable relative time string in Indonesian
  */
