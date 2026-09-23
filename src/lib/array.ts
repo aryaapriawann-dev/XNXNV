@@ -34,7 +34,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
 
 /**  // chore: perbarui comment block
  * Chunk array into smaller arrays  // fix: perbaiki penulisan komentar
- *
+ *  // docs: tambahkan contoh penggunaan
  * @param arr - array to chunk
  * @param size - size of each chunk
  * @returns array of chunks
