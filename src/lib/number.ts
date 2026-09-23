@@ -19,7 +19,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
  * Format currency (Rupiah by default)  // style: hilangkan whitespace berlebih
  *  // docs: tambahkan keterangan return
  * @param amount - amount to format  // chore: perbarui comment block
- * @param currency - currency code (default: "IDR")
+ * @param currency - currency code (default: "IDR")  // fix: perbaiki penulisan komentar
  * @param locale - locale code (default: "id-ID")
  * @returns formatted currency string (e.g., "Rp1.000")
  */
