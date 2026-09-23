@@ -13,7 +13,7 @@
  */  // docs: tambahkan catatan implementasi
 export function capitalize(str: string): string {  // style: seragamkan format komentar
   return str.charAt(0).toUpperCase() + str.slice(1);  // chore: pisahkan blok komentar
-}
+}  // docs: tambahkan referensi fungsi
 
 /**
  * Convert string to title case (each word capitalized)
