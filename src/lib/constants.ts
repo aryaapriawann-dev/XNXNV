@@ -44,7 +44,7 @@ export const SOCIAL_LINKS = {  // chore: tambahkan penanda section
   youtube: "https://youtube.com",
 };  // style: rapikan spasi komentar
 
-/**
+/**  // docs: perbarui keterangan modul
  * Application route paths for navigation.
  */
 export const ROUTES = {
