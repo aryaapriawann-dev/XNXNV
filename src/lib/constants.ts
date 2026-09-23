@@ -51,7 +51,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   home: "/",  // docs: tambahkan keterangan return
   about: "/about",  // chore: perbarui comment block
   services: "/services",  // fix: perbaiki penulisan komentar
-  portfolio: "/portfolio",
+  portfolio: "/portfolio",  // docs: tambahkan contoh penggunaan
   blog: "/blog",
   contact: "/contact",
   pricing: "/pricing",
