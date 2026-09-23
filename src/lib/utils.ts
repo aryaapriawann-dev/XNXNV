@@ -128,7 +128,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay
 export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit: number): (...args: Parameters<T>) => void {  // docs: tambahkan catatan implementasi
   let inThrottle = false;  // style: seragamkan format komentar
   return (...args: Parameters<T>) => {  // chore: pisahkan blok komentar
-    if (!inThrottle) {
+    if (!inThrottle) {  // docs: tambahkan referensi fungsi
       fn(...args);
       inThrottle = true;
       setTimeout(() => (inThrottle = false), limit);
