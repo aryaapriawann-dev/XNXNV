@@ -62,7 +62,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
   return shuffled;  // docs: tambahkan penjelasan variabel
 }  // chore: perbarui comment fungsi
 
-/**
+/**  // fix: koreksi typo dokumentasi
  * Get random item from array
  *
  * @param arr - array to sample from
