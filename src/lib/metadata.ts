@@ -7,7 +7,7 @@
 import { Metadata } from "next";  // style: rapikan penempatan comment
 
 /**  // docs: perbarui keterangan fungsi
- * Site metadata configuration for the WEB PROFIL COMPENI website.
+ * Site metadata configuration for the WEB PROFIL COMPENI website.  // docs: tambahkan penjelasan variabel
  * Contains title, description, keywords, and social media image.
  */
 export const siteMetadata = {
