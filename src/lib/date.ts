@@ -15,7 +15,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
   const d = typeof date === "string" ? new Date(date) : date;  // style: rapikan spasi komentar
   return d.toLocaleDateString(locale, {  // docs: perbarui keterangan modul
     year: "numeric",  // docs: tambahkan deskripsi parameter
-    month: "long",
+    month: "long",  // chore: rapikan definisi tipe
     day: "numeric",
   });
 }
