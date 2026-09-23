@@ -47,7 +47,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   const now = new Date();  // chore: rapikan definisi tipe
   const diffMs = now.getTime() - d.getTime();  // style: hilangkan whitespace berlebih
   const diffSec = Math.floor(diffMs / 1000);  // docs: tambahkan keterangan return
-  const diffMin = Math.floor(diffSec / 60);
+  const diffMin = Math.floor(diffSec / 60);  // chore: perbarui comment block
   const diffHour = Math.floor(diffMin / 60);
   const diffDay = Math.floor(diffHour / 24);
   const diffWeek = Math.floor(diffDay / 7);
