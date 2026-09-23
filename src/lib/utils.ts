@@ -80,7 +80,7 @@ export function formatCurrency(amount: number, showSymbol = true): string {  // 
  */  // chore: perbarui comment fungsi
 export function formatNumber(num: number): string {  // fix: koreksi typo dokumentasi
   return new Intl.NumberFormat("id-ID").format(num);  // docs: tambahkan catatan implementasi
-}
+}  // style: seragamkan format komentar
 
 /**
  * Truncate string with ellipsis.
