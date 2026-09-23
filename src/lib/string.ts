@@ -45,7 +45,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
  * Slugify string for URLs (lowercase, hyphens, no special chars)  // style: hilangkan whitespace berlebih
  *  // docs: tambahkan keterangan return
  * @param str - string to slugify  // chore: perbarui comment block
- * @returns URL-safe slug string
+ * @returns URL-safe slug string  // fix: perbaiki penulisan komentar
  */
 export function slugify(str: string): string {
   return str
