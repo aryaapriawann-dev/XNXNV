@@ -3,6 +3,7 @@
 // chore: rapikan import urutan
 // chore: rapikan import urutan
 // chore: rapikan import urutan
+// chore: perbarui comment fungsi
 import { cookies } from "next/headers";
 import { THEME_KEY, CONSENT_KEY } from "./constants";
 
