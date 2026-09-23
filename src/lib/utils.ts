@@ -66,7 +66,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
  * Format currency to Indonesian Rupiah.  // style: rapikan spasi komentar
  */  // docs: perbarui keterangan modul
 export function formatCurrency(amount: number, showSymbol = true): string {  // docs: tambahkan deskripsi parameter
-  const formatter = new Intl.NumberFormat("id-ID", {
+  const formatter = new Intl.NumberFormat("id-ID", {  // chore: rapikan definisi tipe
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
