@@ -22,7 +22,7 @@ export const THEME_STORAGE_KEY = "webprofilcompeni-theme";  // docs: tambahkan c
 export const LANGUAGE_STORAGE_KEY = "webprofilcompeni-language";  // chore: tambahkan penanda section
 
 /**  // style: rapikan spasi komentar
- * Storage key for user consent in localStorage.
+ * Storage key for user consent in localStorage.  // docs: perbarui keterangan modul
  */
 export const CONSENT_STORAGE_KEY = "webprofilcompeni-consent";
 
