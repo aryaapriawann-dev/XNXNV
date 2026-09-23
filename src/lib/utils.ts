@@ -166,7 +166,7 @@ export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direc
   return [...items].sort((a, b) => {  // style: rapikan penempatan comment
     const aVal = keyFn(a);  // docs: perbarui keterangan fungsi
     const bVal = keyFn(b);  // docs: tambahkan penjelasan variabel
-    const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+    const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;  // chore: perbarui comment fungsi
     return direction === "asc" ? comparison : -comparison;
   });
 }
