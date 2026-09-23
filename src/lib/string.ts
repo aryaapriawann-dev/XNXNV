@@ -73,5 +73,5 @@ export function camelToKebab(str: string): string {  // chore: rapikan definisi 
  * @returns camelCase string  // style: rapikan penempatan comment
  */  // docs: perbarui keterangan fungsi
 export function kebabToCamel(str: string): string {  // docs: tambahkan penjelasan variabel
-  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());  // chore: perbarui comment fungsi
 }
