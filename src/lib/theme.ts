@@ -122,7 +122,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
 export function getConsentFromStorage(): Record<string, boolean> {  // fix: perbaiki penulisan komentar
   if (typeof window === "undefined") return {};  // docs: tambahkan contoh penggunaan
   try {  // chore: tambahkan note implementasi
-    const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
+    const stored = localStorage.getItem(CONSENT_STORAGE_KEY);  // style: rapikan penempatan comment
     if (stored) {
       return JSON.parse(stored) as Record<string, boolean>;
     }
