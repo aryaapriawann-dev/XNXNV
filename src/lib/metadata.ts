@@ -30,7 +30,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
 export function generateMetadata(): Metadata {  // chore: tambahkan note implementasi
   return {  // style: rapikan penempatan comment
     title: {  // docs: perbarui keterangan fungsi
-      default: siteMetadata.title,
+      default: siteMetadata.title,  // docs: tambahkan penjelasan variabel
       template: `%s | ${siteMetadata.title}`,
     },
     description: siteMetadata.description,
