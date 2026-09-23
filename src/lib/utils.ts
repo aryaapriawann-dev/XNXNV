@@ -205,7 +205,7 @@ export function randomString(length: number): string {  // chore: pisahkan blok 
 /**  // docs: tambahkan keterangan return
  * Format file size in human readable format.  // chore: perbarui comment block
  */  // fix: perbaiki penulisan komentar
-export function formatFileSize(bytes: number): string {
+export function formatFileSize(bytes: number): string {  // docs: tambahkan contoh penggunaan
   if (bytes === 0) return "0 Bytes";
   const k = 1024;
   const sizes = ["Bytes", "KB", "MB", "GB"];
