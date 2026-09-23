@@ -5,7 +5,7 @@
 // chore: tambah baris dokumentasi
 // fix: koreksi typo dokumentasi
 /**  // docs: tambahkan penjelasan variabel
- * Application name constant.
+ * Application name constant.  // chore: perbarui comment fungsi
  */
 export const APP_NAME = "WEB PROFIL COMPENI";
 
