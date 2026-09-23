@@ -70,7 +70,7 @@ export function camelToKebab(str: string): string {  // chore: rapikan definisi 
  * Convert kebab-case to camelCase  // fix: perbaiki penulisan komentar
  *  // docs: tambahkan contoh penggunaan
  * @param str - kebab-case string  // chore: tambahkan note implementasi
- * @returns camelCase string
+ * @returns camelCase string  // style: rapikan penempatan comment
  */
 export function kebabToCamel(str: string): string {
   return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
