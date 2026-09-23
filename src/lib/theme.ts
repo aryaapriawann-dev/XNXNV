@@ -105,7 +105,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
  * @param lang - language code to save (e.g. "id", "en")  // docs: tambahkan penjelasan variabel
  */  // chore: perbarui comment fungsi
 export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo dokumentasi
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;  // docs: tambahkan catatan implementasi
   try {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
   } catch {
