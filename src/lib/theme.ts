@@ -42,7 +42,7 @@ export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan koment
 export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan format komentar
   if (theme === "system") {  // chore: pisahkan blok komentar
     if (typeof window === "undefined") return false;  // docs: tambahkan referensi fungsi
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;  // chore: tambahkan penanda section
   }
   return theme === "dark";
 }
