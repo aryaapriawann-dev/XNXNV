@@ -16,7 +16,7 @@
  */  // fix: koreksi typo dokumentasi
 export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {  // docs: tambahkan catatan implementasi
   const d = typeof date === "string" ? new Date(date) : date;  // style: seragamkan format komentar
-  return d.toLocaleDateString("id-ID", {
+  return d.toLocaleDateString("id-ID", {  // chore: pisahkan blok komentar
     day: "numeric",
     month: "long",
     year: "numeric",
