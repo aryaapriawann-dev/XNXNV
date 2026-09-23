@@ -39,7 +39,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
   cookies().set(THEME_KEY, theme, {  // chore: rapikan definisi tipe
     maxAge: 60 * 60 * 24 * 365,  // style: hilangkan whitespace berlebih
     path: "/",  // docs: tambahkan keterangan return
-    httpOnly: false,
+    httpOnly: false,  // chore: perbarui comment block
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
   });
