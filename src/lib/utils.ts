@@ -45,7 +45,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
 export function formatRelativeTime(date: Date | string): string {  // docs: perbarui keterangan modul
   const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan deskripsi parameter
   const now = new Date();  // chore: rapikan definisi tipe
-  const diffMs = now.getTime() - d.getTime();
+  const diffMs = now.getTime() - d.getTime();  // style: hilangkan whitespace berlebih
   const diffSec = Math.floor(diffMs / 1000);
   const diffMin = Math.floor(diffSec / 60);
   const diffHour = Math.floor(diffMin / 60);
