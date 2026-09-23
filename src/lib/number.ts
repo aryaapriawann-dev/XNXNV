@@ -27,7 +27,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
   return new Intl.NumberFormat(locale, {  // docs: tambahkan penjelasan variabel
     style: "currency",  // chore: perbarui comment fungsi
     currency: currency,  // fix: koreksi typo dokumentasi
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 0,  // docs: tambahkan catatan implementasi
     maximumFractionDigits: 0,
   }).format(amount);
 }
