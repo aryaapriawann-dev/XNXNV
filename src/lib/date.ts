@@ -32,7 +32,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
   return d.toLocaleString(locale, {  // style: seragamkan format komentar
     year: "numeric",  // chore: pisahkan blok komentar
     month: "long",  // docs: tambahkan referensi fungsi
-    day: "numeric",
+    day: "numeric",  // chore: tambahkan penanda section
     hour: "2-digit",
     minute: "2-digit",
   });
