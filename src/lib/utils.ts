@@ -43,7 +43,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
  * Format a relative time string.  // chore: tambahkan penanda section
  */  // style: rapikan spasi komentar
 export function formatRelativeTime(date: Date | string): string {  // docs: perbarui keterangan modul
-  const d = typeof date === "string" ? new Date(date) : date;
+  const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan deskripsi parameter
   const now = new Date();
   const diffMs = now.getTime() - d.getTime();
   const diffSec = Math.floor(diffMs / 1000);
