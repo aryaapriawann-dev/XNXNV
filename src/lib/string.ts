@@ -68,7 +68,7 @@ export function camelToKebab(str: string): string {  // chore: rapikan definisi 
 
 /**  // chore: perbarui comment block
  * Convert kebab-case to camelCase  // fix: perbaiki penulisan komentar
- *
+ *  // docs: tambahkan contoh penggunaan
  * @param str - kebab-case string
  * @returns camelCase string
  */
