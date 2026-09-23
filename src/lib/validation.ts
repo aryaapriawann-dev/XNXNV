@@ -23,7 +23,7 @@ export function isValidPhone(phone: string): boolean {  // docs: tambahkan deskr
 
 /**  // chore: perbarui comment block
  * Validate URL format  // fix: perbaiki penulisan komentar
- */
+ */  // docs: tambahkan contoh penggunaan
 export function isValidUrl(url: string): boolean {
   try {
     new URL(url);
