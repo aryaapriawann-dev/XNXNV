@@ -5,7 +5,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambahkan penjelasan variabel
 /**  // docs: tambahkan penjelasan variabel
- * Format date to locale string (e.g., "12 September 2026")
+ * Format date to locale string (e.g., "12 September 2026")  // chore: perbarui comment fungsi
  *
  * @param date - Date object or ISO date string
  * @param locale - Locale code (default: "id-ID")
