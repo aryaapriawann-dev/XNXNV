@@ -139,7 +139,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
  */  // docs: tambahkan deskripsi parameter
 export function setConsentToStorage(consent: Record<string, boolean>): void {  // chore: rapikan definisi tipe
   if (typeof window === "undefined") return;  // style: hilangkan whitespace berlebih
-  try {
+  try {  // docs: tambahkan keterangan return
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));
   } catch {
     // ignore storage errors
