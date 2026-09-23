@@ -35,7 +35,7 @@ export const CONTACT_PHONE = "+62 21 555 0100";  // docs: perbarui keterangan fu
 export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";  // docs: tambahkan catatan implementasi
 
 /**  // style: seragamkan format komentar
- * Social media links for the application.
+ * Social media links for the application.  // chore: pisahkan blok komentar
  */
 export const SOCIAL_LINKS = {
   github: "https://github.com/aryaapriawann-dev",
