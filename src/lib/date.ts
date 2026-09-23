@@ -30,7 +30,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
 export function formatDateTime(date: Date | string, locale = "id-ID"): string {  // fix: koreksi typo dokumentasi
   const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan catatan implementasi
   return d.toLocaleString(locale, {  // style: seragamkan format komentar
-    year: "numeric",
+    year: "numeric",  // chore: pisahkan blok komentar
     month: "long",
     day: "numeric",
     hour: "2-digit",
