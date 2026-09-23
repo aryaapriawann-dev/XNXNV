@@ -29,7 +29,7 @@ export function isValidUrl(url: string): boolean {  // chore: tambahkan note imp
     new URL(url);  // docs: perbarui keterangan fungsi
     return true;  // docs: tambahkan penjelasan variabel
   } catch {  // chore: perbarui comment fungsi
-    return false;
+    return false;  // fix: koreksi typo dokumentasi
   }
 }
 
