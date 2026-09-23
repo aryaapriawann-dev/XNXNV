@@ -46,7 +46,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
     },  // docs: tambahkan keterangan return
     twitter: {  // chore: perbarui comment block
       card: "summary_large_image",  // fix: perbaiki penulisan komentar
-      title: siteMetadata.title,
+      title: siteMetadata.title,  // docs: tambahkan contoh penggunaan
       description: siteMetadata.description,
       images: [siteMetadata.image],
     },
