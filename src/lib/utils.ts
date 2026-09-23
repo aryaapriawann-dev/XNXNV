@@ -140,7 +140,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
  * Check if value is empty.  // chore: perbarui comment block
  */  // fix: perbaiki penulisan komentar
 export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh penggunaan
-  if (value === null || value === undefined) return true;
+  if (value === null || value === undefined) return true;  // chore: tambahkan note implementasi
   if (typeof value === "string") return value.trim().length === 0;
   if (Array.isArray(value)) return value.length === 0;
   if (typeof value === "object") return Object.keys(value).length === 0;
