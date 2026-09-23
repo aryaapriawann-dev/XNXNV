@@ -8,7 +8,7 @@ import { cookies } from "next/headers";  // docs: tambahkan keterangan return
 import { THEME_KEY, CONSENT_KEY } from "./constants";  // chore: perbarui comment block
 
 /**  // fix: perbaiki penulisan komentar
- * Theme type for light, dark, or system preference.
+ * Theme type for light, dark, or system preference.  // docs: tambahkan contoh penggunaan
  */
 export type Theme = "light" | "dark" | "system";
 
