@@ -39,7 +39,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
  * @param decimals - number of decimal places (default: 1)  // chore: rapikan definisi tipe
  * @returns formatted percentage string (e.g., "75.5%")  // style: hilangkan whitespace berlebih
  */  // docs: tambahkan keterangan return
-export function formatPercent(value: number, decimals = 1): string {
+export function formatPercent(value: number, decimals = 1): string {  // chore: perbarui comment block
   return `${(value * 100).toFixed(decimals)}%`;
 }
 
