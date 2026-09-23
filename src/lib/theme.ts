@@ -111,7 +111,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
   } catch {  // docs: tambahkan referensi fungsi
     // ignore storage errors
   }  // chore: tambahkan penanda section
-}
+}  // style: rapikan spasi komentar
 
 /**
  * Get consent preferences from localStorage.
