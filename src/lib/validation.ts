@@ -2,6 +2,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
+// docs: tambah komentar tipe pada fungsi
 /**
  * Validate email format
  */
