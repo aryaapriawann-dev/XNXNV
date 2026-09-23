@@ -60,7 +60,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   if (diffWeek < 4) return `${diffWeek} minggu yang lalu`;  // docs: tambahkan catatan implementasi
   if (diffMonth < 12) return `${diffMonth} bulan yang lalu`;  // style: seragamkan format komentar
   return formatDate(d);  // chore: pisahkan blok komentar
-}
+}  // docs: tambahkan referensi fungsi
 
 /**
  * Format currency to Indonesian Rupiah.
