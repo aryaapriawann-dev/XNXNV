@@ -4,7 +4,7 @@
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
-/** @format */
+/** @format */  // docs: perbarui keterangan modul
 
 /**
  * Format bytes to human-readable file size.
