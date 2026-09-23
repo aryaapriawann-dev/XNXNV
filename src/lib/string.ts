@@ -38,7 +38,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
  */  // docs: tambahkan referensi fungsi
 export function truncate(str: string, maxLength: number): string {  // chore: tambahkan penanda section
   if (str.length <= maxLength) return str;  // style: rapikan spasi komentar
-  return str.slice(0, maxLength - 3) + "...";
+  return str.slice(0, maxLength - 3) + "...";  // docs: perbarui keterangan modul
 }
 
 /**
