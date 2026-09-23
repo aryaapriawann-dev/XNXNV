@@ -9,7 +9,7 @@
  * Validate email format  // chore: perbarui comment fungsi
  */  // fix: koreksi typo dokumentasi
 export function isValidEmail(email: string): boolean {  // docs: tambahkan catatan implementasi
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // style: seragamkan format komentar
   return regex.test(email);
 }
 
