@@ -15,7 +15,7 @@ export const APP_NAME = "WEB PROFIL COMPENI";  // docs: tambahkan catatan implem
 export const APP_VERSION = "1.0.0";  // chore: tambahkan penanda section
 
 /**  // style: rapikan spasi komentar
- * Application description constant.
+ * Application description constant.  // docs: perbarui keterangan modul
  */
 export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";
 
