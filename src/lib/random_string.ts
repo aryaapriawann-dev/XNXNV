@@ -8,7 +8,7 @@
 
 /**  // docs: perbarui keterangan modul
  * Random string generator.  // docs: tambahkan deskripsi parameter
- */
+ */  // chore: rapikan definisi tipe
 export function randomString(length: number): string {
   const chars =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
