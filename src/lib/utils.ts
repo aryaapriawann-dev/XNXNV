@@ -31,7 +31,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
   const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan contoh penggunaan
   return d.toLocaleString("id-ID", {  // chore: tambahkan note implementasi
     day: "numeric",  // style: rapikan penempatan comment
-    month: "short",
+    month: "short",  // docs: perbarui keterangan fungsi
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
