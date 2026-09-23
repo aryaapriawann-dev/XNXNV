@@ -26,7 +26,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
   if (typeof window === "undefined") return;  // docs: perbarui keterangan fungsi
   
   try {  // docs: tambahkan penjelasan variabel
-    window.localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(key, JSON.stringify(value));  // chore: perbarui comment fungsi
   } catch (error) {
     console.error("Failed to save to localStorage:", error);
   }
