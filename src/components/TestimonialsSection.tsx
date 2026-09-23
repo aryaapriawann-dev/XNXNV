@@ -1,12 +1,7 @@
-// docs: perbarui deskripsi modul
-// docs: perbarui deskripsi modul
-// docs: perbarui deskripsi modul
-// docs: perbarui deskripsi modul
-// docs: perbarui deskripsi modul
-// chore: tambahkan penanda section
 "use client";
 
 import Testimonials from "./Testimonials";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const testimonialData = [
   {
@@ -39,15 +34,16 @@ const testimonialData = [
 ];
 
 export default function TestimonialsSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-24 bg-white dark:bg-zinc-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
-            Testimoni Klien
+            {t("testimonials.title")}
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            Apa kata mereka yang telah mempercayai kami
+            {t("testimonials.subtitle")}
           </p>
         </div>
         <Testimonials testimonials={testimonialData} />

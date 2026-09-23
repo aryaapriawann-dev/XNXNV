@@ -1,17 +1,12 @@
-// chore: rapikan import urutan
-// chore: rapikan import urutan
-// chore: rapikan import urutan
-// chore: rapikan import urutan
-// chore: rapikan import urutan
-// chore: perbarui comment fungsi
 import Link from "next/link";
-// chore: tambah separator komentar bagian
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * Footer component
  * Displays brand info, navigation links, contact info, and copyright
  */
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,20 +19,20 @@ export default function Footer() {
               WEB PROFIL COMPENI
             </Link>
             <p className="mt-2 text-sm text-zinc-400 max-w-xs">
-              Solusi digital untuk bisnis Anda. Kami membantu mewujudkan visi digital Anda.
+              {t("footer.brandDesc")}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Navigasi</h4>
+            <h4 className="text-white font-semibold mb-4">{t("footer.navigation")}</h4>
             <ul className="space-y-2 text-sm">
               {[
-                { href: "/about", label: "Tentang" },
-                { href: "/services", label: "Layanan" },
-                { href: "/pricing", label: "Harga" },
-                { href: "/blog", label: "Blog" },
-                { href: "/contact", label: "Kontak" },
+                { href: "/about", label: t("nav.about") },
+                { href: "/services", label: t("nav.services") },
+                { href: "/pricing", label: t("nav.pricing") },
+                { href: "/blog", label: t("nav.blog") },
+                { href: "/contact", label: t("nav.contact") },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors">
@@ -50,14 +45,14 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Layanan</h4>
+            <h4 className="text-white font-semibold mb-4">{t("footer.services")}</h4>
             <ul className="space-y-2 text-sm">
               {[
-                "Web Development",
-                "Mobile App",
-                "UI/UX Design",
-                "Digital Marketing",
-                "Cloud Solutions",
+                t("footer.servicesList.webDev"),
+                t("footer.servicesList.mobileApp"),
+                t("footer.servicesList.uiUx"),
+                t("footer.servicesList.digitalMarketing"),
+                t("footer.servicesList.cloud"),
               ].map((service) => (
                 <li key={service} className="text-zinc-400 hover:text-white transition-colors cursor-pointer">
                   {service}
@@ -68,19 +63,23 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Kontak</h4>
+            <h4 className="text-white font-semibold mb-4">{t("footer.contact")}</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>hello@webprofilcompeni.id</span>
+                <a href="mailto:hello@webprofilcompeni.id" className="hover:text-white transition-colors">
+                  hello@webprofilcompeni.id
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>+62 812-3456-7890</span>
+                <a href="tel:+6281234567890" className="hover:text-white transition-colors">
+                  +62 812-3456-7890
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,10 +99,10 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-zinc-500 hover:text-zinc-300 transition-colors">
-              Kebijakan Privasi
+              {t("footer.privacy")}
             </Link>
             <Link href="/terms" className="text-zinc-500 hover:text-zinc-300 transition-colors">
-              Ketentuan Layanan
+              {t("footer.terms")}
             </Link>
           </div>
         </div>

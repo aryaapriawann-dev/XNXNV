@@ -1,24 +1,24 @@
-// chore: tambah separator komentar bagian
-// chore: tambah separator komentar bagian
-// chore: tambah separator komentar bagian
-// chore: tambah separator komentar bagian
-// chore: tambah separator komentar bagian
-// chore: tambah separator komentar bagian
+"use client";
+
 import Image from "next/image";
 import { Award, Users, TrendingUp, Target } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * About section component
  * Displays company stats with icons
  */
-const stats = [
-  { icon: Award, label: "Kualitas Terbaik", value: "Premium" },
-  { icon: Users, label: "Klien Puas", value: "25+" },
-  { icon: TrendingUp, label: "Pertumbuhan", value: "200%" },
-  { icon: Target, label: "Proyek Selesai", value: "50+" },
-];
+const statIcons = [Award, Users, TrendingUp, Target];
 
 export default function About() {
+  const { t } = useTranslation();
+  const stats = [
+    { icon: Award, label: t("about.stats.quality.label"), value: "Premium" },
+    { icon: Users, label: t("about.stats.clients.label"), value: "25+" },
+    { icon: TrendingUp, label: t("about.stats.growth.label"), value: "200%" },
+    { icon: Target, label: t("about.stats.projects.label"), value: "50+" },
+  ];
+
   return (
     <section className="bg-white dark:bg-zinc-900 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,10 +27,10 @@ export default function About() {
           <div className="space-y-8">
             <div className="space-y-2">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-zinc-50">
-                tentang WEB PROFIL COMPENI
+                {t("about.title")}
               </h2>
               <p className="text-lg text-zinc-600 dark:text-zinc-400">
-                Kami membantu bisnis Anda tumbuh dengan solusi teknologi terbaik.
+                {t("about.intro")}
               </p>
             </div>
             <div className="space-y-4">

@@ -1,22 +1,19 @@
-// style: konsisten penggunaan quote
-// style: konsisten penggunaan quote
-// style: konsisten penggunaan quote
-// style: konsisten penggunaan quote
-// style: konsisten penggunaan quote
-// style: konsisten penggunaan quote
+"use client";
+
 import { ArrowRight, Code, Layout, Zap } from "lucide-react";
 import Link from "next/link";
-// docs: jelaskan tujuan helper
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * Hero section component
  * Displays features with icons, title, description, and CTA buttons
  */
 export default function Hero() {
+  const { t } = useTranslation();
   const features = [
-    { icon: Code, title: "Developer", desc: "Clean, scalable code" },
-    { icon: Layout, title: "Designer", desc: "Modern, intuitive UI" },
-    { icon: Zap, title: "Fast", desc: "Optimized performance" },
+    { icon: Code, title: t("hero.features.developer.title"), desc: t("hero.features.developer.desc") },
+    { icon: Layout, title: t("hero.features.designer.title"), desc: t("hero.features.designer.desc") },
+    { icon: Zap, title: t("hero.features.fast.title"), desc: t("hero.features.fast.desc") },
   ];
 
   return (
@@ -32,17 +29,16 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium mb-6">
             <Zap className="w-4 h-4" />
-            Next generation platform
+            {t("hero.badge")}
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
-            Build faster.{" "}
-            <span className="text-indigo-600 dark:text-indigo-400">Ship smarter.</span>
+            {t("hero.tagline")}
+            <span className="text-indigo-600 dark:text-indigo-400">{t("hero.taglineEmphasis")}</span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl">
-            A modern, full-featured Next.js starter with every component you need.
-            Clean code, dark mode, and built for scale.
+            {t("hero.subtext")}
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -50,14 +46,14 @@ export default function Hero() {
               href="#get-started"
               className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition-colors"
             >
-              Get Started
+              {t("hero.btnGetStarted")}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <Link
               href="#features"
               className="inline-flex items-center justify-center px-6 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
             >
-              View Features
+              {t("hero.btnViewFeatures")}
             </Link>
           </div>
 

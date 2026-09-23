@@ -8,19 +8,22 @@
 // style: rapikan indentasi docstring
 
 import Link from "next/link";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * Header navigation component
  * Responsive header with logo, nav links, and CTA button
  */
 export default function Header() {
+  const { t } = useTranslation();
   const navLinks = [
-    { href: "/about", label: "Tentang" },
-    { href: "/services", label: "Layanan" },
-    { href: "/pricing", label: "Harga" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Kontak" },
-    { href: "/faq", label: "FAQ", new: true },
+    { href: "/about", label: t("nav.about") },
+    { href: "/services", label: t("nav.services") },
+    { href: "/pricing", label: t("nav.pricing") },
+    { href: "/blog", label: t("nav.blog") },
+    { href: "/contact", label: t("nav.contact") },
+    { href: "/faq", label: t("nav.faq"), new: true },
   ];
 
   return (
@@ -45,19 +48,22 @@ export default function Header() {
             ))}
           </nav>
 
+          {/* Language */}
+          <LanguageToggle />
+
           {/* CTA */}
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
               className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
             >
-              Hubungi Kami
+              {t("cta.hubungiKami")}
             </Link>
             <Link
               href="/pricing"
               className="inline-flex px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
             >
-              Mulai Sekarang
+              {t("cta.mulaiSekarang")}
             </Link>
           </div>
         </div>

@@ -1,17 +1,14 @@
-// style: rapikan indentasi docstring
-// style: rapikan indentasi docstring
-// style: rapikan indentasi docstring
-// style: rapikan indentasi docstring
-// style: rapikan indentasi docstring
-// docs: tambahkan catatan implementasi
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 /**
  * Accordion section component for displaying frequently asked questions
  */
-export default function FAQSection({ items }: { items: Array<{ question: string; answer: string }> }) {
+export default function FAQSection() {
+  const { t } = useTranslation();
+  const items = t("faq.items") as Array<{ question: string; answer: string }>;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
