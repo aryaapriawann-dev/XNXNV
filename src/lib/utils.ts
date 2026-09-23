@@ -26,7 +26,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
 
 /**  // style: hilangkan whitespace berlebih
  * Format a date with time to Indonesian locale string.  // docs: tambahkan keterangan return
- */
+ */  // chore: perbarui comment block
 export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
   const d = typeof date === "string" ? new Date(date) : date;
   return d.toLocaleString("id-ID", {
