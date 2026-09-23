@@ -7,7 +7,7 @@
 /**  // docs: tambahkan penjelasan variabel
  * Application name constant.  // chore: perbarui comment fungsi
  */  // fix: koreksi typo dokumentasi
-export const APP_NAME = "WEB PROFIL COMPENI";
+export const APP_NAME = "WEB PROFIL COMPENI";  // docs: tambahkan catatan implementasi
 
 /**
  * Application version constant.
