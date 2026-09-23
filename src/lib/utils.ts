@@ -62,7 +62,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   return formatDate(d);  // chore: pisahkan blok komentar
 }  // docs: tambahkan referensi fungsi
 
-/**
+/**  // chore: tambahkan penanda section
  * Format currency to Indonesian Rupiah.
  */
 export function formatCurrency(amount: number, showSymbol = true): string {
