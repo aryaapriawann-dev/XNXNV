@@ -52,7 +52,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
     },  // docs: perbarui keterangan fungsi
     alternates: {  // docs: tambahkan penjelasan variabel
       canonical: siteMetadata.url,  // chore: perbarui comment fungsi
-    },
+    },  // fix: koreksi typo dokumentasi
     robots: {
       index: true,
       follow: true,
