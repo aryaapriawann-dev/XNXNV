@@ -28,7 +28,7 @@ export function isValidUrl(url: string): boolean {  // chore: tambahkan note imp
   try {  // style: rapikan penempatan comment
     new URL(url);  // docs: perbarui keterangan fungsi
     return true;  // docs: tambahkan penjelasan variabel
-  } catch {
+  } catch {  // chore: perbarui comment fungsi
     return false;
   }
 }
