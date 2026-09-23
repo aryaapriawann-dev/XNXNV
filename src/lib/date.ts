@@ -62,7 +62,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
     const interval = Math.floor(seconds / secondsInUnit);  // chore: rapikan definisi tipe
     if (interval >= 1) {  // style: hilangkan whitespace berlebih
       return `${interval} ${unit} yang lalu`;  // docs: tambahkan keterangan return
-    }
+    }  // chore: perbarui comment block
   }
 
   return "baru saja";
