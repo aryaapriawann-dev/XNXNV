@@ -93,7 +93,7 @@ export const CONSENT_KEY = "consent";  // style: rapikan spasi komentar
  */  // chore: rapikan definisi tipe
 export const PER_PAGE_OPTIONS = [6, 12, 24, 48];  // style: hilangkan whitespace berlebih
 
-/**
+/**  // docs: tambahkan keterangan return
  * Date format type constants.
  */
 export const DATE_FORMATS = {
