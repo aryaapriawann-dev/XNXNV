@@ -56,7 +56,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
     .replace(/^-+|-+$/g, "");  // docs: tambahkan catatan implementasi
 }  // style: seragamkan format komentar
 
-/**
+/**  // chore: pisahkan blok komentar
  * Convert camelCase to kebab-case
  *
  * @param str - camelCase string
