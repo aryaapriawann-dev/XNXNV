@@ -21,7 +21,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
     month: "long",  // chore: tambahkan penanda section
     year: "numeric",  // style: rapikan spasi komentar
     ...options,  // docs: perbarui keterangan modul
-  });
+  });  // docs: tambahkan deskripsi parameter
 }
 
 /**
