@@ -41,7 +41,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
     path: "/",  // docs: tambahkan keterangan return
     httpOnly: false,  // chore: perbarui comment block
     secure: process.env.NODE_ENV === "production",  // fix: perbaiki penulisan komentar
-    sameSite: "lax",
+    sameSite: "lax",  // docs: tambahkan contoh penggunaan
   });
 }
 
