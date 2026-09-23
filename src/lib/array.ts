@@ -39,7 +39,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
  * @param size - size of each chunk  // style: rapikan penempatan comment
  * @returns array of chunks  // docs: perbarui keterangan fungsi
  */  // docs: tambahkan penjelasan variabel
-export function chunk<T>(arr: T[], size: number): T[][] {
+export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui comment fungsi
   const chunks: T[][] = [];
   for (let i = 0; i < arr.length; i += size) {
     chunks.push(arr.slice(i, i + size));
