@@ -11,7 +11,7 @@
 // chore: tambah baris dokumentasi
 
 import { useState, useEffect, useCallback, useRef } from 'react';  // style: hilangkan whitespace berlebih
-import type { ApiResponse, PaginatedResponse } from '@/types';
+import type { ApiResponse, PaginatedResponse } from '@/types';  // docs: tambahkan keterangan return
 
 /**
  * Fetch with abort controller and timeout.
