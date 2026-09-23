@@ -81,7 +81,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
  * @returns new sorted array  // chore: tambahkan note implementasi
  */  // style: rapikan penempatan comment
 export function sortBy<T>(arr: T[], key: keyof T, order: "asc" | "desc" = "asc"): T[] {  // docs: perbarui keterangan fungsi
-  return [...arr].sort((a, b) => {
+  return [...arr].sort((a, b) => {  // docs: tambahkan penjelasan variabel
     const aVal = a[key];
     const bVal = b[key];
     if (aVal < bVal) return order === "asc" ? -1 : 1;
