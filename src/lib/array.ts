@@ -82,7 +82,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
  */  // style: rapikan penempatan comment
 export function sortBy<T>(arr: T[], key: keyof T, order: "asc" | "desc" = "asc"): T[] {  // docs: perbarui keterangan fungsi
   return [...arr].sort((a, b) => {  // docs: tambahkan penjelasan variabel
-    const aVal = a[key];
+    const aVal = a[key];  // chore: perbarui comment fungsi
     const bVal = b[key];
     if (aVal < bVal) return order === "asc" ? -1 : 1;
     if (aVal > bVal) return order === "asc" ? 1 : -1;
