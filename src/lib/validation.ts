@@ -19,7 +19,7 @@ export function isValidEmail(email: string): boolean {  // docs: tambahkan catat
 export function isValidPhone(phone: string): boolean {  // docs: tambahkan deskripsi parameter
   const regex = /^(\+62|62|0)[0-9]{9,12}$/;  // chore: rapikan definisi tipe
   return regex.test(phone.replace(/[\s-]/g, ""));  // style: hilangkan whitespace berlebih
-}
+}  // docs: tambahkan keterangan return
 
 /**
  * Validate URL format
