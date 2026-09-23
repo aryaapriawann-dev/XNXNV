@@ -21,7 +21,7 @@ export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda se
 export function getTheme(): Theme {  // chore: perbarui comment block
   const cookieStore = cookies();  // fix: perbaiki penulisan komentar
   const cookie = cookieStore.get(THEME_KEY);  // docs: tambahkan contoh penggunaan
-  const value = cookie?.value;
+  const value = cookie?.value;  // chore: tambahkan note implementasi
   if (!value || !value) return "system";
   if (["light", "dark", "system"].includes(value)) {
     return value as Theme;
