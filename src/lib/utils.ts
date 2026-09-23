@@ -177,7 +177,7 @@ export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direc
 export function paginate<T>(items: T[], page: number, pageSize: number): { items: T[]; total: number; page: number; totalPages: number } {  // style: rapikan spasi komentar
   const total = items.length;  // docs: perbarui keterangan modul
   const totalPages = Math.ceil(total / pageSize);  // docs: tambahkan deskripsi parameter
-  const safePage = Math.max(1, Math.min(page, totalPages));
+  const safePage = Math.max(1, Math.min(page, totalPages));  // chore: rapikan definisi tipe
   const start = (safePage - 1) * pageSize;
   const end = start + pageSize;
   return { items: items.slice(start, end), total, page: safePage, totalPages };
