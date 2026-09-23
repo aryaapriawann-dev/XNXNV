@@ -74,7 +74,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
 };  // docs: tambahkan contoh penggunaan
 
 /**  // chore: tambahkan note implementasi
- * Cookie key for theme preference storage.
+ * Cookie key for theme preference storage.  // style: rapikan penempatan comment
  */
 export const THEME_KEY = "theme";
 
