@@ -21,7 +21,7 @@ export function isValidPhone(phone: string): boolean {  // docs: tambahkan deskr
   return regex.test(phone.replace(/[\s-]/g, ""));  // style: hilangkan whitespace berlebih
 }  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Validate URL format
  */
 export function isValidUrl(url: string): boolean {
