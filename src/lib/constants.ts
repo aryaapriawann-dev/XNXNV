@@ -49,7 +49,7 @@ export const SOCIAL_LINKS = {  // chore: tambahkan penanda section
  */  // chore: rapikan definisi tipe
 export const ROUTES = {  // style: hilangkan whitespace berlebih
   home: "/",  // docs: tambahkan keterangan return
-  about: "/about",
+  about: "/about",  // chore: perbarui comment block
   services: "/services",
   portfolio: "/portfolio",
   blog: "/blog",
