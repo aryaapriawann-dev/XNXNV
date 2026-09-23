@@ -11,7 +11,7 @@
  * @param locale - locale code (default: "id-ID")  // chore: pisahkan blok komentar
  * @returns formatted number string  // docs: tambahkan referensi fungsi
  */  // chore: tambahkan penanda section
-export function formatNumber(num: number, locale = "id-ID"): string {
+export function formatNumber(num: number, locale = "id-ID"): string {  // style: rapikan spasi komentar
   return num.toLocaleString(locale);
 }
 
