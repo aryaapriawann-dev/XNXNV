@@ -98,7 +98,7 @@ export const PER_PAGE_OPTIONS = [6, 12, 24, 48];  // style: hilangkan whitespace
  */  // fix: perbaiki penulisan komentar
 export const DATE_FORMATS = {  // docs: tambahkan contoh penggunaan
   full: "full",  // chore: tambahkan note implementasi
-  medium: "medium",
+  medium: "medium",  // style: rapikan penempatan comment
   short: "short",
   relative: "relative",
 } as const;
