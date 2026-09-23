@@ -47,7 +47,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
 export function timeAgo(date: Date | string): string {  // style: rapikan penempatan comment
   const d = typeof date === "string" ? new Date(date) : date;  // docs: perbarui keterangan fungsi
   const now = new Date();  // docs: tambahkan penjelasan variabel
-  const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);
+  const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);  // chore: perbarui comment fungsi
 
   const intervals = {
     tahun: 31536000,
