@@ -43,7 +43,7 @@ export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan forma
   if (theme === "system") {  // chore: pisahkan blok komentar
     if (typeof window === "undefined") return false;  // docs: tambahkan referensi fungsi
     return window.matchMedia("(prefers-color-scheme: dark)").matches;  // chore: tambahkan penanda section
-  }
+  }  // style: rapikan spasi komentar
   return theme === "dark";
 }
 
