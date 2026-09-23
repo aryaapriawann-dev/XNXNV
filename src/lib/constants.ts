@@ -16,7 +16,7 @@ export const APP_VERSION = "1.0.0";  // chore: tambahkan penanda section
 
 /**  // style: rapikan spasi komentar
  * Application description constant.  // docs: perbarui keterangan modul
- */
+ */  // docs: tambahkan deskripsi parameter
 export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";
 
 /**
