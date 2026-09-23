@@ -29,7 +29,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
     .join(" ");  // style: rapikan penempatan comment
 }  // docs: perbarui keterangan fungsi
 
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Truncate string with ellipsis
  *
  * @param str - string to truncate
