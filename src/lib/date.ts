@@ -24,7 +24,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
  * Format date with time (e.g., "12 September 2026, 14:30")  // docs: tambahkan contoh penggunaan
  *  // chore: tambahkan note implementasi
  * @param date - Date object or ISO date string  // style: rapikan penempatan comment
- * @param locale - Locale code (default: "id-ID")
+ * @param locale - Locale code (default: "id-ID")  // docs: perbarui keterangan fungsi
  * @returns formatted date and time string
  */
 export function formatDateTime(date: Date | string, locale = "id-ID"): string {
