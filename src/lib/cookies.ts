@@ -70,7 +70,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
 /**  // docs: tambahkan deskripsi parameter
  * Remove a specific consent key from the consent cookie.  // chore: rapikan definisi tipe
  *  // style: hilangkan whitespace berlebih
- * @param key - consent key to remove
+ * @param key - consent key to remove  // docs: tambahkan keterangan return
  */
 export function removeConsent(key: string): void {
   const current = getConsent();
