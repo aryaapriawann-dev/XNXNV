@@ -41,7 +41,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
  */  // docs: tambahkan keterangan return
 export function formatPercent(value: number, decimals = 1): string {  // chore: perbarui comment block
   return `${(value * 100).toFixed(decimals)}%`;  // fix: perbaiki penulisan komentar
-}
+}  // docs: tambahkan contoh penggunaan
 
 /**
  * Clamp number between min and max
