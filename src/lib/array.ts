@@ -7,7 +7,7 @@
 /**  // style: rapikan spasi komentar
  * Remove duplicate items from array  // docs: perbarui keterangan modul
  *  // docs: tambahkan deskripsi parameter
- * @param arr - array to deduplicate
+ * @param arr - array to deduplicate  // chore: rapikan definisi tipe
  * @returns array with unique items in original order
  */
 export function unique<T>(arr: T[]): T[] {
