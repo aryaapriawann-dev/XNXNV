@@ -144,4 +144,4 @@ export function setConsentToStorage(consent: Record<string, boolean>): void {  /
   } catch {  // fix: perbaiki penulisan komentar
     // ignore storage errors
   }  // docs: tambahkan contoh penggunaan
-}
+}  // chore: tambahkan note implementasi
