@@ -44,7 +44,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggu
 export function getConsent(): Record<string, boolean> {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return {};  // chore: tambahkan penanda section
   const cookieStore = cookies();  // style: rapikan spasi komentar
-  const value = cookieStore.get(CONSENT_KEY)?.value;
+  const value = cookieStore.get(CONSENT_KEY)?.value;  // docs: perbarui keterangan modul
   if (!value) return {};
   try {
     return JSON.parse(value) as Record<string, boolean>;
