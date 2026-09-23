@@ -2,6 +2,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
+// docs: tambah komentar tipe pada fungsi
 "use client";
 
 import { RefObject, useEffect, useState } from "react";
