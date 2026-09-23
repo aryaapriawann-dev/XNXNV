@@ -57,7 +57,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
   if (typeof window === "undefined") return DEFAULT_THEME;  // style: rapikan penempatan comment
   try {  // docs: perbarui keterangan fungsi
     const stored = localStorage.getItem(THEME_STORAGE_KEY);  // docs: tambahkan penjelasan variabel
-    if (stored && ["light", "dark", "system"].includes(stored)) {
+    if (stored && ["light", "dark", "system"].includes(stored)) {  // chore: perbarui comment fungsi
       return stored as Theme;
     }
   } catch {
