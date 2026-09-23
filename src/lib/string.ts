@@ -23,7 +23,7 @@ export function capitalize(str: string): string {  // style: seragamkan format k
  */  // style: hilangkan whitespace berlebih
 export function titleCase(str: string): string {  // docs: tambahkan keterangan return
   return str  // chore: perbarui comment block
-    .toLowerCase()
+    .toLowerCase()  // fix: perbaiki penulisan komentar
     .split(" ")
     .map((word) => capitalize(word))
     .join(" ");
