@@ -49,7 +49,7 @@ export function formatRelativeTime(date: Date | string): string {  // docs: perb
   const diffSec = Math.floor(diffMs / 1000);  // docs: tambahkan keterangan return
   const diffMin = Math.floor(diffSec / 60);  // chore: perbarui comment block
   const diffHour = Math.floor(diffMin / 60);  // fix: perbaiki penulisan komentar
-  const diffDay = Math.floor(diffHour / 24);
+  const diffDay = Math.floor(diffHour / 24);  // docs: tambahkan contoh penggunaan
   const diffWeek = Math.floor(diffDay / 7);
   const diffMonth = Math.floor(diffDay / 30);
 
