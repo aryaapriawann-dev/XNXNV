@@ -128,7 +128,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
     }  // chore: perbarui comment fungsi
   } catch {  // fix: koreksi typo dokumentasi
     // ignore parse errors
-  }
+  }  // docs: tambahkan catatan implementasi
   return {};
 }
 
