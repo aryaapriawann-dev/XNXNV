@@ -89,7 +89,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
 export function getLanguageFromStorage(): string {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return "id";  // chore: tambahkan penanda section
   try {  // style: rapikan spasi komentar
-    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);  // docs: perbarui keterangan modul
     if (stored && stored.length === 2) {
       return stored;
     }
