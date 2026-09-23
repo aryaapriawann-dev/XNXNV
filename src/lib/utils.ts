@@ -19,7 +19,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
   return d.toLocaleDateString("id-ID", {  // chore: pisahkan blok komentar
     day: "numeric",  // docs: tambahkan referensi fungsi
     month: "long",  // chore: tambahkan penanda section
-    year: "numeric",
+    year: "numeric",  // style: rapikan spasi komentar
     ...options,
   });
 }
