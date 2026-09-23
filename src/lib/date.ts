@@ -12,7 +12,7 @@
  * @returns formatted date string  // chore: pisahkan blok komentar
  */  // docs: tambahkan referensi fungsi
 export function formatDate(date: Date | string, locale = "id-ID"): string {  // chore: tambahkan penanda section
-  const d = typeof date === "string" ? new Date(date) : date;
+  const d = typeof date === "string" ? new Date(date) : date;  // style: rapikan spasi komentar
   return d.toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
