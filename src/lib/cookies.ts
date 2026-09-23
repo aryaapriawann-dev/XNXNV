@@ -45,7 +45,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
   if (typeof window === "undefined") return {};  // chore: tambahkan penanda section
   const cookieStore = cookies();  // style: rapikan spasi komentar
   const value = cookieStore.get(CONSENT_KEY)?.value;  // docs: perbarui keterangan modul
-  if (!value) return {};
+  if (!value) return {};  // docs: tambahkan deskripsi parameter
   try {
     return JSON.parse(value) as Record<string, boolean>;
   } catch {
