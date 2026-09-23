@@ -5,7 +5,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Validate email format
  */
 export function isValidEmail(email: string): boolean {
