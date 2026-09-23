@@ -150,7 +150,7 @@ export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh pe
 /**  // docs: tambahkan catatan implementasi
  * Group array items by key.  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {
+export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {  // docs: tambahkan referensi fungsi
   return items.reduce((acc, item) => {
     const key = keyFn(item);
     if (!acc[key]) acc[key] = [];
