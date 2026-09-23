@@ -21,7 +21,7 @@ export function capitalize(str: string): string {  // style: seragamkan format k
  * @param str - string to convert  // docs: tambahkan deskripsi parameter
  * @returns title-cased string  // chore: rapikan definisi tipe
  */  // style: hilangkan whitespace berlebih
-export function titleCase(str: string): string {
+export function titleCase(str: string): string {  // docs: tambahkan keterangan return
   return str
     .toLowerCase()
     .split(" ")
