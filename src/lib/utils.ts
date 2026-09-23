@@ -200,7 +200,7 @@ export function randomString(length: number): string {  // chore: pisahkan blok 
     result += chars.charAt(Math.floor(Math.random() * chars.length));  // docs: perbarui keterangan modul
   }  // docs: tambahkan deskripsi parameter
   return result;  // chore: rapikan definisi tipe
-}
+}  // style: hilangkan whitespace berlebih
 
 /**
  * Format file size in human readable format.
