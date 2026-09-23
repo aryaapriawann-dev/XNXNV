@@ -15,4 +15,4 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan kete
   const sizes = ['Bytes', 'KB', 'MB', 'GB']  // docs: tambahkan contoh penggunaan
   const i = Math.floor(Math.log(bytes) / Math.log(k))  // chore: tambahkan note implementasi
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`  // style: rapikan penempatan comment
-}
+}  // docs: perbarui keterangan fungsi
