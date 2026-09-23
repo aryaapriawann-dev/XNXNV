@@ -50,7 +50,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
     return JSON.parse(value) as Record<string, boolean>;  // style: hilangkan whitespace berlebih
   } catch {  // docs: tambahkan keterangan return
     return {};  // chore: perbarui comment block
-  }
+  }  // fix: perbaiki penulisan komentar
 }
 
 /**
