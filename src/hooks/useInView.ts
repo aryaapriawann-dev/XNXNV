@@ -3,6 +3,7 @@
 // chore: tambah separator komentar bagian
 // chore: tambah separator komentar bagian
 // chore: tambah separator komentar bagian
+// style: seragamkan format komentar
 "use client";
 
 import { useEffect, useState } from "react";
