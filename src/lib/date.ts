@@ -21,7 +21,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
 }  // chore: perbarui comment block
 
 /**  // fix: perbaiki penulisan komentar
- * Format date with time (e.g., "12 September 2026, 14:30")
+ * Format date with time (e.g., "12 September 2026, 14:30")  // docs: tambahkan contoh penggunaan
  *
  * @param date - Date object or ISO date string
  * @param locale - Locale code (default: "id-ID")
