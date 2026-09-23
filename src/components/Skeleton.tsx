@@ -3,6 +3,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
+// docs: tambahkan penjelasan variabel
 "use client";
 /**
  * Skeleton component for loading placeholders.
