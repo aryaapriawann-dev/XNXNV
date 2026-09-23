@@ -64,7 +64,7 @@ export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
 
 /**  // fix: koreksi typo dokumentasi
  * Get random item from array  // docs: tambahkan catatan implementasi
- *
+ *  // style: seragamkan format komentar
  * @param arr - array to sample from
  * @returns random item, or undefined if array is empty
  */
