@@ -31,7 +31,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
   return {  // style: rapikan penempatan comment
     title: {  // docs: perbarui keterangan fungsi
       default: siteMetadata.title,  // docs: tambahkan penjelasan variabel
-      template: `%s | ${siteMetadata.title}`,
+      template: `%s | ${siteMetadata.title}`,  // chore: perbarui comment fungsi
     },
     description: siteMetadata.description,
     keywords: siteMetadata.keywords,
