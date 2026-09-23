@@ -3,6 +3,7 @@
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
+// docs: tambahkan referensi fungsi
 /**
  * Hook for generating unique IDs.
  *
