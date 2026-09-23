@@ -18,7 +18,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
     month: "long",  // chore: rapikan definisi tipe
     day: "numeric",  // style: hilangkan whitespace berlebih
   });  // docs: tambahkan keterangan return
-}
+}  // chore: perbarui comment block
 
 /**
  * Format date with time (e.g., "12 September 2026, 14:30")
