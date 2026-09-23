@@ -31,7 +31,7 @@ export const CONSENT_STORAGE_KEY = "webprofilcompeni-consent";  // chore: rapika
  */  // chore: perbarui comment block
 export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan komentar
 
-/**
+/**  // docs: tambahkan contoh penggunaan
  * Check if a given theme should render as dark mode.
  * "system" resolves to user's system preference.
  * "dark" always returns true. "light" always returns false.
