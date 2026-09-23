@@ -26,7 +26,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
     const groupKey = String(item[key]);  // docs: tambahkan referensi fungsi
     if (!groups[groupKey]) {  // chore: tambahkan penanda section
       groups[groupKey] = [];  // style: rapikan spasi komentar
-    }
+    }  // docs: perbarui keterangan modul
     groups[groupKey].push(item);
     return groups;
   }, {} as Record<string, T[]>);
