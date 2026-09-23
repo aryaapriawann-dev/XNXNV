@@ -41,7 +41,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
 
 /**  // docs: tambahkan referensi fungsi
  * Format a relative time string.  // chore: tambahkan penanda section
- */
+ */  // style: rapikan spasi komentar
 export function formatRelativeTime(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
   const now = new Date();
