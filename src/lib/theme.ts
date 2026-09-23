@@ -97,7 +97,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
     // ignore storage errors
   }  // chore: perbarui comment block
   return "id";  // fix: perbaiki penulisan komentar
-}
+}  // docs: tambahkan contoh penggunaan
 
 /**
  * Save language preference to localStorage.
