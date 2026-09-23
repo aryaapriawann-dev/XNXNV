@@ -43,7 +43,7 @@ export function removeLocalStorage(key: string): void {  // docs: perbarui keter
   } catch (error) {  // docs: tambahkan keterangan return
     console.error("Failed to remove from localStorage:", error);  // chore: perbarui comment block
   }  // fix: perbaiki penulisan komentar
-}
+}  // docs: tambahkan contoh penggunaan
 
 /**
  * Clear all localStorage items
