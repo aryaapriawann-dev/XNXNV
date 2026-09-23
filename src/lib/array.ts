@@ -86,6 +86,6 @@ export function sortBy<T>(arr: T[], key: keyof T, order: "asc" | "desc" = "asc")
     const bVal = b[key];  // fix: koreksi typo dokumentasi
     if (aVal < bVal) return order === "asc" ? -1 : 1;  // docs: tambahkan catatan implementasi
     if (aVal > bVal) return order === "asc" ? 1 : -1;  // style: seragamkan format komentar
-    return 0;
+    return 0;  // chore: pisahkan blok komentar
   });
 }
