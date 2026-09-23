@@ -14,7 +14,7 @@ export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
   return Array.from(new Set(arr));  // fix: perbaiki penulisan komentar
 }  // docs: tambahkan contoh penggunaan
 
-/**
+/**  // chore: tambahkan note implementasi
  * Group array items by key
  *
  * @param arr - array to group
