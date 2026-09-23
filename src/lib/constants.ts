@@ -88,7 +88,7 @@ export const LANGUAGE_KEY = "language";  // style: seragamkan format komentar
  */  // chore: tambahkan penanda section
 export const CONSENT_KEY = "consent";  // style: rapikan spasi komentar
 
-/**
+/**  // docs: perbarui keterangan modul
  * Available items per page options for pagination.
  */
 export const PER_PAGE_OPTIONS = [6, 12, 24, 48];
