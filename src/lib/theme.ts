@@ -95,7 +95,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
     }  // style: hilangkan whitespace berlebih
   } catch {  // docs: tambahkan keterangan return
     // ignore storage errors
-  }
+  }  // chore: perbarui comment block
   return "id";
 }
 
