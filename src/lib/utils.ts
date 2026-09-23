@@ -29,7 +29,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
  */  // chore: perbarui comment block
 export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions): string {  // fix: perbaiki penulisan komentar
   const d = typeof date === "string" ? new Date(date) : date;  // docs: tambahkan contoh penggunaan
-  return d.toLocaleString("id-ID", {
+  return d.toLocaleString("id-ID", {  // chore: tambahkan note implementasi
     day: "numeric",
     month: "short",
     year: "numeric",
