@@ -8,7 +8,7 @@
 /**  // docs: tambahkan contoh penggunaan
  * Theme type for light, dark, or system preference.  // chore: tambahkan note implementasi
  */  // style: rapikan penempatan comment
-export type Theme = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";  // docs: perbarui keterangan fungsi
 // chore: rapikan import urutan
 
 /**
