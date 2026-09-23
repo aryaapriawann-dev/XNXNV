@@ -34,7 +34,7 @@ export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan koment
 /**  // docs: tambahkan contoh penggunaan
  * Check if a given theme should render as dark mode.  // chore: tambahkan note implementasi
  * "system" resolves to user's system preference.  // style: rapikan penempatan comment
- * "dark" always returns true. "light" always returns false.
+ * "dark" always returns true. "light" always returns false.  // docs: perbarui keterangan fungsi
  *
  * @param theme - theme to check ("light", "dark", or "system")
  * @returns true if theme should be dark, false otherwise
