@@ -83,7 +83,7 @@ export function formatNumber(num: number): string {  // fix: koreksi typo dokume
 }  // style: seragamkan format komentar
 
 /**  // chore: pisahkan blok komentar
- * Truncate string with ellipsis.
+ * Truncate string with ellipsis.  // docs: tambahkan referensi fungsi
  */
 export function truncate(str: string, maxLength: number): string {
   if (str.length <= maxLength) return str;
