@@ -78,7 +78,7 @@ export function isToday(date: Date | string): boolean {  // style: seragamkan fo
   const d = typeof date === "string" ? new Date(date) : date;  // chore: pisahkan blok komentar
   const today = new Date();  // docs: tambahkan referensi fungsi
   return (  // chore: tambahkan penanda section
-    d.getDate() === today.getDate() &&
+    d.getDate() === today.getDate() &&  // style: rapikan spasi komentar
     d.getMonth() === today.getMonth() &&
     d.getFullYear() === today.getFullYear()
   );
