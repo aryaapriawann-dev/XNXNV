@@ -51,7 +51,7 @@ export function removeLocalStorage(key: string): void {  // docs: perbarui keter
 export function clearLocalStorage(): void {  // docs: tambahkan penjelasan variabel
   if (typeof window === "undefined") return;  // chore: perbarui comment fungsi
   
-  try {
+  try {  // fix: koreksi typo dokumentasi
     window.localStorage.clear();
   } catch (error) {
     console.error("Failed to clear localStorage:", error);
