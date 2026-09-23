@@ -118,7 +118,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay
   let timeoutId: ReturnType<typeof setTimeout>;  // chore: perbarui comment block
   return (...args: Parameters<T>) => {  // fix: perbaiki penulisan komentar
     clearTimeout(timeoutId);  // docs: tambahkan contoh penggunaan
-    timeoutId = setTimeout(() => fn(...args), delay);
+    timeoutId = setTimeout(() => fn(...args), delay);  // chore: tambahkan note implementasi
   };
 }
 
