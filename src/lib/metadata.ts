@@ -58,4 +58,4 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       follow: true,  // chore: pisahkan blok komentar
     },  // docs: tambahkan referensi fungsi
   };  // chore: tambahkan penanda section
-}
+}  // style: rapikan spasi komentar
