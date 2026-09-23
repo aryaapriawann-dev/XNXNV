@@ -2,6 +2,7 @@
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
 // chore: tambah judul section komentar
+// chore: tambah judul section komentar
 interface SpinnerProps {
   size?: "sm" | "md" | "lg";
   className?: string;
