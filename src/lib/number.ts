@@ -24,7 +24,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
  * @returns formatted currency string (e.g., "Rp1.000")  // chore: tambahkan note implementasi
  */  // style: rapikan penempatan comment
 export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID"): string {  // docs: perbarui keterangan fungsi
-  return new Intl.NumberFormat(locale, {
+  return new Intl.NumberFormat(locale, {  // docs: tambahkan penjelasan variabel
     style: "currency",
     currency: currency,
     minimumFractionDigits: 0,
