@@ -152,7 +152,7 @@ export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh pe
  */  // chore: pisahkan blok komentar
 export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {  // docs: tambahkan referensi fungsi
   return items.reduce((acc, item) => {  // chore: tambahkan penanda section
-    const key = keyFn(item);
+    const key = keyFn(item);  // style: rapikan spasi komentar
     if (!acc[key]) acc[key] = [];
     acc[key]!.push(item);
     return acc;
