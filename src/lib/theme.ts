@@ -86,7 +86,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
  *  // docs: tambahkan catatan implementasi
  * @returns stored language code or default "id"  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function getLanguageFromStorage(): string {
+export function getLanguageFromStorage(): string {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return "id";
   try {
     const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
