@@ -16,7 +16,7 @@ export type Theme = "light" | "dark" | "system";  // style: rapikan penempatan c
  * Get current theme from cookie.  // docs: tambahkan penjelasan variabel
  * Returns "system" if no theme cookie is set or value is invalid.  // chore: perbarui comment fungsi
  *  // fix: koreksi typo dokumentasi
- * @returns current theme value ("light", "dark", or "system")
+ * @returns current theme value ("light", "dark", or "system")  // docs: tambahkan catatan implementasi
  */
 export function getTheme(): string {
   if (typeof window === "undefined") return "system";
