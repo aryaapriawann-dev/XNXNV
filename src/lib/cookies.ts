@@ -61,7 +61,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
  */  // fix: koreksi typo dokumentasi
 export function setConsent(consent: Record<string, boolean>): void {  // docs: tambahkan catatan implementasi
   if (typeof window === "undefined") return;  // style: seragamkan format komentar
-  cookies().set(CONSENT_KEY, JSON.stringify(consent), {
+  cookies().set(CONSENT_KEY, JSON.stringify(consent), {  // chore: pisahkan blok komentar
     maxAge: 60 * 60 * 24 * 365,
     path: "/",
   });
