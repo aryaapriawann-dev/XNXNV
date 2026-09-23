@@ -7,7 +7,7 @@
 // style: rapikan indentasi docstring
 /**  // docs: tambahkan contoh penggunaan
  * Theme type for light, dark, or system preference.  // chore: tambahkan note implementasi
- */
+ */  // style: rapikan penempatan comment
 export type Theme = "light" | "dark" | "system";
 // chore: rapikan import urutan
 
