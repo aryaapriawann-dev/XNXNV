@@ -34,7 +34,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
  * Cookie expires after 1 year (365 days).  // docs: tambahkan referensi fungsi
  *  // chore: tambahkan penanda section
  * @param theme - theme to set ("light", "dark", or "system")  // style: rapikan spasi komentar
- */
+ */  // docs: perbarui keterangan modul
 export function setTheme(theme: Theme): void {
   cookies().set(THEME_KEY, theme, {
     maxAge: 60 * 60 * 24 * 365,
