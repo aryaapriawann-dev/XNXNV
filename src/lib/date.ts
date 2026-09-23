@@ -46,7 +46,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
  */  // chore: tambahkan note implementasi
 export function timeAgo(date: Date | string): string {  // style: rapikan penempatan comment
   const d = typeof date === "string" ? new Date(date) : date;  // docs: perbarui keterangan fungsi
-  const now = new Date();
+  const now = new Date();  // docs: tambahkan penjelasan variabel
   const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);
 
   const intervals = {
