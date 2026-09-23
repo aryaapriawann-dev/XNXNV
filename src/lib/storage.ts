@@ -6,7 +6,7 @@
 // docs: jelaskan tujuan helper
 // docs: jelaskan tujuan helper
 /**  // docs: tambahkan catatan implementasi
- * Safely get item from localStorage with fallback
+ * Safely get item from localStorage with fallback  // style: seragamkan format komentar
  */
 export function getLocalStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
