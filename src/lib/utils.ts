@@ -165,7 +165,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {  // chore: tambahkan note implementasi
   return [...items].sort((a, b) => {  // style: rapikan penempatan comment
     const aVal = keyFn(a);  // docs: perbarui keterangan fungsi
-    const bVal = keyFn(b);
+    const bVal = keyFn(b);  // docs: tambahkan penjelasan variabel
     const comparison = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
     return direction === "asc" ? comparison : -comparison;
   });
