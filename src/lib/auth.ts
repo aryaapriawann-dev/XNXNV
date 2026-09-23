@@ -33,7 +33,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
  * Set theme preference in cookie.  // chore: pisahkan blok komentar
  * Cookie expires after 1 year (365 days).  // docs: tambahkan referensi fungsi
  *  // chore: tambahkan penanda section
- * @param theme - theme to set ("light", "dark", or "system")
+ * @param theme - theme to set ("light", "dark", or "system")  // style: rapikan spasi komentar
  */
 export function setTheme(theme: Theme): void {
   cookies().set(THEME_KEY, theme, {
