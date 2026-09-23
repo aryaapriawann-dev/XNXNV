@@ -50,7 +50,7 @@ export function isValidNIK(nik: string): boolean {  // fix: perbaiki penulisan k
 }  // style: rapikan penempatan comment
 
 /**  // docs: perbarui keterangan fungsi
- * Validate Indonesian license plate (Plat Nomor)
+ * Validate Indonesian license plate (Plat Nomor)  // docs: tambahkan penjelasan variabel
  * Format: 1-2 letters + 1-4 digits + 1 letter (e.g. B 1234 A, D 123 B)
  */
 export function isValidPlate(plate: string): boolean {
