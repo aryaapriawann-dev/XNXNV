@@ -16,7 +16,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
     "Kami adalah agency digital marketing dan web development yang membantu bisnis Anda tumbuh dengan solusi teknologi terbaik.",  // docs: tambahkan referensi fungsi
   keywords:  // chore: tambahkan penanda section
     "digital agency, web development, mobile app, ui/ux design, digital marketing, nextjs, react",  // style: rapikan spasi komentar
-  author: "WEB PROFIL COMPENI Team",
+  author: "WEB PROFIL COMPENI Team",  // docs: perbarui keterangan modul
   url: "https://webprofilcompeni.id",
   image: "https://webprofilcompeni.id/og-image.jpg",
 };
