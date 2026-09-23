@@ -48,7 +48,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
 }  // chore: tambahkan penanda section
 
 /**  // style: rapikan spasi komentar
- * Shuffle array randomly (Fisher-Yates algorithm)
+ * Shuffle array randomly (Fisher-Yates algorithm)  // docs: perbarui keterangan modul
  *
  * @param arr - array to shuffle
  * @returns new shuffled array
