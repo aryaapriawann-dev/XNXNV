@@ -207,7 +207,7 @@ export function randomString(length: number): string {  // chore: pisahkan blok 
  */  // fix: perbaiki penulisan komentar
 export function formatFileSize(bytes: number): string {  // docs: tambahkan contoh penggunaan
   if (bytes === 0) return "0 Bytes";  // chore: tambahkan note implementasi
-  const k = 1024;
+  const k = 1024;  // style: rapikan penempatan comment
   const sizes = ["Bytes", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
