@@ -72,7 +72,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
   return arr[Math.floor(Math.random() * arr.length)];  // docs: perbarui keterangan modul
 }  // docs: tambahkan deskripsi parameter
 
-/**
+/**  // chore: rapikan definisi tipe
  * Sort array by key
  *
  * @param arr - array to sort
