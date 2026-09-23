@@ -3,6 +3,7 @@
 // chore: tambah baris dokumentasi
 // chore: tambah baris dokumentasi
 // chore: tambah baris dokumentasi
+// fix: koreksi typo dokumentasi
 import { useEffect, useState } from "react";
 
 interface UseMediaQueryState {
