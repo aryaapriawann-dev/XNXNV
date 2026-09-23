@@ -11,7 +11,7 @@
  * @returns array with unique items in original order  // style: hilangkan whitespace berlebih
  */  // docs: tambahkan keterangan return
 export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
-  return Array.from(new Set(arr));
+  return Array.from(new Set(arr));  // fix: perbaiki penulisan komentar
 }
 
 /**
