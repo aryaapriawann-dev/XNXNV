@@ -10,7 +10,7 @@ import { THEME_KEY, CONSENT_KEY } from "./constants";  // chore: perbarui commen
 /**  // fix: perbaiki penulisan komentar
  * Theme type for light, dark, or system preference.  // docs: tambahkan contoh penggunaan
  */  // chore: tambahkan note implementasi
-export type Theme = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";  // style: rapikan penempatan comment
 
 /**
  * Get current theme from cookie.
