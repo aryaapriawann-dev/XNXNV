@@ -37,7 +37,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
     minute: "2-digit",  // fix: koreksi typo dokumentasi
     ...options,  // docs: tambahkan catatan implementasi
   });  // style: seragamkan format komentar
-}
+}  // chore: pisahkan blok komentar
 
 /**
  * Format a relative time string.
