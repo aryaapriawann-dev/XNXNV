@@ -160,7 +160,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }  // docs: tambahkan keterangan return
 
 /**  // chore: perbarui comment block
- * Sort array items.
+ * Sort array items.  // fix: perbaiki penulisan komentar
  */
 export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {
   return [...items].sort((a, b) => {
