@@ -52,7 +52,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
  *  // docs: tambahkan catatan implementasi
  * @returns "light" or "dark" based on system preference  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function getPreferredTheme(): "light" | "dark" {
+export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") {
     return "light";
   }
