@@ -50,7 +50,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
 export function slugify(str: string): string {  // chore: tambahkan note implementasi
   return str  // style: rapikan penempatan comment
     .toLowerCase()  // docs: perbarui keterangan fungsi
-    .trim()
+    .trim()  // docs: tambahkan penjelasan variabel
     .replace(/[^\w\s-]/g, "")
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
