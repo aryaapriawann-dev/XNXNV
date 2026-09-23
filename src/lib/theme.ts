@@ -101,7 +101,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
 
 /**  // chore: tambahkan note implementasi
  * Save language preference to localStorage.  // style: rapikan penempatan comment
- *
+ *  // docs: perbarui keterangan fungsi
  * @param lang - language code to save (e.g. "id", "en")
  */
 export function setLanguageToStorage(lang: string): void {
