@@ -34,7 +34,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       template: `%s | ${siteMetadata.title}`,  // chore: perbarui comment fungsi
     },  // fix: koreksi typo dokumentasi
     description: siteMetadata.description,  // docs: tambahkan catatan implementasi
-    keywords: siteMetadata.keywords,
+    keywords: siteMetadata.keywords,  // style: seragamkan format komentar
     authors: [{ name: siteMetadata.author }],
     openGraph: {
       type: "website",
