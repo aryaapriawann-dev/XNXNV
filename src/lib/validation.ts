@@ -55,5 +55,5 @@ export function isValidNIK(nik: string): boolean {  // fix: perbaiki penulisan k
  */  // fix: koreksi typo dokumentasi
 export function isValidPlate(plate: string): boolean {  // docs: tambahkan catatan implementasi
   const cleaned = plate.replace(/[\s-]/g, "").toUpperCase();  // style: seragamkan format komentar
-  return /^[A-Z]{1,2}[0-9]{1,4}[A-Z]{1}$/.test(cleaned);
+  return /^[A-Z]{1,2}[0-9]{1,4}[A-Z]{1}$/.test(cleaned);  // chore: pisahkan blok komentar
 }
