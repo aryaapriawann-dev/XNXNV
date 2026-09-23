@@ -162,7 +162,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 /**  // chore: perbarui comment block
  * Sort array items.  // fix: perbaiki penulisan komentar
  */  // docs: tambahkan contoh penggunaan
-export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {
+export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {  // chore: tambahkan note implementasi
   return [...items].sort((a, b) => {
     const aVal = keyFn(a);
     const bVal = keyFn(b);
