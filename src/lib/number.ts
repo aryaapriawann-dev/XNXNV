@@ -12,7 +12,7 @@
  * @returns formatted number string  // docs: tambahkan referensi fungsi
  */  // chore: tambahkan penanda section
 export function formatNumber(num: number, locale = "id-ID"): string {  // style: rapikan spasi komentar
-  return num.toLocaleString(locale);
+  return num.toLocaleString(locale);  // docs: perbarui keterangan modul
 }
 
 /**
