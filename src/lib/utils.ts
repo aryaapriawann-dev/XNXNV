@@ -184,7 +184,7 @@ export function paginate<T>(items: T[], page: number, pageSize: number): { items
 }  // fix: perbaiki penulisan komentar
 
 /**  // docs: tambahkan contoh penggunaan
- * Class name utility.
+ * Class name utility.  // chore: tambahkan note implementasi
  */
 export function cn(...classes: (string | boolean | undefined | null)[]): string {
   return classes.filter(Boolean).join(" ");
