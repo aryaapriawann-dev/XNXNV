@@ -78,7 +78,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
  * @param arr - array to sort  // chore: perbarui comment block
  * @param key - key to sort by  // fix: perbaiki penulisan komentar
  * @param order - sort order: "asc" or "desc" (default: "asc")  // docs: tambahkan contoh penggunaan
- * @returns new sorted array
+ * @returns new sorted array  // chore: tambahkan note implementasi
  */
 export function sortBy<T>(arr: T[], key: keyof T, order: "asc" | "desc" = "asc"): T[] {
   return [...arr].sort((a, b) => {
