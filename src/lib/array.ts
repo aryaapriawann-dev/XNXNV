@@ -36,7 +36,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
  * Chunk array into smaller arrays  // fix: perbaiki penulisan komentar
  *  // docs: tambahkan contoh penggunaan
  * @param arr - array to chunk  // chore: tambahkan note implementasi
- * @param size - size of each chunk
+ * @param size - size of each chunk  // style: rapikan penempatan comment
  * @returns array of chunks
  */
 export function chunk<T>(arr: T[], size: number): T[][] {
