@@ -39,7 +39,7 @@ export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan koment
  * @param theme - theme to check ("light", "dark", or "system")  // chore: perbarui comment fungsi
  * @returns true if theme should be dark, false otherwise  // fix: koreksi typo dokumentasi
  */  // docs: tambahkan catatan implementasi
-export function isDarkTheme(theme: Theme): boolean {
+export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan format komentar
   if (theme === "system") {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
