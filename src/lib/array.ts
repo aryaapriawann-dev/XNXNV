@@ -6,7 +6,7 @@
 // style: seragamkan format komentar
 /**  // style: rapikan spasi komentar
  * Remove duplicate items from array  // docs: perbarui keterangan modul
- *
+ *  // docs: tambahkan deskripsi parameter
  * @param arr - array to deduplicate
  * @returns array with unique items in original order
  */
