@@ -18,7 +18,7 @@ export const THEME_STORAGE_KEY = "webprofilcompeni-theme";  // docs: tambahkan c
 
 /**  // style: seragamkan format komentar
  * Storage key for language preference in localStorage.  // chore: pisahkan blok komentar
- */
+ */  // docs: tambahkan referensi fungsi
 export const LANGUAGE_STORAGE_KEY = "webprofilcompeni-language";
 
 /**
