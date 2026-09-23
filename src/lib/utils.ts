@@ -111,7 +111,7 @@ export function generateId(): string {  // chore: tambahkan penanda section
   return Date.now().toString(36) + Math.random().toString(36).substring(2);  // style: rapikan spasi komentar
 }  // docs: perbarui keterangan modul
 
-/**
+/**  // docs: tambahkan deskripsi parameter
  * Debounce function execution.
  */
 export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay: number): (...args: Parameters<T>) => void {
