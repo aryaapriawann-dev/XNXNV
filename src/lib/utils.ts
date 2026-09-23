@@ -6,7 +6,7 @@
 // chore: tambah baris dokumentasi
 // chore: tambah baris dokumentasi
 /**  // docs: tambahkan contoh penggunaan
- * Shared TypeScript utilities for WEB PROFIL COMPENI project.
+ * Shared TypeScript utilities for WEB PROFIL COMPENI project.  // chore: tambahkan note implementasi
  * Includes formatting, validation, and helper functions.
  */
 // docs: tambah komentar tipe pada fungsi
