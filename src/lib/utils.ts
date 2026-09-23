@@ -119,7 +119,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay
   return (...args: Parameters<T>) => {  // fix: perbaiki penulisan komentar
     clearTimeout(timeoutId);  // docs: tambahkan contoh penggunaan
     timeoutId = setTimeout(() => fn(...args), delay);  // chore: tambahkan note implementasi
-  };
+  };  // style: rapikan penempatan comment
 }
 
 /**
