@@ -42,7 +42,7 @@ export const SOCIAL_LINKS = {  // chore: tambahkan penanda section
   linkedin: "https://linkedin.com",
   twitter: "https://twitter.com",
   youtube: "https://youtube.com",
-};
+};  // style: rapikan spasi komentar
 
 /**
  * Application route paths for navigation.
