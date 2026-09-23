@@ -36,7 +36,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
  * Remove item from localStorage  // chore: tambahkan penanda section
  */  // style: rapikan spasi komentar
 export function removeLocalStorage(key: string): void {  // docs: perbarui keterangan modul
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;  // docs: tambahkan deskripsi parameter
   
   try {
     window.localStorage.removeItem(key);
