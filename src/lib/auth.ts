@@ -15,7 +15,7 @@ export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda se
 /**  // style: rapikan spasi komentar
  * Get current theme from cookie.  // docs: perbarui keterangan modul
  * Returns "system" if no theme cookie set or value is invalid.  // docs: tambahkan deskripsi parameter
- *
+ *  // chore: rapikan definisi tipe
  * @returns current theme value
  */
 export function getTheme(): Theme {
