@@ -19,7 +19,7 @@ export const APP_VERSION = "1.0.0";  // chore: tambahkan penanda section
  */  // docs: tambahkan deskripsi parameter
 export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";  // chore: rapikan definisi tipe
 
-/**
+/**  // style: hilangkan whitespace berlebih
  * Support email address.
  */
 export const SUPPORT_EMAIL = "support@webprofilcompeni.com";
