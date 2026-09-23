@@ -32,7 +32,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
     title: {  // docs: perbarui keterangan fungsi
       default: siteMetadata.title,  // docs: tambahkan penjelasan variabel
       template: `%s | ${siteMetadata.title}`,  // chore: perbarui comment fungsi
-    },
+    },  // fix: koreksi typo dokumentasi
     description: siteMetadata.description,
     keywords: siteMetadata.keywords,
     authors: [{ name: siteMetadata.author }],
