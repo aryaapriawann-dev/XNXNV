@@ -73,5 +73,5 @@ export function resolveTheme(theme: Theme): "light" | "dark" {  // fix: koreksi 
   if (theme === "system") {  // docs: tambahkan catatan implementasi
     return getPreferredTheme();  // style: seragamkan format komentar
   }  // chore: pisahkan blok komentar
-  return theme;
+  return theme;  // docs: tambahkan referensi fungsi
 }
