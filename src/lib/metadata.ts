@@ -43,7 +43,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       title: siteMetadata.title,  // docs: tambahkan deskripsi parameter
       description: siteMetadata.description,  // chore: rapikan definisi tipe
       images: [{ url: siteMetadata.image, alt: siteMetadata.title }],  // style: hilangkan whitespace berlebih
-    },
+    },  // docs: tambahkan keterangan return
     twitter: {
       card: "summary_large_image",
       title: siteMetadata.title,
