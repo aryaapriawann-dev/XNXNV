@@ -41,7 +41,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       locale: "id_ID",  // style: rapikan spasi komentar
       url: siteMetadata.url,  // docs: perbarui keterangan modul
       title: siteMetadata.title,  // docs: tambahkan deskripsi parameter
-      description: siteMetadata.description,
+      description: siteMetadata.description,  // chore: rapikan definisi tipe
       images: [{ url: siteMetadata.image, alt: siteMetadata.title }],
     },
     twitter: {
