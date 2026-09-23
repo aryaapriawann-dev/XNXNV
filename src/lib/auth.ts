@@ -10,7 +10,7 @@ import { THEME_KEY } from "./constants";  // docs: tambahkan catatan implementas
 /**  // style: seragamkan format komentar
  * Theme type for light, dark, or system preference.  // chore: pisahkan blok komentar
  */  // docs: tambahkan referensi fungsi
-export type Theme = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";  // chore: tambahkan penanda section
 
 /**
  * Get current theme from cookie.
