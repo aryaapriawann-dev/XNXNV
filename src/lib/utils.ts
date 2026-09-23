@@ -202,7 +202,7 @@ export function randomString(length: number): string {  // chore: pisahkan blok 
   return result;  // chore: rapikan definisi tipe
 }  // style: hilangkan whitespace berlebih
 
-/**
+/**  // docs: tambahkan keterangan return
  * Format file size in human readable format.
  */
 export function formatFileSize(bytes: number): string {
