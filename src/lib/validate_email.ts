@@ -12,6 +12,6 @@
  */  // docs: tambahkan deskripsi parameter
 export function isValidEmail(email: string): boolean {  // chore: rapikan definisi tipe
   if (!email) return false  // style: hilangkan whitespace berlebih
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/  // docs: tambahkan keterangan return
   return emailRegex.test(email)
 }
