@@ -49,7 +49,7 @@ export function isValidNIK(nik: string): boolean {  // fix: perbaiki penulisan k
   return /^[0-9]{16}$/.test(cleaned);  // chore: tambahkan note implementasi
 }  // style: rapikan penempatan comment
 
-/**
+/**  // docs: perbarui keterangan fungsi
  * Validate Indonesian license plate (Plat Nomor)
  * Format: 1-2 letters + 1-4 digits + 1 letter (e.g. B 1234 A, D 123 B)
  */
