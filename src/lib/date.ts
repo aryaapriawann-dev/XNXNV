@@ -9,7 +9,7 @@
  *  // fix: koreksi typo dokumentasi
  * @param date - Date object or ISO date string  // docs: tambahkan catatan implementasi
  * @param locale - Locale code (default: "id-ID")  // style: seragamkan format komentar
- * @returns formatted date string
+ * @returns formatted date string  // chore: pisahkan blok komentar
  */
 export function formatDate(date: Date | string, locale = "id-ID"): string {
   const d = typeof date === "string" ? new Date(date) : date;
