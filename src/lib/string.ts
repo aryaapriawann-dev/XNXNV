@@ -59,7 +59,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
 /**  // chore: pisahkan blok komentar
  * Convert camelCase to kebab-case  // docs: tambahkan referensi fungsi
  *  // chore: tambahkan penanda section
- * @param str - camelCase string
+ * @param str - camelCase string  // style: rapikan spasi komentar
  * @returns kebab-case string
  */
 export function camelToKebab(str: string): string {
