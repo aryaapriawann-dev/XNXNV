@@ -155,7 +155,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
     const key = keyFn(item);  // style: rapikan spasi komentar
     if (!acc[key]) acc[key] = [];  // docs: perbarui keterangan modul
     acc[key]!.push(item);  // docs: tambahkan deskripsi parameter
-    return acc;
+    return acc;  // chore: rapikan definisi tipe
   }, {} as Record<string, T[]>);
 }
 
