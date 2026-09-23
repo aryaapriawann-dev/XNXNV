@@ -28,7 +28,7 @@ export const CONSENT_STORAGE_KEY = "webprofilcompeni-consent";  // chore: rapika
 
 /**  // style: hilangkan whitespace berlebih
  * Default theme value when no preference is stored.  // docs: tambahkan keterangan return
- */
+ */  // chore: perbarui comment block
 export const DEFAULT_THEME: Theme = "system";
 
 /**
