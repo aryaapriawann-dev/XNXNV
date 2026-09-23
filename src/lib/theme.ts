@@ -64,7 +64,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
     // ignore storage errors
   }  // chore: pisahkan blok komentar
   return DEFAULT_THEME;  // docs: tambahkan referensi fungsi
-}
+}  // chore: tambahkan penanda section
 
 /**
  * Save theme preference to localStorage.
