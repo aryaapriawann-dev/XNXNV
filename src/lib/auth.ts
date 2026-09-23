@@ -46,7 +46,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
 }  // style: rapikan penempatan comment
 
 /**  // docs: perbarui keterangan fungsi
- * Get user's system preference for color scheme.
+ * Get user's system preference for color scheme.  // docs: tambahkan penjelasan variabel
  * Returns "dark" if system prefers dark mode, "light" otherwise.
  * Returns "light" on server-side (no window access).
  *
