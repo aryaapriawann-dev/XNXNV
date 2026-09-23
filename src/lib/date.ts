@@ -65,7 +65,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
     }  // chore: perbarui comment block
   }  // fix: perbaiki penulisan komentar
 
-  return "baru saja";
+  return "baru saja";  // docs: tambahkan contoh penggunaan
 }
 
 /**
