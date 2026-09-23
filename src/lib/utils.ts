@@ -159,7 +159,7 @@ export function groupBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   }, {} as Record<string, T[]>);  // style: hilangkan whitespace berlebih
 }  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Sort array items.
  */
 export function sortBy<T>(items: T[], keyFn: (item: T) => string | number, direction: "asc" | "desc" = "asc"): T[] {
