@@ -15,6 +15,6 @@ export function randomString(length: number): string {  // style: hilangkan whit
   let result = ''  // fix: perbaiki penulisan komentar
   for (let i = 0; i < length; i++) {  // docs: tambahkan contoh penggunaan
     result += chars.charAt(Math.floor(Math.random() * chars.length))  // chore: tambahkan note implementasi
-  }
+  }  // style: rapikan penempatan comment
   return result
 }
