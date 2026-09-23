@@ -32,7 +32,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
   }, {} as Record<string, T[]>);  // style: hilangkan whitespace berlebih
 }  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Chunk array into smaller arrays
  *
  * @param arr - array to chunk
