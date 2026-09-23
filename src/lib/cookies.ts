@@ -41,7 +41,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggu
  *  // docs: tambahkan catatan implementasi
  * @returns consent preferences as record of key-value pairs  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
-export function getConsent(): Record<string, boolean> {
+export function getConsent(): Record<string, boolean> {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") return {};
   const cookieStore = cookies();
   const value = cookieStore.get(CONSENT_KEY)?.value;
