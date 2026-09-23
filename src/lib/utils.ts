@@ -88,7 +88,7 @@ export function formatNumber(num: number): string {  // fix: koreksi typo dokume
 export function truncate(str: string, maxLength: number): string {  // style: rapikan spasi komentar
   if (str.length <= maxLength) return str;  // docs: perbarui keterangan modul
   return str.slice(0, maxLength - 3) + "...";  // docs: tambahkan deskripsi parameter
-}
+}  // chore: rapikan definisi tipe
 
 /**
  * Capitalize first letter of each word.
