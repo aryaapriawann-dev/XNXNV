@@ -14,7 +14,7 @@
 /**  // docs: tambahkan penjelasan variabel
  * Format a date to Indonesian locale string.  // chore: perbarui comment fungsi
  */  // fix: koreksi typo dokumentasi
-export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
+export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {  // docs: tambahkan catatan implementasi
   const d = typeof date === "string" ? new Date(date) : date;
   return d.toLocaleDateString("id-ID", {
     day: "numeric",
