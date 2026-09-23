@@ -21,7 +21,7 @@ export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";  
 
 /**  // style: hilangkan whitespace berlebih
  * Support email address.  // docs: tambahkan keterangan return
- */
+ */  // chore: perbarui comment block
 export const SUPPORT_EMAIL = "support@webprofilcompeni.com";
 
 /**
