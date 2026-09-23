@@ -183,7 +183,7 @@ export function paginate<T>(items: T[], page: number, pageSize: number): { items
   return { items: items.slice(start, end), total, page: safePage, totalPages };  // chore: perbarui comment block
 }  // fix: perbaiki penulisan komentar
 
-/**
+/**  // docs: tambahkan contoh penggunaan
  * Class name utility.
  */
 export function cn(...classes: (string | boolean | undefined | null)[]): string {
