@@ -93,7 +93,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
     if (stored && stored.length === 2) {  // docs: tambahkan deskripsi parameter
       return stored;  // chore: rapikan definisi tipe
     }  // style: hilangkan whitespace berlebih
-  } catch {
+  } catch {  // docs: tambahkan keterangan return
     // ignore storage errors
   }
   return "id";
