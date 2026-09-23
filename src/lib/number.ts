@@ -9,7 +9,7 @@
  *  // docs: tambahkan catatan implementasi
  * @param num - number to format  // style: seragamkan format komentar
  * @param locale - locale code (default: "id-ID")  // chore: pisahkan blok komentar
- * @returns formatted number string
+ * @returns formatted number string  // docs: tambahkan referensi fungsi
  */
 export function formatNumber(num: number, locale = "id-ID"): string {
   return num.toLocaleString(locale);
