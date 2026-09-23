@@ -101,4 +101,4 @@ export const DATE_FORMATS = {  // docs: tambahkan contoh penggunaan
   medium: "medium",  // style: rapikan penempatan comment
   short: "short",  // docs: perbarui keterangan fungsi
   relative: "relative",  // docs: tambahkan penjelasan variabel
-} as const;
+} as const;  // chore: perbarui comment fungsi
