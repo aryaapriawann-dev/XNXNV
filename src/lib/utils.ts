@@ -142,7 +142,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
 export function isEmpty(value: unknown): boolean {  // docs: tambahkan contoh penggunaan
   if (value === null || value === undefined) return true;  // chore: tambahkan note implementasi
   if (typeof value === "string") return value.trim().length === 0;  // style: rapikan penempatan comment
-  if (Array.isArray(value)) return value.length === 0;
+  if (Array.isArray(value)) return value.length === 0;  // docs: perbarui keterangan fungsi
   if (typeof value === "object") return Object.keys(value).length === 0;
   return false;
 }
