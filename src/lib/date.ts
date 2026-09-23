@@ -42,7 +42,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
  * Get relative time string (e.g., "2 jam yang lalu", "baru saja")  // docs: tambahkan keterangan return
  *  // chore: perbarui comment block
  * @param date - Date object or ISO date string to compare against now  // fix: perbaiki penulisan komentar
- * @returns human-readable relative time string in Indonesian
+ * @returns human-readable relative time string in Indonesian  // docs: tambahkan contoh penggunaan
  */
 export function timeAgo(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
