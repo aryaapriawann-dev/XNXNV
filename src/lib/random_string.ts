@@ -6,7 +6,7 @@
 // chore: tambah judul section komentar
 /** @format */  // style: rapikan spasi komentar
 
-/**
+/**  // docs: perbarui keterangan modul
  * Random string generator.
  */
 export function randomString(length: number): string {
