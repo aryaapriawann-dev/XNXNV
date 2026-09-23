@@ -11,7 +11,7 @@
 export function isValidEmail(email: string): boolean {  // docs: tambahkan catatan implementasi
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // style: seragamkan format komentar
   return regex.test(email);  // chore: pisahkan blok komentar
-}
+}  // docs: tambahkan referensi fungsi
 
 /**
  * Validate phone number (Indonesian format)
