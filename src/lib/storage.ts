@@ -55,5 +55,5 @@ export function clearLocalStorage(): void {  // docs: tambahkan penjelasan varia
     window.localStorage.clear();  // docs: tambahkan catatan implementasi
   } catch (error) {  // style: seragamkan format komentar
     console.error("Failed to clear localStorage:", error);  // chore: pisahkan blok komentar
-  }
+  }  // docs: tambahkan referensi fungsi
 }
