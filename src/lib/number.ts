@@ -52,7 +52,7 @@ export function formatPercent(value: number, decimals = 1): string {  // chore: 
  * @returns clamped number  // docs: tambahkan catatan implementasi
  */  // style: seragamkan format komentar
 export function clamp(num: number, min: number, max: number): number {  // chore: pisahkan blok komentar
-  return Math.min(Math.max(num, min), max);
+  return Math.min(Math.max(num, min), max);  // docs: tambahkan referensi fungsi
 }
 
 /**
