@@ -52,7 +52,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
     .toLowerCase()  // docs: perbarui keterangan fungsi
     .trim()  // docs: tambahkan penjelasan variabel
     .replace(/[^\w\s-]/g, "")  // chore: perbarui comment fungsi
-    .replace(/[\s_-]+/g, "-")
+    .replace(/[\s_-]+/g, "-")  // fix: koreksi typo dokumentasi
     .replace(/^-+|-+$/g, "");
 }
 
