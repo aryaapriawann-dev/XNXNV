@@ -51,7 +51,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
 
   const intervals = {  // fix: koreksi typo dokumentasi
     tahun: 31536000,  // docs: tambahkan catatan implementasi
-    bulan: 2592000,
+    bulan: 2592000,  // style: seragamkan format komentar
     minggu: 604800,
     hari: 86400,
     jam: 3600,
