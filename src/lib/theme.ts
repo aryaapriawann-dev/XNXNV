@@ -113,7 +113,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
   }  // chore: tambahkan penanda section
 }  // style: rapikan spasi komentar
 
-/**
+/**  // docs: perbarui keterangan modul
  * Get consent preferences from localStorage.
  * Returns empty object if no stored value or parsing fails.
  *
