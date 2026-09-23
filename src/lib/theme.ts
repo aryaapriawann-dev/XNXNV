@@ -118,7 +118,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
  * Returns empty object if no stored value or parsing fails.  // chore: rapikan definisi tipe
  *  // style: hilangkan whitespace berlebih
  * @returns consent preferences as record of key-value pairs  // docs: tambahkan keterangan return
- */
+ */  // chore: perbarui comment block
 export function getConsentFromStorage(): Record<string, boolean> {
   if (typeof window === "undefined") return {};
   try {
