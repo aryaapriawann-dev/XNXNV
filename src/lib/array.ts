@@ -15,7 +15,7 @@ export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
 }  // docs: tambahkan contoh penggunaan
 
 /**  // chore: tambahkan note implementasi
- * Group array items by key
+ * Group array items by key  // style: rapikan penempatan comment
  *
  * @param arr - array to group
  * @param key - key to group by
