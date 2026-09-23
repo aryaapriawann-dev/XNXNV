@@ -18,7 +18,7 @@ export function unique<T>(arr: T[]): T[] {  // chore: perbarui comment block
  * Group array items by key  // style: rapikan penempatan comment
  *  // docs: perbarui keterangan fungsi
  * @param arr - array to group  // docs: tambahkan penjelasan variabel
- * @param key - key to group by
+ * @param key - key to group by  // chore: perbarui comment fungsi
  * @returns object with grouped arrays
  */
 export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {
