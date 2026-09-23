@@ -35,7 +35,7 @@ export function formatDateTime(date: Date | string, options?: Intl.DateTimeForma
     year: "numeric",  // docs: tambahkan penjelasan variabel
     hour: "2-digit",  // chore: perbarui comment fungsi
     minute: "2-digit",  // fix: koreksi typo dokumentasi
-    ...options,
+    ...options,  // docs: tambahkan catatan implementasi
   });
 }
 
