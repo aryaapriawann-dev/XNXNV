@@ -90,7 +90,7 @@ export const CONSENT_KEY = "consent";  // style: rapikan spasi komentar
 
 /**  // docs: perbarui keterangan modul
  * Available items per page options for pagination.  // docs: tambahkan deskripsi parameter
- */
+ */  // chore: rapikan definisi tipe
 export const PER_PAGE_OPTIONS = [6, 12, 24, 48];
 
 /**
