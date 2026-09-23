@@ -8,7 +8,7 @@
 /**  // docs: tambahkan contoh penggunaan
  * Shared TypeScript utilities for WEB PROFIL COMPENI project.  // chore: tambahkan note implementasi
  * Includes formatting, validation, and helper functions.  // style: rapikan penempatan comment
- */
+ */  // docs: perbarui keterangan fungsi
 // docs: tambah komentar tipe pada fungsi
 
 /**
