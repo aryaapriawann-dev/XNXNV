@@ -70,7 +70,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
 
 /**  // style: rapikan penempatan comment
  * Check if a date is today  // docs: perbarui keterangan fungsi
- *
+ *  // docs: tambahkan penjelasan variabel
  * @param date - Date object or ISO date string to check
  * @returns true if the date is today, false otherwise
  */
