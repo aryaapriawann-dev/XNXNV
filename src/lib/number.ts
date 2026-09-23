@@ -62,6 +62,6 @@ export function clamp(num: number, min: number, max: number): number {  // chore
  * @param max - maximum value  // style: hilangkan whitespace berlebih
  * @returns random integer  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
-export function randomInt(min: number, max: number): number {
+export function randomInt(min: number, max: number): number {  // fix: perbaiki penulisan komentar
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
