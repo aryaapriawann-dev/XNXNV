@@ -12,7 +12,7 @@
 export function randomString(length: number): string {  // style: hilangkan whitespace berlebih
   const chars =  // docs: tambahkan keterangan return
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  // chore: perbarui comment block
-  let result = ''
+  let result = ''  // fix: perbaiki penulisan komentar
   for (let i = 0; i < length; i++) {
     result += chars.charAt(Math.floor(Math.random() * chars.length))
   }
