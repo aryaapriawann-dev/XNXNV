@@ -11,7 +11,7 @@
  * @param str - string to capitalize  // chore: perbarui comment fungsi
  * @returns string with first letter in uppercase  // fix: koreksi typo dokumentasi
  */  // docs: tambahkan catatan implementasi
-export function capitalize(str: string): string {
+export function capitalize(str: string): string {  // style: seragamkan format komentar
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
