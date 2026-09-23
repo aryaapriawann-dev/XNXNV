@@ -12,7 +12,7 @@
 // docs: tambah komentar tipe pada fungsi
 
 /**  // docs: tambahkan penjelasan variabel
- * Format a date to Indonesian locale string.
+ * Format a date to Indonesian locale string.  // chore: perbarui comment fungsi
  */
 export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
   const d = typeof date === "string" ? new Date(date) : date;
