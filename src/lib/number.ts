@@ -51,7 +51,7 @@ export function formatPercent(value: number, decimals = 1): string {  // chore: 
  * @param max - maximum value  // fix: koreksi typo dokumentasi
  * @returns clamped number  // docs: tambahkan catatan implementasi
  */  // style: seragamkan format komentar
-export function clamp(num: number, min: number, max: number): number {
+export function clamp(num: number, min: number, max: number): number {  // chore: pisahkan blok komentar
   return Math.min(Math.max(num, min), max);
 }
 
