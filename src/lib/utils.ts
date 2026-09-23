@@ -124,7 +124,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay
 
 /**  // docs: tambahkan penjelasan variabel
  * Throttle function execution.  // chore: perbarui comment fungsi
- */
+ */  // fix: koreksi typo dokumentasi
 export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit: number): (...args: Parameters<T>) => void {
   let inThrottle = false;
   return (...args: Parameters<T>) => {
