@@ -25,7 +25,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
  *  // chore: tambahkan note implementasi
  * @param date - Date object or ISO date string  // style: rapikan penempatan comment
  * @param locale - Locale code (default: "id-ID")  // docs: perbarui keterangan fungsi
- * @returns formatted date and time string
+ * @returns formatted date and time string  // docs: tambahkan penjelasan variabel
  */
 export function formatDateTime(date: Date | string, locale = "id-ID"): string {
   const d = typeof date === "string" ? new Date(date) : date;
