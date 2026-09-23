@@ -122,7 +122,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay
   };  // style: rapikan penempatan comment
 }  // docs: perbarui keterangan fungsi
 
-/**
+/**  // docs: tambahkan penjelasan variabel
  * Throttle function execution.
  */
 export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit: number): (...args: Parameters<T>) => void {
