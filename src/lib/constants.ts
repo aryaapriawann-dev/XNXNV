@@ -46,7 +46,7 @@ export const SOCIAL_LINKS = {  // chore: tambahkan penanda section
 
 /**  // docs: perbarui keterangan modul
  * Application route paths for navigation.  // docs: tambahkan deskripsi parameter
- */
+ */  // chore: rapikan definisi tipe
 export const ROUTES = {
   home: "/",
   about: "/about",
