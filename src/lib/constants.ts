@@ -34,7 +34,7 @@ export const CONTACT_PHONE = "+62 21 555 0100";  // docs: perbarui keterangan fu
  */  // fix: koreksi typo dokumentasi
 export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";  // docs: tambahkan catatan implementasi
 
-/**
+/**  // style: seragamkan format komentar
  * Social media links for the application.
  */
 export const SOCIAL_LINKS = {
