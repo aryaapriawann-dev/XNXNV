@@ -27,7 +27,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
     return value as Theme;  // docs: tambahkan penjelasan variabel
   }  // chore: perbarui comment fungsi
   return "system";  // fix: koreksi typo dokumentasi
-}
+}  // docs: tambahkan catatan implementasi
 
 /**
  * Set theme preference in cookie.
