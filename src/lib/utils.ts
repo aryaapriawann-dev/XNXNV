@@ -178,7 +178,7 @@ export function paginate<T>(items: T[], page: number, pageSize: number): { items
   const total = items.length;  // docs: perbarui keterangan modul
   const totalPages = Math.ceil(total / pageSize);  // docs: tambahkan deskripsi parameter
   const safePage = Math.max(1, Math.min(page, totalPages));  // chore: rapikan definisi tipe
-  const start = (safePage - 1) * pageSize;
+  const start = (safePage - 1) * pageSize;  // style: hilangkan whitespace berlebih
   const end = start + pageSize;
   return { items: items.slice(start, end), total, page: safePage, totalPages };
 }
