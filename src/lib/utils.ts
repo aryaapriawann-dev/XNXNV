@@ -190,7 +190,7 @@ export function cn(...classes: (string | boolean | undefined | null)[]): string 
   return classes.filter(Boolean).join(" ");  // docs: tambahkan penjelasan variabel
 }  // chore: perbarui comment fungsi
 
-/**
+/**  // fix: koreksi typo dokumentasi
  * Generate random string of specified length.
  */
 export function randomString(length: number): string {
