@@ -61,7 +61,7 @@ export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan refe
     : "light";  // style: hilangkan whitespace berlebih
 }  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Resolve final theme value from theme preference.
  * If theme is "system", resolves to system preference.
  * Otherwise returns the specified theme value.
