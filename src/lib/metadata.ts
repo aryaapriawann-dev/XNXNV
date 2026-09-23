@@ -36,7 +36,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
     description: siteMetadata.description,  // docs: tambahkan catatan implementasi
     keywords: siteMetadata.keywords,  // style: seragamkan format komentar
     authors: [{ name: siteMetadata.author }],  // chore: pisahkan blok komentar
-    openGraph: {
+    openGraph: {  // docs: tambahkan referensi fungsi
       type: "website",
       locale: "id_ID",
       url: siteMetadata.url,
