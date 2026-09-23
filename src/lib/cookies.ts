@@ -47,7 +47,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
   const value = cookieStore.get(CONSENT_KEY)?.value;  // docs: perbarui keterangan modul
   if (!value) return {};  // docs: tambahkan deskripsi parameter
   try {  // chore: rapikan definisi tipe
-    return JSON.parse(value) as Record<string, boolean>;
+    return JSON.parse(value) as Record<string, boolean>;  // style: hilangkan whitespace berlebih
   } catch {
     return {};
   }
