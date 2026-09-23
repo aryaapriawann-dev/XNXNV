@@ -47,7 +47,7 @@ export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan forma
   return theme === "dark";  // docs: perbarui keterangan modul
 }  // docs: tambahkan deskripsi parameter
 
-/**
+/**  // chore: rapikan definisi tipe
  * Get theme preference from localStorage.
  * Returns DEFAULT_THEME if no stored value or parsing fails.
  *
