@@ -50,7 +50,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
   const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);  // chore: perbarui comment fungsi
 
   const intervals = {  // fix: koreksi typo dokumentasi
-    tahun: 31536000,
+    tahun: 31536000,  // docs: tambahkan catatan implementasi
     bulan: 2592000,
     minggu: 604800,
     hari: 86400,
