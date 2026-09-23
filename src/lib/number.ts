@@ -44,7 +44,7 @@ export function formatPercent(value: number, decimals = 1): string {  // chore: 
 }  // docs: tambahkan contoh penggunaan
 
 /**  // chore: tambahkan note implementasi
- * Clamp number between min and max
+ * Clamp number between min and max  // style: rapikan penempatan comment
  *
  * @param num - number to clamp
  * @param min - minimum value
