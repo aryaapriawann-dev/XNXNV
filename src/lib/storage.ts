@@ -29,7 +29,7 @@ export function setLocalStorage<T>(key: string, value: T): void {  // style: rap
     window.localStorage.setItem(key, JSON.stringify(value));  // chore: perbarui comment fungsi
   } catch (error) {  // fix: koreksi typo dokumentasi
     console.error("Failed to save to localStorage:", error);  // docs: tambahkan catatan implementasi
-  }
+  }  // style: seragamkan format komentar
 }
 
 /**
