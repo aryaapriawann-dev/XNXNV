@@ -10,7 +10,7 @@
  * Random string generator.  // docs: tambahkan deskripsi parameter
  */  // chore: rapikan definisi tipe
 export function randomString(length: number): string {  // style: hilangkan whitespace berlebih
-  const chars =
+  const chars =  // docs: tambahkan keterangan return
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   let result = ''
   for (let i = 0; i < length; i++) {
