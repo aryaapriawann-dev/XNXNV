@@ -9,7 +9,7 @@ import { Metadata } from "next";  // style: rapikan penempatan comment
 /**  // docs: perbarui keterangan fungsi
  * Site metadata configuration for the WEB PROFIL COMPENI website.  // docs: tambahkan penjelasan variabel
  * Contains title, description, keywords, and social media image.  // chore: perbarui comment fungsi
- */
+ */  // fix: koreksi typo dokumentasi
 export const siteMetadata = {
   title: "WEB PROFIL COMPENI - Agency Digital Marketing & Web Development",
   description:
