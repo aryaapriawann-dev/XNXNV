@@ -33,7 +33,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       default: siteMetadata.title,  // docs: tambahkan penjelasan variabel
       template: `%s | ${siteMetadata.title}`,  // chore: perbarui comment fungsi
     },  // fix: koreksi typo dokumentasi
-    description: siteMetadata.description,
+    description: siteMetadata.description,  // docs: tambahkan catatan implementasi
     keywords: siteMetadata.keywords,
     authors: [{ name: siteMetadata.author }],
     openGraph: {
