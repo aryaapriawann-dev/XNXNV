@@ -81,7 +81,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
 }  // docs: perbarui keterangan fungsi
 
 /**  // docs: tambahkan penjelasan variabel
- * Get language preference from localStorage.
+ * Get language preference from localStorage.  // chore: perbarui comment fungsi
  * Returns "id" if no stored value or value is invalid.
  *
  * @returns stored language code or default "id"
