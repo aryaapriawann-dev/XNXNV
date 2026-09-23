@@ -28,7 +28,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
     style: "currency",  // chore: perbarui comment fungsi
     currency: currency,  // fix: koreksi typo dokumentasi
     minimumFractionDigits: 0,  // docs: tambahkan catatan implementasi
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 0,  // style: seragamkan format komentar
   }).format(amount);
 }
 
