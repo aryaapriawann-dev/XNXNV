@@ -7,7 +7,7 @@
 /** @format */  // docs: perbarui keterangan modul
 
 /**  // docs: tambahkan deskripsi parameter
- * Format bytes to human-readable file size.
+ * Format bytes to human-readable file size.  // chore: rapikan definisi tipe
  */
 export function formatFileSize(bytes: number): string {
   if (bytes === 0) return '0 Bytes'
