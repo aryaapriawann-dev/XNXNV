@@ -14,4 +14,4 @@ export function isValidEmail(email: string): boolean {  // chore: rapikan defini
   if (!email) return false  // style: hilangkan whitespace berlebih
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/  // docs: tambahkan keterangan return
   return emailRegex.test(email)  // chore: perbarui comment block
-}
+}  // fix: perbaiki penulisan komentar
