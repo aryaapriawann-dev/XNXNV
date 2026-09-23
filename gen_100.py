@@ -118,7 +118,7 @@ msg_pool = [
     "style: konsisten penggunaan quote",
 ]
 
-TARGET = 100
+TARGET = 200
 done = 0
 
 def commit_one(path, msg):
