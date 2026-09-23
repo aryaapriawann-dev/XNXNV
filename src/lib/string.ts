@@ -61,7 +61,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
  *  // chore: tambahkan penanda section
  * @param str - camelCase string  // style: rapikan spasi komentar
  * @returns kebab-case string  // docs: perbarui keterangan modul
- */
+ */  // docs: tambahkan deskripsi parameter
 export function camelToKebab(str: string): string {
   return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
