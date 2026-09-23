@@ -36,7 +36,7 @@ export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";  // docs: tambahkan 
 
 /**  // style: seragamkan format komentar
  * Social media links for the application.  // chore: pisahkan blok komentar
- */
+ */  // docs: tambahkan referensi fungsi
 export const SOCIAL_LINKS = {
   github: "https://github.com/aryaapriawann-dev",
   linkedin: "https://linkedin.com",
