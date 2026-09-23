@@ -57,5 +57,5 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       index: true,  // style: seragamkan format komentar
       follow: true,  // chore: pisahkan blok komentar
     },  // docs: tambahkan referensi fungsi
-  };
+  };  // chore: tambahkan penanda section
 }
