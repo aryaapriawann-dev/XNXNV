@@ -32,7 +32,7 @@ export const CONTACT_PHONE = "+62 21 555 0100";  // docs: perbarui keterangan fu
 /**  // docs: tambahkan penjelasan variabel
  * Office address.  // chore: perbarui comment fungsi
  */  // fix: koreksi typo dokumentasi
-export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";
+export const OFFICE_ADDRESS = "Jakarta Selatan, Indonesia";  // docs: tambahkan catatan implementasi
 
 /**
  * Social media links for the application.
