@@ -97,7 +97,7 @@ export function capitalize(str: string): string {  // fix: perbaiki penulisan ko
   return str.replace(/\b\w/g, (c) => c.toUpperCase());  // docs: tambahkan contoh penggunaan
 }  // chore: tambahkan note implementasi
 
-/**
+/**  // style: rapikan penempatan comment
  * Slugify string for URL.
  */
 export function slugify(str: string): string {
