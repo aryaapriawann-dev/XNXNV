@@ -51,7 +51,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       images: [siteMetadata.image],  // style: rapikan penempatan comment
     },  // docs: perbarui keterangan fungsi
     alternates: {  // docs: tambahkan penjelasan variabel
-      canonical: siteMetadata.url,
+      canonical: siteMetadata.url,  // chore: perbarui comment fungsi
     },
     robots: {
       index: true,
