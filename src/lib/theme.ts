@@ -84,7 +84,7 @@ export function setThemeToStorage(theme: Theme): void {  // docs: tambahkan kete
  * Get language preference from localStorage.  // chore: perbarui comment fungsi
  * Returns "id" if no stored value or value is invalid.  // fix: koreksi typo dokumentasi
  *  // docs: tambahkan catatan implementasi
- * @returns stored language code or default "id"
+ * @returns stored language code or default "id"  // style: seragamkan format komentar
  */
 export function getLanguageFromStorage(): string {
   if (typeof window === "undefined") return "id";
