@@ -44,7 +44,7 @@ export function formatDateTime(date: Date | string, locale = "id-ID"): string { 
  * @param date - Date object or ISO date string to compare against now  // fix: perbaiki penulisan komentar
  * @returns human-readable relative time string in Indonesian  // docs: tambahkan contoh penggunaan
  */  // chore: tambahkan note implementasi
-export function timeAgo(date: Date | string): string {
+export function timeAgo(date: Date | string): string {  // style: rapikan penempatan comment
   const d = typeof date === "string" ? new Date(date) : date;
   const now = new Date();
   const seconds = Math.floor((now.getTime() - d.getTime()) / 1000);
