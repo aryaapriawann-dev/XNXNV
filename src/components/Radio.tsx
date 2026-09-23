@@ -3,6 +3,7 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
+// style: rapikan spasi komentar
 import { InputHTMLAttributes, forwardRef } from "react";
 
 /**
