@@ -191,7 +191,7 @@ export function cn(...classes: (string | boolean | undefined | null)[]): string 
 }  // chore: perbarui comment fungsi
 
 /**  // fix: koreksi typo dokumentasi
- * Generate random string of specified length.
+ * Generate random string of specified length.  // docs: tambahkan catatan implementasi
  */
 export function randomString(length: number): string {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
