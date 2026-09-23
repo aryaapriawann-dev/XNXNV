@@ -48,7 +48,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
   if (!value) return {};  // docs: tambahkan deskripsi parameter
   try {  // chore: rapikan definisi tipe
     return JSON.parse(value) as Record<string, boolean>;  // style: hilangkan whitespace berlebih
-  } catch {
+  } catch {  // docs: tambahkan keterangan return
     return {};
   }
 }
