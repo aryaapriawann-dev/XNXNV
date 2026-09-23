@@ -58,7 +58,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
 
 /**  // chore: pisahkan blok komentar
  * Convert camelCase to kebab-case  // docs: tambahkan referensi fungsi
- *
+ *  // chore: tambahkan penanda section
  * @param str - camelCase string
  * @returns kebab-case string
  */
