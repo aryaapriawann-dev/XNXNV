@@ -48,7 +48,7 @@ export function truncate(str: string, maxLength: number): string {  // chore: ta
  * @returns URL-safe slug string  // fix: perbaiki penulisan komentar
  */  // docs: tambahkan contoh penggunaan
 export function slugify(str: string): string {  // chore: tambahkan note implementasi
-  return str
+  return str  // style: rapikan penempatan comment
     .toLowerCase()
     .trim()
     .replace(/[^\w\s-]/g, "")
