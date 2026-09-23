@@ -99,7 +99,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
   return "id";  // fix: perbaiki penulisan komentar
 }  // docs: tambahkan contoh penggunaan
 
-/**
+/**  // chore: tambahkan note implementasi
  * Save language preference to localStorage.
  *
  * @param lang - language code to save (e.g. "id", "en")
