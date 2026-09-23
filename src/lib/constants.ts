@@ -24,7 +24,7 @@ export const APP_DESCRIPTION = "Solusi Digital Berkualitas untuk Bisnis Anda";  
  */  // chore: perbarui comment block
 export const SUPPORT_EMAIL = "support@webprofilcompeni.com";  // fix: perbaiki penulisan komentar
 
-/**
+/**  // docs: tambahkan contoh penggunaan
  * Contact phone number.
  */
 export const CONTACT_PHONE = "+62 21 555 0100";
