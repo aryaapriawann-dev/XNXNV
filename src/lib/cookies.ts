@@ -27,7 +27,7 @@ export function getTheme(): string {  // chore: pisahkan blok komentar
 /**  // docs: tambahkan deskripsi parameter
  * Set theme preference in cookie.  // chore: rapikan definisi tipe
  * Cookie expires after 1 year (365 days).  // style: hilangkan whitespace berlebih
- *
+ *  // docs: tambahkan keterangan return
  * @param theme - theme to set ("light", "dark", or "system")
  */
 export function setTheme(theme: Theme): void {
