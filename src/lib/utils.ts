@@ -136,7 +136,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(fn: T, limit
   };  // chore: rapikan definisi tipe
 }  // style: hilangkan whitespace berlebih
 
-/**
+/**  // docs: tambahkan keterangan return
  * Check if value is empty.
  */
 export function isEmpty(value: unknown): boolean {
