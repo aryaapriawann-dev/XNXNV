@@ -57,7 +57,7 @@ export function clamp(num: number, min: number, max: number): number {  // chore
 
 /**  // style: rapikan spasi komentar
  * Generate random integer between min and max (inclusive)  // docs: perbarui keterangan modul
- *
+ *  // docs: tambahkan deskripsi parameter
  * @param min - minimum value
  * @param max - maximum value
  * @returns random integer
