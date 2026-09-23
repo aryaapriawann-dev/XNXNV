@@ -17,4 +17,4 @@ export function randomString(length: number): string {  // style: hilangkan whit
     result += chars.charAt(Math.floor(Math.random() * chars.length))  // chore: tambahkan note implementasi
   }  // style: rapikan penempatan comment
   return result  // docs: perbarui keterangan fungsi
-}
+}  // docs: tambahkan penjelasan variabel
