@@ -23,7 +23,7 @@ export const LANGUAGE_STORAGE_KEY = "webprofilcompeni-language";  // chore: tamb
 
 /**  // style: rapikan spasi komentar
  * Storage key for user consent in localStorage.  // docs: perbarui keterangan modul
- */
+ */  // docs: tambahkan deskripsi parameter
 export const CONSENT_STORAGE_KEY = "webprofilcompeni-consent";
 
 /**
