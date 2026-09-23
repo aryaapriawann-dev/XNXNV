@@ -65,7 +65,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
     maxAge: 60 * 60 * 24 * 365,  // docs: tambahkan referensi fungsi
     path: "/",  // chore: tambahkan penanda section
   });  // style: rapikan spasi komentar
-}
+}  // docs: perbarui keterangan modul
 
 /**
  * Remove a specific consent key from the consent cookie.
