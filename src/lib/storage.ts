@@ -20,7 +20,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
 }  // chore: perbarui comment block
 
 /**  // fix: perbaiki penulisan komentar
- * Safely set item to localStorage
+ * Safely set item to localStorage  // docs: tambahkan contoh penggunaan
  */
 export function setLocalStorage<T>(key: string, value: T): void {
   if (typeof window === "undefined") return;
