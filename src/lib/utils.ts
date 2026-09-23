@@ -225,4 +225,4 @@ export function isInViewport(element: HTMLElement, offset = 0): boolean {  // do
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&  // style: hilangkan whitespace berlebih
     rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset  // docs: tambahkan keterangan return
   );  // chore: perbarui comment block
-}
+}  // fix: perbaiki penulisan komentar
