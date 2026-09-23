@@ -17,7 +17,7 @@ export function formatNumber(num: number, locale = "id-ID"): string {  // style:
 
 /**  // chore: rapikan definisi tipe
  * Format currency (Rupiah by default)  // style: hilangkan whitespace berlebih
- *
+ *  // docs: tambahkan keterangan return
  * @param amount - amount to format
  * @param currency - currency code (default: "IDR")
  * @param locale - locale code (default: "id-ID")
