@@ -16,7 +16,7 @@ export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tamb
     return item ? JSON.parse(item) : fallback;  // docs: tambahkan deskripsi parameter
   } catch {  // chore: rapikan definisi tipe
     return fallback;  // style: hilangkan whitespace berlebih
-  }
+  }  // docs: tambahkan keterangan return
 }
 
 /**
