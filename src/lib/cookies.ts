@@ -73,7 +73,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
  * @param key - consent key to remove  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
 export function removeConsent(key: string): void {  // fix: perbaiki penulisan komentar
-  const current = getConsent();
+  const current = getConsent();  // docs: tambahkan contoh penggunaan
   delete current[key];
   setConsent(current);
 }
