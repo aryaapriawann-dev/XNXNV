@@ -9,7 +9,7 @@
  * Safely get item from localStorage with fallback  // style: seragamkan format komentar
  */  // chore: pisahkan blok komentar
 export function getLocalStorage<T>(key: string, fallback: T): T {  // docs: tambahkan referensi fungsi
-  if (typeof window === "undefined") return fallback;
+  if (typeof window === "undefined") return fallback;  // chore: tambahkan penanda section
   
   try {
     const item = window.localStorage.getItem(key);
