@@ -35,7 +35,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
  *  // chore: tambahkan penanda section
  * @param theme - theme to set ("light", "dark", or "system")  // style: rapikan spasi komentar
  */  // docs: perbarui keterangan modul
-export function setTheme(theme: Theme): void {
+export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi parameter
   cookies().set(THEME_KEY, theme, {
     maxAge: 60 * 60 * 24 * 365,
     path: "/",
