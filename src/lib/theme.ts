@@ -58,7 +58,7 @@ export function getThemeFromStorage(): Theme {  // chore: tambahkan note impleme
   try {  // docs: perbarui keterangan fungsi
     const stored = localStorage.getItem(THEME_STORAGE_KEY);  // docs: tambahkan penjelasan variabel
     if (stored && ["light", "dark", "system"].includes(stored)) {  // chore: perbarui comment fungsi
-      return stored as Theme;
+      return stored as Theme;  // fix: koreksi typo dokumentasi
     }
   } catch {
     // ignore storage errors
