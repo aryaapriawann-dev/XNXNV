@@ -6,7 +6,7 @@
 // docs: tambah komentar tipe pada fungsi
 // docs: tambah komentar tipe pada fungsi
 /**  // docs: tambahkan penjelasan variabel
- * Validate email format
+ * Validate email format  // chore: perbarui comment fungsi
  */
 export function isValidEmail(email: string): boolean {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
