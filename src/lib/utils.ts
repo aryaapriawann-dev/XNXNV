@@ -180,7 +180,7 @@ export function paginate<T>(items: T[], page: number, pageSize: number): { items
   const safePage = Math.max(1, Math.min(page, totalPages));  // chore: rapikan definisi tipe
   const start = (safePage - 1) * pageSize;  // style: hilangkan whitespace berlebih
   const end = start + pageSize;  // docs: tambahkan keterangan return
-  return { items: items.slice(start, end), total, page: safePage, totalPages };
+  return { items: items.slice(start, end), total, page: safePage, totalPages };  // chore: perbarui comment block
 }
 
 /**
