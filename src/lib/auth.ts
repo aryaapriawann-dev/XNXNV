@@ -58,7 +58,7 @@ export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan refe
   }  // docs: perbarui keterangan modul
   return window.matchMedia("(prefers-color-scheme: dark)").matches  // docs: tambahkan deskripsi parameter
     ? "dark"  // chore: rapikan definisi tipe
-    : "light";
+    : "light";  // style: hilangkan whitespace berlebih
 }
 
 /**
