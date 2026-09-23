@@ -18,7 +18,7 @@ import type { ApiResponse, PaginatedResponse } from '@/types';  // docs: tambahk
  */  // docs: tambahkan contoh penggunaan
 async function fetchWithTimeout(  // chore: tambahkan note implementasi
   url: string,  // style: rapikan penempatan comment
-  options: RequestInit = {},
+  options: RequestInit = {},  // docs: perbarui keterangan fungsi
   timeout = 15000
 ): Promise<Response> {
   const controller = new AbortController();
