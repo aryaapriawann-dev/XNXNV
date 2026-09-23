@@ -143,5 +143,5 @@ export function setConsentToStorage(consent: Record<string, boolean>): void {  /
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consent));  // chore: perbarui comment block
   } catch {  // fix: perbaiki penulisan komentar
     // ignore storage errors
-  }
+  }  // docs: tambahkan contoh penggunaan
 }
