@@ -14,7 +14,7 @@ export type Theme = "light" | "dark" | "system";  // style: rapikan penempatan c
 
 /**  // docs: perbarui keterangan fungsi
  * Get current theme from cookie.  // docs: tambahkan penjelasan variabel
- * Returns "system" if no theme cookie is set or value is invalid.
+ * Returns "system" if no theme cookie is set or value is invalid.  // chore: perbarui comment fungsi
  *
  * @returns current theme value ("light", "dark", or "system")
  */
