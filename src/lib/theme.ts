@@ -41,7 +41,7 @@ export const DEFAULT_THEME: Theme = "system";  // fix: perbaiki penulisan koment
  */  // docs: tambahkan catatan implementasi
 export function isDarkTheme(theme: Theme): boolean {  // style: seragamkan format komentar
   if (theme === "system") {  // chore: pisahkan blok komentar
-    if (typeof window === "undefined") return false;
+    if (typeof window === "undefined") return false;  // docs: tambahkan referensi fungsi
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
   return theme === "dark";
