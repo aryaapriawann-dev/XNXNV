@@ -17,7 +17,7 @@ export function formatDate(date: Date | string, locale = "id-ID"): string {  // 
     year: "numeric",  // docs: tambahkan deskripsi parameter
     month: "long",  // chore: rapikan definisi tipe
     day: "numeric",  // style: hilangkan whitespace berlebih
-  });
+  });  // docs: tambahkan keterangan return
 }
 
 /**
