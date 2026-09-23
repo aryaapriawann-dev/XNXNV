@@ -39,7 +39,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
     openGraph: {  // docs: tambahkan referensi fungsi
       type: "website",  // chore: tambahkan penanda section
       locale: "id_ID",  // style: rapikan spasi komentar
-      url: siteMetadata.url,
+      url: siteMetadata.url,  // docs: perbarui keterangan modul
       title: siteMetadata.title,
       description: siteMetadata.description,
       images: [{ url: siteMetadata.image, alt: siteMetadata.title }],
