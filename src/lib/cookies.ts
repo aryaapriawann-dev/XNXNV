@@ -19,7 +19,7 @@ export type Theme = "light" | "dark" | "system";  // style: rapikan penempatan c
  * @returns current theme value ("light", "dark", or "system")  // docs: tambahkan catatan implementasi
  */  // style: seragamkan format komentar
 export function getTheme(): string {  // chore: pisahkan blok komentar
-  if (typeof window === "undefined") return "system";
+  if (typeof window === "undefined") return "system";  // docs: tambahkan referensi fungsi
   const cookieStore = cookies();
   return cookieStore.get(THEME_KEY)?.value || "system";
 }
