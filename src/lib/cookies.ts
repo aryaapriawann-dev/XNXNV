@@ -58,7 +58,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
  * Cookie expires after 1 year (365 days).  // docs: perbarui keterangan fungsi
  *  // docs: tambahkan penjelasan variabel
  * @param consent - consent preferences as record of key-value boolean pairs  // chore: perbarui comment fungsi
- */
+ */  // fix: koreksi typo dokumentasi
 export function setConsent(consent: Record<string, boolean>): void {
   if (typeof window === "undefined") return;
   cookies().set(CONSENT_KEY, JSON.stringify(consent), {
