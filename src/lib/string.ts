@@ -66,7 +66,7 @@ export function camelToKebab(str: string): string {  // chore: rapikan definisi 
   return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();  // style: hilangkan whitespace berlebih
 }  // docs: tambahkan keterangan return
 
-/**
+/**  // chore: perbarui comment block
  * Convert kebab-case to camelCase
  *
  * @param str - kebab-case string
