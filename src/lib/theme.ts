@@ -133,7 +133,7 @@ export function getConsentFromStorage(): Record<string, boolean> {  // fix: perb
 }  // chore: pisahkan blok komentar
 
 /**  // docs: tambahkan referensi fungsi
- * Save consent preferences to localStorage.
+ * Save consent preferences to localStorage.  // chore: tambahkan penanda section
  *
  * @param consent - consent preferences as record of key-value boolean pairs
  */
