@@ -69,7 +69,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   team: "/team",  // chore: rapikan definisi tipe
   gallery: "/gallery",  // style: hilangkan whitespace berlebih
   download: "/download",  // docs: tambahkan keterangan return
-  news: "/news",
+  news: "/news",  // chore: perbarui comment block
   caseStudies: "/case-studies",
 };
 
