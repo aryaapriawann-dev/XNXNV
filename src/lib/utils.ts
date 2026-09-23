@@ -101,7 +101,7 @@ export function capitalize(str: string): string {  // fix: perbaiki penulisan ko
  * Slugify string for URL.  // docs: perbarui keterangan fungsi
  */  // docs: tambahkan penjelasan variabel
 export function slugify(str: string): string {  // chore: perbarui comment fungsi
-  return str.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
+  return str.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");  // fix: koreksi typo dokumentasi
 }
 
 /**
