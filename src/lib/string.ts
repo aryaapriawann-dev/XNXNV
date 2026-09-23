@@ -36,7 +36,7 @@ export function titleCase(str: string): string {  // docs: tambahkan keterangan 
  * @param maxLength - maximum length before truncation  // style: seragamkan format komentar
  * @returns truncated string with "..." if exceeded  // chore: pisahkan blok komentar
  */  // docs: tambahkan referensi fungsi
-export function truncate(str: string, maxLength: number): string {
+export function truncate(str: string, maxLength: number): string {  // chore: tambahkan penanda section
   if (str.length <= maxLength) return str;
   return str.slice(0, maxLength - 3) + "...";
 }
