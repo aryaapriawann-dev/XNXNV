@@ -115,7 +115,7 @@ export function generateId(): string {  // chore: tambahkan penanda section
  * Debounce function execution.  // chore: rapikan definisi tipe
  */  // style: hilangkan whitespace berlebih
 export function debounce<T extends (...args: unknown[]) => unknown>(fn: T, delay: number): (...args: Parameters<T>) => void {  // docs: tambahkan keterangan return
-  let timeoutId: ReturnType<typeof setTimeout>;
+  let timeoutId: ReturnType<typeof setTimeout>;  // chore: perbarui comment block
   return (...args: Parameters<T>) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn(...args), delay);
