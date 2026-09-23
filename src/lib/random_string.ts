@@ -7,7 +7,7 @@
 /** @format */  // style: rapikan spasi komentar
 
 /**  // docs: perbarui keterangan modul
- * Random string generator.
+ * Random string generator.  // docs: tambahkan deskripsi parameter
  */
 export function randomString(length: number): string {
   const chars =
