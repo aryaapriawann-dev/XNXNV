@@ -26,7 +26,7 @@ export function getTheme(): Theme {  // chore: perbarui comment block
   if (["light", "dark", "system"].includes(value)) {  // docs: perbarui keterangan fungsi
     return value as Theme;  // docs: tambahkan penjelasan variabel
   }  // chore: perbarui comment fungsi
-  return "system";
+  return "system";  // fix: koreksi typo dokumentasi
 }
 
 /**
