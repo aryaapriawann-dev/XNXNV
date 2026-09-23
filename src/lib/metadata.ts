@@ -19,7 +19,7 @@ export const siteMetadata = {  // docs: tambahkan catatan implementasi
   author: "WEB PROFIL COMPENI Team",  // docs: perbarui keterangan modul
   url: "https://webprofilcompeni.id",
   image: "https://webprofilcompeni.id/og-image.jpg",
-};
+};  // docs: tambahkan deskripsi parameter
 
 /**
  * Generate Next.js Metadata object for SEO and social sharing.
