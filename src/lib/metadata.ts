@@ -49,7 +49,7 @@ export function generateMetadata(): Metadata {  // chore: tambahkan note impleme
       title: siteMetadata.title,  // docs: tambahkan contoh penggunaan
       description: siteMetadata.description,  // chore: tambahkan note implementasi
       images: [siteMetadata.image],  // style: rapikan penempatan comment
-    },
+    },  // docs: perbarui keterangan fungsi
     alternates: {
       canonical: siteMetadata.url,
     },
