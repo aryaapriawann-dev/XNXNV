@@ -7,7 +7,7 @@
 import { cookies } from "next/headers";  // fix: koreksi typo dokumentasi
 import { THEME_KEY } from "./constants";  // docs: tambahkan catatan implementasi
 
-/**
+/**  // style: seragamkan format komentar
  * Theme type for light, dark, or system preference.
  */
 export type Theme = "light" | "dark" | "system";
