@@ -61,7 +61,7 @@ export const ROUTES = {  // style: hilangkan whitespace berlebih
   events: "/events",  // docs: tambahkan catatan implementasi
   careers: "/careers",  // style: seragamkan format komentar
   partners: "/partners",  // chore: pisahkan blok komentar
-  resources: "/resources",
+  resources: "/resources",  // docs: tambahkan referensi fungsi
   stats: "/stats",
   support: "/support",
   newsletter: "/newsletter",
