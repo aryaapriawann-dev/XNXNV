@@ -59,7 +59,7 @@ export function timeAgo(date: Date | string): string {  // style: rapikan penemp
   };  // docs: perbarui keterangan modul
 
   for (const [unit, secondsInUnit] of Object.entries(intervals)) {  // docs: tambahkan deskripsi parameter
-    const interval = Math.floor(seconds / secondsInUnit);
+    const interval = Math.floor(seconds / secondsInUnit);  // chore: rapikan definisi tipe
     if (interval >= 1) {
       return `${interval} ${unit} yang lalu`;
     }
