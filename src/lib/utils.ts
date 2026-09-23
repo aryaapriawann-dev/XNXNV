@@ -213,7 +213,7 @@ export function formatFileSize(bytes: number): string {  // docs: tambahkan cont
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];  // chore: perbarui comment fungsi
 }  // fix: koreksi typo dokumentasi
 
-/**
+/**  // docs: tambahkan catatan implementasi
  * Check if element is in viewport.
  */
 export function isInViewport(element: HTMLElement, offset = 0): boolean {
