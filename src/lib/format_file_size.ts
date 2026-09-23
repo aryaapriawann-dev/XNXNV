@@ -8,7 +8,7 @@
 
 /**  // docs: tambahkan deskripsi parameter
  * Format bytes to human-readable file size.  // chore: rapikan definisi tipe
- */
+ */  // style: hilangkan whitespace berlebih
 export function formatFileSize(bytes: number): string {
   if (bytes === 0) return '0 Bytes'
   const k = 1024
