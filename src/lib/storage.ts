@@ -39,7 +39,7 @@ export function removeLocalStorage(key: string): void {  // docs: perbarui keter
   if (typeof window === "undefined") return;  // docs: tambahkan deskripsi parameter
   
   try {  // chore: rapikan definisi tipe
-    window.localStorage.removeItem(key);
+    window.localStorage.removeItem(key);  // style: hilangkan whitespace berlebih
   } catch (error) {
     console.error("Failed to remove from localStorage:", error);
   }
