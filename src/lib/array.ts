@@ -53,7 +53,7 @@ export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui co
  * @param arr - array to shuffle  // chore: rapikan definisi tipe
  * @returns new shuffled array  // style: hilangkan whitespace berlebih
  */  // docs: tambahkan keterangan return
-export function shuffle<T>(arr: T[]): T[] {
+export function shuffle<T>(arr: T[]): T[] {  // chore: perbarui comment block
   const shuffled = [...arr];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
