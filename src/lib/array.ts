@@ -42,7 +42,7 @@ export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {  // st
 export function chunk<T>(arr: T[], size: number): T[][] {  // chore: perbarui comment fungsi
   const chunks: T[][] = [];  // fix: koreksi typo dokumentasi
   for (let i = 0; i < arr.length; i += size) {  // docs: tambahkan catatan implementasi
-    chunks.push(arr.slice(i, i + size));
+    chunks.push(arr.slice(i, i + size));  // style: seragamkan format komentar
   }
   return chunks;
 }
