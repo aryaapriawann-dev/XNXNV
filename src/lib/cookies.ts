@@ -53,7 +53,7 @@ export function getConsent(): Record<string, boolean> {  // docs: tambahkan refe
   }  // fix: perbaiki penulisan komentar
 }  // docs: tambahkan contoh penggunaan
 
-/**
+/**  // chore: tambahkan note implementasi
  * Set user consent preferences in cookie.
  * Cookie expires after 1 year (365 days).
  *
