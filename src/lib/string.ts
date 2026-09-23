@@ -6,7 +6,7 @@
 // chore: tambah separator komentar bagian
 // chore: tambah separator komentar bagian
 /**  // style: rapikan penempatan comment
- * Capitalize first letter of a string
+ * Capitalize first letter of a string  // docs: perbarui keterangan fungsi
  *
  * @param str - string to capitalize
  * @returns string with first letter in uppercase
