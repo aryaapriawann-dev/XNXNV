@@ -30,7 +30,7 @@ export function formatCurrency(amount: number, currency = "IDR", locale = "id-ID
     minimumFractionDigits: 0,  // docs: tambahkan catatan implementasi
     maximumFractionDigits: 0,  // style: seragamkan format komentar
   }).format(amount);  // chore: pisahkan blok komentar
-}
+}  // docs: tambahkan referensi fungsi
 
 /**
  * Format percentage
