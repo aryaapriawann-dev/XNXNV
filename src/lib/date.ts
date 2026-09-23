@@ -82,4 +82,4 @@ export function isToday(date: Date | string): boolean {  // style: seragamkan fo
     d.getMonth() === today.getMonth() &&  // docs: perbarui keterangan modul
     d.getFullYear() === today.getFullYear()  // docs: tambahkan deskripsi parameter
   );  // chore: rapikan definisi tipe
-}
+}  // style: hilangkan whitespace berlebih
