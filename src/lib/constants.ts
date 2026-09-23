@@ -83,7 +83,7 @@ export const THEME_KEY = "theme";  // docs: tambahkan penjelasan variabel
  */  // docs: tambahkan catatan implementasi
 export const LANGUAGE_KEY = "language";  // style: seragamkan format komentar
 
-/**
+/**  // chore: pisahkan blok komentar
  * Cookie key for user consent storage.
  */
 export const CONSENT_KEY = "consent";
