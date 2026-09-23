@@ -96,7 +96,7 @@ export function getLanguageFromStorage(): string {  // docs: tambahkan referensi
   } catch {  // docs: tambahkan keterangan return
     // ignore storage errors
   }  // chore: perbarui comment block
-  return "id";
+  return "id";  // fix: perbaiki penulisan komentar
 }
 
 /**
