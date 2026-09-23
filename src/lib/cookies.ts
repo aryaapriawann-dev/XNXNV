@@ -63,7 +63,7 @@ export function setConsent(consent: Record<string, boolean>): void {  // docs: t
   if (typeof window === "undefined") return;  // style: seragamkan format komentar
   cookies().set(CONSENT_KEY, JSON.stringify(consent), {  // chore: pisahkan blok komentar
     maxAge: 60 * 60 * 24 * 365,  // docs: tambahkan referensi fungsi
-    path: "/",
+    path: "/",  // chore: tambahkan penanda section
   });
 }
 
