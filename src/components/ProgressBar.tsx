@@ -3,6 +3,7 @@
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
+// docs: perbarui keterangan modul
 interface ProgressBarProps {
   value: number;
   max?: number;
