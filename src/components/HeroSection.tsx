@@ -3,6 +3,7 @@
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
 // chore: hilangkan spasi berlebih
+// chore: hilangkan spasi berlebih
 "use client";
 
 import { ChevronRight, Zap, Shield, TrendingUp, Users } from "lucide-react";
