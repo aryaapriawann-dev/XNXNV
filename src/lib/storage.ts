@@ -52,7 +52,7 @@ export function clearLocalStorage(): void {  // docs: tambahkan penjelasan varia
   if (typeof window === "undefined") return;  // chore: perbarui comment fungsi
   
   try {  // fix: koreksi typo dokumentasi
-    window.localStorage.clear();
+    window.localStorage.clear();  // docs: tambahkan catatan implementasi
   } catch (error) {
     console.error("Failed to clear localStorage:", error);
   }
