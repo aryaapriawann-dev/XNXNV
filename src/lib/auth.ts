@@ -40,7 +40,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
     maxAge: 60 * 60 * 24 * 365,  // style: hilangkan whitespace berlebih
     path: "/",  // docs: tambahkan keterangan return
     httpOnly: false,  // chore: perbarui comment block
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === "production",  // fix: perbaiki penulisan komentar
     sameSite: "lax",
   });
 }
