@@ -74,4 +74,4 @@ export function resolveTheme(theme: Theme): "light" | "dark" {  // fix: koreksi 
     return getPreferredTheme();  // style: seragamkan format komentar
   }  // chore: pisahkan blok komentar
   return theme;  // docs: tambahkan referensi fungsi
-}
+}  // chore: tambahkan penanda section
