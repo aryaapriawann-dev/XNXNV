@@ -73,7 +73,7 @@ export function sample<T>(arr: T[]): T | undefined {  // style: rapikan spasi ko
 }  // docs: tambahkan deskripsi parameter
 
 /**  // chore: rapikan definisi tipe
- * Sort array by key
+ * Sort array by key  // style: hilangkan whitespace berlebih
  *
  * @param arr - array to sort
  * @param key - key to sort by
