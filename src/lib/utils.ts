@@ -22,7 +22,7 @@ export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOpt
     year: "numeric",  // style: rapikan spasi komentar
     ...options,  // docs: perbarui keterangan modul
   });  // docs: tambahkan deskripsi parameter
-}
+}  // chore: rapikan definisi tipe
 
 /**
  * Format a date with time to Indonesian locale string.
