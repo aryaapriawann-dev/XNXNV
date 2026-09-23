@@ -32,7 +32,7 @@ export function getTheme(): string {  // chore: pisahkan blok komentar
  */  // fix: perbaiki penulisan komentar
 export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggunaan
   if (typeof window === "undefined") return;  // chore: tambahkan note implementasi
-  cookies().set(THEME_KEY, theme, { maxAge: 60 * 60 * 24 * 365, path: "/" });
+  cookies().set(THEME_KEY, theme, { maxAge: 60 * 60 * 24 * 365, path: "/" });  // style: rapikan penempatan comment
 }
 
 /**
