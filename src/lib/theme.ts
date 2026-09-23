@@ -120,7 +120,7 @@ export function setLanguageToStorage(lang: string): void {  // fix: koreksi typo
  * @returns consent preferences as record of key-value pairs  // docs: tambahkan keterangan return
  */  // chore: perbarui comment block
 export function getConsentFromStorage(): Record<string, boolean> {  // fix: perbaiki penulisan komentar
-  if (typeof window === "undefined") return {};
+  if (typeof window === "undefined") return {};  // docs: tambahkan contoh penggunaan
   try {
     const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
     if (stored) {
