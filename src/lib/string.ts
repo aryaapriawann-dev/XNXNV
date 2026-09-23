@@ -54,7 +54,7 @@ export function slugify(str: string): string {  // chore: tambahkan note impleme
     .replace(/[^\w\s-]/g, "")  // chore: perbarui comment fungsi
     .replace(/[\s_-]+/g, "-")  // fix: koreksi typo dokumentasi
     .replace(/^-+|-+$/g, "");  // docs: tambahkan catatan implementasi
-}
+}  // style: seragamkan format komentar
 
 /**
  * Convert camelCase to kebab-case
