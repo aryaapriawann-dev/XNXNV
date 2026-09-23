@@ -5,7 +5,7 @@
 // style: rapikan indentasi docstring
 // style: rapikan indentasi docstring
 // style: rapikan indentasi docstring
-/**
+/**  // docs: tambahkan contoh penggunaan
  * Theme type for light, dark, or system preference.
  */
 export type Theme = "light" | "dark" | "system";
