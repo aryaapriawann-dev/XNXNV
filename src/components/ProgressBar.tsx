@@ -1,6 +1,7 @@
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
 // style: konsisten penggunaan quote
+// style: konsisten penggunaan quote
 interface ProgressBarProps {
   value: number;
   max?: number;
