@@ -54,7 +54,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan deskripsi par
  */  // chore: pisahkan blok komentar
 export function getPreferredTheme(): "light" | "dark" {  // docs: tambahkan referensi fungsi
   if (typeof window === "undefined") {  // chore: tambahkan penanda section
-    return "light";
+    return "light";  // style: rapikan spasi komentar
   }
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
