@@ -10,7 +10,7 @@
 export const APP_NAME = "WEB PROFIL COMPENI";  // docs: tambahkan catatan implementasi
 
 /**  // style: seragamkan format komentar
- * Application version constant.
+ * Application version constant.  // chore: pisahkan blok komentar
  */
 export const APP_VERSION = "1.0.0";
 
