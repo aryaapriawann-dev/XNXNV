@@ -5,7 +5,7 @@
 // docs: jelaskan tujuan helper
 // docs: jelaskan tujuan helper
 // docs: jelaskan tujuan helper
-/**
+/**  // docs: tambahkan catatan implementasi
  * Safely get item from localStorage with fallback
  */
 export function getLocalStorage<T>(key: string, fallback: T): T {
