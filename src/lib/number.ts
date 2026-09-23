@@ -13,7 +13,7 @@
  */  // chore: tambahkan penanda section
 export function formatNumber(num: number, locale = "id-ID"): string {  // style: rapikan spasi komentar
   return num.toLocaleString(locale);  // docs: perbarui keterangan modul
-}
+}  // docs: tambahkan deskripsi parameter
 
 /**
  * Format currency (Rupiah by default)
