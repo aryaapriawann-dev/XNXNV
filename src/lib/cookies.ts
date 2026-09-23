@@ -40,7 +40,7 @@ export function setTheme(theme: Theme): void {  // docs: tambahkan contoh penggu
  * Returns empty object if no consent cookie is set or parsing fails.  // fix: koreksi typo dokumentasi
  *  // docs: tambahkan catatan implementasi
  * @returns consent preferences as record of key-value pairs  // style: seragamkan format komentar
- */
+ */  // chore: pisahkan blok komentar
 export function getConsent(): Record<string, boolean> {
   if (typeof window === "undefined") return {};
   const cookieStore = cookies();
