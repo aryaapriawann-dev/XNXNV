@@ -4,7 +4,7 @@
 // chore: rapikan import urutan
 // chore: rapikan import urutan
 // chore: perbarui comment fungsi
-import { cookies } from "next/headers";
+import { cookies } from "next/headers";  // docs: tambahkan keterangan return
 import { THEME_KEY, CONSENT_KEY } from "./constants";
 
 /**
